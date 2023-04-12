@@ -1,3 +1,4 @@
 1. Página para exibir as famílias;
 2. Página para exibir as Comunidades;
     2.1 Página de cadastro das Comunidades.
+3. Deixar as páginas responsivas (usar px);

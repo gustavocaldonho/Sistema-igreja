@@ -1,0 +1,13 @@
+/* .colapso {
+    -o-transition-duration: 900ms;
+} */
+
+.table-filhos{
+    margin-top: 15px;
+    background-color: none;
+    /* color: white; */
+}
+
+.table-filhos td{
+    border: 0;
+}

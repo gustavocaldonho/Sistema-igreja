@@ -2,12 +2,29 @@
     -o-transition-duration: 900ms;
 } */
 
-.table-filhos{
+/* estilização details: https://css-tricks.com/how-to-animate-the-details-element/ */
+
+summary {
+    /* list-style-type: '►'; */
+    /* color: #191970; */
+}
+
+details[open] summary {
+    /* list-style-type: '▼'; */
+    transition-duration: 200ms;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+.table-filhos {
     margin-top: 15px;
-    background-color: none;
+    background-color: #E7E8E9;
+    border-radius: 10px;
     /* color: white; */
 }
 
-.table-filhos td{
+.table-filhos td {
     border: 0;
 }

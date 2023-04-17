@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Boletos</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="style-boletos.css">
+</head>
+
+<body>
+
+    <div>
+        <h1 class="center">Gerador de Boletos</h1>
+        <form action="transacao.php" method="post">
+            <input type="text" name="nome" placeholder="Nome Completo">
+            <input type="mail" name="email" placeholder="E-mail">
+            <input type="number" name="fone" placeholder="Telefone">
+            <input type="number" name="cpf" placeholder="CPF válido">
+            <input type="text" name="produto" placeholder="Título do produto">
+            <input type="number" name="valor" placeholder="Valor">
+            <p>Data de vencimento</p>
+            <input type="date" name="vencimento">
+            <button type="submit" class="btn" name="gerarBoleto">Gerar Boleto</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

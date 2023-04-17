@@ -5,46 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
-    <link rel="stylesheet" href="style-fml.css">
-    <link rel="stylesheet" href="teste.css">
-    <title>Teste</title>
+    <link rel="stylesheet" href="style-com.css">
+    <link rel="stylesheet" href="style-details.css">
+    <title>Comunidades</title>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Dgapy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Página Inicial <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Comunidades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Famílias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dízimo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Caixa Mortuário</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- <div>
-        <details class="collapse">
-            <summary class="title">Titulo</summary>
-            <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, modi!</div>
-        </details>
-    </div> -->
-
-    <!-- site de pesquisa
-         https://felipefialho.com/blog/html-criando-um-componente-de-collapse-nativo-com-as-tags-details-e-summary/ -->
-
-    <!-- <a href="#teste1" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#teste1">
-        Button
-    </a>
-
-    <div id="teste1" name="teste1" class="collapse">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, iure.</p>
-    </div> -->
-
-    <!-- <details>
-        <summary>Button</summary>
-        <div>lorem5</div>
-    </details> -->
-
-    <!-- <details>
-        <summary>
-            <td>Nome Pessoa</td>
-        </summary>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, omnis.</p>
-    </details> -->
-
+    <div class="box-search">
+        <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
+        <button onclick="searchData()" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+        </button>
+    </div>
     <div class="div-content">
         <div class="div-principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
             class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
@@ -53,8 +59,8 @@
                     <thead>
                         <tr>
                             <th scope="col" class="col-1">#</th>
-                            <th scope="col" class="col-7">Nome</th>
-                            <th scope="col" class="col-2">CPF</th>
+                            <th scope="col" class="col-6">Nome da Comunidade</th>
+                            <th scope="col" class="col-3">Localização</th>
                             <th scope="col" class="col-2">...</th>
                         </tr>
                     </thead>
@@ -64,26 +70,30 @@
                             <td>0</td>
                             <td>
                                 <details class="colapso"> <!-- class="collapse" -->
-                                    <summary>Nome Pessoa</summary>
+                                    <summary>São Geraldo</summary>
                                     <div>
-                                        <table class="table-filhos table-sm">
+                                        <table class="table-chefes table-sm col-12">
                                             <tr>
                                                 <td class="col-8">Ramon Soares</td>
-                                                <td class="col-4">000.000.000-00</td>
+                                                <td class="col-4">(00) 00000-0000</td>
                                             </tr>
                                             <tr>
                                                 <td>Ramon Soares Dias Gomes</td>
-                                                <td>000.000.000-00</td>
+                                                <td>(00) 00000-0000</td>
                                             </tr>
                                             <tr>
-                                                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
-                                                <td>000.000.000-00</td>
+                                                <td>João Travasso</td>
+                                                <td>(00) 00000-0000</td>
                                             </tr>
+                                            <!-- <tr>
+                                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed velit fugit voluptatum voluptas eaque, veritatis inventore harum? Voluptatibus dolores distinctio natus corrupti. Ipsam ipsa, aliquid molestias aspernatur facere earum molestiae.</td>
+                                                <td>(00) 00000-0000</td>
+                                            </tr> -->
                                         </table>
                                     </div>
                                 </details>
                             </td>
-                            <td>000.000.000-00</td>
+                            <td>Sapucaia</td>
                             <td>
                                 <a class='btn btn-sm btn-primary' href='edit.php?id=$user_data[id]'>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
@@ -106,12 +116,31 @@
                         <tr>
                             <td>0</td>
                             <td>
-                                <details>
-                                    <summary>Nome Pessoa</summary>
-                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, sed!</div>
+                                <details class="colapso"> <!-- class="collapse" -->
+                                    <summary>Santa Bárbara</summary>
+                                    <div>
+                                        <table class="table-chefes table-sm col-12">
+                                            <tr>
+                                                <td class="col-8">Ramon Soares</td>
+                                                <td class="col-4">(00) 00000-0000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ramon Soares Dias Gomes</td>
+                                                <td>(00) 00000-0000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>João Travasso</td>
+                                                <td>(00) 00000-0000</td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed velit fugit voluptatum voluptas eaque, veritatis inventore harum? Voluptatibus dolores distinctio natus corrupti. Ipsam ipsa, aliquid molestias aspernatur facere earum molestiae.</td>
+                                                <td>(00) 00000-0000</td>
+                                            </tr> -->
+                                        </table>
+                                    </div>
                                 </details>
                             </td>
-                            <td>000.000.000-00</td>
+                            <td>Monte Sinai (Rádio)</td>
                             <td>
                                 <a class='btn btn-sm btn-primary' href='edit.php?id=$user_data[id]'>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
@@ -129,21 +158,16 @@
                                     </svg>
                                 </a>
                             </td>
-
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <div class="div-rodape">
+        <!-- <button type="button" class="btn btn-primary btn-adicionar">Adicionar</button> -->
+    </div>
 
 </body>
-
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
 
 </html>

@@ -1,0 +1,30 @@
+/* .colapso {
+    -o-transition-duration: 900ms;
+} */
+
+/* estilização details: https://css-tricks.com/how-to-animate-the-details-element/ */
+
+summary {
+    /* list-style-type: '►'; */
+    /* color: #191970; */
+}
+
+details[open] summary {
+    /* list-style-type: '▼'; */
+    transition-duration: 200ms;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+.table-chefes {
+    margin-top: 15px;
+    background-color: #E7E8E9;
+    border-radius: 10px;
+    /* color: white; */
+}
+
+.table-chefes td {
+    border: 0;
+}

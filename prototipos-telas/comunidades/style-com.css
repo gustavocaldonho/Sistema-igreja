@@ -1,0 +1,72 @@
+.div-content {
+    width: 900px;
+    height: 65vh;
+    margin-top: 30px;
+    margin-left: 230px;
+    /* border: 2px solid white; */
+    display: flex;
+}
+
+.div-principal {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* O que sair da div, se esconde */
+    overflow-y: scroll;
+    /* Permite visualizar o que saiu da div (verticalmente) por meio de uma barra de rolagem */
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.div-rodape {
+    width: 900px;
+    height: 10vh;
+    margin: 10px 0px 0px 230px;
+    display: flex;
+    text-align: left;
+    /* border: 2px solid green; */
+}
+
+div h2 {
+    margin-top: 15px;
+    margin-left: 470px;
+    margin-bottom: -15px;
+}
+
+.div-rodape button {
+    margin: 10px;
+}
+
+.table-bg {
+    border-radius: 10px 0 0 0;
+}
+
+div label[for="flexRadioDefault1"] {
+    /* Label 'Ativos'*/
+    margin-right: 30px;
+}
+
+div::-webkit-scrollbar {
+    width: 8px;
+    /* width of the entire scrollbar */
+}
+
+div::-webkit-scrollbar-track {
+    /* color of the tracking area */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+div::-webkit-scrollbar-thumb {
+    background-color: #a8a8a8;
+    /* color of the scroll thumb */
+    border-radius: 10px;
+    /* roundness of the scroll thumb */
+}
+
+.box-search {
+    display: flex;
+    justify-content: center;
+    gap: 0.1%;
+    margin-top: 15px;
+}

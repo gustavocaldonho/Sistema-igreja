@@ -1,10 +1,10 @@
-body{
+body {
     margin: 0;
     background-color: #e9d8ad;
     /* filter: blur(4); // embaçar imagem*/
 }
 
-.container{
+.container {
     width: 70%;
     height: 70vh;
     display: flex;
@@ -15,52 +15,88 @@ body{
     /* border: 2px solid green; */
 }
 
-.div-img{
+.div-img {
     width: 50%;
     height: 100%;
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
     /* border: 2px solid red; */
 }
 
-img{
+img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: right;
 }
 
-.div-login{
+.div-login-ext {
     width: 50%;
     height: 100%;
-    padding: 60px;
+    padding: 5%;
     background-color: white;
-    /* border: 2px solid orangered; */
+    /* object-fit: cover;
+    object-position: right; */
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+    border: 2px solid orangered;
 }
 
-.div-btn{
+.div-login-int {
+    height: 100%;
     width: 100%;
-    margin-top: 25px;
+
+    /* Combinação para centralizar toda a div no centro */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+    /* border: 2px solid red; */
+    box-sizing: none;
+}
+
+/* form div{
+    border: 2px solid yellowgreen;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+} */
+
+/* input, label{
+    width: 100%;
+    height: 100%;
+} */
+
+.div-btn {
+    width: 100%;
+    margin-top: 5%;
     /* border: 2px solid black; */
 }
 
-.btn{
+.btn {
     width: 100%;
     margin-top: 10px;
     /* border: 2px solid black; */
 }
 
-.div-obs a{
+.div-obs a {
     text-decoration: none;
     /* border: 2px solid black; */
 }
 
-.div-obs{
+.div-obs {
+    font-size: 12px;
+}
+
+.div-obs {
     display: flex;
     justify-content: space-between;
     /* border: 2px solid black; */
 }
 
-.div-titulo{
+.div-titulo {
     width: 100%;
     text-align: center;
     /* border: 2px solid black; */

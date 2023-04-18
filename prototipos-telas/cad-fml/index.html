@@ -14,7 +14,10 @@
 </head>
 
 <body>
-    <h2 class="text-center">Cadastro Da Família</h2>
+    <div class="titulo">
+        <h2 class="text-center">Cadastro Da Família</h2>
+    </div>
+
     <div class="div-cadastro">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
         <form action="pagina-cadastro.php" method="POST" class="row g-3 form-cadastro" style="width: 900px;">
@@ -36,42 +39,13 @@
                     placeholder="000.000.000-00" onblur="verifCpf()">
             </div>
 
-            <div class="col-md-12">
-                <label for="input-group" class="form-label required">Membros da Família</label>
-                <div class="div-membros">
-                    <div class="div-nomeMembros">
-                        <input type="text" class="form-control" id="inputNomeMb1" name="inputNome" required
-                            onblur="verifNome()" placeholder="Insira o Nome Completo">
-                        <input type="text" class="form-control" id="inputNomeMb2" name="inputNome" required
-                            onblur="verifNome()" placeholder="Insira o Nome Completo">
-                        <input type="text" class="form-control" id="inputNomeMb3" name="inputNome" required
-                            onblur="verifNome()" placeholder="Insira o Nome Completo">
-                        <input type="text" class="form-control" id="inputNomeMb4" name="inputNome" required
-                            onblur="verifNome()" placeholder="Insira o Nome Completo">
-                        <input type="text" class="form-control" id="inputNomeMb5" name="inputNome" required
-                            onblur="verifNome()" placeholder="Insira o Nome Completo">
-                    </div>
-                    <div class="div-cpfMembros">
-                        <input type="text" class="form-control" id="inputCpfMb1" name="inputCpf" required
-                            placeholder="000.000.000-00" onblur="verifCpf()">
-                        <input type="text" class="form-control" id="inputCpfMb2" name="inputCpf" required
-                            placeholder="000.000.000-00" onblur="verifCpf()">
-                        <input type="text" class="form-control" id="inputCpfMb3" name="inputCpf" required
-                            placeholder="000.000.000-00" onblur="verifCpf()">
-                        <input type="text" class="form-control" id="inputCpfMb4" name="inputCpf" required
-                            placeholder="000.000.000-00" onblur="verifCpf()">
-                        <input type="text" class="form-control" id="inputCpfMb5" name="inputCpf" required
-                            placeholder="000.000.000-00" onblur="verifCpf()">
-                    </div>
-                </div>
-            </div>
-            <div class="col-9">
+            <div class="col-md-9">
                 <label for="inputEmail" class="form-label required">E-mail</label>
                 <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="nome@gmail.com"
                     onblur="verifEmail()">
             </div>
-            <div class="col-3">
-                <label for="inputCel" class="form-label required">Nº Celular</label>
+            <div class="col-md-3">
+                <label for="inputCel" class="form-label required">Celular</label>
                 <input type="tel" class="form-control" id="inputCel" name="inputCel" placeholder="(00) 00000-0000"
                     onblur="verifCel()">
             </div>
@@ -81,6 +55,40 @@
                     <option value="" selected>Escolha...</option>
                     <option value="sao geraldo">São Geraldo, Sapucaia</option>
                 </select>
+            </div>
+
+            <div class="col-md-9">
+                <label for="input-group" class="form-label required">Membros da Família</label>
+                <div class="div-membros">
+                    <div class="div-nomeMembros">
+                        <input type="text" class="form-control" id="inputNomeMb1" name="inputNome" required
+                            onblur="verifNome()" placeholder="1º Membro">
+                        <input type="text" class="form-control" id="inputNomeMb2" name="inputNome" required
+                            onblur="verifNome()" placeholder="2º Membro">
+                        <input type="text" class="form-control" id="inputNomeMb3" name="inputNome" required
+                            onblur="verifNome()" placeholder="3º Membro">
+                        <input type="text" class="form-control" id="inputNomeMb4" name="inputNome" required
+                            onblur="verifNome()" placeholder="4º Membro">
+                        <input type="text" class="form-control" id="inputNomeMb5" name="inputNome" required
+                            onblur="verifNome()" placeholder="5º Membro">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="input-group" class="form-label required">CPF dos Membros</label>
+                <div class="div-cpfMembros">
+                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpf" required
+                        placeholder="000.000.000-00 (1º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb2" name="inputCpf" required
+                        placeholder="000.000.000-00 (2º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb3" name="inputCpf" required
+                        placeholder="000.000.000-00 (3º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb4" name="inputCpf" required
+                        placeholder="000.000.000-00 (4º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb5" name="inputCpf" required
+                        placeholder="000.000.000-00 (5º Membro)" onblur="verifCpf()">
+                </div>
             </div>
             <div class="col-12 div-botoes">
                 <!-- <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button> -->

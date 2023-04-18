@@ -3,11 +3,7 @@ body {
     height: 100vh;
     background-color: #e9d8ad;
     /* filter: blur(4); // embaçar imagem*/
-
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-
     /* border: 2px solid green; */
 }
 
@@ -118,13 +114,6 @@ img {
     .div-login-ext {
         width: 100%;
     }
-
-    /*
-    .info-dgapy{
-        display: hide;
-        display: none;
-        background-image: none;
-    } */
 }
 
 @media screen and (max-width: 600px) {
@@ -137,7 +126,7 @@ img {
 
 /* Não é necessário em um primeiro momento */
 @media screen and (max-height: 570px) {
-    
+
     .container {
         /* width: 80vw; */
         height: 90vh;

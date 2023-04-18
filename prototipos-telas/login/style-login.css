@@ -37,16 +37,18 @@ img {
     /* object-fit: cover;
     object-position: right; */
 
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
 
-    border: 2px solid orangered;
+    /* border: 2px solid orangered; */
 }
 
 .div-login-int {
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
+    /* padding-top: 10%;
+    padding-bottom: 10%; */
 
     /* Combinação para centralizar toda a div no centro */
     /* display: flex;

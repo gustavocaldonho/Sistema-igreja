@@ -20,10 +20,6 @@
     /* border: 2px solid violet; */
 }
 
-.relatorio-mes{
-    display: flex;
-}
-
 .rel-paroquia, .rel-pessoa{
     height: 100%;
     width: 50%;

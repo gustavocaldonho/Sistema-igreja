@@ -10,11 +10,44 @@
     border: 2px solid green;
 }
 
-.btn-group {
-    width: 70%;
+.box-btn-group{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 2px solid violet; */
+}
+
+.btn-group{
+    background-color: white;
+    display: none;
+}
+
+.box-select{
+    width: 100%;
     height: 50px;
-    margin-top: 20px;
-    /* border: 2px solid green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 2px solid black; */
+}
+
+.form-select{
+    width: 15%;
+    height: 100% !important;
+    font-size: 18px !important;
+    background-color: none;
+    color: #B88615;
+    border: 1px solid #B88615;
+}
+
+.rel-paroquia, .rel-pessoa{
+    height: 100%;
+    width: 50%;
+    /* border: 2px solid red; */
 }
 
 .btn {
@@ -58,7 +91,7 @@ h4 {
 }
 
 .relatorio-mes {
-    width: 50%;
+    width: 60%;
     height: 200px;
     margin-top: 5%;
     margin: auto;
@@ -92,4 +125,66 @@ button[type="button"]{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 1200px){
+
+    .relatorio-mes{
+        display: block;
+        height: 400px;
+        width: 40vw;
+    }
+
+    .rel-paroquia, .rel-pessoa{
+        width: 100%;
+        height: 50%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    
+    .relatorio-mes{
+        display: block;
+        height: 400px;
+        width: 60vw;
+    }
+
+    /* .rel-paroquia, .rel-pessoa{
+        width: 100%;
+        height: 50%;
+    } */
+}
+
+@media screen and (max-width: 600px){
+    
+    .relatorio-mes{
+        display: block;
+        height: 400px;
+        width: 90vw;
+    }
+
+    /* .rel-paroquia, .rel-pessoa{
+        width: 100%;
+        height: 50%;
+    } */
+}
+
+@media screen and (max-width: 1000px) {
+    .form-select{
+        width: 30%;
+    }
+    
+}
+
+@media screen and (max-width: 470px) {
+    .form-select{
+        width: 50%;
+    }
+    
+}
+
+@media screen and (max-width: 300px){
+    .form-select{
+        width: 70%;
+    }
 }

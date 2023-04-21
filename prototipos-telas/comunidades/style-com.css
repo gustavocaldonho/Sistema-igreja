@@ -1,14 +1,25 @@
 .div-content {
-    width: 900px;
+    width: 100vw;
     height: 65vh;
-    margin-top: 30px;
-    margin-left: 230px;
-    /* border: 2px solid white; */
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    /* border: 2px solid white; */
+    
+}
+
+.box-search {
+    display: flex;
+    justify-content: center;
+    gap: 0.1%;
+    margin-top: 15px;
+
+    /* border: 2px solid green; */
 }
 
 .div-principal {
-    width: 100%;
+    width: 85%;
     height: 100%;
     overflow: hidden;
     /* O que sair da div, se esconde */
@@ -16,6 +27,8 @@
     /* Permite visualizar o que saiu da div (verticalmente) por meio de uma barra de rolagem */
     border-radius: 10px 10px 0 0;
     background-color: rgba(0, 0, 0, 0.1);
+
+    /* border: 2px solid green; */
 }
 
 .div-rodape {
@@ -62,11 +75,4 @@ div::-webkit-scrollbar-thumb {
     /* color of the scroll thumb */
     border-radius: 10px;
     /* roundness of the scroll thumb */
-}
-
-.box-search {
-    display: flex;
-    justify-content: center;
-    gap: 0.1%;
-    margin-top: 15px;
 }

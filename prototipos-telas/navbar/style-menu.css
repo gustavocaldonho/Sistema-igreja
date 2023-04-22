@@ -1,0 +1,39 @@
+body{
+    /* Tirando a scroll bar */
+    overflow: hidden;
+}
+
+nav {
+    background-color: #B88615;
+    padding-left: 10px;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+    margin-right: 20px;
+    color: white;
+    /* border: 4px solid black; */
+}
+
+.navbar-brand:hover {
+    color: black;
+}
+
+.nav-link {
+    color: white;
+    /* border: 4px solid black; */
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: white;
+    /* border: 4px solid black; */
+}
+
+.nav-link:active {
+    color: #d8b07b;
+}
+
+.a:visited {
+    color: red;
+}

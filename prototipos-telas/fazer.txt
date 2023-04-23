@@ -1,4 +1,9 @@
-1. Página para exibir as famílias;
-2. Página para exibir as Comunidades;
-    2.1 Página de cadastro das Comunidades.
-3. Deixar as páginas responsivas (usar px);
+1. Estilizar gerador-boletos;
+2. Ajeitar Homepage;
+3. Deixar as páginas responsivas:
+	3.1 Homepage;
+	3.2 Famílias;
+	3.3 Comunidades;
+	3.4 Gerador Boletos;
+4. Página Pública Dízimo e Caixa Mortuário:
+	4.1 Mês, Total de Cadastrados, Total de Pagantes, Valor Arrecadado.

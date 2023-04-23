@@ -26,22 +26,31 @@
 }
 
 .box-select {
-    width: 100%;
+    width: 60%;
     height: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin-top: 20px;
 
     /* border: 2px solid black; */
 }
 
-.form-select {
-    width: 15%;
+.form-select{
+    /* width: 20%; */
     height: 100% !important;
     font-size: 18px !important;
     background-color: none;
     color: #B88615;
     border: 1px solid #B88615;
+}
+
+.select-mes{
+    width: 20%;
+}
+
+.select-com{
+    width: 60%;
 }
 
 .rel-paroquia,

@@ -37,3 +37,9 @@ nav {
 .a:visited {
     color: red;
 }
+
+.dropdown{
+    background-color: none !important;
+    color: black !important;
+    border: 2px solid red;
+}

@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: #B88615;
+}
+
+nav li{
+    display: inline-block;
+}
+
+nav li a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+nav li a:hover{
+    background-color: #d8b07b;
+}
+
+.dropdown-menu{
+    position: absolute;
+    box-shadow: 0 0 2px black;
+    display: none;
+    background-color: #B88615;
+}
+
+.dropdown-menu a{
+    display: block;
+    color: white;
+}
+
+.dropdown-menu a:hover {
+    background-color: white;
+    color: #B88615;
+}
+
+.dropdown-menu a:active {
+    background-color: gainsboro;
+    /* Quando clica no link */
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}

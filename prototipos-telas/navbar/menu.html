@@ -28,23 +28,24 @@
 
                 <div class="dropdown drop-cmd">
                     <button class="btn btn-dropdown dropdown-toggle" type="button" id="drop-cmd" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" onmouseover="drop('menu-cmd')">
+                        aria-haspopup="true" aria-expanded="false" onmouseover="dropShow('menu-cmd')"
+                        onmouseout="dropHidden()">
                         Comunidades
                     </button>
                     <div class="dropdown-menu" id="menu-cmd" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Cadastrar Cmd</a>
-                        <a class="dropdown-item" href="#">Panorama Geral C</a>
+                        <a class="dropdown-item" href="#">Cadastrar</a>
+                        <a class="dropdown-item" href="#">Panorama Geral</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <button class="btn btn-dropdown dropdown-toggle" type="button" id="drop-fml" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" onmouseover="drop('menu-fml')">
+                        aria-haspopup="true" aria-expanded="false" onmouseover="dropShow('menu-fml')">
                         Famílias
                     </button>
                     <div class="dropdown-menu menu-fml" id="menu-fml" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Cadastrar Fml</a>
-                        <a class="dropdown-item" href="#">Panorama Geral F</a>
+                        <a class="dropdown-item" href="#">Cadastrar</a>
+                        <a class="dropdown-item" href="#">Panorama Geral</a>
                     </div>
                 </div>
 
@@ -64,10 +65,18 @@
 
     /* When the user clicks on the button,
         toggle between hiding and showing the dropdown content */
-    function drop(id) {
+    function dropShow(id) {
         document.getElementById(id).classList.toggle("show");
         // alert("Pegou");
     }
+
+    // function dropHidden() {
+    //     alert("Pegou");
+    //     document.getElementsByClassName("dropdown-menu").classList.remove('show');
+    //     // openDropdown.classList.remove('show');
+
+    //     alert("Pegou Depois");
+    // }
 
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function (event) {

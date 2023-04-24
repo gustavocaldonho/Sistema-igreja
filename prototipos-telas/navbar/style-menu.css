@@ -1,6 +1,7 @@
-body{
+body {
     /* Tirando a scroll bar */
     overflow: hidden;
+    /* background-color: blue; */
 }
 
 nav {
@@ -38,8 +39,37 @@ nav {
     color: red;
 }
 
-.dropdown{
-    background-color: none !important;
-    color: black !important;
-    border: 2px solid red;
+.dropdown {
+    background-color: none;
+    /* border: 2px solid red; */
+}
+
+.btn-dropdown {
+    height: 100% !important;
+    color: white !important;
+    /* border: 2px solid red; */
+}
+
+.btn-dropdown:hover{
+    /* background-color: white; */
+    color: black;
+}
+
+.btn-dropdown:focus {
+    /* border: none; */
+    box-shadow: none; 
+}
+
+.dropdown-menu{
+    background-color: #B88615;
+    /* border: 2px solid violet; */
+}
+
+.dropdown-menu a{
+    color: white;
+}
+
+.dropdown-menu a:active{
+    background-color: gainsboro;
+    color: black;
 }

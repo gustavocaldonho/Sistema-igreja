@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style-menu.css">
     <link rel="stylesheet" href="../style/style-geral.css">
+    <link rel="stylesheet" href="style-menu.css">
     <title>Navbar</title>
 </head>
 
-<body style="background-color: blue;">
+<body>
 
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">Dgapy</a>
@@ -25,39 +25,64 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Página Inicial <span class="sr-only"></span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Comunidades</a>
-                </li>
-                <!-- Chamar via js (ativação) -->
-                <!-- <div class="dropdown"> 
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
+
+                <div class="dropdown drop-cmd">
+                    <button class="btn btn-dropdown dropdown-toggle" type="button" id="drop-cmd" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" onmouseover="drop('menu-cmd')">
+                        Comunidades
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-menu" id="menu-cmd" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Cadastrar Cmd</a>
+                        <a class="dropdown-item" href="#">Panorama Geral C</a>
                     </div>
-                </div> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Famílias</a>
-                </li>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-dropdown dropdown-toggle" type="button" id="drop-fml" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" onmouseover="drop('menu-fml')">
+                        Famílias
+                    </button>
+                    <div class="dropdown-menu menu-fml" id="menu-fml" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Cadastrar Fml</a>
+                        <a class="dropdown-item" href="#">Panorama Geral F</a>
+                    </div>
+                </div>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dízimo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Caixa Mortuário</a>
                 </li>
-
             </ul>
         </div>
     </nav>
 
 </body>
 
-<!-- <script>
-    $('.dropdown-toggle').dropdown()
-</script> -->
+<script>
+
+    /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+    function drop(id) {
+        document.getElementById(id).classList.toggle("show");
+        // alert("Pegou");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('btn-dropdown')) {
+            var dropdowns = document.getElementsByClassName("dropdown-menu");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+</script>
 
 </html>

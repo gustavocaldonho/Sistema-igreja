@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+/* Código abaixo adicionado porque as páginas Dízimo, Caixa Mortuário, Cadastro de Comunidade e Pessoa
+apresentavam um padding-left na ul da navbar */
+ul{
+    padding-left: 0;
+}
+
 nav{
     background-color: #B88615;
 }

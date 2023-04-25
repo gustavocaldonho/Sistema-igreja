@@ -1,5 +1,3 @@
-/* _______________________ Informações presentes no corpo da página _______________________*/
-
 .container {
     width: 100%;
     min-height: 100vh;
@@ -26,29 +24,51 @@
     margin: auto;
 }
 
-.div-inferior {
+.box__cards, .box__eventos {
     width: 100%;
-    min-height: 40vh;
+    height: 350px;
+    display: block;
     margin-top: 30px;
-    display: flex;
-    border: 2px solid red;
-    /* padding: 4px; */
+    /* padding: 1em; */
+    justify-content: left;
+    /* overflow: hidden; */
+    /* align-items: center; */
+
+    border: 2px solid orangered;
 }
 
-.cards {
+.card {
+    height: 100%;
+    width: 240px;
+    margin-right: 10px;
+}
+
+.box__cards-title, .box__eventos-title{
     width: 100%;
-    height: 100%;
-    display: flex;
-    /* margin-top: 30px; */
-    border: 2px solid black;
-}
-
-.calendario {
-    width: 25%;
-    height: 100%;
+    height: 15%;
     display: flex;
     justify-content: center;
-    /* margin-top: 30px; */
+    align-items: center;
+    background-color: pink;
+    /* border: 2px solid violet; */
+}
+
+.box__cards-body, .box__eventos-body{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em;
+    background-color: gray;
+    /* border: 2px solid black; */
+}
+
+.box__calendario {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    /* justify-content: center; */
+    margin-top: 30px;
     border: 2px solid black;
 }
 
@@ -58,25 +78,27 @@
     /* border: 2px solid orange; */
 }
 
-.card {
-    height: 90%;
-    margin: 5px;
-}
-
 .rodape {
-    height: 25vh;
+    height: 20vh;
     width: 100%;
     margin-top: 10px;
-    /* padding-left: 20px; */
     display: flex;
-
-    /* color: white;
-    background-color: black; */
-
     color: white;
-    background-color: black;
+    /* background-color: #B35C0F; */
+    /* background-color: #6B4D2B; */
+    background-color: #B36812;
 
-    /* border: 2px solid orange; */
+    /* https://color.adobe.com/pt/create/color-wheel */
+    /* border: 2px solid orangered; */
+}
+
+.rodape a {
+    text-decoration: none;
+    color: white
+}
+
+.rodape a:hover {
+    color: gainsboro;
 }
 
 .local-rodape {
@@ -103,7 +125,7 @@
     /* border: 2px solid orange; */
 }
 
-.redes-sociais-rodape a{
+.redes-sociais-rodape a {
     /* color: antiquewhite; */
     /* text-decoration: none;  */
     line-height: 30px;
@@ -111,7 +133,8 @@
 }
 
 table {
-    color: white; /* a cor do texto está no style da tag*/
+    color: white;
+    /* a cor do texto está no style da tag*/
     margin: 15px 0 0 -10px;
     line-height: 5px;
 }

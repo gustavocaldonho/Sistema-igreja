@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-fml.css">
     <link rel="stylesheet" href="style-details.css">
+    <link rel="stylesheet" href="../navbar/style-navbar.css">
     <title>Famílias</title>
 </head>
 
 <body>
+
+    <header id="header"></header>
 
     <div class="box-search">
         <input type="search" class="form-control w-25" placeholder="Pesquisar família" id="pesquisar">
@@ -100,5 +103,14 @@
     </div>
 
 </body>
+
+<script src='../funcoesJS/funcoes.js'></script>
+
+<script type="text/javascript">
+
+    carregaDocumento("../navbar/navbar.html", "#header");
+    // carregaDocumento("rodape.html", "#mainfooter");
+
+</script>
 
 </html>

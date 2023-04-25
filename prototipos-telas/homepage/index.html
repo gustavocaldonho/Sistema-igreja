@@ -8,11 +8,26 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style-homepage.css">
     <link rel="stylesheet" href="../style/style-geral.css">
+    <link rel="stylesheet" href="style-homepage.css">
+    <link rel="stylesheet" href="../navbar/style-navbar.css">
 </head>
 
 <body>
+
+    <!-- Link do site onde peguei o código para linkar a função em js em arquivo separado -->
+    <!-- https://www.guj.com.br/t/chamando-uma-funcao-javascript-em-outra-pagina/150406 -->
+
+    <!-- Abaixo está o site de onde peguei o código para linkar a navbar nas páginas -->
+    <!-- https://pt.stackoverflow.com/questions/215177/importar-header-e-footer-em-todas-as-p%C3%A1ginas -->
+
+    <!--  _________________________________________________________________________________________________ -->
+
+    <header id="header"></header>
+    <!-- <header id="mainfooter"></header> -->
+
+    <!--  _________________________________________________________________________________________________ -->
+
     <div class="container">
 
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -203,5 +218,15 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+
+
+<script src='../funcoesJS/funcoes.js'></script>
+
+<script type="text/javascript">
+
+    carregaDocumento("../navbar/navbar.html", "#header");
+        // carregaDocumento("rodape.html", "#mainfooter");
+
+</script>
 
 </html>

@@ -9,10 +9,13 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-cm.css">
+    <link rel="stylesheet" href="../navbar/style-navbar.css">
     <title>Caixa Mortuário</title>
 </head>
 
 <body>
+
+    <header id="header"></header>
 
     <div class="container">
 
@@ -85,5 +88,14 @@
     </div>
 
 </body>
+
+<script src='../funcoesJS/funcoes.js'></script>
+
+<script type="text/javascript">
+
+    carregaDocumento("../navbar/navbar.html", "#header");
+    // carregaDocumento("rodape.html", "#mainfooter");
+
+</script>
 
 </html>

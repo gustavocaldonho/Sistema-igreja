@@ -10,12 +10,12 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-boletos.css">
+    <link rel="stylesheet" href="../navbar/style-navbar.css">
 </head>
 
 <body>
 
-    <div class="box__nav">
-    </div>
+    <header id="header"></header>
 
     <div class="container">
         <h1 class="text-center font-weight-bold">Gerador de Boletos</h1>
@@ -35,5 +35,15 @@
     </div>
 
 </body>
+
+
+<script src='../funcoesJS/funcoes.js'></script>
+
+<script type="text/javascript" >
+
+    carregaDocumento("../navbar/navbar.html", "#header");
+    // carregaDocumento("rodape.html", "#mainfooter");
+
+</script>
 
 </html>

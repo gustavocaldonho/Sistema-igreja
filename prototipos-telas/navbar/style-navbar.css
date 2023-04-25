@@ -15,13 +15,14 @@ nav li{
 nav li a{
     display: inline-block;
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
     padding: 15px;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 nav li a:hover{
     background-color: #d8b07b;
+    color: white;
 }
 
 .dropdown-menu{

@@ -6,7 +6,7 @@
     /* display: flex;  */
     /* margin-right: 0; */
     /* margin-left: 0; */
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 .carrossel {
@@ -15,7 +15,7 @@
     margin: auto;
     margin-top: 10px;
     /* display: flex; */
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .carrossel img {
@@ -36,12 +36,12 @@
     /* overflow: hidden; */
     /* align-items: center; */
 
-    border: 2px solid orangered;
+    /* border: 2px solid orangered; */
 }
 
 .card {
     height: 100%;
-    width: 240px;
+    /* width: 240px; estava dando problema no collapse */
     margin-right: 10px;
 }
 
@@ -51,11 +51,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: pink;
+    background-color: #fcc9a6;
     /* border: 2px solid violet; */
 }
 
-.box__cards-body, .box__eventos-body{
+.box__cards-body{
     width: 100%;
     height: 85%;
     display: flex;
@@ -67,53 +67,59 @@
     /* border: 2px solid black; */
 }
 
-/* .box__calendario {
+.box__eventos-body{
     width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    border: 2px solid black;
-} */
-
-/* .list-group{
-    width: 100%;
-} */
-
-.accordion{
-    width: 100%;
-    height: 100%;
-    display: inline-block;
+    height: 85%;
+    display: block;
+    padding: 1em;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: gray;
+    /* border: 2px solid black; */
 }
 
-.card-header{
-    width: 100% !important;
+ .btn-link{
+    color: black;
+    font-size: 20px;
 }
 
-.collapse{
-    background-color: yellow;
-    /* border: 2px solid red; */
+.btn-link:hover{
+    text-decoration: none;
+    color: #B36812 !important;
 }
 
-.card-collapse{
-    width: 100%;
-    height: 65px;
-    background-color: white;
-    border: 2px solid blue;
-}
-
-/* .btn-link{
+.btn-link:focus{
     color: black;
     text-decoration: none;
-} */
+}
+
+.card-body-evento{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: white;
+}
+
+.box__dia-evento{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: pink; */
+}
+
+.box__info-evento{
+    height: 100%;
+    width: 90%;
+    /* background-color: aquamarine; */
+}
+
+.box__dia-evento p{
+    /* color: white; */
+    font-size: 40px;
+}
 
 /* ___________________________________________________________________________________ */
-
-.calendario img {
-    width: 100%;
-    display: flex;
-    /* border: 2px solid orange; */
-}
 
 .rodape {
     height: 20vh;

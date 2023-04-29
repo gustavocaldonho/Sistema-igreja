@@ -77,6 +77,10 @@ nav li a:hover {
     display: block;
 }
 
+.bi-caret-right-fill{
+    margin-bottom: 3px;
+}
+
 a:hover .bi-caret-right-fill{
     /* transition: 300ms; */
     transform: rotate(90deg);

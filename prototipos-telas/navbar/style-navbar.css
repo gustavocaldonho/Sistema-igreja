@@ -57,6 +57,14 @@ nav li a:hover {
     background-color: #B88615;
 }
 
+.drop-notificacao{
+    margin-left: -120px;
+}
+
+.drop-perfil{
+    margin-left: -55px;
+}
+
 .dropdown-menu a {
     display: block;
     color: white;

@@ -58,7 +58,25 @@ nav li a:hover {
 }
 
 .drop-notificacao{
-    margin-left: -120px;
+    width: 300px;
+    margin-left: -253px;
+    background-color: white;
+    box-shadow: 0 0 2px #B88615;
+    /* display: block !important; para visualizar o dropdown*/
+}
+
+.drop-notificacao p{
+    margin: 0;
+    padding: 10px;
+    color: #B88615;
+}
+
+.dropdown-divider{
+    margin: 0;
+}
+
+.drop-notificacao p:hover{
+    background-color: whitesmoke;
 }
 
 .drop-perfil{

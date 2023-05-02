@@ -5,3 +5,6 @@
 4. Página Pública Dízimo e Caixa Mortuário:
 	4.1 Mês, Total de Cadastrados, Total de Pagantes, Valor Arrecadado.
 5. Exibir na página Famílias (Panorama Geral) os meses em que pagou o dízimo e os anos que pagou o caixa mortuário.
+6. Exibir na página Comunidades duas novas colunas:
+	6.1 Total Arrecadado;
+	6.2 Total que será redirecionado para a paróquia.

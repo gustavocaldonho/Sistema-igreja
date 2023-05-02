@@ -54,6 +54,11 @@ div h2 {
     border-radius: 10px 0 0 0;
 }
 
+/* .table-chefes{
+    width: 100%;
+    border: 2px solid violet !important;
+} */
+
 div label[for="flexRadioDefault1"] {
     /* Label 'Ativos'*/
     margin-right: 30px;

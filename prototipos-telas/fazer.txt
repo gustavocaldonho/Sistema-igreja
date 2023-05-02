@@ -1,9 +1,7 @@
-1. Estilizar gerador-boletos;
-2. Ajeitar Homepage;
 3. Deixar as páginas responsivas:
 	3.1 Homepage;
 	3.2 Famílias;
 	3.3 Comunidades;
-	3.4 Gerador Boletos;
 4. Página Pública Dízimo e Caixa Mortuário:
 	4.1 Mês, Total de Cadastrados, Total de Pagantes, Valor Arrecadado.
+5. Exibir na página Famílias (Panorama Geral) os meses em que pagou o dízimo e os anos que pagou o caixa mortuário.

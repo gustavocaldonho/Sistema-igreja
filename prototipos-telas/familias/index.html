@@ -11,7 +11,7 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-fml.css">
-    <link rel="stylesheet" href="style-details.css">
+    <!-- <link rel="stylesheet" href="style-details.css"> -->
     <link rel="stylesheet" href="../navbar/style-navbar.css">
     <title>Famílias</title>
 </head>
@@ -30,7 +30,7 @@
             </svg>
         </button>
     </div>
-    <div class="div-content">
+    <div class="box__content-table">
         <div class="div-principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
             class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
             <div>
@@ -49,130 +49,13 @@
                         <tr>
                             <td>0</td>
                             <td>
-                                <details class="colapso"> <!-- class="collapse" -->
-                                    <summary>Nome Pessoa</summary>
-                                    <div class="box__tableMembros">
-                                        <table class="table-filhos table-sm col-12">
-                                            <thead>
-                                                <th scope="col" class="col-8">Membros</th>
-                                                <th scope="col" class="col-4">CPF</th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Ramon Soares</td>
-                                                    <td>000.000.000-00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ramon Soares Dias Gomes</td>
-                                                    <td>000.000.000-00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Delma Gomes Dias</td>
-                                                    <td>000.000.000-00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <table>
-                                            <thead>
-                                                <th scope="col" class="col-12">Pagamentos Dízimo</th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="btn-group" role="group"
-                                                            aria-label="Basic checkbox toggle button group">
-                                                            <input type="checkbox" class="btn-check" id="btncheck1"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck1">JAN</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck2"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck2">FEV</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck3"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck3">MAR</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck4"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck4">ABR</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck5"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck5">MAI</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck6"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck6">JUN</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck7"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck7">JUL</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck8"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck8">AGO</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck9"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck9">SET</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck10"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck10">OUT</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck11"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck11">NOV</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck12"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck12">DEZ</label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <table>
-                                            <thead>
-                                                <th scope="col" class="col-12">Pagamentos Caixa Mortuário</th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="btn-group" role="group"
-                                                            aria-label="Basic checkbox toggle button group">
-                                                            <input type="checkbox" class="btn-check" id="btncheck23"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck23">2023</label>
-
-                                                            <input type="checkbox" class="btn-check" id="btncheck24"
-                                                                autocomplete="off">
-                                                            <label class="btn btn-outline-primary"
-                                                                for="btncheck24">2024</label>
-
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </details>
+                                <div>
+                                    <a class="btn btn-outline-primary nome-pessoa" data-bs-toggle="collapse"
+                                        href="#collapseExample" role="button" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        Nome Pessoa
+                                    </a>
+                                </div>
                             </td>
                             <td>000.000.000-00</td>
                             <td>São Geraldo, Sapucaia</td>
@@ -199,24 +82,205 @@
             </div>
         </div>
     </div>
+    <!-- Devolver classe 'collapse' -->
+    <div class="collapse box__tableMembros" id="collapseExample">
 
-    <div>
-        <p>
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                aria-expanded="false" aria-controls="collapseExample">
-                Link with href
-            </a>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                Button with data-bs-target
-            </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-                Some placeholder content for the collapse component. This panel is hidden by default but revealed when
-                the user activates the relevant trigger.
+        <div class="sub-box__left">
+            <table class="table-membros table-sm col-12">
+                <thead>
+                    <th scope="col" class="col-8">Membros</th>
+                    <th scope="col" class="col-4">CPF</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ramon Soares</td>
+                        <td>000.000.000-00</td>
+                    </tr>
+                    <tr>
+                        <td>Ramon Soares Dias Gomes</td>
+                        <td>000.000.000-00</td>
+                    </tr>
+                    <tr>
+                        <td>Delma Gomes Dias</td>
+                        <td>000.000.000-00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sub-box__right">
+            <div class="sub-box__right-top">
+                <table>
+                    <thead>
+                        <th scope="col" class="col-12">Pagamentos Dízimo</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" checked
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck1">JAN</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" checked
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck2">FEV</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" checked
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck3">MAR</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off" checked
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck4">ABR</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off" checked
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck5">MAI</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off" disabled>
+                                    <label class="btn btn-outline-success" for="btncheck6">JUN</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off" disabled>
+                                    <label class="btn btn-outline-success" for="btncheck7">JUL</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off" disabled>
+                                    <label class="btn btn-outline-success" for="btncheck8">AGO</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off" disabled>
+                                    <label class="btn btn-outline-success" for="btncheck9">SET</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off"
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck10">OUT</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off"
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck11">NOV</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off"
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck12">DEZ</label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sub-box__right-down">
+                <table>
+                    <thead>
+                        <th scope="col" class="col-12">Pagamentos Caixa Mortuário</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                    <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off" checked
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck23">2023</label>
+
+                                    <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off"
+                                        disabled>
+                                    <label class="btn btn-outline-success" for="btncheck24">2024</label>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+
+        <!--<table class="table-membros table-sm col-12">
+            <thead>
+                <th scope="col" class="col-8">Membros</th>
+                <th scope="col" class="col-4">CPF</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ramon Soares</td>
+                    <td>000.000.000-00</td>
+                </tr>
+                <tr>
+                    <td>Ramon Soares Dias Gomes</td>
+                    <td>000.000.000-00</td>
+                </tr>
+                <tr>
+                    <td>Delma Gomes Dias</td>
+                    <td>000.000.000-00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <th scope="col" class="col-12">Pagamentos Dízimo</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck1">JAN</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck2">FEV</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck3">MAR</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck4">ABR</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck5">MAI</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck6">JUN</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck7">JUL</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck8">AGO</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck9">SET</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck10">OUT</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck11">NOV</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck12">DEZ</label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <th scope="col" class="col-12">Pagamentos Caixa Mortuário</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck23">2023</label>
+
+                            <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btncheck24">2024</label>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>-->
     </div>
 
     <div class="div-rodape">

@@ -148,11 +148,3 @@ div::-webkit-scrollbar-thumb {
     border-radius: 10px;
     /* roundness of the scroll thumb */
 }
-
-@media screen and (max-width: 1150px) {
-
-    .div-principal {
-        /* transform: rotate(90deg); */
-    }
-
-}

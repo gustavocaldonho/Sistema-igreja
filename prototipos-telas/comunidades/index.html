@@ -30,7 +30,7 @@
             </svg>
         </button>
     </div>
-    <div class="div-content">
+    <div class="box__content-table">
         <div class="div-principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
             class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
             <div>
@@ -50,9 +50,14 @@
                         <tr>
                             <td>0</td>
                             <td>
-                                <details class="colapso"> <!-- class="collapse" -->
-                                    <summary>São Geraldo, Sapucaia</summary>
-                                    <div>
+                                <div>
+                                    <a class="btn btn-outline-primary nome-comunidade" data-bs-toggle="collapse"
+                                        href="#collapseExample" role="button" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        São Geraldo, Sapucaia
+                                    </a>
+                                </div>
+                                <!-- <div>
                                         <table class="table-chefes table-sm col-12">
                                             <thead>
                                                 <tr>
@@ -75,8 +80,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div>
-                                </details>
+                                    </div> -->
                             </td>
                             <td>R$: 0,00</td>
                             <td>R$: 0,00</td>
@@ -103,11 +107,51 @@
             </div>
         </div>
     </div>
+
+    <!-- Devolver classe 'collapse' -->
+    <div class="collapse box__tableChefes" id="collapseExample">
+
+        <div class="sub-box__left">
+            <table class="table-chefes table-sm col-12">
+                <thead>
+                    <tr>
+                        <th scope="col" class="col-8">Membros do Conselho</th>
+                        <th scope="col" class="col-4">Celular</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ramon Soares</td>
+                        <td>(00) 00000-0000</td>
+                    </tr>
+                    <tr>
+                        <td>Ramon Soares Dias Gomes</td>
+                        <td>(00) 00000-0000</td>
+                    </tr>
+                    <tr>
+                        <td>João Travasso</td>
+                        <td>(00) 00000-0000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sub-box__right">
+            <p><b>Mais Informações</b></p>
+        </div>
+    </div>
+    </div>
+
     <div class="div-rodape">
         <!-- <button type="button" class="btn btn-primary btn-adicionar">Adicionar</button> -->
     </div>
-
 </body>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
 
 <script src='../funcoesJS/funcoes.js'></script>
 

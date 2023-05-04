@@ -1,4 +1,4 @@
-.div-content {
+.box__content-table {
     width: 100%;
     height: 65vh;
     margin-top: 30px;
@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     /* border: 2px solid white; */
-    
+
 }
 
 .box-search {
@@ -54,10 +54,54 @@ div h2 {
     border-radius: 10px 0 0 0;
 }
 
-/* .table-chefes{
+/* Estilizando os nomes das pessoas */
+.table .nome-comunidade:hover {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+.table .nome-comunidade {
+    color: black;
+    /* border: 1px solid black; */
+    border: none;
+}
+
+.box__tableChefes {
+    height: 200px;
+    width: 85%;
+    margin: 15px auto;
+    display: flex;
+    box-shadow: 0 0 10px gray;
+    border-radius: 10px;
+    /* display: none; */
+    /* background-color: white; */
+}
+
+.sub-box__left {
+    width: 40%;
+    height: 100%;
+    /* background-color: pink; */
+}
+
+.sub-box__right {
+    width: 60%;
+    height: 100%;
+    /* background-color: aquamarine; */
+}
+
+.sub-box__left, .sub-box__right{
+    padding: 10px;
+}
+
+.table-chefes {
     width: 100%;
-    border: 2px solid violet !important;
-} */
+    margin: 0 !important;
+    background-color: #E7E8E9;
+    border-radius: 10px;
+
+    /* border: 2px solid red; */
+    /* color: white; */
+}
 
 div label[for="flexRadioDefault1"] {
     /* Label 'Ativos'*/

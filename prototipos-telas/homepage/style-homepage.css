@@ -114,10 +114,11 @@
 /* ___________________________________________________________________________________ */
 
 .rodape {
-    height: 20vh;
+    height: 30vh;
     width: 100%;
-    margin-top: 10px;
     display: flex;
+    margin: 100px 0 0 0;
+    padding: 1em;
     color: white;
     /* background-color: #B35C0F; */
     /* background-color: #6B4D2B; */
@@ -127,54 +128,58 @@
     /* border: 2px solid orangered; */
 }
 
-.rodape a {
+/* Estiliza todos os elementos do rodape, com exceção dos ícones (svg) */
+.rodape * {
     text-decoration: none;
-    color: white
+    color: white;
+}
+
+.rodape header{
+    margin: 0 0 10px 0;
+    text-decoration: overline;
+    /* text-decoration: underline; */
 }
 
 .rodape a:hover {
     color: gainsboro;
 }
 
-.local-rodape {
+.box__local-rodape {
     height: 100%;
     width: 30%;
-    padding: 10px 0 0 20px;
-    /* line-height: 10px; */
+    /* padding: 10px 0 0 20px; */
+    line-height: 28px;
     /* border: 2px solid orange; */
 }
 
-.horarios-rodape {
+.box__local-rodape p{
+    margin: 5px 0 0 0;
+}
+
+.box__horarios-rodape {
     height: 100%;
     width: 30%;
-    padding: 10px 0 0 40px;
+    /* padding: 10px 0 0 40px; */
     /* border: 2px solid orange; */
 }
 
-.redes-sociais-rodape {
+.box__horarios-rodape table{
+    margin: 0 0 0 -10px;
+    line-height: 15px;
+}
+
+.box__redes-sociais-rodape {
     width: 25%;
     height: 100%;
-    padding: 23px 0 0 10px;
-    /* display: block; */
     /* gap: 0.4; */
     /* border: 2px solid orange; */
 }
 
-.redes-sociais-rodape a {
-    /* color: antiquewhite; */
-    /* text-decoration: none;  */
+.box__redes-sociais-rodape a {
     line-height: 30px;
-
 }
 
-table {
-    color: white;
-    /* a cor do texto está no style da tag*/
-    margin: 15px 0 0 -10px;
-    line-height: 5px;
-}
-
-.brasao-rodape {
+.box__brasao-rodape {
     height: 100%;
     width: 15%;
     /* a combinação dos três atributos abaixo centraliza a imagem no centro da div (vertical e horizontal) */

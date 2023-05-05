@@ -5,5 +5,3 @@
 
 4. Página Pública Dízimo e Caixa Mortuário:
 	4.1 Mês, Total de Cadastrados, Total de Pagantes, Valor Arrecadado.
-
-5. Colocar collapse nas páginas Comunidades e Famílias. 

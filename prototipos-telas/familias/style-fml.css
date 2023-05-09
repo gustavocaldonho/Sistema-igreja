@@ -5,44 +5,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* border: 2px solid black; */
 }
 
-.box-search {
+.box__search {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.1%;
     margin-top: 15px;
-
-    /* border: 2px solid red; */
 }
 
-.div-principal {
+.box__principal {
     width: 85%;
     height: 100%;
-    overflow: hidden;
     /* O que sair da div, se esconde */
-    overflow-y: scroll;
+    overflow: hidden;
     /* Permite visualizar o que saiu da div (verticalmente) por meio de uma barra de rolagem */
+    overflow-y: scroll;
     border-radius: 10px 10px 0 0;
     background-color: rgba(0, 0, 0, 0.1);
-
-    /* border: 2px solid green; */
 }
 
 /* Estilizando os nomes das pessoas */
+.table .nome-pessoa{
+    color: black;
+    border: none;
+}
+
 .table .nome-pessoa:hover{
     background-color: darkgoldenrod;
     color: white;
-}
-
-.table .nome-pessoa{
-    color: black;
-    /* border: 1px solid black; */
-    border: none;
 }
 
 .box__tableMembros {
@@ -52,41 +45,34 @@
     display: flex;
     box-shadow: 0 0 10px gray;
     border-radius: 10px;
-    /* display: none; */
 }
 
 .sub-box__left {
     width: 40%;
     height: 100%;
-    /* background-color: pink; */
 }
 
 .sub-box__right {
     width: 60%;
     height: 100%;
-    /* background-color: aquamarine; */
 }
 
 .sub-box__right-top {
     width: 100%;
     height: 50%;
-    /* border: 2px solid red; */
 }
 
 .sub-box__right th{
     padding-bottom: 10px;
-    /* border: 2px solid green; */
 }
 
 .sub-box__right-down {
     width: 100%;
     height: 50%;
-    /* border: 2px solid orange; */
 }
 
 .sub-box .box-2 table{
     width: 100%;
-    /* border: 2px solid green; */
 }
 
 .sub-box__left, .sub-box__right{
@@ -97,9 +83,6 @@
     width: 100%;
     background-color: #E7E8E9;
     border-radius: 10px;
-
-    /* border: 2px solid red; */
-    /* color: white; */
 }
 
 /* Estilizando os campos de chekbox (pagamentos do dízimo e do caixa mortuário */
@@ -107,15 +90,6 @@
     background-color: gray;
     color: white !important;
     border: none;
-}
-
-.div-rodape {
-    width: 900px;
-    height: 10vh;
-    margin: 10px 0px 0px 230px;
-    display: flex;
-    text-align: left;
-    /* border: 2px solid green; */
 }
 
 .div-rodape button {
@@ -131,6 +105,7 @@ div label[for="flexRadioDefault1"] {
     margin-right: 30px;
 }
 
+/* _______________________ Personalizando a scrollbar da tabela principal ________________________ */
 div::-webkit-scrollbar {
     width: 8px;
     /* width of the entire scrollbar */

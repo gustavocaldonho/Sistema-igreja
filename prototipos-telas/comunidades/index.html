@@ -5,13 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-com.css">
-    <link rel="stylesheet" href="style-details.css">
     <link rel="stylesheet" href="../navbar/style-navbar.css">
     <title>Comunidades</title>
 </head>
@@ -20,7 +17,7 @@
 
     <header id="header"></header>
 
-    <div class="box-search">
+    <div class="box__search">
         <input type="search" class="form-control w-25" placeholder="Pesquisar comunidade" id="pesquisar">
         <button onclick="searchData()" class="btn btn-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
@@ -31,7 +28,7 @@
         </button>
     </div>
     <div class="box__content-table">
-        <div class="div-principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
+        <div class="box__principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
             class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
             <div>
                 <table class="table table-bg table-hover">
@@ -39,7 +36,6 @@
                         <tr>
                             <th scope="col" class="col-1">#</th>
                             <th scope="col" class="col-5">Comunidade</th>
-                            <!-- <th scope="col" class="col-2">Localização</th> -->
                             <th scope="col" class="col-2">Total Arrecadado</th>
                             <th scope="col" class="col-2">Total da Paróquia</th>
                             <th scope="col" class="col-2">...</th>
@@ -57,30 +53,6 @@
                                         São Geraldo, Sapucaia
                                     </a>
                                 </div>
-                                <!-- <div>
-                                        <table class="table-chefes table-sm col-12">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="col-8">Membros do Conselho</th>
-                                                    <th scope="col" class="col-4">Celular</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Ramon Soares</td>
-                                                    <td>(00) 00000-0000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ramon Soares Dias Gomes</td>
-                                                    <td>(00) 00000-0000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>João Travasso</td>
-                                                    <td>(00) 00000-0000</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div> -->
                             </td>
                             <td>R$: 0,00</td>
                             <td>R$: 0,00</td>
@@ -140,10 +112,6 @@
             <p><b>Mais Informações</b></p>
         </div>
     </div>
-    </div>
-
-    <div class="div-rodape">
-        <!-- <button type="button" class="btn btn-primary btn-adicionar">Adicionar</button> -->
     </div>
 </body>
 

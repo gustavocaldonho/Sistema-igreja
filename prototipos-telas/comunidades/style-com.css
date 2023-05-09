@@ -5,49 +5,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid white; */
-
 }
 
-.box-search {
+.box__search {
     display: flex;
     justify-content: center;
     gap: 0.1%;
     margin-top: 15px;
-
-    /* border: 2px solid green; */
 }
 
-.div-principal {
+.box__principal {
     width: 85%;
     height: 100%;
-    overflow: hidden;
     /* O que sair da div, se esconde */
-    overflow-y: scroll;
+    overflow: hidden;
     /* Permite visualizar o que saiu da div (verticalmente) por meio de uma barra de rolagem */
+    overflow-y: scroll;
     border-radius: 10px 10px 0 0;
     background-color: rgba(0, 0, 0, 0.1);
-
-    /* border: 2px solid green; */
-}
-
-.div-rodape {
-    width: 900px;
-    height: 10vh;
-    margin: 10px 0px 0px 230px;
-    display: flex;
-    text-align: left;
-    /* border: 2px solid green; */
 }
 
 div h2 {
     margin-top: 15px;
     margin-left: 470px;
     margin-bottom: -15px;
-}
-
-.div-rodape button {
-    margin: 10px;
 }
 
 .table-bg {
@@ -62,7 +43,6 @@ div h2 {
 
 .table .nome-comunidade {
     color: black;
-    /* border: 1px solid black; */
     border: none;
 }
 
@@ -73,20 +53,16 @@ div h2 {
     display: flex;
     box-shadow: 0 0 10px gray;
     border-radius: 10px;
-    /* display: none; */
-    /* background-color: white; */
 }
 
 .sub-box__left {
     width: 40%;
     height: 100%;
-    /* background-color: pink; */
 }
 
 .sub-box__right {
     width: 60%;
     height: 100%;
-    /* background-color: aquamarine; */
 }
 
 .sub-box__left, .sub-box__right{
@@ -98,9 +74,6 @@ div h2 {
     margin: 0 !important;
     background-color: #E7E8E9;
     border-radius: 10px;
-
-    /* border: 2px solid red; */
-    /* color: white; */
 }
 
 div label[for="flexRadioDefault1"] {
@@ -108,6 +81,7 @@ div label[for="flexRadioDefault1"] {
     margin-right: 30px;
 }
 
+/* _______________________ Personalizando a scrollbar da tabela principal ________________________ */
 div::-webkit-scrollbar {
     width: 8px;
     /* width of the entire scrollbar */

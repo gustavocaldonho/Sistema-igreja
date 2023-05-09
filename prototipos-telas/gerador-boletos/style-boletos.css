@@ -1,3 +1,8 @@
+.container{
+    /* border: 2px solid green; */
+    padding: 10px 0 0 0;
+}
+
 body {
     /* max-width: 1024px; */
     margin: 0 auto;
@@ -29,21 +34,14 @@ h1 {
 .btn{
     width: 200px;
     background-color: #069c26;
-    border: none;
     padding: 10px;
     color: #fff;
-    margin: 10px 0 0 5px;
+    margin: 10px 0 0 0;
 }
 
-.box__nav{
-    width: 100vw;
-    margin-left: 0;
-    /* border: 2px solid green; */
-}
-
-.container{
-    /* border: 2px solid green; */
-    padding: 10px;
+.btn:hover{
+    background-color: #10c737;
+    color: white;
 }
 
 @media screen and (max-width: 1000px){

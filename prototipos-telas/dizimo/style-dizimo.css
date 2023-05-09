@@ -1,23 +1,16 @@
-/* _______________________ Informações presentes no corpo da página _______________________*/
-
 .container {
     width: 100%;
     height: 92.9vh;
     display: block;
     text-align: center;
-    /* margin-right: 0;
-    margin-left: 0; */
-    /* border: 2px solid green; */
 }
 
-.box-btn-group {
+.box__btn-group {
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* border: 2px solid violet; */
 }
 
 .btn-group {
@@ -25,19 +18,17 @@
     display: none;
 }
 
-.box-select {
+.box__select {
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-
-    /* border: 2px solid black; */
 }
 
-.form-select{
-    /* width: 20%; */
+.select-mes{
+    width: 20%;
     height: 100% !important;
     font-size: 18px !important;
     background-color: none;
@@ -45,24 +36,14 @@
     border: 1px solid #B88615;
 }
 
-.select-mes{
-    width: 20%;
-}
-
-.select-com{
-    width: 60%;
-}
-
 .rel-paroquia,
 .rel-pessoa {
     height: 100%;
     width: 50%;
-    /* border: 2px solid red; */
 }
 
 .btn {
     font-size: 20px;
-    /* color: white; */
     border: 1px solid #B88615;
     color: #B88615;
 }
@@ -95,18 +76,15 @@ h4 {
 }
 
 button[type="button"] {
-    /* margin-top: 20px; */
     color: white;
     font-size: 17px;
     border: none;
 }
 
-.div-button {
+.box__button {
     height: 80px;
     width: 100%;
     margin: auto;
-    /* border: 2px solid green; */
-
     display: flex;
     justify-content: center;
     align-items: center;

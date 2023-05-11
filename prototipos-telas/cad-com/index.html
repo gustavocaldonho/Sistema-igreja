@@ -62,7 +62,7 @@
                     onblur="verifNome()" placeholder="ex.: Sapucaia">
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <label for="input-group" class="form-label required">Membros do Conselho</label>
                     <div class="box__nomeMembros">
                         <input type="text" class="form-control" id="inputNomeMb1" name="inputNome" required
@@ -72,6 +72,16 @@
                         <input type="text" class="form-control" id="inputNomeMb3" name="inputNome" required
                             onblur="verifNome()" placeholder="3º Membro">
                     </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="inputCpf" class="form-label required">CPF</label>
+                <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" required
+                    placeholder="000.000.000-00" onblur="verifCpf()">
+                <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" required
+                    placeholder="000.000.000-00" onblur="verifCpf()">
+                <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" required
+                    placeholder="000.000.000-00" onblur="verifCpf()">
             </div>
 
             <div class="col-md-3">

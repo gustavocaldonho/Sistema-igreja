@@ -20,10 +20,10 @@
     <h2 class="text-center">Cadastro Comunidade</h2>
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
-        <form action="pagina-cadastro.php" method="POST" class="row g-3 form-cadastro">
+        <form action="../../dao/comunidadeDAO.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-9">
                 <label for="inputNome" class="form-label required">Chefe do Conselho</label>
-                <input type="text" class="form-control" id="inputNome" name="inputNome" required onblur="verifNome()"
+                <input type="text" class="form-control" id="inputNomeChefe" name="inputNomeChefe" onblur="verifNome()"
                     placeholder="Insira seu Nome Completo">
                 <!-- is-valid, is-invalid-->
                 <!-- <div class="valid-feedback">
@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputCpf" class="form-label required">CPF</label>
-                <input type="text" class="form-control" id="inputCpf" name="inputCpf" required
+                <input type="text" class="form-control" id="inputCpfChefe" name="inputCpfChefe"
                     placeholder="000.000.000-00" onblur="verifCpf()">
             </div>
 
@@ -52,83 +52,52 @@
 
             <div class="col-md-8">
                 <label for="inputPadroeiro" class="form-label required">Padroeiro da Comunidade</label>
-                <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" required
+                <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro"
                     onblur="verifNome()" placeholder="ex.: São Geraldo Magela">
             </div>
 
             <div class="col-md-4">
                 <label for="inputLocalização" class="form-label required">Localização</label>
-                <input type="text" class="form-control" id="inputLocalização" name="inputLocalização" required
+                <input type="text" class="form-control" id="inputLocalização" name="inputLocalização"
                     onblur="verifNome()" placeholder="ex.: Sapucaia">
             </div>
 
             <div class="col-md-6">
                 <label for="input-group" class="form-label required">Membros do Conselho</label>
                     <div class="box__nomeMembros">
-                        <input type="text" class="form-control" id="inputNomeMb1" name="inputNome" required
+                        <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1"
                             onblur="verifNome()" placeholder="1º Membro">
-                        <input type="text" class="form-control" id="inputNomeMb2" name="inputNome" required
+                        <input type="text" class="form-control" id="inputNomeMb2" name="inputNomeMb2"
                             onblur="verifNome()" placeholder="2º Membro">
-                        <input type="text" class="form-control" id="inputNomeMb3" name="inputNome" required
+                        <input type="text" class="form-control" id="inputNomeMb3" name="inputNomeMb3"
                             onblur="verifNome()" placeholder="3º Membro">
                     </div>
             </div>
 
             <div class="col-md-3">
                 <label for="inputCpf" class="form-label required">CPF</label>
-                <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" required
+                <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1"
                     placeholder="000.000.000-00" onblur="verifCpf()">
-                <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" required
+                <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2"
                     placeholder="000.000.000-00" onblur="verifCpf()">
-                <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" required
+                <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3"
                     placeholder="000.000.000-00" onblur="verifCpf()">
             </div>
 
             <div class="col-md-3">
                 <label for="input-group" class="form-label required">Celular dos Membros</label>
                 <div class="box__cpfMembros">
-                    <input type="tel" class="form-control" id="inputCel" name="inputCel"
+                    <input type="tel" class="form-control" id="inputCelMb1" name="inputCelMb1"
                         placeholder="(00) 00000-0000 (1º Membro)" onblur="verifCel()">
-                    <input type="tel" class="form-control" id="inputCel" name="inputCel"
+                    <input type="tel" class="form-control" id="inputCelMb2" name="inputCelMb2"
                         placeholder="(00) 00000-0000 (2º Membro)" onblur="verifCel()">
-                    <input type="tel" class="form-control" id="inputCel" name="inputCel"
+                    <input type="tel" class="form-control" id="inputCelMb3" name="inputCelMb3"
                         placeholder="(00) 00000-0000 (3º Membro)" onblur="verifCel()">
                 </div>
             </div>
 
             <div class="col-12 box__buttons">
-                <!-- <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button> -->
-
-                <!-- Não estava abrindo porque faltou o 'bs' (data-bs-toggle e data-bs-target; e não data-toggle e data-target) -->
-                <button type="button" name="btn-cadastrar" id="btn-cadastrar" class="btn btn-primary"
-                    data-bs-toggle="modal" data-bs-target="#exampleModal">Cadastrar</button>
-                <button type="button" class="btn btn-danger" id="btn-cancelar">Cancelar</button>
-
-                <!-- O botão 'Confirmar' não está submitando; garantir que todos os campos estejam preenchidos antes de poder submitar -->
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header bg-light">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Deseja confirmar o cadastro?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" name="submit" id="submit"
-                                    class="btn btn-primary">Confirmar</button>
-                                <!-- Para submitar, é preciso ter o 'name' do objeto igual a 'submit' (mesmo nome que será 
-                                referenciado pela variável $_POST no código php no início do arquivo) -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
         </form>
     </div>

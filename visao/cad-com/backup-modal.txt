@@ -1,0 +1,29 @@
+<!-- Não estava abrindo porque faltou o 'bs' (data-bs-toggle e data-bs-target; e não data-toggle e data-target) -->
+                <button type="button" name="btn-cadastrar" id="btn-cadastrar" class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">Cadastrar</button>
+                <button type="button" class="btn btn-danger" id="btn-cancelar">Cancelar</button>
+
+                <!-- O botão 'Confirmar' não está submitando; garantir que todos os campos estejam preenchidos antes de poder submitar -->
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-light">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Deseja confirmar o cadastro?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="submit" name="submit" id="submit"
+                                    class="btn btn-primary">Confirmar</button>
+                                <!-- Para submitar, é preciso ter o 'name' do objeto igual a 'submit' (mesmo nome que será 
+                                referenciado pela variável $_POST no código php no início do arquivo) -->
+                            </div>
+                        </div>
+                    </div>
+                </div>

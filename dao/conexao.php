@@ -5,7 +5,7 @@ function conectar()
     $dbHost = '127.0.0.1:3306';
     $dbUsername = 'root';
     $dbPassword = '';
-    $dbName = `bd-igreja`;
+    $dbName = `bd_sistema`;
 
     $conexao = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName) or die("Erro ao conectar: ");
 
@@ -18,7 +18,7 @@ function conectar()
     //     echo "Conexão efetuada com sucesso";
     // }
 
-    // return $conexao;
+    return $conexao;
 }
 
 //conectar();

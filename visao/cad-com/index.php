@@ -22,7 +22,7 @@
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
         <form action="../../dao/comunidadeDAO.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-9">
-                <label for="inputNome" class="form-label required">Chefe do Conselho</label>
+                <label for="inputNomeChefe" class="form-label required">Chefe do Conselho</label>
                 <input type="text" class="form-control" id="inputNomeChefe" name="inputNomeChefe" onblur="verifNome()"
                     placeholder="Insira seu Nome Completo">
                 <!-- is-valid, is-invalid-->
@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputCpf" class="form-label required">CPF</label>
-                <input type="text" class="form-control" id="inputCpfChefe" name="inputCpfChefe"
+                <input type="text" class="form-control" id="inputCpf" name="inputCpf"
                     placeholder="000.000.000-00" onblur="verifCpf()">
             </div>
 

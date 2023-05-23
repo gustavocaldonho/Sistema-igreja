@@ -1,0 +1,101 @@
+.box__content-table {
+    width: 100%;
+    height: 65vh;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box__search {
+    display: flex;
+    justify-content: center;
+    gap: 0.1%;
+    margin-top: 15px;
+}
+
+.box__principal {
+    width: 85%;
+    height: 100%;
+    /* O que sair da div, se esconde */
+    overflow: hidden;
+    /* Permite visualizar o que saiu da div (verticalmente) por meio de uma barra de rolagem */
+    overflow-y: scroll;
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+div h2 {
+    margin-top: 15px;
+    margin-left: 470px;
+    margin-bottom: -15px;
+}
+
+.table-bg {
+    border-radius: 10px 0 0 0;
+}
+
+/* Estilizando os nomes das pessoas */
+.table .nome-comunidade:hover {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+.table .nome-comunidade {
+    color: black;
+    border: none;
+}
+
+.box__tableChefes {
+    height: 200px;
+    width: 85%;
+    margin: 15px auto;
+    display: flex;
+    box-shadow: 0 0 10px gray;
+    border-radius: 10px;
+}
+
+.sub-box__left {
+    width: 40%;
+    height: 100%;
+}
+
+.sub-box__right {
+    width: 60%;
+    height: 100%;
+}
+
+.sub-box__left, .sub-box__right{
+    padding: 10px;
+}
+
+.table-chefes {
+    width: 100%;
+    margin: 0 !important;
+    background-color: #E7E8E9;
+    border-radius: 10px;
+}
+
+div label[for="flexRadioDefault1"] {
+    /* Label 'Ativos'*/
+    margin-right: 30px;
+}
+
+/* _______________________ Personalizando a scrollbar da tabela principal ________________________ */
+div::-webkit-scrollbar {
+    width: 8px;
+    /* width of the entire scrollbar */
+}
+
+div::-webkit-scrollbar-track {
+    /* color of the tracking area */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+div::-webkit-scrollbar-thumb {
+    background-color: #a8a8a8;
+    /* color of the scroll thumb */
+    border-radius: 10px;
+    /* roundness of the scroll thumb */
+}

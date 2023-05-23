@@ -1,0 +1,38 @@
+.container {
+    width: 80vw !important;
+}
+
+h2{
+    margin-top: 5px;
+    margin-bottom: -25px;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.box__buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#btn-cadastrar,
+#btn-cancelar {
+    margin: 10px 20px 0px 0px;
+    /* superior, direita, inferior e esquerda */
+}
+
+.input-group{
+    width: 100%;
+}
+
+.box__nomeMembros{
+    width: 100%;
+    min-height: 200px;
+}
+
+.box__cpfMembros{
+    width: 100%;
+    min-height: 200px;
+}

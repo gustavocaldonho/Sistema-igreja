@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box__navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+/* Código abaixo adicionado porque as páginas Dízimo, Caixa Mortuário, Cadastro de Comunidade e Pessoa
+apresentavam um padding-left na ul da navbar */
+ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+#ul-right{
+    margin-right: 20px;
+    /* border: 2px solid red; */
+}
+
+nav {
+    background-color: #B88615;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li a {
+    display: inline-block;
+    color: white;
+    text-decoration: none !important;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+nav li a:hover {
+    background-color: #d8b07b;
+    color: white;
+}
+
+.link-dgapy:hover {
+    color: black !important;
+    background-color: #B88615 !important;
+}
+
+.dropdown-menu {
+    position: absolute;
+    /* box-shadow: 0 0 2px black; */
+    display: none;
+    margin-top: -1px;
+    background-color: #B88615;
+}
+
+.drop-notificacao{
+    width: 300px;
+    margin-left: -253px;
+    background-color: white;
+    box-shadow: 0 0 2px #B88615;
+    /* display: block !important; para visualizar o dropdown*/
+}
+
+.drop-notificacao p{
+    margin: 0;
+    padding: 10px;
+    color: #B88615;
+}
+
+.dropdown-divider{
+    margin: 0;
+}
+
+.drop-notificacao p:hover{
+    background-color: whitesmoke;
+}
+
+.drop-perfil{
+    margin-left: -55px;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: white;
+    padding: 10px;
+}
+
+.dropdown-menu a:hover {
+    background-color: white;
+    color: #B88615;
+}
+
+.dropdown-menu a:active {
+    background-color: gainsboro;
+    /* Quando clica no link */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.bi-caret-right-fill{
+    margin-bottom: 3px;
+}
+
+a:hover .bi-caret-right-fill{
+    /* transition: 300ms; */
+    transform: rotate(90deg);
+}

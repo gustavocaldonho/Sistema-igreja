@@ -34,8 +34,8 @@
                 </div> -->
             </div>
             <div class="col-md-3">
-                <label for="inputCpf" class="form-label required">CPF</label>
-                <input type="text" class="form-control" id="inputCpf" name="inputCpf"
+                <label for="inputCpfChefe" class="form-label required">CPF</label>
+                <input type="text" class="form-control" id="inputCpfChefe" name="inputCpfChefe"
                     placeholder="000.000.000-00" onblur="verifCpf()">
             </div>
 
@@ -132,12 +132,8 @@
         mask: '(00) 00000-0000'
     });
     var phoneMask = IMask(
-        document.getElementById("inputCpf"), {
+        document.getElementById("inputCpfChefe"), {
         mask: '000.000.000-00'
-    });
-    var phoneMask = IMask(
-        document.getElementById("inputDN"), {
-        mask: '00/00/0000'
     });
 </script>
 

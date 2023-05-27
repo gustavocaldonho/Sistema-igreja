@@ -4,13 +4,13 @@ require_once '../dao/conexao.php';
 require_once '../dao/chefeConselhoDAO.php';
 require_once '../dao/membrosConselhoDAO.php';
 require_once '../dao/comunidadeDAO.php';
-// require_once '../controlador/funcoesUteis.php';
+require_once '../controlador/funcoesUteis.php';
 
 // Cadastro Chefe do Conselho
 $nomeChefe = $_POST["inputNomeChefe"];
-$cpfChefe = $_POST["inputCpf"];
+$cpfChefe = $_POST["inputCpfChefe"];
 $emailChefe = $_POST["inputEmail"];
-$celChefe = $_POST["inputCel"];
+$celChefe = $_POST["inputCelChefe"];
 
 // Cadastro Comunidade
 $padroeiro = $_POST["inputPadroeiro"];
@@ -46,24 +46,23 @@ $celMb3 = $_POST["inputCelMb3"];
 
 
 // Validando os dados:
-// $msgErro = validarCampos($idMedico, $nomePaciente, $email, $telefone, $data, $hora);
+$msgErro = validarCampos($nomeChefe, $cpfChefe, $emailChefe, $celChefe, $padroeiro, $localizacao, $nomeMb1, $nomeMb2, $nomeMb3, $cpfMb1, $cpfMb2, $cpfMb3, $celMb1, $celMb2, $celMb3);
+
 // Verificar se já tem os dados no banco (impedir a entrada de cpf duplicado)
 
-$msgErro = "";
-
 if (empty($msgErro)) {
-    $conexao = conectar();
+    //$conexao = conectar();
 
-    cadastrarChefe($conexao, $cpfChefe, $nomeChefe, $emailChefe, $celChefe);
-    cadastrarComunidade($conexao, $padroeiro, $localizacao, $cpfChefe);
+    //cadastrarChefe($conexao, $cpfChefe, $nomeChefe, $emailChefe, $celChefe);
+    //cadastrarComunidade($conexao, $padroeiro, $localizacao, $cpfChefe);
 
     //Pegando o id da comunidade para passar no cadastro dos membros
-    $idComunidade = selectIdComunidade($conexao, $cpfChefe);
+    //$idComunidade = selectIdComunidade($conexao, $cpfChefe);
 
-    cadastrarMembros($conexao, $idComunidade, $cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3);
+    //cadastrarMembros($conexao, $idComunidade, $cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3);
 
     header("Location: ../visao/cad-com/index.php?msg=Comunidade $padroeiro cadastrada com sucesso!&idComunidade=$idComunidade");
 } else {
     // ERRO
-    //header("Location:../visao/formAgenda.php?msg=<b>Campos Inválidos:</b><br>$msgErro");
+    header("Location: ../visao/cad-com/index.php?msg=Campos Inválidos: $msgErro");
 }

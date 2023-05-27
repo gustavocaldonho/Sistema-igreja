@@ -1,6 +1,6 @@
 <?php
 
-function cadastrarPadroeiro($conexao, $padroeiro, $localizacao, $cpfChefe)
+function cadastrarComunidade($conexao, $padroeiro, $localizacao, $cpfChefe)
 {
     // Cadastro da Comunidade (o Chefe da comunidade já deve estar cadastrado)
     $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, chefe_conselho_cpf) VALUES ('$padroeiro', '$localizacao', '$cpfChefe')";

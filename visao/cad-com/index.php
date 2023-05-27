@@ -20,7 +20,7 @@
     <h2 class="text-center">Cadastro Comunidade</h2>
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
-        <form action="../../controlador/cadComunidade.php" method="POST" class="row g-3 form-cadastro">
+        <form action="../../controlador/control_comunidade.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-9">
                 <label for="inputNomeChefe" class="form-label required">Chefe do Conselho</label>
                 <input type="text" class="form-control" id="inputNomeChefe" name="inputNomeChefe" onblur="verifNome()"

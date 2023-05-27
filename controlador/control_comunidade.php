@@ -3,7 +3,7 @@
 require_once '../dao/conexao.php';
 require_once '../dao/chefeConselhoDAO.php';
 require_once '../dao/membrosConselhoDAO.php';
-require_once '../dao/padroeiroDAO.php';
+require_once '../dao/comunidadeDAO.php';
 // require_once '../controlador/funcoesUteis.php';
 
 // Cadastro Chefe do Conselho
@@ -47,13 +47,15 @@ $celMb3 = $_POST["inputCelMb3"];
 
 // Validando os dados:
 // $msgErro = validarCampos($idMedico, $nomePaciente, $email, $telefone, $data, $hora);
+// Verificar se já tem os dados no banco (impedir a entrada de cpf duplicado)
+
 $msgErro = "";
 
 if (empty($msgErro)) {
     $conexao = conectar();
 
     cadastrarChefe($conexao, $cpfChefe, $nomeChefe, $emailChefe, $celChefe);
-    cadastrarPadroeiro($conexao, $padroeiro, $localizacao, $cpfChefe);
+    cadastrarComunidade($conexao, $padroeiro, $localizacao, $cpfChefe);
     cadastrarMembros($conexao, $cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3);
 
     header("Location: ../visao/cad-com/index.php?msg=Comunidade $padroeiro cadastrada com sucesso!");

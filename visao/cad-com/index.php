@@ -45,8 +45,8 @@
                     onblur="verifEmail()">
             </div>
             <div class="col-md-3">
-                <label for="inputCel" class="form-label required">Celular</label>
-                <input type="tel" class="form-control" id="inputCel" name="inputCel" placeholder="(00) 00000-0000"
+                <label for="inputCelChefe" class="form-label required">Celular</label>
+                <input type="tel" class="form-control" id="inputCelChefe" name="inputCelChefe" placeholder="(00) 00000-0000"
                     onblur="verifCel()">
             </div>
 
@@ -112,8 +112,8 @@
 
 </script>
 
-<script src="https://unpkg.com/imask"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="../js/dist/jquery.mask.min.js"></script>
 
 <!-- Código de ativação do js (sem ele, o modal não funciona) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -122,19 +122,19 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- Máscara -->
 <script>
-    var phoneMask = IMask(
-        document.getElementById("inputCelular1"), {
-        mask: '(00) 00000-0000'
-    });
-    var phoneMask = IMask(
-        document.getElementById("inputCelular2"), {
-        mask: '(00) 00000-0000'
-    });
-    var phoneMask = IMask(
-        document.getElementById("inputCpfChefe"), {
-        mask: '000.000.000-00'
-    });
+    // CPF
+    $("#inputCpfChefe").mask("000.000.000-00");
+    $("#inputCpfMb1").mask("000.000.000-00");
+    $("#inputCpfMb2").mask("000.000.000-00");
+    $("#inputCpfMb3").mask("000.000.000-00");
+
+    // CELULAR
+    $("#inputCelChefe").mask("(00) 00000-0000");
+    $("#inputCelMb1").mask("(00) 00000-0000");
+    $("#inputCelMb2").mask("(00) 00000-0000");
+    $("#inputCelMb3").mask("(00) 00000-0000");
 </script>
 
 <script>

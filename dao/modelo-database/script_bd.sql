@@ -10,7 +10,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema bd_sistema
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `bd_sistema` ;
+DROP SCHEMA IF EXISTS `bd_sistema`;
 
 -- -----------------------------------------------------
 -- Schema bd_sistema
@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`login_comunidade` (
   PRIMARY KEY (`idlogin`),
     FOREIGN KEY (`chefe_conselho_cpf`)
     REFERENCES `bd_sistema`.`chefe_conselho` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`comunidade` (
   PRIMARY KEY (`idComunidade`),
     FOREIGN KEY (`chefe_conselho_cpf`)
     REFERENCES `bd_sistema`.`chefe_conselho` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -80,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`membro_conselho` (
   PRIMARY KEY (`cpf`),
     FOREIGN KEY (`idcomunidade`)
     REFERENCES `bd_sistema`.`comunidade` (`idComunidade`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -109,12 +109,12 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`avisos_comunidade` (
   PRIMARY KEY (`avisos_idavisos`, `membro_conselho_cpf`),
     FOREIGN KEY (`avisos_idavisos`)
     REFERENCES `bd_sistema`.`avisos` (`idavisos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (`membro_conselho_cpf`)
     REFERENCES `bd_sistema`.`membro_conselho` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -146,8 +146,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`PagDizimo` (
   PRIMARY KEY (`id`),
     FOREIGN KEY (`chefe_familia_cpf`)
     REFERENCES `bd_sistema`.`chefe_familia` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -165,8 +165,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`PagCM` (
   PRIMARY KEY (`id`),
     FOREIGN KEY (`chefe_familia_cpf`)
     REFERENCES `bd_sistema`.`chefe_familia` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -182,8 +182,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`login_familia` (
   PRIMARY KEY (`idlogin`),
     FOREIGN KEY (`chefe_familia_cpf`)
     REFERENCES `bd_sistema`.`chefe_familia` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -199,12 +199,12 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`familia` (
   PRIMARY KEY (`idFamilia`),
     FOREIGN KEY (`idComunidade`)
     REFERENCES `bd_sistema`.`comunidade` (`idComunidade`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (`chefe_familia_cpf`)
     REFERENCES `bd_sistema`.`chefe_familia` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -220,8 +220,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`membro_familia` (
   PRIMARY KEY (`cpf`),
     FOREIGN KEY (`idfamilia`)
     REFERENCES `bd_sistema`.`familia` (`idFamilia`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

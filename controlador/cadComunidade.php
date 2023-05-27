@@ -55,7 +55,7 @@ if (empty($msgErro)) {
     cadastrarPadroeiro($padroeiro, $localizacao, $cpfChefe);
     cadastrarMembros($cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3);
 
-    header("Location: ../visao/index.php?msg=Comunidade $padroeiro cadastrada com sucesso!");
+    header("Location: ../visao/cad-com/index.php?msg=Comunidade $padroeiro cadastrada com sucesso!");
 } else {
     // ERRO
     //header("Location:../visao/formAgenda.php?msg=<b>Campos Inválidos:</b><br>$msgErro");

@@ -50,10 +50,11 @@ $celMb3 = $_POST["inputCelMb3"];
 $msgErro = "";
 
 if (empty($msgErro)) {
+    $conexao = conectar();
 
-    cadastrarChefe($cpfChefe, $nomeChefe, $emailChefe, $celChefe);
-    cadastrarPadroeiro($padroeiro, $localizacao, $cpfChefe);
-    cadastrarMembros($cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3);
+    cadastrarChefe($conexao, $cpfChefe, $nomeChefe, $emailChefe, $celChefe);
+    cadastrarPadroeiro($conexao, $padroeiro, $localizacao, $cpfChefe);
+    cadastrarMembros($conexao, $cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3);
 
     header("Location: ../visao/cad-com/index.php?msg=Comunidade $padroeiro cadastrada com sucesso!");
 } else {

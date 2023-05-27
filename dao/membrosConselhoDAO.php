@@ -1,10 +1,7 @@
 <?php
 
-function cadastrarMembros($cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3)
+function cadastrarMembros($conexao, $cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3)
 {
-    if (empty($msgErro)) {
-        $conexao = conectar();
-
         // Cadastro dos Membros do Conselho da Comunidade
         // ***** Código para pegar o id da comunidade de acordo com o cpf do chefe do conselho
 
@@ -21,8 +18,4 @@ function cadastrarMembros($cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb
         mysqli_query($conexao, $sqlMb3) or die(mysqli_error($conexao));
 
         // $id = mysqli_insert_id($conexao);
-    } else {
-        // ERRO
-        // header("Location:../visao/formAgenda.php?msg=<b>Campos Inválidos:</b><br>$msgErro");
-    }
 }

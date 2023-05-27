@@ -56,9 +56,13 @@ if (empty($msgErro)) {
 
     cadastrarChefe($conexao, $cpfChefe, $nomeChefe, $emailChefe, $celChefe);
     cadastrarComunidade($conexao, $padroeiro, $localizacao, $cpfChefe);
-    cadastrarMembros($conexao, $cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3);
 
-    header("Location: ../visao/cad-com/index.php?msg=Comunidade $padroeiro cadastrada com sucesso!");
+    //Pegando o id da comunidade para passar no cadastro dos membros
+    $idComunidade = selectIdComunidade($conexao, $cpfChefe);
+
+    cadastrarMembros($conexao, $idComunidade, $cpfMb1, $cpfMb2, $cpfMb3, $nomeMb1, $nomeMb2, $nomeMb3, $celMb1, $celMb2, $celMb3);
+
+    header("Location: ../visao/cad-com/index.php?msg=Comunidade $padroeiro cadastrada com sucesso!&idComunidade=$idComunidade");
 } else {
     // ERRO
     //header("Location:../visao/formAgenda.php?msg=<b>Campos Inválidos:</b><br>$msgErro");

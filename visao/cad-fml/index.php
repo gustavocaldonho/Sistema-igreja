@@ -21,6 +21,8 @@
         <h2 class="text-center">Cadastro Família</h2>
     </div>
 
+    <!-- Informar aos usuários que um mesmo login será usado por todos os membros da família. O representante da família não tem caráter de chefe, mas só de um membro comum. -->
+
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
         <form action="pagina-cadastro.php" method="POST" class="row g-3 form-cadastro">

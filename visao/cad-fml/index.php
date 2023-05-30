@@ -25,7 +25,7 @@
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
         <form action="pagina-cadastro.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-9">
-                <label for="inputNome" class="form-label required">Chefe da família</label>
+                <label for="inputNome" class="form-label required">Representante da Família</label>
                 <input type="text" class="form-control" id="inputNome" name="inputNome" required onblur="verifNome()"
                     placeholder="Insira seu Nome Completo">
                 <!-- is-valid, is-invalid-->

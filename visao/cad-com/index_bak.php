@@ -20,6 +20,31 @@
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
         <form action="../../controlador/control_comunidade.php" method="POST" class="row g-3 form-cadastro">
+            <div class="col-md-9">
+                <label for="inputNomeChefe" class="form-label required">Chefe do Conselho</label>
+                <input type="text" class="form-control" id="inputNomeChefe" name="inputNomeChefe" onblur="verifNome()" placeholder="Insira seu Nome Completo">
+                <!-- is-valid, is-invalid-->
+                <!-- <div class="valid-feedback">
+                    Tudo certo!
+                </div>
+                <div class="invalid-feedback">
+                    Atenção!
+                </div> -->
+            </div>
+            <div class="col-md-3">
+                <label for="inputCpfChefe" class="form-label required">CPF</label>
+                <input type="text" class="form-control" id="inputCpfChefe" name="inputCpfChefe" placeholder="000.000.000-00" onblur="verifCpf()">
+            </div>
+
+            <div class="col-md-9">
+                <label for="inputEmail" class="form-label required">E-mail</label>
+                <input type="text" class="form-control" id="inputEmail" name="inputEmail" placeholder="nome@gmail.com" onblur="verifEmail()">
+            </div>
+            <div class="col-md-3">
+                <label for="inputCelChefe" class="form-label required">Celular</label>
+                <input type="text" class="form-control" id="inputCelChefe" name="inputCelChefe" placeholder="(00) 00000-0000" onblur="verifCel()">
+            </div>
+
             <div class="col-md-8">
                 <label for="inputPadroeiro" class="form-label required">Padroeiro da Comunidade</label>
                 <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" onblur="verifNome()" placeholder="ex.: São Geraldo Magela">
@@ -64,8 +89,8 @@
     <!-- Campos Inválidos -->
     <div>
         <?php
-            // $msg = $_GET["msg"];
-            // echo "$msg";
+            $msg = $_GET["msg"];
+            echo "$msg";
         ?>
     </div>
 </body>

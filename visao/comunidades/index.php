@@ -48,7 +48,7 @@
                         while ($user_data = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
                             echo "<td>" . $user_data['id_comunidade'] . "</td>";
-                            echo "<td>" . $user_data['padroeiro'] . "</td>";
+                            echo "<td>" . $user_data['padroeiro'] . " - " . $user_data['localizacao'] . "</td>";
                             echo "<td>" . "R$: 0,00" . "</td>";
                             echo "<td>" . "R$: 0,00" . "</td>";
                             // echo "<td>" . $user_data['R$: 0,00'] . "</td>";

@@ -36,12 +36,12 @@ function validarCampos($nomeChefe, $cpfChefe, $emailChefe, $celChefe, $padroeiro
     // Verificando o campo email
     // ####################################################################################################
 
-    if(empty($emailChefe)){
+    if (empty($emailChefe)) {
         $msgErro .= "emailChefe ";
-    } else{
-        if((str_contains($emailChefe, '@')) && (str_contains($emailChefe, '.com'))){
+    } else {
+        if ((str_contains($emailChefe, '@')) && (str_contains($emailChefe, '.com'))) {
             // Faça nada
-        } else{
+        } else {
             $msgErro .= "emailChefe";
         }
     }
@@ -50,19 +50,19 @@ function validarCampos($nomeChefe, $cpfChefe, $emailChefe, $celChefe, $padroeiro
     // Verificando os campos de celulares
     // ####################################################################################################
 
-    if (strlen($celChefe) < 15){
+    if (strlen($celChefe) < 15) {
         $msgErro .= "celChefe" . "(" . strlen($celChefe) .  ") ";
     }
 
-    if (strlen($celMb1) < 15){
-    $msgErro .= "celMb1" . "(" . strlen($celMb1) .  ") ";
+    if (strlen($celMb1) < 15) {
+        $msgErro .= "celMb1" . "(" . strlen($celMb1) .  ") ";
     }
 
-    if (strlen($celMb2) < 15){
+    if (strlen($celMb2) < 15) {
         $msgErro .= "celMb2" . "(" . strlen($celMb2) .  ") ";
     }
 
-    if (strlen($celMb3) < 15){
+    if (strlen($celMb3) < 15) {
         $msgErro .= "celMb3" . "(" . strlen($celMb3) .  ") ";
     }
 
@@ -92,6 +92,31 @@ function validarCampos($nomeChefe, $cpfChefe, $emailChefe, $celChefe, $padroeiro
         // CPF válido
     } else {
         $msgErro .= "cpfMb3 ";
+    }
+
+    return $msgErro;
+}
+
+function validarComunidade($padroeiro, $localizacao, $email)
+{
+    $msgErro = "";
+
+    if (empty($padroeiro)) {
+        $msgErro .= "Padroeiro<br>";
+    }
+
+    if (empty($localizacao)) {
+        $msgErro .= "Localizacao<br>";
+    }
+
+    if (empty($email)) {
+        $msgErro .= "email<br>";
+    } else {
+        if ((str_contains($email, '@')) && (str_contains($email, '.com'))) {
+            // Faça nada
+        } else {
+            $msgErro .= "email<br>";
+        }
     }
 
     return $msgErro;

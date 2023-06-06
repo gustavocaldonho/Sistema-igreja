@@ -45,8 +45,8 @@
     <!-- Campos Inválidos -->
     <div>
         <?php
-        // $msg = $_GET["msg"];
-        // echo "$msg";
+        $msg = $_GET["msg"];
+        echo "<font color=red>$msg</font>";
         ?>
     </div>
 </body>

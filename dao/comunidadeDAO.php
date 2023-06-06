@@ -1,9 +1,8 @@
 <?php
 
-function cadastrarComunidade($conexao, $padroeiro, $localizacao, $cpfChefe)
+function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email)
 {
-    // Cadastro da Comunidade (o Chefe da comunidade já deve estar cadastrado)
-    $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, chefe_conselho_cpf) VALUES ('$padroeiro', '$localizacao', '$cpfChefe')";
+    $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, email) VALUES ('$padroeiro', '$localizacao', '$email')";
     mysqli_query($conexao, $sqlComunidade) or die(mysqli_error($conexao));
 
     // $id = mysqli_insert_id($conexao);

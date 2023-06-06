@@ -19,40 +19,21 @@
     <h2 class="text-center">Cadastro Comunidade</h2>
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
-        <form action="../../controlador/control_comunidade.php" method="POST" class="row g-3 form-cadastro">
-            <div class="col-md-8">
+        <form action="../../controlador/cadComunidade.php" method="POST" class="row g-3 form-cadastro">
+            <div class="col-md-12">
                 <label for="inputPadroeiro" class="form-label required">Padroeiro da Comunidade</label>
                 <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" onblur="verifNome()" placeholder="ex.: São Geraldo Magela">
             </div>
 
-            <div class="col-md-4">
-                <label for="inputLocalização" class="form-label required">Localização</label>
-                <input type="text" class="form-control" id="inputLocalização" name="inputLocalização" onblur="verifNome()" placeholder="ex.: Sapucaia">
-            </div>
-
             <div class="col-md-6">
-                <label for="input-group" class="form-label required">Membros do Conselho</label>
-                <div class="box__nomeMembros">
-                    <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" onblur="verifNome()" placeholder="1º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb2" name="inputNomeMb2" onblur="verifNome()" placeholder="2º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb3" name="inputNomeMb3" onblur="verifNome()" placeholder="3º Membro">
-                </div>
+                <label for="inputLocalizacao" class="form-label required">Localização</label>
+                <input type="text" class="form-control" id="inputLocalizacao" name="inputLocalizacao" onblur="verifNome()" placeholder="ex.: Sapucaia">
             </div>
 
-            <div class="col-md-3">
-                <label for="inputCpf" class="form-label required">CPF</label>
-                <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onblur="verifCpf()">
-                <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" placeholder="000.000.000-00" onblur="verifCpf()">
-                <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" placeholder="000.000.000-00" onblur="verifCpf()">
-            </div>
-
-            <div class="col-md-3">
-                <label for="input-group" class="form-label required">Celular dos Membros</label>
-                <div class="box__cpfMembros">
-                    <input type="tel" class="form-control" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000 (1º Membro)" onblur="verifCel()">
-                    <input type="tel" class="form-control" id="inputCelMb2" name="inputCelMb2" placeholder="(00) 00000-0000 (2º Membro)" onblur="verifCel()">
-                    <input type="tel" class="form-control" id="inputCelMb3" name="inputCelMb3" placeholder="(00) 00000-0000 (3º Membro)" onblur="verifCel()">
-                </div>
+            <!-- onblur="verifEmail()" -->
+            <div class="col-md-6">
+                <label for="inputEmail" class="form-label required">E-mail</label>
+                <input type="text" class="form-control" id="inputEmail" name="inputEmail" placeholder="ex.: saogeraldo@gmail.com">
             </div>
 
             <div class="col-12 box__buttons">
@@ -64,8 +45,8 @@
     <!-- Campos Inválidos -->
     <div>
         <?php
-            // $msg = $_GET["msg"];
-            // echo "$msg";
+        // $msg = $_GET["msg"];
+        // echo "$msg";
         ?>
     </div>
 </body>

@@ -1,15 +1,3 @@
-<?php
-
-// include_once '../../dao/conexao.php';
-
-// $conexao = conectar();
-
-// $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro";
-
-// $result = $conexao->query($sql);
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 

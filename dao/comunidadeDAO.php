@@ -8,6 +8,23 @@ function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email)
     // $id = mysqli_insert_id($conexao);
 }
 
+function selectComunidades()
+{
+    include_once('conexao.php');
+
+    if (!empty($_GET['search'])) {
+
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM bd_sistema.comunidade WHERE padroeiro LIKE '%$data%' or localizacao LIKE '%$data%'";
+    } else {
+        $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro";
+    }
+
+    $result = $conexao->query($sql);
+
+    return $result;
+}
+
 // // Função para pegar o id da comunidade, a fim de realizar o cadastro dos membros do conselho da mesma
 // function selectIdComunidade($conexao, $cpfChefe)
 // {

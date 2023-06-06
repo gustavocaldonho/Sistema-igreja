@@ -8,10 +8,8 @@ function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email)
     // $id = mysqli_insert_id($conexao);
 }
 
-function selectComunidades()
+function selectComunidades($conexao)
 {
-    include_once('conexao.php');
-
     if (!empty($_GET['search'])) {
 
         $data = $_GET['search'];
@@ -19,7 +17,7 @@ function selectComunidades()
     } else {
         $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro";
     }
-
+    
     $result = $conexao->query($sql);
 
     return $result;

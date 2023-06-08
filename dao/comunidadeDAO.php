@@ -23,7 +23,7 @@ function selectComunidades($conexao)
     return $result;
 }
 
-function editComunidade($conexao, $idComunidade)
+function dadosComunidade($conexao, $idComunidade)
 {
     $sqlSelect = "SELECT * FROM bd_sistema.comunidade WHERE id_comunidade=$idComunidade";
 

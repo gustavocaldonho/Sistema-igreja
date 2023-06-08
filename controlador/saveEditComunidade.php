@@ -9,14 +9,16 @@ $padroeiro = $_POST['inputPadroeiro'];
 $localizacao = $_POST['inputLocalizacao'];
 $email = $_POST['inputEmail'];
 
+// Validando as atualizações dos dados
 $msgErro = validarComunidade($padroeiro, $localizacao, $email);
 
-echo $id . "<br>";
-echo $padroeiro . "<br>";
-echo $localizacao . "<br>";
-echo $email. "<br>";
-echo "Erros: " . $msgErro;
+// echo $id . "<br>";
+// echo $padroeiro . "<br>";
+// echo $localizacao . "<br>";
+// echo $email. "<br>";
+// echo "Erros: " . $msgErro;
 
+// Atualizando os dados no banco
 if (empty($msgErro)) {
 
     $conexao = conectar();

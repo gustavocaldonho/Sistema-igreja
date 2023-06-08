@@ -28,5 +28,5 @@ if (empty($msgErro)) {
 
     header("Location: ../visao/comunidades/index.php?msg=Comunidade $padroeiro atualizada com sucesso!");
 } else {
-    header("Location: ../visao/cad-com/edit.php?msg=<b>Campos Inválidos:</b><br> $msgErro");
+    header("Location: ../visao/cad-com/edit.php?msg=<b>Campos Inválidos:</b><br> $msgErro&id_comunidade=$id&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
 }

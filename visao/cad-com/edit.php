@@ -50,6 +50,10 @@ $email = $_GET['email'];
             <input type="text" id="inputId" name="inputId" hidden value="<?php echo "$id" ?>">
 
             <div class="col-12 box__buttons">
+
+                <!-- Se o usuário clicar em Cancelar, suas alterações não serão salvar, uma vez que, somente ocorrerá um redirecionamento para a página onde são exibidas as comunidades  -->
+                <button type="submit" class="btn btn-danger" id="btn-cancelar" formaction='/Sistema-igreja/visao/comunidades/index.php'>Cancelar</button>
+
                 <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
         </form>

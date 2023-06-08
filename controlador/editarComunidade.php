@@ -1,10 +1,5 @@
 <?php
 
-function editarComunidade($id)
-{
-
-}
-
 if (!empty($_GET['id'])) {
 
     include_once '../dao/conexao.php';
@@ -14,7 +9,7 @@ if (!empty($_GET['id'])) {
 
     $id = $_GET['id']; // Id da comunidade
 
-    // pegando os dados da comunidade com o referido id
+    // pegando os dados da comunidade com o referido id (comunidadeDAO)
     $result = editComunidade($conexao, $id);
 
     if ($result->num_rows > 0) {

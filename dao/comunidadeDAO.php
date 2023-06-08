@@ -32,6 +32,15 @@ function editComunidade($conexao, $idComunidade)
     return $result;
 }
 
+function updateComunidade($conexao, $idComunidade, $padroeiro, $localizacao, $email)
+{
+    $sqlUpdate = "UPDATE bd_sistema.comunidade SET padroeiro='$padroeiro', localizacao='$localizacao', email='$email' WHERE id_comunidade=$idComunidade";
+
+    $result = $conexao->query($sqlUpdate);
+
+    // return $result;
+}
+
 // // Função para pegar o id da comunidade, a fim de realizar o cadastro dos membros do conselho da mesma
 // function selectIdComunidade($conexao, $cpfChefe)
 // {

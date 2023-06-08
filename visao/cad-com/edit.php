@@ -15,6 +15,7 @@
 <?php
 
 // Pegando os valores das variáveis, passadas pelo GET de editarComunidade.php
+$id = $_GET['id_comunidade'];
 $padroeiro = $_GET['padroeiro'];
 $localizacao = $_GET['localizacao'];
 $email = $_GET['email'];
@@ -28,7 +29,7 @@ $email = $_GET['email'];
     <h2 class="text-center">Cadastro Comunidade</h2>
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
-        <form action="../../controlador/cadComunidade.php" method="POST" class="row g-3 form-cadastro">
+        <form action="../../controlador/saveEditComunidade.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputPadroeiro" class="form-label required">Padroeiro da Comunidade</label>
                 <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" onblur="verifNome()" placeholder="ex.: São Geraldo Magela" value="<?php echo "$padroeiro" ?>">
@@ -44,6 +45,9 @@ $email = $_GET['email'];
                 <label for="inputEmail" class="form-label required">E-mail</label>
                 <input type="text" class="form-control" id="inputEmail" name="inputEmail" placeholder="ex.: saogeraldo@gmail.com" value="<?php echo "$email" ?>">
             </div>
+
+            <!-- Campo escondido - objetivo de passar o id da comunidade para atualizar os dados em controlador/saveEditComunidade.php -->
+            <input type="text" id="inputId" name="inputId" hidden value="<?php echo "$id" ?>">
 
             <div class="col-12 box__buttons">
                 <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button>

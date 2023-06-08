@@ -28,5 +28,6 @@ if (empty($msgErro)) {
 
     header("Location: ../visao/comunidades/index.php?msg=Comunidade $padroeiro atualizada com sucesso!");
 } else {
+    // Se houver erro em alguma informação inserida, ao clicar em Cadastrar, ocorrerá uma atualização da tela com os mesmos dados (modificados ou não). 
     header("Location: ../visao/cad-com/edit.php?msg=<b>Campos Inválidos:</b><br> $msgErro&id_comunidade=$id&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
 }

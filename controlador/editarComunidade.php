@@ -1,5 +1,10 @@
 <?php
 
+function editarComunidade($id)
+{
+
+}
+
 if (!empty($_GET['id'])) {
 
     include_once '../dao/conexao.php';
@@ -20,16 +25,20 @@ if (!empty($_GET['id'])) {
             $padroeiro = $user_data['padroeiro'];
             $localizacao = $user_data['localizacao'];
             $email = $user_data['email'];
-
-            // Retornando com GET para a página de edição do cadastro da comunidade
-            header('Location: ../visao/cad-com/edit.php?msg=&id_comunidade=$id&padroeiro=$padroeiro&email=$email');
         }
+
+        // echo $padroeiro ."<br>";
+        // echo $localizacao ."<br>";
+        // echo $email;
+
+        // Retornando com GET para a página de edição do cadastro da comunidade
+        header("Location: ../visao/cad-com/edit.php?msg=&id_comunidade=$id&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
 
         // print_r($nome);
     } else {
         // Caso ocorra alguma falha, a página de exibição das comunidades só será atualizada
-        header('Location: ../visao/comunidades/index.php');
+        header("Location: ../visao/comunidades/index.php");
     }
 } else {
-    header('Location: ../visao/comunidades/index.php');
+    header("Location: ../visao/comunidades/index.php");
 }

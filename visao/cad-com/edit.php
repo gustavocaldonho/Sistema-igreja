@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="../navbar/style-navbar.css">
 </head>
 
+<?php
+
+// Pegando os valores das variáveis, passadas pelo GET de editarComunidade.php
+$padroeiro = $_GET['padroeiro'];
+$localizacao = $_GET['localizacao'];
+$email = $_GET['email'];
+
+?>
+
 <body>
 
     <header id="header"></header>

@@ -17,8 +17,17 @@ function selectComunidades($conexao)
     } else {
         $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro";
     }
-    
+
     $result = $conexao->query($sql);
+
+    return $result;
+}
+
+function editComunidade($conexao, $idComunidade)
+{
+    $sqlSelect = "SELECT * FROM bd_sistema.comunidade WHERE id_comunidade=$idComunidade";
+
+    $result = $conexao->query($sqlSelect);
 
     return $result;
 }

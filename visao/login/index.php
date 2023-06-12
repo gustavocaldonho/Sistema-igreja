@@ -50,7 +50,6 @@
                     <div class="box__btn">
                         <button type="button" class="btn btn-primary">Entrar</button>
                         <button type="button" class="btn btn-outline-primary">Cadastrar Família</button>
-                        <button type="button" class="btn btn-outline-primary">Cadastrar Comunidade</button>
                     </div>
                 </form>
             </div>

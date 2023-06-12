@@ -37,29 +37,20 @@
                         aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="img/fundo-azul.jfif" class="d-block w-100" alt="...">
+                        <img src="img/carrossel_inicial.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <!-- <h5>First slide label</h5> -->
+                            <!-- <p>Some representative placeholder content for the first slide.</p> -->
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="img/fundo-preto.jfif" class="d-block w-100" alt="...">
+                        <img src="img/carrossel2.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/fundo-roxo.jfif" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            <!-- <h5>Second slide label</h5> -->
+                            <!-- <p>Some representative placeholder content for the second slide.</p> -->
                         </div>
                     </div>
                 </div>
@@ -92,7 +83,7 @@
                     </div>
                 </div>
 
-                <div class="card text-black bg-light mb-3" style="max-width: 15rem;">
+                <!-- <div class="card text-black bg-light mb-3" style="max-width: 15rem;">
                     <div class="card-header">Header</div>
                     <div class="card-body">
                         <h5 class="card-title">Dark card title</h5>
@@ -118,7 +109,7 @@
                             vitae obcaecati maxime excepturi ex uts?</p>
                     </div>
                     </div?>
-                </div>
+                </div> -->
             </div>
         </div>
 

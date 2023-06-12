@@ -8,12 +8,13 @@ function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email)
     // $id = mysqli_insert_id($conexao);
 }
 
+// Função para exibir as comunidades no panorama geral
 function selectComunidades($conexao)
 {
     if (!empty($_GET['search'])) {
 
         $data = $_GET['search'];
-        $sql = "SELECT * FROM bd_sistema.comunidade WHERE padroeiro LIKE '%$data%' or localizacao LIKE '%$data%'";
+        $sql = "SELECT * FROM bd_sistema.comunidade WHERE padroeiro LIKE '%$data%' or localizacao LIKE '%$data%' or email LIKE '%$data%'";
     } else {
         $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro";
     }

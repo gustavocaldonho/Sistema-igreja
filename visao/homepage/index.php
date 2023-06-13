@@ -10,7 +10,9 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-homepage.css">
-    <link rel="stylesheet" href="../navbar/style-navbar.css">
+    <link rel="stylesheet" href="../../visao/navbar/style-navbar.css">
+
+    <!-- Se a página não estiver "pegando" o css, atualizar a página com 'ctrl + F5' (limpa o cache) -->
 </head>
 
 <body>

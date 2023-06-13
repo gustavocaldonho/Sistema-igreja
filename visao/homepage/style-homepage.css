@@ -88,10 +88,6 @@
     border-bottom: 1px solid gray;
 }
 
-.box__informacoes h5 {
-    /* text-decoration: underline; */
-}
-
 /* Configurando o tamanho da letra do 'mes' e do 'número da data' */
 .box__data .mes {
     font-size: 20px;

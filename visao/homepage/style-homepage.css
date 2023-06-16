@@ -15,14 +15,13 @@
 .box__avisos,
 .box__eventos {
     width: 100%;
-    /* height: 350px;  */
     display: block;
     margin-top: 30px;
-    /* padding: 1em; */
     justify-content: left;
+    /* padding: 1em; */
+    /* height: 350px;  */
     /* overflow: hidden; */
     /* align-items: center; */
-
     /* border: 2px solid orangered; */
 }
 
@@ -33,72 +32,96 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     /* margin-top: 50px; */
-    background-color: #fcc9a6;
+    /* background-color: #fcc9a6; */
     /* border: 2px solid violet; */
-}
-
-.box__eventos-body,
-.box__avisos-body {
-    width: 100%;
-    height: 85%;
-    /* padding: 1em; */
-    /* background-color: gray; */
-    /* border: 2px solid black; */
 }
 
 /* __________ Styles do corpo dos eventos __________ */
 
 .box__eventos-body {
     display: flex;
+    height: 150px;
+    margin-bottom: 15px;
+    /* border-radius: 5px; */
     /* border: 1px solid black; */
-    /* height: 150px; */
+
 }
 
 .box__data {
-    width: 20%;
+    width: 18%;
+    margin-right: 2%;
     display: block;
     /* border: 4px solid green; */
+}
+
+/* Arredondando as bordas do que está dentro do box__data */
+.box__data .mes {
+    border-radius: 15px 15px 0 0;
+    /*margens superiores*/
+}
+
+.box__data .dia_semana {
+    border-radius: 0 0 15px 15px;
+    /*margens inferiores*/
+}
+
+/* Retirando espaçamento dos parágrafos (p) do box__data  */
+.box__data p {
+    margin: 0;
 }
 
 .box__eventos-body .box__data .mes {
     width: 100%;
     height: 20%;
-    display: flex;
-    justify-content: center;
-    /* align-items: end; */
-    background-color: rgb(207, 73, 73);
-}
-
-.box__eventos-body .box__data .dia {
-    width: 100%;
-    height: 80%;
+    font-size: 20px;
+    margin: 0 !important;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: seashell;
+    background-color: rgb(207, 73, 73);
+}
+
+.box__data .num {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: seashell; */
+    background-color: white;
+    font-size: 60px;
+    /* border: 2px solid black; */
+}
+
+.box__data .dia_semana {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 20px;
+    /* border: 2px solid black; */
 }
 
 .box__informacoes {
     width: 80%;
     display: block;
     padding: 0.5em;
-    background-color: white;
-    /* border: 4px solid violet; */
-    border-bottom: 1px solid gray;
+    border-radius: 10px;
+    background-color: #fffffe;
+    border-right: 5px solid #B36812;
+    border-bottom: 2px solid #B36812;
+    /* border: 2px solid violet; */
+    /* border-bottom: 1px solid gray; */
 }
 
-/* Configurando o tamanho da letra do 'mes' e do 'número da data' */
-.box__data .mes {
-    font-size: 20px;
-    color: white;
-}
+/* _________________________ Styles do campo de avisos ______________________________ */
 
-.box__data .dia {
-    font-size: 60px;
-}
-
-.list-group a{
+.list-group a {
     margin-bottom: 10px;
     border-radius: 5px;
 }

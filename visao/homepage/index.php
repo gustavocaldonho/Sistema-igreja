@@ -127,34 +127,41 @@
                     <!-- devolver o "active" -->
                     <a class="list-group-item" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">List group item heading</h5>
-                            <small>3 days ago</small>
+                            <h5 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right mb-1" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                </svg> List group item heading</h5>
+                            <small class="text-secondary">3 days ago</small>
                         </div>
                         <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam assumenda
                             officiis sed quis expedita, iure quidem voluptas optio sint tempore ipsum deleniti
                             accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
                         <!-- <small>And some small print.</small> -->
                     </a>
-                    <a class="list-group-item">
+                    <a class="list-group-item" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">List group item heading</h5>
-                            <small class="text-body-secondary">3 days ago</small>
+                            <h5 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right mb-1" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                </svg> List group item heading</h5>
+                            <small class="text-secondary">3 days ago</small>
                         </div>
                         <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam assumenda
                             officiis sed quis expedita, iure quidem voluptas optio sint tempore ipsum deleniti
                             accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
-                        <!-- <small class="text-body-secondary">And some muted small print.</small> -->
+                        <!-- <small>And some small print.</small> -->
                     </a>
-                    <a class="list-group-item">
+                    <a class="list-group-item" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">List group item heading</h5>
-                            <small class="text-body-secondary">3 days ago</small>
+                            <h5 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right mb-1" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                </svg> List group item heading</h5>
+                            <small class="text-secondary">3 days ago</small>
                         </div>
                         <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam assumenda
                             officiis sed quis expedita, iure quidem voluptas optio sint tempore ipsum deleniti
                             accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
-                        <!-- <small class="text-body-secondary">And some muted small print.</small> -->
+                        <!-- <small>And some small print.</small> -->
                     </a>
+
                 </div>
             </div>
         </div>

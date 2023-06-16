@@ -83,7 +83,9 @@
                     </div>
                 </div>
                 <div class="box__informacoes">
-                    <h5>Festa de Nossa Senhora Aparecida</h5>
+                    <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B36812" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="6" cy="6" r="6" />
+                        </svg>Festa de Nossa Senhora Aparecida</h5>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis commodi eum dicta
                         iusto corrupti, nisi aperiam sapiente ea natus.</p>
                     <p><b>Presidida por:</b> Pe Neil &emsp;&emsp; <b>Horário:</b> 19:00 &emsp;&emsp; <b>Local:</b>
@@ -104,16 +106,15 @@
                     </div>
                 </div>
                 <div class="box__informacoes">
-                    <h5>Festa de Nossa Senhora Aparecida</h5>
+                    <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B36812" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="6" cy="6" r="6" />
+                        </svg>Festa de Nossa Senhora Aparecida</h5>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis commodi eum dicta
                         iusto corrupti, nisi aperiam sapiente ea natus.</p>
                     <p><b>Presidida por:</b> Pe Neil &emsp;&emsp; <b>Horário:</b> 19:00 &emsp;&emsp; <b>Local:</b>
                         Igreja Matriz</p>
                 </div>
             </div>
-
-           
-
         </div>
 
         <div class="box__avisos">
@@ -124,7 +125,7 @@
             <div class="box__avisos-body">
                 <div class="list-group">
                     <!-- devolver o "active" -->
-                    <a class="list-group-item list-group-item-action" aria-current="true">
+                    <a class="list-group-item" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">List group item heading</h5>
                             <small>3 days ago</small>
@@ -134,7 +135,7 @@
                             accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
                         <!-- <small>And some small print.</small> -->
                     </a>
-                    <a class="list-group-item list-group-item-action">
+                    <a class="list-group-item">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">List group item heading</h5>
                             <small class="text-body-secondary">3 days ago</small>
@@ -144,17 +145,7 @@
                             accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
                         <!-- <small class="text-body-secondary">And some muted small print.</small> -->
                     </a>
-                    <a class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">List group item heading</h5>
-                            <small class="text-body-secondary">3 days ago</small>
-                        </div>
-                        <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam assumenda
-                            officiis sed quis expedita, iure quidem voluptas optio sint tempore ipsum deleniti
-                            accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
-                        <!-- <small class="text-body-secondary">And some muted small print.</small> -->
-                    </a>
-                    <a class="list-group-item list-group-item-action">
+                    <a class="list-group-item">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">List group item heading</h5>
                             <small class="text-body-secondary">3 days ago</small>

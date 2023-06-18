@@ -249,7 +249,7 @@
 
 <script type="text/javascript">
     // Código para linkar a navbar
-    carregaDocumento("../navbar/navbar.html", "#header");
+    carregaDocumento("../navbar/navbar.php", "#header");
 
     // Código para linkar o footer (rodapé)
     // carregaDocumento("rodape.html", "#mainfooter");

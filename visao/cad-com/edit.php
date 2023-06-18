@@ -71,7 +71,7 @@ $email = $_GET['email'];
 <script src='../funcoesJS/funcoes.js'></script>
 
 <script type="text/javascript">
-    carregaDocumento("../navbar/navbar.html", "#header");
+    carregaDocumento("../navbar/navbar.php", "#header");
     // carregaDocumento("rodape.html", "#mainfooter");
 </script>
 

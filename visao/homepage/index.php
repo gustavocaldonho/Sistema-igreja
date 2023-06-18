@@ -232,9 +232,9 @@
             </a>
         </div>
 
-        <div class="box__brasao-rodape">
+        <!-- <div class="box__brasao-rodape">
             <img src="img/brasao-removebg-preview.png" height="100" width="100" alt="brasão">
-        </div>
+        </div> -->
     </div>
 </body>
 

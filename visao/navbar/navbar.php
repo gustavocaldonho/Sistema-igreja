@@ -18,51 +18,22 @@
         <div class="box__navbar">
             <ul id="ul-left">
                 <li>
-                    <a class=" link-dgapy" href="">Dgapy</a>
+                    <a class="link-dgapy" href="">Dgapy</a>
                 </li>
                 <li>
-                    <a href="../homepage/index.html">Página Inicial</a>
+                    <a href="../homepage/">Página Inicial</a>
                 </li>
                 <li class="dropdown">
-                    <a href="">Comunidades
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
-                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                            </svg>
-                        </span>
-                    </a>
-
-                    <div class="dropdown-menu">
-                        <a href="../cad-com/index.html">Cadastrar</a>
-                        <a href="../comunidades/index.html">Panorama Geral</a>
-                    </div>
+                    <a href="../comunidades/">Comunidades</a>
                 </li>
                 <li class="dropdown">
-                    <a href="">Famílias
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
-                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                            </svg>
-                        </span>
-                    </a>
-
-                    <div class="dropdown-menu">
-                        <a href="../cad-fml/index.html">Cadastrar</a>
-                        <a href="../familias/index.html">Panorama Geral</a>
-                    </div>
+                    <a href="../familias/">Famílias</a>
                 </li>
                 <li>
-                    <a href="../dizimo/index.html">Dízimo</a>
+                    <a href="../dizimo/">Dízimo</a>
                 </li>
                 <li>
-                    <a href="../caixa-mortuario/index.html">Caixa Mortuário</a>
-                </li>
-                <li>
-                    <a href="#">Avisos da Comunidade</a>
+                    <a href="../caixa-mortuario/">Caixa Mortuário</a>
                 </li>
             </ul>
 
@@ -81,9 +52,11 @@
                     <div class="dropdown-menu drop-notificacao">
                         <p><b>Title Lorem, ipsum.</b><br> Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                         <div class="dropdown-divider"></div>
-                        <p><b>Title Lorem, ipsum.</b><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, eligendi!</p>
+                        <p><b>Title Lorem, ipsum.</b><br>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laboriosam, eligendi!</p>
                         <div class="dropdown-divider"></div>
-                        <p><b>Title Lorem, ipsum.</b><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque aliquid voluptatibus nulla
+                        <p><b>Title Lorem, ipsum.</b><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Cumque aliquid voluptatibus nulla
                             nesciunt dolores porro! Neque magni incidunt facilis illum!</p>
                     </div>
                 </li>

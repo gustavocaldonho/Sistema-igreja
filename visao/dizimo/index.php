@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-dizimo.css">
     <link rel="stylesheet" href="../navbar/style-navbar.css">
@@ -21,44 +20,9 @@
         <h1>Dízimo</h1>
 
         <div class="box__btn-group">
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-secondary" for="btnradio1">Jan</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio2">Fev</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio3">Mar</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio4">abr</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio5">Mai</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio6">Jun</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio7">Jul</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio8">Ago</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio9" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio9">Set</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio10" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio10">Out</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio11" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio11">Nov</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio12" autocomplete="off" disabled>
-                <label class="btn btn-outline-secondary" for="btnradio12">Dez</label>
+            <div class="box__h4">
+                <h4>Relatório de</h4>
             </div>
-
             <div class="box__select">
                 <select class="form-select select-mes" aria-label="Default select example">
                     <option value="0" selected>Mês</option>
@@ -77,12 +41,11 @@
                 </select>
             </div>
         </div>
-        <h4>Relatório do Mês</h4>
 
         <div class="relatorio-mes">
 
             <div class="rel-paroquia">
-                <table class="table">
+                <table class="table table-striped">
                     <thead align="center">
                         <tr>
                             <th scope="col" colspan="2">PARÓQUIA</th>
@@ -106,7 +69,7 @@
             </div>
 
             <div class="rel-pessoa">
-                <table class="table">
+                <table class="table table-striped">
                     <thead align="center">
                         <tr>
                             <th scope="col" colspan="2">PESSOAL</th>
@@ -141,10 +104,8 @@
 <script src='../funcoesJS/funcoes.js'></script>
 
 <script type="text/javascript">
-
     carregaDocumento("../navbar/navbar.php", "#header");
     // carregaDocumento("rodape.html", "#mainfooter");
-
 </script>
 
 </html>

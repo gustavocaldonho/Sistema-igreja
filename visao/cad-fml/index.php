@@ -25,9 +25,9 @@
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
         <form action="pagina-cadastro.php" method="POST" class="row g-3 form-cadastro">
-            <div class="col-md-9">
-                <label for="inputNome" class="form-label required">Representante da Família (Chefe)</label>
-                <input type="text" class="form-control" id="inputNome" name="inputNome" required onblur="verifNome()" placeholder="Insira seu Nome Completo">
+            <div class="col-md-12">
+                <label for="inputNome" class="form-label required">Nome da Família</label>
+                <input type="text" class="form-control" id="inputNome" name="inputNome" required onblur="verifNome()" placeholder="">
                 <!-- is-valid, is-invalid-->
                 <!-- <div class="valid-feedback">
                     Tudo certo!
@@ -35,10 +35,6 @@
                 <div class="invalid-feedback">
                     Atenção!
                 </div> -->
-            </div>
-            <div class="col-md-3">
-                <label for="inputCpf" class="form-label required">CPF</label>
-                <input type="text" class="form-control" id="inputCpf" name="inputCpf" required placeholder="000.000.000-00" onblur="verifCpf()">
             </div>
 
             <div class="col-md-9">

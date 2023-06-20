@@ -1,3 +1,25 @@
+/* _______________________ Personalizando a scrollbar ________________________ */
+::-webkit-scrollbar {
+    width: 8px;
+    /* width of the entire scrollbar */
+}
+
+/* Personalização do funda da scrollbar */
+::-webkit-scrollbar-track {
+    /* color of the tracking area */
+    background: gainsboro;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a8a8a8;
+    /* color of the scroll thumb */
+    /* border-radius: 10px; */
+    /* roundness of the scroll thumb */
+}
+/* _________________________________________________________________________________ */
+
 .container {
     width: 100%;
     min-height: 100vh;
@@ -138,9 +160,11 @@
     margin: 100px 0 0 0;
     padding: 1em;
     color: white;
+    background-color: #B88615; /* cor da navbar */
     /* background-color: #B35C0F; */
     /* background-color: #6B4D2B; */
     background-color: #B36812;
+    
 
     /* Criador de paleta de cores */
     /* https://color.adobe.com/pt/create/color-wheel */

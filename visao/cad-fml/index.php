@@ -71,9 +71,17 @@
             <div class="col-md-12">
                 <label for="inputComunidade" class="form-label required">Comunidade</label>
                 <select class="form-select" id="inputComunidade" name="inputComunidade" onblur="verifComunidade()">
-                    <option value="" selected>Escolha...</option>
-                    <option value="sao geraldo">São Geraldo, Sapucaia</option>
-                </select>
+                    <option value="" selected>Selecione a sua Comunidade</option>
+
+                    <?php
+                    require_once '../../dao/comunidadeDAO.php';
+                    require_once '../../dao/conexao.php';
+
+                    $conexao = conectar();
+                    $itens = carregarComboComunidades($conexao);
+                    echo $itens;
+                    ?>
+
             </div>
 
             <div class="col-12 box__buttons">

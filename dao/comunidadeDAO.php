@@ -24,6 +24,28 @@ function selectComunidades($conexao)
     return $result;
 }
 
+function carregarComboComunidades($conexao)
+{
+    // Variável $sql para criar comando de seleção no banco de dados
+    $sql = "SELECT * FROM bd_sistema.comunidade";
+
+    // Executando o comando sql no banco de dados, por meio da $conexao
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+    $itens = "";
+
+    // Populando o select com os dados do banco
+    while ($registro = mysqli_fetch_assoc($res)) {
+        $idComunidade = $registro['id_comunidade'];
+        $padroeiro = $registro['padroeiro'];
+        $localizacao = $registro['localizacao'];
+
+        $itens = $itens . "<option value='$idComunidade'>$padroeiro - $localizacao</option>";
+    }
+
+    return $itens;
+}
+
 function dadosComunidade($conexao, $idComunidade)
 {
     $sqlSelect = "SELECT * FROM bd_sistema.comunidade WHERE id_comunidade=$idComunidade";
@@ -40,10 +62,11 @@ function updateComunidade($conexao, $idComunidade, $padroeiro, $localizacao, $em
     $result = $conexao->query($sqlUpdate);
 }
 
-function deleteComunidade($conexao, $idComunidade){
+function deleteComunidade($conexao, $idComunidade)
+{
 
     $sqlDelete = "DELETE FROM bd_sistema.comunidade WHERE id_comunidade='$idComunidade'";
-    
+
     $result = $conexao->query($sqlDelete);
 }
 

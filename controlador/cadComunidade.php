@@ -14,7 +14,7 @@ $msgErro = validarComunidade($padroeiro, $localizacao, $email);
 if (empty($msgErro)) {
     $conexao = conectar();
 
-    // ComunidadeDAO
+    // comunidadeDAO
     cadastrarComunidade($conexao, $padroeiro, $localizacao, $email);
     
     header("Location: ../visao/cad-com/index.php?msg=Comunidade <b>$padroeiro</b> cadastrada com Sucesso!");

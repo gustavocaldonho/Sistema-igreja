@@ -58,47 +58,47 @@
                 </select>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" hidden>
                 <label for="input-group" class="form-label required">Membros da Família</label>
                 <div class="box__nomeMembros">
-                    <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" required onblur="verifNome()" placeholder="1º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb2" name="inputNomeMb2" required onblur="verifNome()" placeholder="2º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb3" name="inputNomeMb3" required onblur="verifNome()" placeholder="3º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb4" name="inputNomeMb4" required onblur="verifNome()" placeholder="4º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb5" name="inputNomeMb5" required onblur="verifNome()" placeholder="5º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" onblur="verifNome()" placeholder="1º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb2" name="inputNomeMb2" onblur="verifNome()" placeholder="2º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb3" name="inputNomeMb3" onblur="verifNome()" placeholder="3º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb4" name="inputNomeMb4" onblur="verifNome()" placeholder="4º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb5" name="inputNomeMb5" onblur="verifNome()" placeholder="5º Membro">
                 </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2" hidden>
                 <label for="input-group" class="form-label required">CPFs dos Membros</label>
                 <div class="box__cpfMembros">
-                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" required placeholder="000.000.000-00" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" required placeholder="000.000.000-00" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" required placeholder="000.000.000-00" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb4" name="inputCpfMb4" required placeholder="000.000.000-00" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb5" name="inputCpfMb5" required placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb4" name="inputCpfMb4" placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb5" name="inputCpfMb5" placeholder="000.000.000-00" onblur="verifCpf()">
                 </div>
             </div>
 
-            <div class="col-md-2">
-            <label for="input-group" class="form-label required">Datas de Nacimento</label>
-            <div class="box__DNMembros">
-                    <input type="text" class="form-control" id="inputDNMb1" name="inputDNMb1" required placeholder="00/00/0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputDNMb2" name="inputDNMb2" required placeholder="00/00/0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputDNMb3" name="inputDNMb3" required placeholder="00/00/0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputDNMb4" name="inputDNMb4" required placeholder="00/00/0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputDNMb5" name="inputDNMb5" required placeholder="00/00/0000" onblur="verifCpf()">
+            <div class="col-md-2" hidden>
+                <label for="input-group" class="form-label required">Datas de Nacimento</label>
+                <div class="box__DNMembros">
+                    <input type="text" class="form-control" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputDNMb2" name="inputDNMb2" placeholder="00/00/0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputDNMb3" name="inputDNMb3" placeholder="00/00/0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputDNMb4" name="inputDNMb4" placeholder="00/00/0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputDNMb5" name="inputDNMb5" placeholder="00/00/0000" onblur="verifCpf()">
                 </div>
             </div>
 
-            <div class="col-md-2">
-            <label for="input-group" class="form-label required">Celulares</label>
-            <div class="box__CelMembros">
-                    <input type="text" class="form-control" id="inputCelMb1" name="inputCelMb1" required placeholder="(00) 00000-0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCelMb2" name="inputCelMb2" required placeholder="(00) 00000-0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCelMb3" name="inputCelMb3" required placeholder="(00) 00000-0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCelMb4" name="inputCelMb4" required placeholder="(00) 00000-0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCelMb5" name="inputCelMb5" required placeholder="(00) 00000-0000" onblur="verifCpf()">
+            <div class="col-md-2" hidden>
+                <label for="input-group" class="form-label required">Celulares</label>
+                <div class="box__CelMembros">
+                    <input type="text" class="form-control" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCelMb2" name="inputCelMb2" placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCelMb3" name="inputCelMb3" placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCelMb4" name="inputCelMb4" placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCelMb5" name="inputCelMb5" placeholder="(00) 00000-0000" onblur="verifCpf()">
                 </div>
             </div>
 
@@ -107,6 +107,14 @@
             </div>
 
         </form>
+    </div>
+
+    <!-- Campos Inválidos -->
+    <div>
+        <?php
+        $msg = $_GET["msg"];
+        echo "<font color=red>$msg</font>";
+        ?>
     </div>
 </body>
 

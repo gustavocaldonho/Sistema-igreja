@@ -24,7 +24,7 @@
 
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
-        <form action="pagina-cadastro.php" method="POST" class="row g-3 form-cadastro">
+        <form action="../../controlador/teste.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
                 <input type="text" class="form-control" id="inputNome" name="inputNome" required onblur="verifNome()" placeholder="">
@@ -60,11 +60,11 @@
             <div class="col-md-3">
                 <label for="input-group" class="form-label required">CPF dos Membros</label>
                 <div class="box__cpfMembros">
-                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpf" required placeholder="000.000.000-00 (1º Membro)" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb2" name="inputCpf" required placeholder="000.000.000-00 (2º Membro)" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb3" name="inputCpf" required placeholder="000.000.000-00 (3º Membro)" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb4" name="inputCpf" required placeholder="000.000.000-00 (4º Membro)" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb5" name="inputCpf" required placeholder="000.000.000-00 (5º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" required placeholder="000.000.000-00 (1º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" required placeholder="000.000.000-00 (2º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" required placeholder="000.000.000-00 (3º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb4" name="inputCpfMb4" required placeholder="000.000.000-00 (4º Membro)" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb5" name="inputCpfMb5" required placeholder="000.000.000-00 (5º Membro)" onblur="verifCpf()">
                 </div>
             </div>
 
@@ -81,38 +81,10 @@
                     $itens = carregarComboComunidades($conexao);
                     echo $itens;
                     ?>
-
             </div>
 
-            <div class="col-12 box__buttons">
-                <!-- <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button> -->
-
-                <!-- Não estava abrindo porque faltou o 'bs' (data-bs-toggle e data-bs-target; e não data-toggle e data-target) -->
-                <button type="button" name="btn-cadastrar" id="btn-cadastrar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Cadastrar</button>
-                <button type="button" class="btn btn-danger" id="btn-cancelar">Cancelar</button>
-
-                <!-- O botão 'Confirmar' não está submitando; garantir que todos os campos estejam preenchidos antes de poder submitar -->
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header bg-light">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Deseja confirmar o cadastro?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" name="submit" id="submit" class="btn btn-primary">Confirmar</button>
-                                <!-- Para submitar, é preciso ter o 'name' do objeto igual a 'submit' (mesmo nome que será 
-                                referenciado pela variável $_POST no código php no início do arquivo) -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="col-md-12 box__buttons">
+                <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
         </form>
     </div>
@@ -133,25 +105,38 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- Máscaras -->
 <script>
+    // Celular
     var phoneMask = IMask(
-        document.getElementById("inputCelular1"), {
+        document.getElementById("inputCel"), {
             mask: '(00) 00000-0000'
         });
+
+    // CPF
     var phoneMask = IMask(
-        document.getElementById("inputCelular2"), {
-            mask: '(00) 00000-0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCpf"), {
+        document.getElementById("inputCpfMb1"), {
             mask: '000.000.000-00'
         });
     var phoneMask = IMask(
-        document.getElementById("inputDN"), {
-            mask: '00/00/0000'
+        document.getElementById("inputCpfMb2"), {
+            mask: '000.000.000-00'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputCpfMb3"), {
+            mask: '000.000.000-00'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputCpfMb4"), {
+            mask: '000.000.000-00'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputCpfMb5"), {
+            mask: '000.000.000-00'
         });
 </script>
 
+<!-- Verificações -->
 <script>
     function verifNome() {
         var nome = document.getElementById("inputNome");

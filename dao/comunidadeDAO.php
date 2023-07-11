@@ -27,7 +27,7 @@ function selectComunidades($conexao)
 function carregarComboComunidades($conexao)
 {
     // Variável $sql para criar comando de seleção no banco de dados
-    $sql = "SELECT * FROM bd_sistema.comunidade";
+    $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro";
 
     // Executando o comando sql no banco de dados, por meio da $conexao
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));

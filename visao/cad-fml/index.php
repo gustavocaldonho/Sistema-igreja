@@ -69,7 +69,7 @@
             </div>
 
             <div class="col-md-12">
-                <label for="inputComunidade" class="form-label required">Comunidade</label>
+                <!-- <label for="inputComunidade" class="form-label required">Comunidade</label> -->
                 <select class="form-select" id="inputComunidade" name="inputComunidade" onblur="verifComunidade()">
                     <option value="" selected>Selecione a sua Comunidade</option>
 
@@ -81,11 +81,13 @@
                     $itens = carregarComboComunidades($conexao);
                     echo $itens;
                     ?>
+                </select>
             </div>
 
             <div class="col-md-12 box__buttons">
                 <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
+
         </form>
     </div>
 </body>

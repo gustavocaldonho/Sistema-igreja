@@ -36,7 +36,7 @@
                 <input type="text" class="form-control" id="inputEmail" name="inputEmail" placeholder="ex.: saogeraldo@gmail.com">
             </div>
 
-            <div class="col-12 box__buttons">
+            <div class="col-md-12 box__buttons">
                 <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
         </form>

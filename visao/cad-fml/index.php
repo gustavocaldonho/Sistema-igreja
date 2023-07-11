@@ -37,39 +37,13 @@
                 </div> -->
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <label for="inputEmail" class="form-label required">E-mail</label>
                 <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="nome@gmail.com" onblur="verifEmail()">
             </div>
-            <div class="col-md-3">
-                <label for="inputCel" class="form-label required">Celular</label>
-                <input type="tel" class="form-control" id="inputCel" name="inputCel" placeholder="(00) 00000-0000" onblur="verifCel()">
-            </div>
 
-            <div class="col-md-9">
-                <label for="input-group" class="form-label required">Membros da Família</label>
-                <div class="box__nomeMembros">
-                    <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" required onblur="verifNome()" placeholder="1º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb2" name="inputNomeMb2" required onblur="verifNome()" placeholder="2º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb3" name="inputNomeMb3" required onblur="verifNome()" placeholder="3º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb4" name="inputNomeMb4" required onblur="verifNome()" placeholder="4º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb5" name="inputNomeMb5" required onblur="verifNome()" placeholder="5º Membro">
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <label for="input-group" class="form-label required">CPF dos Membros</label>
-                <div class="box__cpfMembros">
-                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" required placeholder="000.000.000-00 (1º Membro)" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" required placeholder="000.000.000-00 (2º Membro)" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" required placeholder="000.000.000-00 (3º Membro)" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb4" name="inputCpfMb4" required placeholder="000.000.000-00 (4º Membro)" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb5" name="inputCpfMb5" required placeholder="000.000.000-00 (5º Membro)" onblur="verifCpf()">
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <!-- <label for="inputComunidade" class="form-label required">Comunidade</label> -->
+            <div class="col-md-6">
+                <label for="inputComunidade" class="form-label required">Comunidade</label>
                 <select class="form-select" id="listaComunidades" name="listaComunidades" onblur="verifComunidade()">
                     <option value="" selected>Selecione a sua Comunidade</option>
 
@@ -82,6 +56,50 @@
                     echo $itens;
                     ?>
                 </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="input-group" class="form-label required">Membros da Família</label>
+                <div class="box__nomeMembros">
+                    <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" required onblur="verifNome()" placeholder="1º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb2" name="inputNomeMb2" required onblur="verifNome()" placeholder="2º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb3" name="inputNomeMb3" required onblur="verifNome()" placeholder="3º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb4" name="inputNomeMb4" required onblur="verifNome()" placeholder="4º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb5" name="inputNomeMb5" required onblur="verifNome()" placeholder="5º Membro">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <label for="input-group" class="form-label required">CPFs dos Membros</label>
+                <div class="box__cpfMembros">
+                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" required placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" required placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" required placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb4" name="inputCpfMb4" required placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb5" name="inputCpfMb5" required placeholder="000.000.000-00" onblur="verifCpf()">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+            <label for="input-group" class="form-label required">Datas de Nacimento</label>
+            <div class="box__DNMembros">
+                    <input type="text" class="form-control" id="inputDNMb1" name="inputDNMb1" required placeholder="00/00/0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputDNMb2" name="inputDNMb2" required placeholder="00/00/0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputDNMb3" name="inputDNMb3" required placeholder="00/00/0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputDNMb4" name="inputDNMb4" required placeholder="00/00/0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputDNMb5" name="inputDNMb5" required placeholder="00/00/0000" onblur="verifCpf()">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+            <label for="input-group" class="form-label required">Celulares</label>
+            <div class="box__CelMembros">
+                    <input type="text" class="form-control" id="inputCelMb1" name="inputCelMb1" required placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCelMb2" name="inputCelMb2" required placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCelMb3" name="inputCelMb3" required placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCelMb4" name="inputCelMb4" required placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCelMb5" name="inputCelMb5" required placeholder="(00) 00000-0000" onblur="verifCpf()">
+                </div>
             </div>
 
             <div class="col-md-12 box__buttons">
@@ -111,7 +129,23 @@
 <script>
     // Celular
     var phoneMask = IMask(
-        document.getElementById("inputCel"), {
+        document.getElementById("inputCelMb1"), {
+            mask: '(00) 00000-0000'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputCelMb2"), {
+            mask: '(00) 00000-0000'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputCelMb3"), {
+            mask: '(00) 00000-0000'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputCelMb4"), {
+            mask: '(00) 00000-0000'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputCelMb5"), {
             mask: '(00) 00000-0000'
         });
 
@@ -135,6 +169,28 @@
     var phoneMask = IMask(
         document.getElementById("inputCpfMb5"), {
             mask: '000.000.000-00'
+        });
+
+    // Data de Nascimento
+    var phoneMask = IMask(
+        document.getElementById("inputDNMb1"), {
+            mask: '00/00/0000'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputDNMb2"), {
+            mask: '00/00/0000'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputDNMb3"), {
+            mask: '00/00/0000'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputDNMb4"), {
+            mask: '00/00/0000'
+        });
+    var phoneMask = IMask(
+        document.getElementById("inputDNMb5"), {
+            mask: '00/00/0000'
         });
 </script>
 

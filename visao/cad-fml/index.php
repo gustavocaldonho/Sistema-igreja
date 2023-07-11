@@ -24,7 +24,7 @@
 
     <div class="container">
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
-        <form action="../../controlador/teste.php" method="POST" class="row g-3 form-cadastro">
+        <form action="../../controlador/cadFamilia.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
                 <input type="text" class="form-control" id="inputNome" name="inputNome" required onblur="verifNome()" placeholder="">
@@ -49,11 +49,11 @@
             <div class="col-md-9">
                 <label for="input-group" class="form-label required">Membros da Família</label>
                 <div class="box__nomeMembros">
-                    <input type="text" class="form-control" id="inputNomeMb1" name="inputNome" required onblur="verifNome()" placeholder="1º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb2" name="inputNome" required onblur="verifNome()" placeholder="2º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb3" name="inputNome" required onblur="verifNome()" placeholder="3º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb4" name="inputNome" required onblur="verifNome()" placeholder="4º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb5" name="inputNome" required onblur="verifNome()" placeholder="5º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" required onblur="verifNome()" placeholder="1º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb2" name="inputNomeMb2" required onblur="verifNome()" placeholder="2º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb3" name="inputNomeMb3" required onblur="verifNome()" placeholder="3º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb4" name="inputNomeMb4" required onblur="verifNome()" placeholder="4º Membro">
+                    <input type="text" class="form-control" id="inputNomeMb5" name="inputNomeMb5" required onblur="verifNome()" placeholder="5º Membro">
                 </div>
             </div>
 
@@ -70,7 +70,7 @@
 
             <div class="col-md-12">
                 <!-- <label for="inputComunidade" class="form-label required">Comunidade</label> -->
-                <select class="form-select" id="inputComunidade" name="inputComunidade" onblur="verifComunidade()">
+                <select class="form-select" id="listaComunidades" name="listaComunidades" onblur="verifComunidade()">
                     <option value="" selected>Selecione a sua Comunidade</option>
 
                     <?php

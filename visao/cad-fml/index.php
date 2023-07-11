@@ -27,7 +27,7 @@
         <form action="../../controlador/cadFamilia.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
-                <input type="text" class="form-control" id="inputNome" name="inputNome" required onblur="verifNome()" placeholder="">
+                <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifNome()" placeholder="">
                 <!-- is-valid, is-invalid-->
                 <!-- <div class="valid-feedback">
                     Tudo certo!
@@ -72,7 +72,7 @@
             <div class="col-md-2">
                 <label for="input-group" class="form-label required">CPFs dos Membros</label>
                 <div class="box__cpfMembros">
-                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onblur="verifCpf()">
+                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00">
                     <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" placeholder="000.000.000-00" onblur="verifCpf()">
                     <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" placeholder="000.000.000-00" onblur="verifCpf()">
                     <input type="text" class="form-control" id="inputCpfMb4" name="inputCpfMb4" placeholder="000.000.000-00" onblur="verifCpf()">

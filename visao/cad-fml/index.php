@@ -67,7 +67,7 @@
                     <input type="text" class="form-control dn label" id="label-dn" placeholder="Datas de Nascimento" disabled>
                     <input type="text" class="form-control label-cel label" id="label-cel" placeholder="Celulares" disabled>
 
-                    <div class="box__buttonsMembros" >
+                    <div class="box__buttonsMembros">
                         <button type="button" onclick="adicionarCampos()" id="add"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                             </svg> </button>
@@ -81,9 +81,9 @@
                 <div class="box__inputs" id="formulario-membros">
                     <div class="inputs-membro" id="membro1">
                         <input type="text" class="form-control nome" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro">
-                        <input type="text" class="form-control cpf" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00">
-                        <input type="text" class="form-control dn" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000">
-                        <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000">
+                        <input type="text" class="form-control cpf" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onclick="getMaskCpf(id)">
+                        <input type="text" class="form-control dn" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000" onclick="getMaskDN(id)">
+                        <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000" onclick="getMaskCel(id)">
                     </div>
 
                 </div>
@@ -156,7 +156,7 @@
         // Limite de 5 membros por família
         if (controleCampos < 5) {
             controleCampos++;
-            document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000"></div>');
+            document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onclick="getMaskCpf(id)"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onclick="getMaskDN(id)"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onclick="getMaskCel(id)"></div>');
         }
     }
 
@@ -171,71 +171,27 @@
 
 <!-- Máscaras -->
 <script>
-    // Celular
-    var phoneMask = IMask(
-        document.getElementById("inputCelMb1"), {
-            mask: '(00) 00000-0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCelMb2"), {
-            mask: '(00) 00000-0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCelMb3"), {
-            mask: '(00) 00000-0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCelMb4"), {
-            mask: '(00) 00000-0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCelMb5"), {
-            mask: '(00) 00000-0000'
-        });
-
     // CPF
-    var phoneMask = IMask(
-        document.getElementById("inputCpfMb1"), {
-            mask: '000.000.000-00'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCpfMb2"), {
-            mask: '000.000.000-00'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCpfMb3"), {
-            mask: '000.000.000-00'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCpfMb4"), {
-            mask: '000.000.000-00'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputCpfMb5"), {
-            mask: '000.000.000-00'
-        });
-
+    function getMaskCpf(id) {
+        var phoneMask = IMask(
+            document.getElementById(id), {
+                mask: '000.000.000-00'
+            });
+    }
     // Data de Nascimento
-    var phoneMask = IMask(
-        document.getElementById("inputDNMb1"), {
-            mask: '00/00/0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputDNMb2"), {
-            mask: '00/00/0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputDNMb3"), {
-            mask: '00/00/0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputDNMb4"), {
-            mask: '00/00/0000'
-        });
-    var phoneMask = IMask(
-        document.getElementById("inputDNMb5"), {
-            mask: '00/00/0000'
-        });
+    function getMaskDN(id) {
+        var phoneMask = IMask(
+            document.getElementById(id), {
+                mask: '00/00/0000'
+            });
+    }
+    // Celular
+    function getMaskCel(id) {
+        var phoneMask = IMask(
+            document.getElementById(id), {
+                mask: '(00) 00000-0000'
+            });
+    }
 </script>
 
 <!-- Verificações -->

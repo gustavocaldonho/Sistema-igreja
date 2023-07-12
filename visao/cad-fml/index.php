@@ -58,48 +58,64 @@
                 </select>
             </div>
 
-            <div class="col-md-6">
-                <label for="input-group" class="form-label required">Membros da Família</label>
-                <div class="box__nomeMembros">
-                    <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" onblur="verifNome()" placeholder="1º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb2" name="inputNomeMb2" onblur="verifNome()" placeholder="2º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb3" name="inputNomeMb3" onblur="verifNome()" placeholder="3º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb4" name="inputNomeMb4" onblur="verifNome()" placeholder="4º Membro">
-                    <input type="text" class="form-control" id="inputNomeMb5" name="inputNomeMb5" onblur="verifNome()" placeholder="5º Membro">
-                </div>
-            </div>
 
-            <div class="col-md-2">
-                <label for="input-group" class="form-label required">CPFs dos Membros</label>
-                <div class="box__cpfMembros">
-                    <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00">
-                    <input type="text" class="form-control" id="inputCpfMb2" name="inputCpfMb2" placeholder="000.000.000-00" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb3" name="inputCpfMb3" placeholder="000.000.000-00" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb4" name="inputCpfMb4" placeholder="000.000.000-00" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCpfMb5" name="inputCpfMb5" placeholder="000.000.000-00" onblur="verifCpf()">
-                </div>
-            </div>
+            <div class="box__cadMembros form-group">
 
-            <div class="col-md-2">
-                <label for="input-group" class="form-label required">Datas de Nacimento</label>
-                <div class="box__DNMembros">
-                    <input type="text" class="form-control" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputDNMb2" name="inputDNMb2" placeholder="00/00/0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputDNMb3" name="inputDNMb3" placeholder="00/00/0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputDNMb4" name="inputDNMb4" placeholder="00/00/0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputDNMb5" name="inputDNMb5" placeholder="00/00/0000" onblur="verifCpf()">
-                </div>
-            </div>
+                <div class="box__labels">
+                    <input type="text" class="form-control nome label" id="label-nome" placeholder="Nomes dos Membros da Família" disabled>
+                    <input type="text" class="form-control cpf label" id="label-cpf" placeholder="CPFs" disabled>
+                    <input type="text" class="form-control dn label" id="label-dn" placeholder="Datas de Nascimento" disabled>
+                    <input type="text" class="form-control label-cel label" id="label-cel" placeholder="Celulares" disabled>
 
-            <div class="col-md-2">
-                <label for="input-group" class="form-label required">Celulares</label>
-                <div class="box__CelMembros">
-                    <input type="text" class="form-control" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCelMb2" name="inputCelMb2" placeholder="(00) 00000-0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCelMb3" name="inputCelMb3" placeholder="(00) 00000-0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCelMb4" name="inputCelMb4" placeholder="(00) 00000-0000" onblur="verifCpf()">
-                    <input type="text" class="form-control" id="inputCelMb5" name="inputCelMb5" placeholder="(00) 00000-0000" onblur="verifCpf()">
+                    <div class="box__buttonsMembros" >
+                        <button type="button" onclick="adicionarCampos()" id="add"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                            </svg> </button>
+
+                        <button type="button" onclick="removerCampos()" id="rem"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                            </svg> </button>
+                    </div>
                 </div>
+
+                <div class="box__inputs" id="formulario-membros">
+                    <div class="inputs-membro" id="membro1">
+                        <input type="text" class="form-control nome" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro">
+                        <input type="text" class="form-control cpf" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00">
+                        <input type="text" class="form-control dn" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000">
+                        <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000">
+                    </div>
+
+                </div>
+
+                <!-- <div class="col-md-5">
+                    <label for="input-group" class="form-label required">Membros da Família</label>
+                    <div class="box__nomeMembros">
+                        <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="input-group" class="form-label required">CPFs dos Membros</label>
+                    <div class="box__cpfMembros">
+                        <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="input-group" class="form-label required">Datas de Nacimento</label>
+                    <div class="box__DNMembros">
+                        <input type="text" class="form-control" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="input-group" class="form-label required">Celulares</label>
+                    <div class="box__CelMembros">
+                        <input type="text" class="form-control" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000">
+                    </div>
+                </div> -->
+
             </div>
 
             <div class="col-md-12 box__buttons">
@@ -132,6 +148,26 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+    var controleCampos = 1;
+
+    function adicionarCampos() {
+        // Limite de 5 membros por família
+        if (controleCampos < 5) {
+            controleCampos++;
+            document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000"></div>');
+        }
+    }
+
+    function removerCampos() {
+        // Não remove o primeiro campo (é obrigatório ter pelo menos um membro na família)
+        if (controleCampos > 1) {
+            document.getElementById('membro' + controleCampos).remove();
+            controleCampos--;
+        }
+    }
+</script>
 
 <!-- Máscaras -->
 <script>

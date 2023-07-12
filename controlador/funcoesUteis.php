@@ -151,22 +151,31 @@ function validaCPF($cpf)
     return true;
 }
 
-function limparMascaraCpf($cpf){
-    $cpfLimpo = preg_replace('/[^0-9]/is', '', $cpf);
-
-    return $cpfLimpo;
+function limparMascaraCpf($cpf)
+{
+    if (empty($cpf)) {
+        return 0;
+    } else {
+        $cpfLimpo = preg_replace('/[^0-9]/is', '', $cpf);
+        return $cpfLimpo;
+    }
 }
 
 
 // Função apara deixar a data de nascimento no padrão aceitável pelo bd
-function alterarOrdemDN($data_nasc){
-    $lista = explode("/", $data_nasc);
+function alterarOrdemDN($data_nasc)
+{
+    if (empty($data_nasc)) {
+        return 0;
+    } else {
+        $lista = explode("/", $data_nasc);
 
-    $dia = $lista[0];
-    $mes = $lista[1];
-    $ano = $lista[2];
+        $dia = $lista[0];
+        $mes = $lista[1];
+        $ano = $lista[2];
 
-    $novaDN = $ano."-"."$mes"."-".$dia;
+        $novaDN = $ano . "-" . "$mes" . "-" . $dia;
 
-    return $novaDN;    
+        return $novaDN;
+    }
 }

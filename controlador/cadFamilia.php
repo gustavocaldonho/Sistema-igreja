@@ -16,7 +16,7 @@ $idComunidade = $_POST["listaComunidades"];
 
 // Validando os dados de entrada
 // $msgErro = validarComunidade($padroeiro, $localizacao, $email);
-$msgErro = "";
+$msgErro = ""; // #######################################
 
 if (empty($msgErro)) {
     $conexao = conectar();

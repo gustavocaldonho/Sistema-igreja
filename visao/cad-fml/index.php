@@ -89,34 +89,6 @@
 
                 <input type="number" id="controleCampos" name="controleCampos" value="1" hidden>
 
-                <!-- <div class="col-md-5">
-                    <label for="input-group" class="form-label required">Membros da Família</label>
-                    <div class="box__nomeMembros">
-                        <input type="text" class="form-control" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro">
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                    <label for="input-group" class="form-label required">CPFs dos Membros</label>
-                    <div class="box__cpfMembros">
-                        <input type="text" class="form-control" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00">
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                    <label for="input-group" class="form-label required">Datas de Nacimento</label>
-                    <div class="box__DNMembros">
-                        <input type="text" class="form-control" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000">
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                    <label for="input-group" class="form-label required">Celulares</label>
-                    <div class="box__CelMembros">
-                        <input type="text" class="form-control" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000">
-                    </div>
-                </div> -->
-
             </div>
 
             <div class="col-md-12 box__buttons">

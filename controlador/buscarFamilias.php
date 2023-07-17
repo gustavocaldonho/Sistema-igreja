@@ -11,5 +11,3 @@ function buscarFamilias(){
 
     return $result;
 }
-
-?>

@@ -40,6 +40,7 @@
                     <tbody>
                         <?php
                         include_once "../../controlador/buscarFamilias.php";
+                        include_once "../../controlador/buscarComunidades.php";
 
                         // Chamando o controlador para fornecer as famílias a serem exibidas
                         $result = buscarFamilias();
@@ -48,7 +49,7 @@
                             echo "<tr>";
                             echo "<td>" . $user_data['id_familia'] . "</td>";
                             echo "<td> <a class='btn btn-outline-primary nome-familia' href='#'>" . $user_data['nome'] . "</a></td>";
-                            echo "<td>" . $user_data['id_comunidade'] . "</td>";
+                            echo "<td>" . buscarDadosComunidade($user_data['id_comunidade']) . "</td>";
                             echo "<td>" . $user_data['email'] . "</td>";
                             echo "<td>
                                 <a class='btn btn-sm btn-primary' href='../../controlador/EditarFamilia.php?id=$user_data[id_familia]'>

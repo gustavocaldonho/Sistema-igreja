@@ -45,9 +45,9 @@ function carregarComboComunidades($conexao)
     return $itens;
 }
 
-function dadosComunidade($conexao, $idComunidade)
+function getDadosComunidade($conexao, $idComunidade)
 {
-    $sqlSelect = "SELECT * FROM bd_sistema.comunidade WHERE id_comunidade=$idComunidade";
+    $sqlSelect = "SELECT * FROM bd_sistema.comunidade WHERE id_comunidade = $idComunidade";
 
     $result = $conexao->query($sqlSelect);
 
@@ -66,25 +66,6 @@ function deleteComunidade($conexao, $idComunidade)
     $sqlDelete = "DELETE FROM bd_sistema.comunidade WHERE id_comunidade='$idComunidade'";
 
     $result = $conexao->query($sqlDelete);
-}
-
-function getNomeLocComunidade($conexao, $id_comunidade)
-{
-    $sqlGet = "SELECT * FROM bd_sistema.comunidade WHERE id_comunidade = '$id_comunidade'";
-
-    $result = $conexao->query($sqlGet) or die(mysqli_error($conexao));
-
-    $itens = "";
-
-    // Populando o select com os dados do banco
-    while ($registro = mysqli_fetch_assoc($result)) {
-        $padroeiro = $registro['padroeiro'];
-        $localizacao = $registro['localizacao'];
-
-        $itens = $itens . "$padroeiro - $localizacao";
-    }
-
-    return $itens;
 }
 
 // // Função para pegar o id da comunidade, a fim de realizar o cadastro dos membros do conselho da mesma

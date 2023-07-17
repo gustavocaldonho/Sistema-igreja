@@ -12,12 +12,21 @@ function buscarComunidades()
     return $result;
 }
 
-function buscarDadosComunidade($id_comunidade)
+function buscarDadosComunidade($idComunidade)
 {
     $conexao = conectar();
 
-    // retorna o nome e a localização da referida comunidade (numa string só)
-    $dados = getNomeLocComunidade($conexao, $id_comunidade);
+    $result = getDadosComunidade($conexao, $idComunidade);
 
-    return $dados;
+    $itens = "";
+
+    // Populando o select com os dados do banco
+    while ($registro = mysqli_fetch_assoc($result)) {
+        $padroeiro = $registro['padroeiro'];
+        $localizacao = $registro['localizacao'];
+
+        $itens = $itens . "$padroeiro - $localizacao";
+    }
+
+    return $itens;
 }

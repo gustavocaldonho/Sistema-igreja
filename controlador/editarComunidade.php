@@ -10,7 +10,7 @@ if (!empty($_GET['id'])) {
     $id = $_GET['id']; // Id da comunidade
 
     // pegando os dados da comunidade com o referido id (comunidadeDAO)
-    $result = dadosComunidade($conexao, $id);
+    $result = getDadosComunidade($conexao, $id);
 
     if ($result->num_rows > 0) {
 

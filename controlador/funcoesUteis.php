@@ -1,97 +1,64 @@
 <?php
 
-function validarCampos($nomeChefe, $cpfChefe, $emailChefe, $celChefe, $padroeiro, $localizacao, $nomeMb1, $nomeMb2, $nomeMb3, $cpfMb1, $cpfMb2, $cpfMb3, $celMb1, $celMb2, $celMb3)
+include_once '../dao/familiaDAO.php';
+include_once '../dao/conexao.php';
+
+function validarMembros($contador, $cpfMb, $nomeMb, $dnMb)
 {
-    $msgErro = "";
+    $msgErroMembros = "";
 
-    // ####################################################################################################
-    // Verificando os campos de nomes e localização
-    // ####################################################################################################
+    // verifica se o cpf é válido
+    if (validarCPF($cpfMb) == false) {
+        $msgErroMembros .= "cpfMb" . $contador . "<br>";
+    } else { 
+        // o cpf é verdadeiro e precisa ser verificado se já existe no banco de dados
+        $conexao = conectar();
+        $assoc = cpfDuplicado($conexao, $cpfMb); //familiaDAO
 
-    if (empty($nomeChefe)) {
-        $msgErro .= "NomeChefe ";
-    }
-
-    if (empty($padroeiro)) {
-        $msgErro .= "Padroeiro ";
-    }
-
-    if (empty($localizacao)) {
-        $msgErro .= "Localizacao ";
-    }
-
-    if (empty($nomeMb1)) {
-        $msgErro .= "nomeMb1 ";
-    }
-
-    if (empty($nomeMb2)) {
-        $msgErro .= "nomeMb2 ";
-    }
-
-    if (empty($nomeMb3)) {
-        $msgErro .= "nomeMb3 ";
-    }
-
-    // ####################################################################################################
-    // Verificando o campo email
-    // ####################################################################################################
-
-    if (empty($emailChefe)) {
-        $msgErro .= "emailChefe ";
-    } else {
-        if ((str_contains($emailChefe, '@')) && (str_contains($emailChefe, '.com'))) {
-            // Faça nada
-        } else {
-            $msgErro .= "emailChefe";
+        while ($user_data = $assoc) {
+            $qtd = $user_data["qtd"];
+            // 0 = false, 1 = true (cpf já existe);
+            if ($qtd == 1) {
+                $msgErroMembros .= "cpfMb" . $contador . "<br>";
+            }
+            break;
         }
     }
 
-    // ####################################################################################################
-    // Verificando os campos de celulares
-    // ####################################################################################################
-
-    if (strlen($celChefe) < 15) {
-        $msgErro .= "celChefe" . "(" . strlen($celChefe) .  ") ";
+    if (empty($nomeMb)) {
+        $msgErroMembros .= "nomeMb" . $contador . "<br>";
     }
 
-    if (strlen($celMb1) < 15) {
-        $msgErro .= "celMb1" . "(" . strlen($celMb1) .  ") ";
+    // false = "", true = 1
+    if (empty(validarDataNascimento($dnMb))) {
+        $msgErroMembros .= "dnMb" . $contador . "<br>";
     }
 
-    if (strlen($celMb2) < 15) {
-        $msgErro .= "celMb2" . "(" . strlen($celMb2) .  ") ";
+    return $msgErroMembros;
+}
+
+function validarFamilia($nomeFamilia, $email, $idComunidade)
+{
+    $msgErro = "";
+
+    if (empty($nomeFamilia)) {
+        $msgErro .= "NomeFamilia <br>";
     }
 
-    if (strlen($celMb3) < 15) {
-        $msgErro .= "celMb3" . "(" . strlen($celMb3) .  ") ";
-    }
-
-    // ####################################################################################################
-    // Verificando os CPFs
-    // ####################################################################################################
-
-    if (validaCPF($cpfChefe)) {
-        // CPF válido
+    if (empty($email)) {
+        $msgErro .= "email <br>";
     } else {
-        $msgErro .= "cpfChefe ";
+        // Tem '@' e '.com'?
+        if ((str_contains($email, '@')) && (str_contains($email, '.com'))) {
+            // Faça nada
+        } else {
+            // Se não tem, envia a msg de erro
+            $msgErro .= "email <br>";
+        }
     }
 
-    if (validaCPF($cpfMb1)) {
-        // CPF válido
-    } else {
-        $msgErro .= "cpfMb1 ";
-    }
-
-    if (validaCPF($cpfMb2)) {
-        // CPF válido
-    } else {
-        $msgErro .= "cpfMb2 ";
-    }
-
-    if (validaCPF($cpfMb3)) {
-        // CPF válido
-    } else {
-        $msgErro .= "cpfMb3 ";
+    if (empty($idComunidade)) {
+        $msgErro .= "idComunidade <br>";
     }
 
     return $msgErro;
@@ -122,9 +89,8 @@ function validarComunidade($padroeiro, $localizacao, $email)
     return $msgErro;
 }
 
-function validaCPF($cpf)
+function validarCPF($cpf)
 {
-
     // Extrai somente os números
     $cpf = preg_replace('/[^0-9]/is', '', $cpf);
 
@@ -149,6 +115,30 @@ function validaCPF($cpf)
         }
     }
     return true;
+}
+
+function validarDataNascimento($dn)
+{
+    // se a data não for preenchida completamente, já acusará o erro aqui
+    if (strlen($dn) != 10) {
+        return false;
+    }
+
+    $data = explode("/", "$dn"); // fatia a string $dn em pedados, usando / como referência
+
+    $d = $data[0]; //dia
+    $m = $data[1]; //mes
+    $y = $data[2]; //ano
+
+    // verifica se a data é válida!
+    // 1 = true (válida)
+    // 0 = false (inválida)
+    $res = checkdate($m, $d, $y);
+    if ($res == 1) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function limparMascaraCpf($cpf)

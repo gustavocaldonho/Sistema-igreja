@@ -15,3 +15,16 @@ function cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $idFamilia)
     $sqlMembro1 = "INSERT INTO bd_sistema.membro_familia (cpf, nome, data_nasc, celular, id_familia) VALUES ( '$cpfMb', '$nomeMb', '$dnMb', '$celMb', '$idFamilia')";
     mysqli_query($conexao, $sqlMembro1) or die(mysqli_error($conexao));
 }
+
+// Verifica se o cpf informado existe na base de dados
+function cpfDuplicado($conexao, $cpf)
+{
+    // Extrai somente os números
+    $cpfLimpo = preg_replace('/[^0-9]/is', '', $cpf);
+
+    $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.membro_familia WHERE cpf = '$cpfLimpo'";
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    $lista = mysqli_fetch_assoc($res);
+
+    return $lista;
+}

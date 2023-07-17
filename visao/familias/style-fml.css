@@ -28,12 +28,12 @@
 }
 
 /* Estilizando os nomes das pessoas */
-.table .nome-pessoa{
+.table .nome-familia{
     color: black;
     border: none;
 }
 
-.table .nome-pessoa:hover{
+.table .nome-familia:hover{
     background-color: darkgoldenrod;
     color: white;
 }

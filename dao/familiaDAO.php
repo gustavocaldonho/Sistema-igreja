@@ -1,5 +1,20 @@
 <?php
 
+// Função para exibir as famílias no panorama geral
+function selectFamilias($conexao)
+{
+    if (!empty($_GET['search'])) {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM bd_sistema.familia WHERE nome LIKE '%$data%'";
+    } else {
+        $sql = "SELECT * FROM bd_sistema.familia ORDER BY nome";
+    }
+
+    $result = $conexao->query($sql);
+
+    return $result;
+}
+
 function cadastrarFamilia($conexao, $nomeFamilia, $email, $idComunidade)
 {
     $sqlFamilia = "INSERT INTO bd_sistema.familia (nome, email, id_comunidade) VALUES ('$nomeFamilia', '$email', '$idComunidade')";

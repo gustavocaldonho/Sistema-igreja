@@ -12,7 +12,6 @@ function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email)
 function selectComunidades($conexao)
 {
     if (!empty($_GET['search'])) {
-
         $data = $_GET['search'];
         $sql = "SELECT * FROM bd_sistema.comunidade WHERE padroeiro LIKE '%$data%' or localizacao LIKE '%$data%' or email LIKE '%$data%'";
     } else {

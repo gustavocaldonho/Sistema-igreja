@@ -73,6 +73,7 @@
         var campoLocalizacao = document.getElementById("inputLocalizacao");
         var campoEmail = document.getElementById("inputEmail");
 
+        // NÃO PEGA O ERRO "PADROEIRO JÁ CADASTRADO"
         if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") || campoEmail.classList.contains("is-invalid")) {
             alert('Campos Inválidos!');
             return false;

@@ -52,7 +52,7 @@ $email = $_GET['email'];
             <div class="col-12 box__buttons">
 
                 <!-- Se o usuário clicar em Cancelar, suas alterações não serão salvar, uma vez que, somente ocorrerá um redirecionamento para a página onde são exibidas as comunidades  -->
-                <button type="submit" class="btn btn-danger" id="btn-cancelar" formaction='/Sistema-igreja/visao/comunidades/index.php'>Cancelar</button>
+                <button type="submit" class="btn btn-danger" id="btn-cancelar" formaction="/Sistema-igreja/visao/comunidades/index.php">Cancelar</button>
 
                 <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Atualizar</button>
             </div>
@@ -82,97 +82,5 @@ $email = $_GET['email'];
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- Máscara -->
-<script>
-    // CPF
-    $("#inputCpfChefe").mask("000.000.000-00");
-    $("#inputCpfMb1").mask("000.000.000-00");
-    $("#inputCpfMb2").mask("000.000.000-00");
-    $("#inputCpfMb3").mask("000.000.000-00");
-
-    // CELULAR
-    $("#inputCelChefe").mask("(00) 00000-0000");
-    $("#inputCelMb1").mask("(00) 00000-0000");
-    $("#inputCelMb2").mask("(00) 00000-0000");
-    $("#inputCelMb3").mask("(00) 00000-0000");
-</script>
-
-<script>
-    function verifNome() {
-        var nome = document.getElementById("inputNome");
-        if (nome.value == "") {
-            nome.classList.remove("is-valid");
-            nome.classList.add("is-invalid");
-            // nome.focus();
-        } else {
-            nome.classList.remove("is-invalid");
-            nome.classList.add("is-valid");
-        }
-    }
-
-    function verifCpf() {
-        var campoCpf = document.getElementById("inputCpf");
-        var cpf = document.getElementById("inputCpf").value;
-        if (cpf.length < 14) {
-            campoCpf.classList.remove("is-valid");
-            campoCpf.classList.add("is-invalid");
-            // campoCpf.focus();
-        } else {
-            campoCpf.classList.remove("is-invalid");
-            campoCpf.classList.add("is-valid");
-        }
-    }
-
-    function verifEmail() {
-        var campoEmail = document.getElementById("inputEmail");
-        var email = document.getElementById("inputEmail").value;
-
-        // Se o usuário clicar no campo, não digitar nada e sair do mesmo, nenhuma verificação e nenhum 
-        // alerta será dado.
-        if (email.length >= 1) {
-            if (!email.includes("@") || !email.includes(".com")) {
-                campoEmail.classList.remove("is-valid");
-                campoEmail.classList.add("is-invalid");
-                // campoEmail.focus();
-            } else {
-                campoEmail.classList.remove("is-invalid");
-                campoEmail.classList.add("is-valid");
-            }
-        } else {}
-    }
-
-    // Se o usuário clicar no campo, não digitar nada e sair do mesmo, nenhuma verificação e nenhum 
-    // alerta será dado.
-    function verifCel() {
-        var campoCelular1 = document.getElementById("inputCelular1");
-        var celular1 = document.getElementById("inputCelular1").value;
-        // var celular2 = document.getElementById("inputCelular2").value;
-
-        if (celular1.length >= 1) {
-            if (celular1.length < 15) {
-                campoCelular1.classList.remove("is-valid");
-                campoCelular1.classList.add("is-invalid");
-                // campoCelular1.focus();
-            } else {
-                campoCelular1.classList.remove("is-invalid");
-                campoCelular1.classList.add("is-valid");
-            }
-        } else {}
-    }
-
-    function verifComunidade() {
-        var comunidade = document.getElementById("inputComunidade");
-
-        if (comunidade.value == "Escolha...") {
-            comunidade.classList.remove("is-valid");
-            comunidade.classList.add("is-invalid");
-            // comunidade.focus();
-        } else {
-            comunidade.classList.remove("is-invalid");
-            comunidade.classList.add("is-valid");
-        }
-    }
-</script>
 
 </html>

@@ -7,7 +7,6 @@ require_once '../controlador/funcoesUteis.php';
 // var_dump($_POST);
 
 $qtdMembros = $_POST["controleCampos"];
-// echo ("<br>" . $_POST["controleCampos"]);
 
 // Dados da família
 $nomeFamilia = $_POST["inputNome"];
@@ -18,18 +17,28 @@ $idComunidade = $_POST["listaComunidades"];
 $msgErroFamilia = validarFamilia($nomeFamilia, $email, $idComunidade);
 
 // Validando os dados de entrada dos membros
+$listaCpf = array(); // lista dos Cpfs dos membros
 $msgErroMembros = "";
 $contador = 1;
 while ($contador <= $qtdMembros) {
     $nomeMb = $_POST["inputNomeMb" . $contador];
     $cpfMb = $_POST["inputCpfMb" . $contador];
     $dnMb = $_POST["inputDNMb" . $contador];
+    // $celMb = $_POST["inputCelMb" . $contador]; // não é obrigatório possuir
 
-    // O número de celular não é obrigatório possuir
-    // $celMb = $_POST["inputCelMb" . $contador];
+    // inserindo os cpfs numa lista, a fim de verificar se tem algum duplicado
+    array_push($listaCpf, $cpfMb);
 
     $msgErroMembros .= validarMembros($contador, $cpfMb, $nomeMb, $dnMb);
     $contador++;
+}
+
+// Verificando se foi inserido algum cpf repetido
+$cpfDuplicado = array_count_values($listaCpf);
+foreach($cpfDuplicado as $key => $value){
+    if($value > 1){
+        $msgErroMembros .= $key . " duplicado";
+    }
 }
 
 if (empty($msgErroFamilia) && empty($msgErroMembros)) {

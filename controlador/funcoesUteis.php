@@ -19,7 +19,7 @@ function validarMembros($contador, $cpfMb, $nomeMb, $dnMb)
             $qtd = $user_data["qtd"];
             // 0 = false, 1 = true (cpf já existe);
             if ($qtd == 1) {
-                $msgErroMembros .= "cpfMb" . $contador . "<br>";
+                $msgErroMembros .= "cpfMb" . $contador . " já cadastrado <br>";
             }
             break;
         }
@@ -116,6 +116,13 @@ function validarCPF($cpf)
     }
     return true;
 }
+
+// function verificarCpfDuplicado($listaCpf){
+//     $novaLista = explode($listaCpf, "<br>");
+
+//     $c = 1; // contador
+//     while
+// }
 
 function validarDataNascimento($dn)
 {

@@ -84,15 +84,13 @@
 <!-- <script>
     $("#formulario").submit(function() {
 
-        var padroeiro = document.getElementById("inputPadroeiro").value;
-        var localizacao = document.getElementById("inputLocalizacao").value;
-        var email = document.getElementById("inputEmail").value;
-        alert('var');
+        const urlParams = new URLSearchParams(window.location.search);
+        const msg = urlParams.get("msg");
+        // só pega a msg depois de feito o submit, ou seja, não serve
 
-        // validando os campos
-        var msgErro = validarComunidade(padroeiro, localizacao, email); // controlador/funcoesUteis.php
+        alert(msg);
 
-        if (!empty(msgErro)) {
+        if (!empty(msg)) {
             alert('Campos Inválidos 2');
             return false;
         }

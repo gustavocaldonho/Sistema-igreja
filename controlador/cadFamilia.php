@@ -33,7 +33,7 @@ while ($contador <= $qtdMembros) {
     $contador++;
 }
 
-// Verificando se foi inserido algum cpf repetido
+// Verificando se foi inserido algum cpf repetido no formulário
 $cpfDuplicado = array_count_values($listaCpf);
 foreach($cpfDuplicado as $key => $value){
     if($value > 1){

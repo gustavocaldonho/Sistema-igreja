@@ -10,7 +10,7 @@ function validarMembros($contador, $cpfMb, $nomeMb, $dnMb)
     // verifica se o cpf é válido
     if (validarCPF($cpfMb) == false) {
         $msgErroMembros .= "cpfMb" . $contador . "<br>";
-    } else { 
+    } else {
         // o cpf é verdadeiro e precisa ser verificado se já existe no banco de dados
         $conexao = conectar();
         $assoc = cpfDuplicado($conexao, $cpfMb); //familiaDAO
@@ -70,6 +70,19 @@ function validarComunidade($padroeiro, $localizacao, $email)
 
     if (empty($padroeiro)) {
         $msgErro .= "Padroeiro<br>";
+    } else {
+        // verificando se o padroeiro já foi cadastrado no banco anteriormente
+        $conexao = conectar();
+        $assoc = padroeiroDuplicado($conexao, $padroeiro); //comunidadeDAO
+
+        while ($user_data = $assoc) {
+            $qtd = $user_data["qtd"];
+            // 0 = false, 1 = true (padroeiro já existe);
+            if ($qtd == 1) {
+                $msgErro .= $padroeiro . " já cadastrado <br>";
+            }
+            break;
+        }
     }
 
     if (empty($localizacao)) {

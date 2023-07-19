@@ -68,6 +68,15 @@ function deleteComunidade($conexao, $idComunidade)
     $result = $conexao->query($sqlDelete);
 }
 
+function padroeiroDuplicado($conexao, $padroeiro)
+{
+    $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = '$padroeiro'";
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    $lista = mysqli_fetch_assoc($res);
+
+    return $lista;
+}
+
 // // Função para pegar o id da comunidade, a fim de realizar o cadastro dos membros do conselho da mesma
 // function selectIdComunidade($conexao, $cpfChefe)
 // {

@@ -117,13 +117,6 @@ function validarCPF($cpf)
     return true;
 }
 
-// function verificarCpfDuplicado($listaCpf){
-//     $novaLista = explode($listaCpf, "<br>");
-
-//     $c = 1; // contador
-//     while
-// }
-
 function validarDataNascimento($dn)
 {
     // se a data não for preenchida completamente, já acusará o erro aqui

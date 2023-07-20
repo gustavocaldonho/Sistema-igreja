@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="../navbar/style-navbar.css">
 </head>
 
+<?php
+
+if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["email"])) {
+    $padroeiro = $_GET["padroeiro"];
+    $localizacao = $_GET["localizacao"];
+    $email = $_GET["email"];
+}
+
+?>
+
 <body>
 
     <header id="header"></header>
@@ -21,21 +31,23 @@
         <form id="formulario" name="formulario" action="../../controlador/cadComunidade.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputPadroeiro" class="form-label required">Padroeiro da Comunidade</label>
-                <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" placeholder="ex.: São Geraldo Magela" onblur="verifText(this), duplicacaoPadroeiro(this)" required>
+                <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" placeholder="ex.: São Geraldo Magela" onblur="verifText(this), duplicacaoPadroeiro(this)" required value="<?php if (isset($padroeiro)) echo $padroeiro ?>">
             </div>
 
             <div class="col-md-6">
                 <label for="inputLocalizacao" class="form-label required">Localização</label>
-                <input type="text" class="form-control" id="inputLocalizacao" name="inputLocalizacao" placeholder="ex.: Sapucaia" onblur="verifText(this)" required>
+                <input type="text" class="form-control" id="inputLocalizacao" name="inputLocalizacao" placeholder="ex.: Sapucaia" onblur="verifText(this)" required value="<?php if (isset($localizacao)) echo $localizacao ?>">
             </div>
 
             <div class="col-md-6">
                 <label for="inputEmail" class="form-label required">E-mail</label>
-                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="ex.: saogeraldo@gmail.com" onblur="verifEmail(this)" required>
+                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="ex.: saogeraldo@gmail.com" onblur="verifEmail(this)" required value="<?php if (isset($email)) echo $email ?>">
             </div>
 
             <div class="col-md-12 box__buttons">
                 <a name="btnCancelar" id="btn-cancelar" name="btn-cancelar" class="btn btn-danger" href="../comunidades/index.php">Cancelar</a>
+
+                <button type="button" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-secondary" onclick="limparCampos()">Limpar</button>
 
                 <button type="submit" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
@@ -45,8 +57,23 @@
     <!-- Campos Inválidos -->
     <div>
         <?php
-        $msg = $_GET["msg"];
-        echo "<font color=red>$msg</font>";
+        if (isset($_GET["msg"])) {
+            $msg = $_GET["msg"];
+            // echo "<font color=red>$msg</font>";
+
+            echo  "<script>alert('$msg');</script>";
+        }
+
+        // if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["email"])) {
+        //     $padroeiro = $_GET["padroeiro"];
+        //     $localizacao = $_GET["localizacao"];
+        //     $email = $_GET["email"];
+
+        //     echo "<font color=green><br>$padroeiro</font>";
+        //     echo "<font color=green><br>$localizacao</font>";
+        //     echo "<font color=green><br>$email</font>";
+        // }
+
         ?>
     </div>
 </body>
@@ -81,20 +108,12 @@
     });
 </script>
 
-<!-- <script>
-    $("#formulario").submit(function() {
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const msg = urlParams.get("msg");
-        // só pega a msg depois de feito o submit, ou seja, não serve
-
-        alert(msg);
-
-        if (!empty(msg)) {
-            alert('Campos Inválidos 2');
-            return false;
-        }
-    });
-</script> -->
+<script>
+    function limparCampos() {
+        document.getElementById("inputPadroeiro").value = "";
+        document.getElementById("inputLocalizacao").value = "";
+        document.getElementById("inputEmail").value = "";
+    }
+</script>
 
 </html>

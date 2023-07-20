@@ -79,7 +79,7 @@ function validarComunidade($padroeiro, $localizacao, $email)
             $qtd = $user_data["qtd"];
             // 0 = false, 1 = true (padroeiro já existe);
             if ($qtd == 1) {
-                $msgErro .= $padroeiro . " já cadastrado <br>";
+                $msgErro .= $padroeiro . " já cadastrado!";
             }
             break;
         }

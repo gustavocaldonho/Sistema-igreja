@@ -31,7 +31,7 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
         <form id="formulario" name="formulario" action="../../controlador/cadComunidade.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputPadroeiro" class="form-label required">Padroeiro da Comunidade</label>
-                <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" placeholder="ex.: São Geraldo Magela" onblur="verifText(this), duplicacaoPadroeiro(this)" required value="<?php if (isset($padroeiro)) echo $padroeiro ?>">
+                <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" placeholder="ex.: São Geraldo Magela" onblur="verifText(this)" required value="<?php if (isset($padroeiro)) echo $padroeiro ?>">
             </div>
 
             <div class="col-md-6">
@@ -51,29 +51,60 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 
                 <button type="submit" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
+
+            <!-- _________________________________________________________________________________________ -->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCadSucesso" hidden>
+                Modal cad Sucesso
+            </button>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCadErro" hidden>
+                Modal Padroeiro já cadastrado
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalCadSucesso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Cadastro realizado com sucesso!</h1>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalCadErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Falha no Cadastro!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Msg de Erro
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 
-    <!-- Campos Inválidos -->
+    <!-- Exibe a msg de retorno de cadComunidade  -->
     <div>
         <?php
         if (isset($_GET["msg"])) {
             $msg = $_GET["msg"];
-            // echo "<font color=red>$msg</font>";
 
+            // trocar o código abiaxo por um modal
             echo  "<script>alert('$msg');</script>";
         }
-
-        // if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["email"])) {
-        //     $padroeiro = $_GET["padroeiro"];
-        //     $localizacao = $_GET["localizacao"];
-        //     $email = $_GET["email"];
-
-        //     echo "<font color=green><br>$padroeiro</font>";
-        //     echo "<font color=green><br>$localizacao</font>";
-        //     echo "<font color=green><br>$email</font>";
-        // }
-
         ?>
     </div>
 </body>

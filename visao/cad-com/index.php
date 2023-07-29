@@ -51,49 +51,6 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 
                 <button type="submit" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
-
-            <!-- _________________________________________________________________________________________ -->
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCadSucesso" hidden>
-                Modal cad Sucesso
-            </button>
-
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCadErro" hidden>
-                Modal Padroeiro já cadastrado
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modalCadSucesso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Cadastro realizado com
-                                sucesso!</h1>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modalCadErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Falha no Cadastro!</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Msg de Erro
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </form>
 
     </div>
@@ -104,10 +61,10 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
             </svg></p>
     </div>
 
-    <div class='alert alert-success msg-sucesso fadeInOut' role='alert' id="msg-sucesso" hidden>
-        <p><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+    <div class='alert alert-success msg-sucesso fadeInOut' role='alert' id="msg-sucesso">
+        <p id="mensagem-sucesso"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-            </svg> Cadastro Concluído!</p>
+            </svg></p>
     </div>
 
     <!-- Exibe a msg de retorno de cadComunidade  -->
@@ -115,11 +72,12 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
         <?php
         if (isset($_GET["msg"])) {
             $msg = $_GET["msg"];
-
-            // trocar o código abiaxo por um modal
-            // echo  "<script>alert('$msg');</script>";
-            // echo  "<div class='alert alert-danger' role='alert'>$msg
-            // </div>";
+            // Verifica se o parâmetro "msg" é igual a "sucesso"
+            if ($msg === "sucesso") {
+                // Exibe a mensagem de sucesso usando a função JavaScript
+                // echo "<script>mostrarDivPorTempo('msg-sucesso', 'mensagem-sucesso', 4000, 'Cadastro Concluído');</script>";
+                echo "<script>alert('Cadastro Concluído!')</script>";
+            }
         }
         ?>
     </div>
@@ -143,49 +101,6 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
-    // Se algum campo conter dados incorretos não será feito a submissão do formulário
-    $("#formulario").submit(function() {
-        // campos
-        var campoPadroeiro = document.getElementById("inputPadroeiro");
-        var campoLocalizacao = document.getElementById("inputLocalizacao");
-        var campoEmail = document.getElementById("inputEmail");
-
-        // ___________________________________________________________________________________
-        // Chama a função que faz a chamada AJAX à função PHP 'conectar'
-        // var duplicado = chamarConectar(campoPadroeiro.value);
-        // alert(duplicado);
-
-        // Exemplo de uso
-        // chamarConectar(campoPadroeiro.value)
-        //     .then(function(resultado) {
-        //         // Aqui você pode fazer algo com o resultado retornado, se necessário
-        //         console.log('Resultado obtido:', resultado);
-        //         alert(resultado);
-        //     })
-        //     .catch(function(error) {
-        //         console.log('Erro ao executar as funções:', error);
-        //     });
-
-        // if (duplicado) {
-        //     alert("duplicado");
-
-        // } else {
-        //     alert("não duplicado");
-        //     // alert(duplicado);
-        // }
-        // ___________________________________________________________________________________
-
-        // NÃO PEGA O ERRO "PADROEIRO JÁ CADASTRADO"
-        if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") ||
-            campoEmail.classList.contains("is-invalid")) {
-
-            // Chama a função para mostrar a div por 4 segundos (4000 milissegundos)
-            mostrarDivPorTempo('msg-erro', 4000, 'Campos Inválidos');
-            return false;
-        }
-    });
-
-
     // Função para chamar a função PHP 'conectar' por meio de AJAX
     function chamarConectar(valor) {
         return new Promise(function(resolve, reject) {
@@ -247,9 +162,9 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     // Função para mostrar a div e depois escondê-la devagar
     var mensagemOriginal = '';
 
-    function mostrarDivPorTempo(divId, tempo, mensagem) {
+    function mostrarDivPorTempo(divId, pId, tempo, mensagem) {
         var div = document.getElementById(divId);
-        var mensagemElement = document.getElementById('mensagem-erro');
+        var mensagemElement = document.getElementById(pId);
 
         // Se a mensagem original ainda não foi definida, armazena o conteúdo atual do parágrafo
         if (!mensagemOriginal) {
@@ -273,14 +188,77 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
             }, 1000); // Tempo da animação de fadeOut
         }, tempo);
     }
-</script>
 
-<script>
     function limparCampos() {
         document.getElementById("inputPadroeiro").value = "";
         document.getElementById("inputLocalizacao").value = "";
         document.getElementById("inputEmail").value = "";
     }
+
+    // Aguarde até que o DOM esteja carregado
+    document.addEventListener("DOMContentLoaded", function() {
+        // Coloque o código de submit aqui
+
+        $("#formulario").submit(function() {
+            // campos
+            var campoPadroeiro = document.getElementById("inputPadroeiro");
+            var campoLocalizacao = document.getElementById("inputLocalizacao");
+            var campoEmail = document.getElementById("inputEmail");
+
+            // Verifique se os campos têm dados incorretos
+            if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") ||
+                campoEmail.classList.contains("is-invalid")) {
+                mostrarDivPorTempo('msg-erro', 'mensagem-erro', 4000, 'Campos Inválidos');
+                return false;
+            }
+        });
+
+    });
+
+    // // Se algum campo conter dados incorretos não será feito a submissão do formulário
+    // $("#formulario").submit(function() {
+    //     // campos
+    //     var campoPadroeiro = document.getElementById("inputPadroeiro");
+    //     var campoLocalizacao = document.getElementById("inputLocalizacao");
+    //     var campoEmail = document.getElementById("inputEmail");
+
+    //     // ___________________________________________________________________________________
+    //     // Chama a função que faz a chamada AJAX à função PHP 'conectar'
+    //     // var duplicado = chamarConectar(campoPadroeiro.value);
+    //     // alert(duplicado);
+
+    //     // Exemplo de uso
+    //     // chamarConectar(campoPadroeiro.value)
+    //     //     .then(function(resultado) {
+    //     //         // Aqui você pode fazer algo com o resultado retornado, se necessário
+    //     //         console.log('Resultado obtido:', resultado);
+    //     //         alert(resultado);
+    //     //     })
+    //     //     .catch(function(error) {
+    //     //         console.log('Erro ao executar as funções:', error);
+    //     //     });
+
+    //     // if (duplicado) {
+    //     //     alert("duplicado");
+
+    //     // } else {
+    //     //     alert("não duplicado");
+    //     //     // alert(duplicado);
+    //     // }
+    //     // ___________________________________________________________________________________
+
+    //     // NÃO PEGA O ERRO "PADROEIRO JÁ CADASTRADO"
+    //     if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") ||
+    //         campoEmail.classList.contains("is-invalid")) {
+
+    //         // Chama a função para mostrar a div por 4 segundos (4000 milissegundos)
+    //         mostrarDivPorTempo('msg-erro', 'mensagem-erro', 4000, 'Campos Inválidos');
+    //         // mostrarDivPorTempo('msg-sucesso', 'mensagem-sucesso', 4000, 'Cadastro Concluído');
+    //         return false;
+    //     } else{
+    //         mostrarDivPorTempo('msg-sucesso', 'mensagem-sucesso', 4000, 'Cadastro Concluído');
+    //     }
+    // });
 </script>
 
 </html>

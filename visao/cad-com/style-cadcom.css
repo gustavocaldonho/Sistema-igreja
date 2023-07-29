@@ -40,8 +40,54 @@ h2 {
 
 /* Estilização modal */
 
-.modal-footer{
+.modal-footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Estilizando a mensagem de erro */
+.msg-erro,
+.msg-sucesso {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    padding: 8px;
+    opacity: 0;
+}
+
+.msg-erro p,
+.msg-sucesso p {
+    /* Alinha o texto no meio da div */
+    margin: auto;
+}
+
+.fadeIn {
+    /* tempo para aparecer com efeito de esmaecimento */
+    animation: fadeInAnimation .5s forwards;
+}
+
+.fadeOut {
+    /* tempo para esconder com efeito de esmaecimento */
+    animation: fadeOutAnimation .5s forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }

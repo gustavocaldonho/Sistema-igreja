@@ -67,7 +67,8 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Cadastro realizado com sucesso!</h1>
+                            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Cadastro realizado com
+                                sucesso!</h1>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
@@ -94,6 +95,19 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
                 </div>
             </div>
         </form>
+
+    </div>
+
+    <div class='alert alert-danger msg-erro fadeInOut' role='alert' id="msg-erro">
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+            </svg> Campos Inválidos</p>
+    </div>
+
+    <div class='alert alert-success msg-sucesso fadeInOut' role='alert' id="msg-sucesso" hidden>
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </svg> Cadastro Concluído!</p>
     </div>
 
     <!-- Exibe a msg de retorno de cadComunidade  -->
@@ -103,7 +117,9 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
             $msg = $_GET["msg"];
 
             // trocar o código abiaxo por um modal
-            echo  "<script>alert('$msg');</script>";
+            // echo  "<script>alert('$msg');</script>";
+            // echo  "<div class='alert alert-danger' role='alert'>$msg
+            // </div>";
         }
         ?>
     </div>
@@ -119,7 +135,8 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <!-- Código de ativação do js (sem ele, o modal não funciona) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+</script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -132,11 +149,31 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
         var campoEmail = document.getElementById("inputEmail");
 
         // NÃO PEGA O ERRO "PADROEIRO JÁ CADASTRADO"
-        if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") || campoEmail.classList.contains("is-invalid")) {
-            alert('Campos Inválidos!');
+        if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") ||
+            campoEmail.classList.contains("is-invalid")) {
+            // alert('Campos Inválidos!');
+
+            // Chama a função para mostrar a div por 2 segundos (2000 milissegundos)
+            mostrarDivPorTempo('msg-erro', 2000);
             return false;
         }
     });
+
+    // Função para mostrar a div e depois escondê-la devagar
+    function mostrarDivPorTempo(divId, tempo) {
+        var div = document.getElementById(divId);
+        div.style.display = 'block';
+        div.classList.add('fadeIn');
+
+        setTimeout(function() {
+            div.classList.remove('fadeIn');
+            div.classList.add('fadeOut');
+            setTimeout(function() {
+                div.style.display = 'none';
+                div.classList.remove('fadeOut');
+            }, 500); // Tempo da animação de fadeOut
+        }, tempo);
+    }
 </script>
 
 <script>

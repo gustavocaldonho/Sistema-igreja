@@ -75,13 +75,8 @@ function validarComunidade($padroeiro, $localizacao, $email)
         $conexao = conectar();
         $assoc = padroeiroDuplicado($conexao, $padroeiro); //comunidadeDAO
 
-        while ($user_data = $assoc) {
-            $qtd = $user_data["qtd"];
-            // 0 = false, 1 = true (padroeiro já existe);
-            if ($qtd == 1) {
-                $msgErro .= $padroeiro . " já cadastrado!";
-            }
-            break;
+        if ($assoc) {
+            $msgErro .= $padroeiro . " já cadastrado!";
         }
     }
 

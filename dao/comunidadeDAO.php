@@ -68,13 +68,31 @@ function deleteComunidade($conexao, $idComunidade)
     $result = $conexao->query($sqlDelete);
 }
 
+// function padroeiroDuplicado($conexao, $padroeiro)
+// {
+//     $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = '$padroeiro'";
+//     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+//     $lista = mysqli_fetch_assoc($res);
+
+//     return $lista;
+// }
+
 function padroeiroDuplicado($conexao, $padroeiro)
 {
     $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = '$padroeiro'";
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
     $lista = mysqli_fetch_assoc($res);
 
-    return $lista;
+    while ($user_data = $lista) {
+        $qtd = $user_data["qtd"];
+        // 0 = false, 1 = true (padroeiro já existe);
+        if ($qtd == 1) {
+            return true;
+        } else {
+            return false;
+        }
+        break;
+    }
 }
 
 // // Função para pegar o id da comunidade, a fim de realizar o cadastro dos membros do conselho da mesma

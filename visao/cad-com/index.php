@@ -99,9 +99,9 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     </div>
 
     <div class='alert alert-danger msg-erro fadeInOut' role='alert' id="msg-erro">
-        <p><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+        <p id="mensagem-erro"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-            </svg> Campos Inválidos</p>
+            </svg></p>
     </div>
 
     <div class='alert alert-success msg-sucesso fadeInOut' role='alert' id="msg-sucesso" hidden>
@@ -151,17 +151,28 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
         // NÃO PEGA O ERRO "PADROEIRO JÁ CADASTRADO"
         if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") ||
             campoEmail.classList.contains("is-invalid")) {
-            // alert('Campos Inválidos!');
 
-            // Chama a função para mostrar a div por 2 segundos (2000 milissegundos)
-            mostrarDivPorTempo('msg-erro', 2000);
+            // Chama a função para mostrar a div por 4 segundos (4000 milissegundos)
+            mostrarDivPorTempo('msg-erro', 4000, 'Campos Inválidos');
             return false;
         }
     });
 
     // Função para mostrar a div e depois escondê-la devagar
-    function mostrarDivPorTempo(divId, tempo) {
+    var mensagemOriginal = '';
+
+    function mostrarDivPorTempo(divId, tempo, mensagem) {
         var div = document.getElementById(divId);
+        var mensagemElement = document.getElementById('mensagem-erro');
+
+        // Se a mensagem original ainda não foi definida, armazena o conteúdo atual do parágrafo
+        if (!mensagemOriginal) {
+            mensagemOriginal = mensagemElement.innerHTML.trim();
+        }
+
+        // Atualiza o conteúdo do parágrafo com a mensagem original e a nova mensagem
+        mensagemElement.innerHTML = mensagemOriginal + ' ' + mensagem;
+
         div.style.display = 'block';
         div.classList.add('fadeIn');
 
@@ -171,7 +182,9 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
             setTimeout(function() {
                 div.style.display = 'none';
                 div.classList.remove('fadeOut');
-            }, 500); // Tempo da animação de fadeOut
+                // Limpa o texto da mensagem após a animação de fadeOut
+                mensagemElement.innerHTML = mensagemOriginal;
+            }, 1000); // Tempo da animação de fadeOut
         }, tempo);
     }
 </script>

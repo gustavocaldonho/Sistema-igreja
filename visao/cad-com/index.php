@@ -126,6 +126,8 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 </body>
 
 <script src='../funcoesJS/funcoes.js'></script>
+<script src='../../dao/conexao.php'></script>
+<script src='../../dao/comunidadeDAO.php'></script>
 
 <script type="text/javascript">
     carregaDocumento("../navbar/navbar.php", "#header");
@@ -148,6 +150,31 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
         var campoLocalizacao = document.getElementById("inputLocalizacao");
         var campoEmail = document.getElementById("inputEmail");
 
+        // ___________________________________________________________________________________
+        // Chama a função que faz a chamada AJAX à função PHP 'conectar'
+        // var duplicado = chamarConectar(campoPadroeiro.value);
+        // alert(duplicado);
+
+        // Exemplo de uso
+        // chamarConectar(campoPadroeiro.value)
+        //     .then(function(resultado) {
+        //         // Aqui você pode fazer algo com o resultado retornado, se necessário
+        //         console.log('Resultado obtido:', resultado);
+        //         alert(resultado);
+        //     })
+        //     .catch(function(error) {
+        //         console.log('Erro ao executar as funções:', error);
+        //     });
+
+        // if (duplicado) {
+        //     alert("duplicado");
+
+        // } else {
+        //     alert("não duplicado");
+        //     // alert(duplicado);
+        // }
+        // ___________________________________________________________________________________
+
         // NÃO PEGA O ERRO "PADROEIRO JÁ CADASTRADO"
         if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") ||
             campoEmail.classList.contains("is-invalid")) {
@@ -157,6 +184,65 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
             return false;
         }
     });
+
+
+    // Função para chamar a função PHP 'conectar' por meio de AJAX
+    function chamarConectar(valor) {
+        return new Promise(function(resolve, reject) {
+            // Faz a chamada AJAX para 'conexao.php'
+            $.ajax({
+                type: 'POST',
+                url: '../../dao/conexao.php',
+                data: {
+                    action: 'conectar',
+                },
+                success: function(conexao) {
+                    // Chama a função para verificar se o padroeiro está duplicado
+                    var padroeiro = valor; // O parâmetro para verificar duplicidade
+
+                    // Encadeia a chamada da função chamarPadroeiroDuplicado e resolve a Promise com o resultado
+                    chamarPadroeiroDuplicado(conexao, padroeiro)
+                        .then(function(resultado) {
+                            // Exibe o resultado na página usando um alert
+                            // alert(resultado);
+                            // Resolve a Promise com o resultado
+                            resolve(resultado);
+                        })
+                        .catch(function(error) {
+                            console.log('Erro ao chamar a função padroeiroDuplicado via AJAX.', error);
+                            reject(error);
+                        });
+                },
+                error: function(error) {
+                    console.log('Erro ao chamar a função conectar via AJAX.', error);
+                    reject(error);
+                },
+            });
+        });
+    }
+
+    // Função para chamar a função PHP 'padroeiroDuplicado' por meio de AJAX
+    function chamarPadroeiroDuplicado(conexao, padroeiro) {
+        return new Promise(function(resolve, reject) {
+            // Faz a chamada AJAX para 'comunidadeDAO.php' passando o parâmetro 'padroeiro' e a conexão
+            $.ajax({
+                type: 'POST',
+                url: '../../dao/comunidadeDAO.php',
+                data: {
+                    action: 'padroeiroDuplicado',
+                    conexao: conexao,
+                    padroeiro: padroeiro,
+                },
+                success: function(resultado) {
+                    resolve(resultado);
+                },
+                error: function(error) {
+                    console.log('Erro ao chamar a função padroeiroDuplicado via AJAX.', error);
+                    reject(error);
+                },
+            });
+        });
+    }
 
     // Função para mostrar a div e depois escondê-la devagar
     var mensagemOriginal = '';

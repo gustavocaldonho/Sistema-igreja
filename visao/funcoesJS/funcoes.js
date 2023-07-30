@@ -79,3 +79,10 @@ function verifComunidade() {
         comunidade.classList.add("is-valid");
     }
 }
+
+function msgContagem(campo, spanId, length) {
+    var texto = campo.value;
+    var contador = texto.length;
+
+    document.getElementById(spanId).innerHTML = contador + "/" + length;
+}

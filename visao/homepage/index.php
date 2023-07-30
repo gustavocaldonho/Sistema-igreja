@@ -70,6 +70,73 @@
                 <h2 class="text-center">— Eventos —</h2>
             </div>
 
+            <div class="box__button-avisos">
+                <button type="button" id="btn-addEvento" name="btn-addEvento" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-eventos" data-bs-whatever="@mdo">Adicionar Evento</button>
+            </div>
+
+            <!-- modal -->
+            <div class="modal fade" id="modal-eventos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Inserir novo Evento</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form-avisos" name="form-avisos" action="../../controlador/cadEvento.php" method="POST">
+                                <div class="">
+                                    <label for="tituloEvento" class="col-form-label">Título</label>
+                                    <input type="text" class="form-control" id="tituloEvento" maxlength="100">
+                                </div>
+                                <div class="box__presidenteLocal">
+                                    <div class="metade-box">
+                                        <label for="presidenteEvento" class="col-form-label">Presidida por</label>
+                                        <input type="text" class="form-control" id="presidenteEvento" maxlength="100">
+                                    </div>
+                                    <div class="metade-box">
+                                        <label for="localEvento" class="col-form-label">Local</label>
+                                        <input type="text" class="form-control" id="localEvento">
+                                    </div>
+                                </div>
+                                <div class="box__dataHora">
+                                    <div class="metade-box">
+                                        <label for="dataEvento" class="col-form-label">Data</label>
+                                        <input type="date" class="form-control" id="dataEvento">
+                                    </div>
+                                    <div class="metade-box">
+                                        <label for="horarioEvento" class="col-form-label">Horário</label>
+                                        <input type="time" class="form-control" id="horarioEvento">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <label for="message-text" class="col-form-label">Descrição</label>
+                                    <textarea class="form-control" id="message-text" rows="2" maxlength="200" onkeyup="msgContagem(this, 'msgEvento', '200')"></textarea>
+                                    <div class="box__span">
+                                        <span id="msgEvento" name="msgEvento">0/200</span>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radioEvent" id="radioEventCom" value="0">
+                                    <label class="form-check-label" for="radioEventCom">
+                                        Visível somente para a Comunidade
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radioEvent" id="radioEventParoq" value="1" checked>
+                                    <label class="form-check-label" for="radioEventParoq">
+                                        Visível para toda a Paróquia
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Inserir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="box__eventos-body">
                 <div class="box__data">
                     <div class="mes text-uppercase">
@@ -93,79 +160,80 @@
                 </div>
             </div>
 
-            <div class="box__eventos-body">
-                <div class="box__data">
-                    <div class="mes text-uppercase">
-                        <p>janeiro</p>
-                    </div>
-                    <div class="num">
-                        <p>25</p>
-                    </div>
-                    <div class="dia_semana">
-                        <p>Quinta-feira</p>
+
+            <div class="box__avisos">
+
+                <div class="box__avisos-title">
+                    <h2 class="text-center">— Notícias & Avisos —</h2>
+                </div>
+
+                <div class="box__button-avisos">
+                    <button type="button" id="btn-addAviso" name="btn-addAviso" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-avisos" data-bs-whatever="@mdo">Adicionar Aviso</button>
+                </div>
+
+                <!-- modal -->
+                <div class="modal fade" id="modal-avisos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Inserir novo Aviso</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="form-avisos" name="form-avisos" action="../../controlador/cadAvisos.php" method="POST">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Título</label>
+                                        <input type="text" class="form-control" id="recipient-name" maxlength="100">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Descrição</label>
+                                        <textarea class="form-control" id="message-text" rows="6" maxlength="300" onkeyup="msgContagem(this, 'msgAviso', '300')"></textarea>
+                                        <div class="box__span">
+                                            <span id="msgAviso" name="msgAviso">0/300</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radioAviso" id="radioAvisoCom" value="0">
+                                        <label class="form-check-label" for="radioAvisoCom">
+                                            Visível somente para a Comunidade
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radioAviso" id="radioAvisoParoq" value="1" checked>
+                                        <label class="form-check-label" for="radioAvisoParoq">
+                                            Visível para toda a Paróquia
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                                <button type="submit" class="btn btn-primary">Inserir</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="box__informacoes">
-                    <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B36812" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                            <circle cx="6" cy="6" r="6" />
-                        </svg>Festa de Nossa Senhora Aparecida</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis commodi eum dicta
-                        iusto corrupti, nisi aperiam sapiente ea natus.</p>
-                    <p><b>Presidida por:</b> Pe Neil &emsp;&emsp; <b>Horário:</b> 19:00 &emsp;&emsp; <b>Local:</b>
-                        Igreja Matriz</p>
+
+                <div class="box__avisos-body">
+                    <div class="list-group">
+                        <!-- devolver o "active" -->
+                        <a class="list-group-item" aria-current="true">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right mb-1" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg> List group item heading</h5>
+                                <small class="text-secondary">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam
+                                assumenda
+                                officiis sed quis expedita, iure quidem voluptas optio sint tempore ipsum deleniti
+                                accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
+                            <!-- <small>And some small print.</small> -->
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="box__avisos">
-
-            <div class="box__avisos-title">
-                <h2 class="text-center">— Notícias & Avisos —</h2>
-            </div>
-            <div class="box__avisos-body">
-                <div class="list-group">
-                    <!-- devolver o "active" -->
-                    <a class="list-group-item" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right mb-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                                </svg> List group item heading</h5>
-                            <small class="text-secondary">3 days ago</small>
-                        </div>
-                        <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam assumenda
-                            officiis sed quis expedita, iure quidem voluptas optio sint tempore ipsum deleniti
-                            accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
-                        <!-- <small>And some small print.</small> -->
-                    </a>
-                    <a class="list-group-item" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right mb-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                                </svg> List group item heading</h5>
-                            <small class="text-secondary">3 days ago</small>
-                        </div>
-                        <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam assumenda
-                            officiis sed quis expedita, iure quidem voluptas optio sint tempore ipsum deleniti
-                            accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
-                        <!-- <small>And some small print.</small> -->
-                    </a>
-                    <a class="list-group-item" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right mb-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                                </svg> List group item heading</h5>
-                            <small class="text-secondary">3 days ago</small>
-                        </div>
-                        <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam assumenda
-                            officiis sed quis expedita, iure quidem voluptas optio sint tempore ipsum deleniti
-                            accusantium repellendus exercitationem nulla. Reprehenderit, est totam.</p>
-                        <!-- <small>And some small print.</small> -->
-                    </a>
-
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
 
     <!-- Código para linkar o footer (rodape), caso ele seja colocado em arquivo separado -->
@@ -238,11 +306,14 @@
     </div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
 
 <!-- Código de ativação do js (sem ele, o carrossel não funciona) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+</script>
 
 
 <script src='../funcoesJS/funcoes.js'></script>

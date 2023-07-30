@@ -32,7 +32,7 @@
     height: 400px;
 }
 
-/* ________________________________________ Código ainda indefinido _______________________________________ */
+/* ________________________________ Código ainda indefinido ______________________ */
 
 .box__avisos,
 .box__eventos {
@@ -140,6 +140,32 @@
     /* border-bottom: 2px solid #8a4f0d; */
 }
 
+/* Modal Eventos */
+.box__dataHora, .box__presidenteLocal{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+}
+
+.metade-box{
+    width: 48%;
+}
+
+/* ____________________ Style dos botões de addEvento e addAviso ___________________ */
+#btn-addAviso, #btn-addEvento{
+    background-color: #B36812;
+    border: 1px solid #B36812;
+}
+
+#btn-addAviso:hover, #btn-addEvento:hover{
+    background-color: #B88615;
+    border: 1px solid #B88615;
+}
+
+
+/* __________________________________________________________________________________ */
+
 /* _________________________ Styles do campo de avisos ______________________________ */
 
 .list-group a {
@@ -150,6 +176,19 @@
     background-color: white;
 }
 
+/* Style do botão 'adicionar avisos' */
+
+.box__button-avisos{
+    display: flex;
+    justify-content: right;
+    padding: 5px 0 5px 5px;
+    /* border: 2px solid green; */
+}
+
+.box__span{
+    display: flex;
+    justify-content: right;
+}
 /* ___________________________________________________________________________________ */
 
 .rodape {

@@ -11,9 +11,16 @@ function cadastrarAviso($conexao, $titulo, $descricao, $status)
 
 function selectAvisos($conexao)
 {
-    $sql = "SELECT * FROM bd_sistema.avisos";
+    $sql = "SELECT * FROM bd_sistema.avisos ORDER BY id_avisos DESC";
 
     $result = $conexao->query($sql);
 
     return $result;
+}
+
+function deleteAviso($conexao, $id_aviso)
+{
+    $sql = "DELETE FROM bd_sistema.avisos WHERE id_avisos = $id_aviso";
+
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }

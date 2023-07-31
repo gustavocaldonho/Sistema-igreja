@@ -23,3 +23,43 @@ delete from bd_sistema.membro_conselho where idcomunidade=7;
 delete from bd_sistema.comunidade where id_comunidade='6';
 
 SET foreign_key_checks = 0;
+
+-- Cadastro dos avisos
+INSERT INTO bd_sistema.avisos (status, titulo, descricao, id_comunidade) values (0, 'titulo', 'descricao', 10);
+select * from bd_sistema.avisos;
+
+-- -----------------------------------------------------
+-- Table `bd_sistema`.`Avisos`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `bd_sistema`.`Avisos` ;
+
+CREATE TABLE IF NOT EXISTS `bd_sistema`.`Avisos` (
+  `id_avisos` INT NOT NULL AUTO_INCREMENT,
+  `status` INT NOT NULL,
+  `titulo` VARCHAR(100) NOT NULL,
+  `descricao` VARCHAR(300) NULL,
+  `id_comunidade` INT NOT NULL,
+  PRIMARY KEY (`id_avisos`),
+    FOREIGN KEY (`id_comunidade`)
+    REFERENCES `bd_sistema`.`comunidade` (`id_comunidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bd_sistema`.`Eventos`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `bd_sistema`.`Eventos` ;
+
+CREATE TABLE IF NOT EXISTS `bd_sistema`.`Eventos` (
+  `id_eventos` INT NOT NULL AUTO_INCREMENT,
+  `status` INT NOT NULL,
+  `titulo` VARCHAR(100) NOT NULL,
+  `descricao` VARCHAR(200) NULL,
+  `data` DATE NULL,
+  `horario` VARCHAR(45) NULL,
+  `local` VARCHAR(15) NULL,
+  `presidente` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_eventos`))
+ENGINE = InnoDB;

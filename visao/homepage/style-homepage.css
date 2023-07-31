@@ -163,6 +163,12 @@
     border: 1px solid #B88615;
 }
 
+/* Style modal Avisos */
+.modal-footer{
+    padding: 6px;
+    /* background-color: aqua; */
+}
+
 
 /* __________________________________________________________________________________ */
 

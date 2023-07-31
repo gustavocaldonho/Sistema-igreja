@@ -97,6 +97,21 @@ function validarComunidade($padroeiro, $localizacao, $email)
     return $msgErro;
 }
 
+function validarAviso($titulo, $msg)
+{
+    $msgErro = "";
+
+    if (empty($titulo)) {
+        $msgErro .= "tituloErro ";
+    }
+
+    if (empty($msg)) {
+        $msgErro .= "descricaoErro";
+    }
+
+    return $msgErro;
+}
+
 function validarCPF($cpf)
 {
     // Extrai somente os números

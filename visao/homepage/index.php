@@ -180,16 +180,16 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form id="form-avisos" name="form-avisos" action="../../controlador/cadAvisos.php" method="POST">
-                                    <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Título</label>
-                                        <input type="text" class="form-control" id="recipient-name" maxlength="100">
+                                <form id="form-avisos" name="form-avisos" action="../../controlador/cadAvisos.php" method="POST" class="row g-3">
+                                    <div class="">
+                                        <label for="tituloAviso" class="col-form-label">Título</label>
+                                        <input type="text" class="form-control" id="tituloAviso"  name="tituloAviso" maxlength="100">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Descrição</label>
-                                        <textarea class="form-control" id="message-text" rows="6" maxlength="300" onkeyup="msgContagem(this, 'msgAviso', '300')"></textarea>
+                                    <div class="">
+                                        <label for="msgAviso" class="col-form-label">Descrição</label>
+                                        <textarea class="form-control" id="msgAviso" name="msgAviso" rows="6" maxlength="300" onkeyup="msgContagem(this, 'spanAviso', '300')"></textarea>
                                         <div class="box__span">
-                                            <span id="msgAviso" name="msgAviso">0/300</span>
+                                            <span id="spanAviso" name="spanAviso">0/300</span>
                                         </div>
                                     </div>
                                     <div class="form-check">
@@ -204,11 +204,12 @@
                                             Visível para toda a Paróquia
                                         </label>
                                     </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                                        <button type="submit" class="btn btn-primary">Inserir</button>
+                                    </div>
                                 </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-primary">Inserir</button>
                             </div>
                         </div>
                     </div>

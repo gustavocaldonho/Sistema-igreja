@@ -27,6 +27,7 @@ SET foreign_key_checks = 0;
 -- Cadastro dos avisos
 INSERT INTO bd_sistema.avisos (status, titulo, descricao, id_comunidade) values (0, 'titulo', 'descricao', 10);
 select * from bd_sistema.avisos;
+delete from bd_sistema.avisos where id_comunidade=10;
 
 -- -----------------------------------------------------
 -- Table `bd_sistema`.`Avisos`

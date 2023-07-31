@@ -1,0 +1,150 @@
+.container {
+    width: 80%;
+    height: 85vh;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0;
+    /* display: block; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: bisque;
+    /* border: 2px solid green; */
+}
+
+/* __________________________ Style box__superior __________________________*/
+
+.box__superior{
+    display: flex;
+    height: 65%;
+    width: 100%;
+    /* background-color: gainsboro; */
+}
+
+.box__infos{
+    height: 100%;
+    width: 60%;
+    /* padding: 0 30px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* border: 2px solid red; */
+    /* background-color: red; */
+}
+
+.box__infos .info p{
+    font-size: 22px;
+}
+
+.box__infos .info{
+    width: 100%;
+    height: 40%;
+    padding: 20px;
+    /* border: 2px solid green; */
+}
+
+/* _________________ Style de cada avatar dos membros do conselho  _________________ */
+.box__membros-conselho{
+    height: 60%;
+    width: 100%;
+    /* border: 2px solid blue; */
+}
+
+.box__membros-conselho .header{
+    height: 15%;
+    width: 100%;
+    padding: 20px;
+    /* text-align: center; */
+    /* border: 2px solid green; */
+}
+
+.box__membros-conselho .header p{
+    margin: 0;
+    font-size: 18px;
+}
+
+.box__membros-conselho .bory{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 2px solid green; */
+}
+
+.box__membros-conselho img{
+    width: 80px;
+    border-radius: 100%;
+}
+
+.membro{
+    height: 80%;
+    width: 150px;
+    text-align: center;
+    /* border: 2px solid black; */
+}
+
+.membro p{
+    font-size: 16px;
+}
+/* ____________________________ Style da imagem da comunidade ________________________ */
+
+.box__img{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid violet; */
+    /* background-color: violet; */
+}
+
+.box__img img{
+    width: 50%;
+}
+
+/* __________________________ Style box__inferior __________________________*/
+
+.box__inferior{
+    height: 35%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+}
+
+.box__inferior .bloco{
+    height: 50%;
+    width: 20%;
+    /* border: 2px solid black; */
+}
+
+.bloco div{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid blue; */
+}
+
+.bloco .number{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: coral;
+}
+
+.bloco .text{
+    height: 50px;
+    width: 80%;
+    font-size: 20px;
+    background-color: #B36812;
+    color: white;
+    border: 2px solid #B36812;
+    border-radius: 8px;
+    padding: 6px 12px;
+    text-align: center;
+}
+
+.bloco .text:hover{
+    opacity: .9;
+}

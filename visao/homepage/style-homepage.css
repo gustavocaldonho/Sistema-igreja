@@ -195,6 +195,22 @@
     display: flex;
     justify-content: right;
 }
+
+/* botões de edição e exlusão (canto superior direito) */
+.buttonsAviso button{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: none;
+    padding: 2px 4px;
+    /* border: 1px solid black; */
+}
+
+.buttonsAviso button svg:hover{
+    height: 20px;
+    width: 20px;
+    /* transition: 5ms; */
+}
 /* ___________________________________________________________________________________ */
 
 .rodape {

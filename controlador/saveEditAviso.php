@@ -7,7 +7,7 @@ require_once "../dao/avisoDAO.php";
 // var_dump($_POST);
 
 $titulo = $_POST["tituloAviso"];
-$descricao = $_POST["msgAviso"];
+$descricao = $_POST["descricaoAviso"];
 $status = $_POST["radioAviso"];
 $id_aviso = $_POST["id_aviso"];
 

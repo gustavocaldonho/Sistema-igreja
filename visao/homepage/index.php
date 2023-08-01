@@ -186,11 +186,11 @@
                                 <form id="form_avisos" name="form_avisos" enctype='multipart/form-data' action="../../controlador/cadAvisos.php" method="POST" class="row g-3">
                                     <div class="">
                                         <label for="tituloAviso" class="col-form-label">Título</label>
-                                        <input type="text" class="form-control" id="tituloAviso" name="tituloAviso" maxlength="100" value="">
+                                        <input type="text" class="form-control" id="tituloAviso" name="tituloAviso" maxlength="100">
                                     </div>
                                     <div class="">
                                         <label for="descricaoAviso" class="col-form-label">Descrição</label>
-                                        <textarea class="form-control" id="msgAviso" name="descricaoAviso" rows="6" maxlength="300" onkeyup="msgContagem(this, 'spanAviso', '300')"></textarea>
+                                        <textarea class="form-control" id="descricaoAviso" name="descricaoAviso" rows="6" maxlength="300" onkeyup="msgContagem(this, 'spanAviso', '300')"></textarea>
                                         <div class="box__span">
                                             <span id="spanAviso" name="spanAviso">0/300</span>
                                         </div>
@@ -207,6 +207,7 @@
                                             Visível para toda a Paróquia
                                         </label>
                                     </div>
+                                    <input type="text" id="id_aviso" name="id_aviso" value="" hidden>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -248,10 +249,18 @@
                         $result = buscarAvisos();
 
                         while ($user_data = mysqli_fetch_assoc($result)) {
+                            // function escapeJavascriptString($str)
+                            // {
+                            //     return addslashes($str);
+                            // }
+
                             $id_aviso = $user_data['id_avisos'];
                             $status = $user_data['status'];
                             $titulo = $user_data['titulo'];
                             $descricao = $user_data['descricao'];
+
+                            // var_dump($titulo);
+                            // var_dump($descricao);
 
                             echo "<a class='list-group-item' aria-current='true'>";
                             echo "<div class='d-flex w-100 justify-content-between'>";
@@ -261,7 +270,7 @@
                             echo " " . $titulo;
                             echo "</h5>";
                             echo "<div class='buttonsAviso'>
-                                        <button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modal-avisos' onclick=setarModalAvisoUpdate('$titulo')>
+                                        <button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modal-avisos' onclick='setarModalAvisoUpdate(\"$titulo\", \"$descricao\", $status, $id_aviso)'>
                                             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='blue' class='bi bi-pencil-fill' viewBox='0 0 16 16'>
                                                 <path d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z'/>
                                             </svg>
@@ -274,7 +283,7 @@
                                         </button>
                                     </div>";
                             echo "</div>";
-                            echo "<p class='mb-1'>" . $descricao . "</p>";
+                            echo "<p class='mb-1'> $descricao  </p>";
                             // echo "<small hidden>And some small print.</small>";
                             echo "</a>";
                         }
@@ -409,21 +418,27 @@
 </script>
 
 <script>
-    function setarActionFormAvisos(){
+    function setarActionFormAvisos() {
         document.form_avisos.action = "../../controlador/cadAvisos.php";
     }
 
     // $id_aviso, $titulo, $descricao, $status
-    function setarModalAvisoUpdate(id_aviso) {
-        // alert("lskdlskd");
-        // document.getElementById('form-avisos').action = '../../controlador/teste.php';
-        document.form_avisos.action = "../../controlador/teste.php";
+    function setarModalAvisoUpdate(titulo, descricao, status, id_aviso) {
+        document.form_avisos.action = "../../controlador/saveEditAviso.php";
 
+        // alert(status + " " + id_aviso + " " + titulo + " " + descricao);
 
-        // alert(id_aviso);
-        // document.getElementById('tituloAviso').value = id_aviso;
-        // document.getElementById('descricaoAviso').value = descricao;
-        // document.getElementById().value = $status;
+        document.getElementById('tituloAviso').value = titulo;
+        document.getElementById('descricaoAviso').value = descricao;
+        document.getElementById('id_aviso').value = id_aviso;
+
+        if (status == 0) {
+            const radioOpcao0 = document.querySelector('input[name="radioAviso"][value="0"]');
+            radioOpcao0.checked = true;
+        } else {
+            const radioOpcao1 = document.querySelector('input[name="radioAviso"][value="1"]');
+            radioOpcao1.checked = true;
+        }
     }
 
     function setarIdModalAviso(id) {

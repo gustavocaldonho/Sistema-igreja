@@ -190,7 +190,7 @@
                                     </div>
                                     <div class="">
                                         <label for="descricaoAviso" class="col-form-label">Descrição</label>
-                                        <textarea class="form-control" id="descricaoAviso" name="descricaoAviso" rows="6" maxlength="300" onkeyup="msgContagem(this, 'spanAviso', '300')"></textarea>
+                                        <textarea class="form-control" id="descricaoAviso" name="descricaoAviso" rows="6" maxlength="300" onkeyup="msgContagem('descricaoAviso', 'spanAviso', '300')"></textarea>
                                         <div class="box__span">
                                             <span id="spanAviso" name="spanAviso">0/300</span>
                                         </div>
@@ -249,18 +249,10 @@
                         $result = buscarAvisos();
 
                         while ($user_data = mysqli_fetch_assoc($result)) {
-                            // function escapeJavascriptString($str)
-                            // {
-                            //     return addslashes($str);
-                            // }
-
                             $id_aviso = $user_data['id_avisos'];
                             $status = $user_data['status'];
                             $titulo = $user_data['titulo'];
                             $descricao = $user_data['descricao'];
-
-                            // var_dump($titulo);
-                            // var_dump($descricao);
 
                             echo "<a class='list-group-item' aria-current='true'>";
                             echo "<div class='d-flex w-100 justify-content-between'>";
@@ -420,13 +412,17 @@
 <script>
     function setarActionFormAvisos() {
         document.form_avisos.action = "../../controlador/cadAvisos.php";
+
+        // Limpando os campos
+        document.getElementById('tituloAviso').value = "";
+        document.getElementById('descricaoAviso').value = "";
+        document.getElementById('id_aviso').value = "";
+        const radioOpcao0 = document.querySelector('input[name="radioAviso"][value="0"]');
+        radioOpcao0.checked = true;
     }
 
-    // $id_aviso, $titulo, $descricao, $status
     function setarModalAvisoUpdate(titulo, descricao, status, id_aviso) {
         document.form_avisos.action = "../../controlador/saveEditAviso.php";
-
-        // alert(status + " " + id_aviso + " " + titulo + " " + descricao);
 
         document.getElementById('tituloAviso').value = titulo;
         document.getElementById('descricaoAviso').value = descricao;
@@ -439,6 +435,9 @@
             const radioOpcao1 = document.querySelector('input[name="radioAviso"][value="1"]');
             radioOpcao1.checked = true;
         }
+
+        // Ajustar a contagem dos caracteres (span) -> a mensagem é carregada mas não são contados os caracteres
+        // msgContagem('descricaoAviso', 'spanAviso', '300');
     }
 
     function setarIdModalAviso(id) {

@@ -80,8 +80,8 @@ function verifComunidade() {
     }
 }
 
-function msgContagem(campo, spanId, length) {
-    var texto = campo.value;
+function msgContagem(idCampo, spanId, length) {
+    var texto = document.getElementById(idCampo).value;
     var contador = texto.length;
 
     document.getElementById(spanId).innerHTML = contador + "/" + length;

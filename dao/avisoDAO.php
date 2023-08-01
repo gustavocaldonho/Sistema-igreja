@@ -24,3 +24,10 @@ function deleteAviso($conexao, $id_aviso)
 
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
+
+function updateAviso($conexao, $id_aviso, $titulo, $descricao, $status)
+{
+    $sqlUpdate = "UPDATE bd_sistema.avisos SET titulo='$titulo', descricao='$descricao', status='$status' WHERE id_avisos=$id_aviso";
+
+    $result = $conexao->query($sqlUpdate);
+}

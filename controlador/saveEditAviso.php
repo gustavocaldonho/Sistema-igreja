@@ -7,15 +7,16 @@ require_once "../dao/avisoDAO.php";
 // var_dump($_POST);
 
 $titulo = $_POST["tituloAviso"];
-$descricao = $_POST["descricaoAviso"];
+$descricao = $_POST["msgAviso"];
 $status = $_POST["radioAviso"];
+$id_aviso = $_POST["id_aviso"];
 
 $msgErro = validarAviso($titulo, $descricao);
 
 if (empty($msgErro)) {
     // echo "tudo certo";
     $conexao = conectar();
-    cadastrarAviso($conexao, $titulo, $descricao, $status);
+    updateAviso($conexao, $id_aviso, $titulo, $descricao, $status);
 
     header("Location: ../visao/homepage/index.php?msg=Aviso inserido com sucesso");
 } else {

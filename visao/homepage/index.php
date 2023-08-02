@@ -427,6 +427,9 @@
         document.getElementById('id_aviso').value = "";
         const radioOpcao0 = document.querySelector('input[name="radioAviso"][value="0"]');
         radioOpcao0.checked = true;
+
+        // resetando o contador de caracteres
+        msgContagem('descricaoAviso', 'spanAviso', '300');
     }
 
     function setarModalAvisoUpdate(titulo, descricao, status, id_aviso) {
@@ -444,8 +447,8 @@
             radioOpcao1.checked = true;
         }
 
-        // Ajustar a contagem dos caracteres (span) -> a mensagem é carregada mas não são contados os caracteres
-        // msgContagem('descricaoAviso', 'spanAviso', '300');
+        // Ajustando a contagem dos caracteres (small)
+        msgContagem('descricaoAviso', 'spanAviso', '300');
     }
 
     function setarIdModalAviso(id) {

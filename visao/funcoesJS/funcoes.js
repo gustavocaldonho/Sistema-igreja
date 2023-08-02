@@ -80,9 +80,9 @@ function verifComunidade() {
     }
 }
 
-function msgContagem(idCampo, spanId, length) {
+function msgContagem(idCampo, spanId, tamanho) {
     var texto = document.getElementById(idCampo).value;
     var contador = texto.length;
 
-    document.getElementById(spanId).innerHTML = contador + "/" + length;
+    document.getElementById(spanId).innerHTML = contador + "/" + tamanho;
 }

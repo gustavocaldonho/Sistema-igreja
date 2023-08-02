@@ -188,12 +188,19 @@
 }
 
 /* Style do botão 'adicionar avisos' */
-
 .box__button-avisos {
     display: flex;
     justify-content: right;
     padding: 5px 0 5px 5px;
     /* border: 2px solid green; */
+}
+
+.box__descricaoAvisos{
+    margin: 0;
+}
+
+.modal-footer{
+    margin: 8px 0 0;
 }
 
 .box__span {

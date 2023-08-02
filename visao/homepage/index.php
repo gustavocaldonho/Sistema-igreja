@@ -186,13 +186,16 @@
                                 <form id="form_avisos" name="form_avisos" enctype='multipart/form-data' action="../../controlador/cadAvisos.php" method="POST" class="row g-3">
                                     <div class="">
                                         <label for="tituloAviso" class="col-form-label">Título</label>
-                                        <input type="text" class="form-control" id="tituloAviso" name="tituloAviso" maxlength="100">
-                                    </div>
-                                    <div class="">
-                                        <label for="descricaoAviso" class="col-form-label">Descrição</label>
-                                        <textarea class="form-control" id="descricaoAviso" name="descricaoAviso" rows="6" maxlength="300" onkeyup="msgContagem('descricaoAviso', 'spanAviso', '300')"></textarea>
+                                        <input type="text" class="form-control" id="tituloAviso" name="tituloAviso" maxlength="100" onkeyup="msgContagem('tituloAviso', 'spanAvisoTitulo', '100')">
                                         <div class="box__span">
-                                            <span id="spanAviso" name="spanAviso">0/300</span>
+                                            <span id="spanAvisoTitulo" name="spanAvisoTitulo">0/100</span>
+                                        </div>
+                                    </div>
+                                    <div class="box__descricaoAvisos">
+                                        <label for="descricaoAviso" class="col-form-label">Descrição</label>
+                                        <textarea class="form-control" id="descricaoAviso" name="descricaoAviso" rows="6" maxlength="300" onkeyup="msgContagem('descricaoAviso', 'spanAvisoDescricao', '300')"></textarea>
+                                        <div class="box__span">
+                                            <span id="spanAvisoDescricao" name="spanAvisoDescricao">0/300</span>
                                         </div>
                                     </div>
                                     <div class="form-check">
@@ -428,8 +431,9 @@
         const radioOpcao0 = document.querySelector('input[name="radioAviso"][value="0"]');
         radioOpcao0.checked = true;
 
-        // resetando o contador de caracteres
-        msgContagem('descricaoAviso', 'spanAviso', '300');
+        // resetando os contadores de caracteres
+        msgContagem('descricaoAviso', 'spanAvisoDescricao', '300');
+        msgContagem('tituloAviso', 'spanAvisoTitulo', '100');
     }
 
     function setarModalAvisoUpdate(titulo, descricao, status, id_aviso) {
@@ -448,7 +452,8 @@
         }
 
         // Ajustando a contagem dos caracteres (small)
-        msgContagem('descricaoAviso', 'spanAviso', '300');
+        msgContagem('descricaoAviso', 'spanAvisoDescricao', '300');
+        msgContagem('tituloAviso', 'spanAvisoTitulo', '100');
     }
 
     function setarIdModalAviso(id) {

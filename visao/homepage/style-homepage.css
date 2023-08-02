@@ -159,12 +159,13 @@
 #btn-addEvento {
     background-color: #B36812;
     border: 1px solid #B36812;
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
 }
 
 #btn-addAviso:hover,
 #btn-addEvento:hover {
-    background-color: #B88615;
-    border: 1px solid #B88615;
+    opacity: .7;
 }
 
 /* Style modal Avisos */
@@ -229,7 +230,7 @@
     border: 1px solid orange;
 }
 
-.small-status.paroquia{
+.small-status.paroquia {
     /* font-size: 14px; */
     padding: 3px 13px;
     color: orangered;

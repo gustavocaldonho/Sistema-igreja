@@ -18,6 +18,7 @@
     /* border-radius: 10px; */
     /* roundness of the scroll thumb */
 }
+
 /* _________________________________________________________________________________ */
 
 .container {
@@ -141,30 +142,33 @@
 }
 
 /* Modal Eventos */
-.box__dataHora, .box__presidenteLocal{
+.box__dataHora,
+.box__presidenteLocal {
     width: 100%;
     display: flex;
     justify-content: space-between;
     /* border: 2px solid black; */
 }
 
-.metade-box{
+.metade-box {
     width: 48%;
 }
 
 /* ____________________ Style dos botões de addEvento e addAviso ___________________ */
-#btn-addAviso, #btn-addEvento{
+#btn-addAviso,
+#btn-addEvento {
     background-color: #B36812;
     border: 1px solid #B36812;
 }
 
-#btn-addAviso:hover, #btn-addEvento:hover{
+#btn-addAviso:hover,
+#btn-addEvento:hover {
     background-color: #B88615;
     border: 1px solid #B88615;
 }
 
 /* Style modal Avisos */
-.modal-footer{
+.modal-footer {
     padding: 6px;
     /* background-color: aqua; */
 }
@@ -184,20 +188,20 @@
 
 /* Style do botão 'adicionar avisos' */
 
-.box__button-avisos{
+.box__button-avisos {
     display: flex;
     justify-content: right;
     padding: 5px 0 5px 5px;
     /* border: 2px solid green; */
 }
 
-.box__span{
+.box__span {
     display: flex;
     justify-content: right;
 }
 
 /* botões de edição e exlusão (canto superior direito) */
-.buttonsAviso button{
+.buttonsAviso button {
     height: 30px;
     width: 30px;
     background-color: white;
@@ -206,11 +210,32 @@
     /* border: 1px solid black; */
 }
 
-.buttonsAviso button svg:hover{
+.buttonsAviso button svg:hover {
     height: 20px;
     width: 20px;
     /* transition: 5ms; */
 }
+
+/* campo status aviso */
+.small-status {
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 3px;
+    margin-right: 12px;
+}
+
+.small-status.comunidade {
+    color: orange;
+    border: 1px solid orange;
+}
+
+.small-status.paroquia{
+    /* font-size: 14px; */
+    padding: 3px 13px;
+    color: orangered;
+    border: 1px solid orangered;
+}
+
 /* ___________________________________________________________________________________ */
 
 .rodape {
@@ -221,11 +246,12 @@
     margin: 100px 0 0 0;
     padding: 1em;
     color: white;
-    background-color: #B88615; /* cor da navbar */
+    background-color: #B88615;
+    /* cor da navbar */
     /* background-color: #B35C0F; */
     /* background-color: #6B4D2B; */
     background-color: #B36812;
-    
+
 
     /* Criador de paleta de cores */
     /* https://color.adobe.com/pt/create/color-wheel */

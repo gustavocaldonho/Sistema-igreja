@@ -140,26 +140,71 @@
             <!-- _________________________________________________________________________________________ -->
 
             <div class="box__eventos-body">
-                <div class="box__data">
-                    <div class="mes text-uppercase">
-                        <p>janeiro</p>
+                <div class="item-evento">
+                    <div class="box__data">
+                        <div class="mes text-uppercase">
+                            <p>janeiro</p>
+                        </div>
+                        <div class="num">
+                            <p>25</p>
+                        </div>
+                        <div class="dia_semana">
+                            <p>Quinta-feira</p>
+                        </div>
                     </div>
-                    <div class="num">
-                        <p>25</p>
-                    </div>
-                    <div class="dia_semana">
-                        <p>Quinta-feira</p>
+                    <div class="box__informacoes">
+                        <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B36812" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="6" cy="6" r="6" />
+                            </svg>Festa de Nossa Senhora Aparecida</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis commodi eum dicta
+                            iusto corrupti, nisi aperiam sapiente ea natus.</p>
+                        <p><b>Horário:</b> 19:00 &emsp; <b>Local:</b>
+                            Igreja Matriz &emsp; <b>Presidida por:</b> Pe Neil </p>
                     </div>
                 </div>
-                <div class="box__informacoes">
-                    <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B36812" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                            <circle cx="6" cy="6" r="6" />
-                        </svg>Festa de Nossa Senhora Aparecida</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis commodi eum dicta
-                        iusto corrupti, nisi aperiam sapiente ea natus.</p>
-                    <!-- <p><b>Presidida por:</b> Pe Neil &emsp;&emsp; <b>Horário:</b> 19:00 &emsp;&emsp; <b>Local:</b> -->
-                    <p><b>Horário:</b> 19:00 &emsp; <b>Local:</b>
-                        Igreja Matriz &emsp; <b>Presidida por:</b> Pe Neil </p>
+                <div class="item-evento">
+                    <div class="box__data">
+                        <div class="mes text-uppercase">
+                            <p>janeiro</p>
+                        </div>
+                        <div class="num">
+                            <p>25</p>
+                        </div>
+                        <div class="dia_semana">
+                            <p>Quinta-feira</p>
+                        </div>
+                    </div>
+                    <div class="box__informacoes">
+                        <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B36812" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="6" cy="6" r="6" />
+                            </svg>Festa de Nossa Senhora Aparecida</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis commodi eum dicta
+                            iusto corrupti, nisi aperiam sapiente ea natus.</p>
+                        <p><b>Horário:</b> 19:00 &emsp; <b>Local:</b>
+                            Igreja Matriz &emsp; <b>Presidida por:</b> Pe Neil </p>
+                    </div>
+                </div>
+                <div class="item-evento">
+                    <div class="box__data">
+                        <div class="mes text-uppercase">
+                            <p>janeiro</p>
+                        </div>
+                        <div class="num">
+                            <p>25</p>
+                        </div>
+                        <div class="dia_semana">
+                            <p>Quinta-feira</p>
+                        </div>
+                    </div>
+                    <div class="box__informacoes">
+                        <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B36812" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="6" cy="6" r="6" />
+                            </svg>Festa de Nossa Senhora Aparecida</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis commodi eum dicta
+                            iusto corrupti, nisi aperiam sapiente ea natus.</p>
+                        <p><b>Horário:</b> 19:00 &emsp; <b>Local:</b>
+                            Igreja Matriz &emsp; <b>Presidida por:</b> Pe Neil </p>
+                    </div>
                 </div>
             </div>
 

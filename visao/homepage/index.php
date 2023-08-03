@@ -117,13 +117,13 @@
                                     </div>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="radioEvent" id="radioEventCom" value="0">
+                                    <input class="form-check-input" type="radio" name="radioEvento" id="radioEventCom" value="0">
                                     <label class="form-check-label" for="radioEventCom">
                                         Visível somente para a Comunidade
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="radioEvent" id="radioEventParoq" value="1" checked>
+                                    <input class="form-check-input" type="radio" name="radioEvento" id="radioEventParoq" value="1" checked>
                                     <label class="form-check-label" for="radioEventParoq">
                                         Visível para toda a Paróquia
                                     </label>
@@ -157,8 +157,9 @@
                         </svg>Festa de Nossa Senhora Aparecida</h5>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis commodi eum dicta
                         iusto corrupti, nisi aperiam sapiente ea natus.</p>
-                    <p><b>Presidida por:</b> Pe Neil &emsp;&emsp; <b>Horário:</b> 19:00 &emsp;&emsp; <b>Local:</b>
-                        Igreja Matriz</p>
+                    <!-- <p><b>Presidida por:</b> Pe Neil &emsp;&emsp; <b>Horário:</b> 19:00 &emsp;&emsp; <b>Local:</b> -->
+                    <p><b>Horário:</b> 19:00 &emsp; <b>Local:</b>
+                        Igreja Matriz &emsp; <b>Presidida por:</b> Pe Neil </p>
                 </div>
             </div>
 

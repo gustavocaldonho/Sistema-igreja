@@ -15,6 +15,8 @@ $msgErro = validarAviso($titulo, $descricao);
 if (empty($msgErro)) {
     // echo "tudo certo";
     $conexao = conectar();
+
+    // avisoDAO
     cadastrarAviso($conexao, $titulo, $descricao, $status);
 
     header("Location: ../visao/homepage/index.php?msg=Aviso inserido com sucesso");

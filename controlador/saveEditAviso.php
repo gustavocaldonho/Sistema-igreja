@@ -18,7 +18,7 @@ if (empty($msgErro)) {
     $conexao = conectar();
     updateAviso($conexao, $id_aviso, $titulo, $descricao, $status);
 
-    header("Location: ../visao/homepage/index.php?msg=Aviso inserido com sucesso");
+    header("Location: ../visao/homepage/index.php?msg=Aviso atualizado com sucesso");
 } else {
     // echo "$msgErro";
     header("Location: ../visao/homepage/index.php?msg=$msgErro");

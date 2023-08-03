@@ -97,7 +97,7 @@ function validarComunidade($padroeiro, $localizacao, $email)
     return $msgErro;
 }
 
-function validarAviso($titulo, $msg)
+function validarEvento($titulo, $descricao, $local, $presidente)
 {
     $msgErro = "";
 
@@ -105,7 +105,30 @@ function validarAviso($titulo, $msg)
         $msgErro .= "tituloErro ";
     }
 
-    if (empty($msg)) {
+    if (empty($descricao)) {
+        $msgErro .= " descricaoErro ";
+    }
+
+    if (empty($local)) {
+        $msgErro .= " localErro ";
+    }
+
+    if (empty($presidente)) {
+        $msgErro .= " presidenteErro";
+    }
+
+    return $msgErro;
+}
+
+function validarAviso($titulo, $descricao)
+{
+    $msgErro = "";
+
+    if (empty($titulo)) {
+        $msgErro .= "tituloErro ";
+    }
+
+    if (empty($descricao)) {
         $msgErro .= "descricaoErro";
     }
 

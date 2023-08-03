@@ -71,7 +71,7 @@
             </div>
 
             <div class="box__button-avisos">
-                <button type="button" id="btn-addEvento" name="btn-addEvento" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-eventos" data-bs-whatever="@mdo">Adicionar
+                <button type="button" id="btn-addEvento" name="btn-addEvento" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-eventos" data-bs-whatever="@mdo" onclick="setarModalFormEventos()">Adicionar
                     Evento</button>
             </div>
 
@@ -84,36 +84,39 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="form-avisos" name="form-avisos" action="../../controlador/cadEvento.php" method="POST">
+                            <form id="form-avisos" name="form-avisos" action="../../controlador/cadEventos.php" method="POST">
                                 <div class="">
                                     <label for="tituloEvento" class="col-form-label">Título</label>
-                                    <input type="text" class="form-control" id="tituloEvento" maxlength="70">
+                                    <input type="text" class="form-control" id="tituloEvento" name="tituloEvento" maxlength="70" onkeyup="msgContagem('tituloEvento', 'spanTituloEvento', '70')">
+                                    <div class="box__span">
+                                        <span id="spanTituloEvento" name="spanTituloEvento">0/70</span>
+                                    </div>
                                 </div>
                                 <div class="box__presidenteLocal">
                                     <div class="metade-box">
                                         <label for="presidenteEvento" class="col-form-label">Presidida por</label>
-                                        <input type="text" class="form-control" id="presidenteEvento" maxlength="100">
+                                        <input type="text" class="form-control" id="presidenteEvento" name="presidenteEvento" maxlength="100">
                                     </div>
                                     <div class="metade-box">
                                         <label for="localEvento" class="col-form-label">Local</label>
-                                        <input type="text" class="form-control" id="localEvento">
+                                        <input type="text" class="form-control" id="localEvento" name="localEvento">
                                     </div>
                                 </div>
                                 <div class="box__dataHora">
                                     <div class="metade-box">
                                         <label for="dataEvento" class="col-form-label">Data</label>
-                                        <input type="date" class="form-control" id="dataEvento">
+                                        <input type="date" class="form-control" id="dataEvento" name="dataEvento">
                                     </div>
                                     <div class="metade-box">
                                         <label for="horarioEvento" class="col-form-label">Horário</label>
-                                        <input type="time" class="form-control" id="horarioEvento">
+                                        <input type="time" class="form-control" id="horarioEvento" name="horarioEvento">
                                     </div>
                                 </div>
                                 <div class="">
                                     <label for="descricaoEvento" class="col-form-label">Descrição</label>
-                                    <textarea class="form-control" id="descricaoEvento" name="descricaoEvento" rows="2" maxlength="200" onkeyup="msgContagem(this, 'msgEvento', '200')"></textarea>
+                                    <textarea class="form-control" id="descricaoEvento" name="descricaoEvento" rows="2" maxlength="200" onkeyup="msgContagem('descricaoEvento', 'spanDescricaoEvento', '200')"></textarea>
                                     <div class="box__span">
-                                        <span id="msgEvento" name="msgEvento">0/200</span>
+                                        <span id="spanDescricaoEvento" name="spanDescricaoEvento">0/200</span>
                                     </div>
                                 </div>
                                 <div class="form-check">
@@ -128,11 +131,11 @@
                                         Visível para toda a Paróquia
                                     </label>
                                 </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Inserir</button>
+                                </div>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-primary">Inserir</button>
                         </div>
                     </div>
                 </div>
@@ -198,7 +201,7 @@
             </div>
 
             <div class="box__button-avisos">
-                <button type="button" id="btn-addAviso" name="btn-addAviso" onclick="setarActionFormAvisos()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-avisos" data-bs-whatever="@mdo">Adicionar
+                <button type="button" id="btn-addAviso" name="btn-addAviso" onclick="setarModalFormAvisos()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-avisos" data-bs-whatever="@mdo">Adicionar
                     Aviso</button>
             </div>
 
@@ -449,7 +452,26 @@
 </script>
 
 <script>
-    function setarActionFormAvisos() {
+    function setarModalFormEventos() {
+        // document.form_avisos.action = "../../controlador/cadAvisos.php";
+
+        // Limpando os campos
+        document.getElementById('tituloEvento').value = "";
+        document.getElementById('presidenteEvento').value = "";
+        document.getElementById('localEvento').value = "";
+        document.getElementById('dataEvento').value = "";
+        document.getElementById('horarioEvento').value = "";
+        document.getElementById('descricaoEvento').value = "";
+        // document.getElementById('id_aviso').value = "";
+        const radioOpcao0 = document.querySelector('input[name="radioEvento"][value="0"]');
+        radioOpcao0.checked = true;
+
+        // resetando os contadores de caracteres
+        msgContagem('tituloEvento', 'spanTituloEvento', '70');
+        msgContagem('descricaoEvento', 'spanDescricaoEvento', '200');
+    }
+
+    function setarModalFormAvisos() {
         document.form_avisos.action = "../../controlador/cadAvisos.php";
 
         // Limpando os campos
@@ -460,8 +482,8 @@
         radioOpcao0.checked = true;
 
         // resetando os contadores de caracteres
-        msgContagem('descricaoAviso', 'spanAvisoDescricao', '300');
         msgContagem('tituloAviso', 'spanAvisoTitulo', '100');
+        msgContagem('descricaoAviso', 'spanAvisoDescricao', '300');
     }
 
     function setarModalAvisoUpdate(titulo, descricao, status, id_aviso) {

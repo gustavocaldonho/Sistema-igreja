@@ -15,7 +15,7 @@ $presidente = $_POST["presidenteEvento"];
 $status = $_POST["radioEvento"];
 
 // data e horario não podem assumir qualquer valor (estão definidos os types nos inputs)
-$msgErro = validarEvento($titulo, $descricao, $local, $presidente);
+$msgErro = validarEvento($titulo, $descricao, $data, $horario, $local, $presidente);
 
 if (empty($msgErro)) {
     // echo "tudo certo";

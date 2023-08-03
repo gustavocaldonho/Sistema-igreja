@@ -97,7 +97,7 @@ function validarComunidade($padroeiro, $localizacao, $email)
     return $msgErro;
 }
 
-function validarEvento($titulo, $descricao, $local, $presidente)
+function validarEvento($titulo, $descricao, $data, $horario, $local, $presidente)
 {
     $msgErro = "";
 
@@ -107,6 +107,14 @@ function validarEvento($titulo, $descricao, $local, $presidente)
 
     if (empty($descricao)) {
         $msgErro .= " descricaoErro ";
+    }
+
+    if (empty($data)) {
+        $msgErro .= " dataErro ";
+    }
+
+    if (empty($horario)) {
+        $msgErro .= " horarioErro ";
     }
 
     if (empty($local)) {

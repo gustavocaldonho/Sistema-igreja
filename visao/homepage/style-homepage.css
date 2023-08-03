@@ -73,8 +73,8 @@
 
 }
 
-/* box de cada evento */
-.item-evento{
+/* box de cada evento (item) */
+.item-evento {
     height: 150px;
     width: 100%;
     display: flex;
@@ -151,6 +151,13 @@
     /* border-bottom: 2px solid #8a4f0d; */
 }
 
+/* div superior, onde fica o título do evento, o status e os botões (edição, exclusão) */
+.box__informacoes .superior {
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid green; */
+}
+
 /* Modal Eventos */
 .box__dataHora,
 .box__presidenteLocal {
@@ -205,11 +212,11 @@
     /* border: 2px solid green; */
 }
 
-.box__descricaoAvisos{
+.box__descricaoAvisos {
     margin: 0;
 }
 
-.modal-footer{
+.modal-footer {
     margin: 8px 0 0;
 }
 

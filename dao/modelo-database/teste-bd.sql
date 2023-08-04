@@ -26,9 +26,14 @@ SET foreign_key_checks = 0;
 
 -- Cadastro dos avisos
 INSERT INTO bd_sistema.avisos (status, titulo, descricao, id_comunidade) values (0, 'titulo', 'descricao', 10);
-select * from bd_sistema.avisos  order by id_avisos desc 
+select * from bd_sistema.avisos  order by id_avisos desc; 
 delete from bd_sistema.avisos where id_avisos = 9;
 UPDATE bd_sistema.avisos SET titulo='$titulo', descricao='$descricao', status=1 WHERE id_avisos=24;
+
+-- Cadastro dos eventos
+select * from bd_sistema.eventos  order by id_eventos desc; 
+delete from bd_sistema.eventos where id_eventos > 5;
+
 
 -- -----------------------------------------------------
 -- Table `bd_sistema`.`Avisos`

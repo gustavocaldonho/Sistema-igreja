@@ -140,7 +140,26 @@
                     </div>
                 </div>
             </div>
-            <!-- _________________________________________________________________________________________ -->
+
+            <!-- __________________________ modal confirmação exclusão evento  __________________________  -->
+            <div class="modal fade" id="modalExclusaoEvento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Excluir Evento</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Deseja excluir este Evento?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" id="btnDeleteEventoModal" value="" onclick="deleteEvento(this.value)">Excluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  __________________________________________________________________________________  -->
 
             <div class="box__eventos-body">
 
@@ -152,6 +171,7 @@
                 $result = buscarEventos();
 
                 while ($user_data = mysqli_fetch_assoc($result)) {
+                    $id_eventos = $user_data['id_eventos'];
                     $titulo = $user_data['titulo'];
                     $presidente = $user_data['presidente'];
                     $local = $user_data['local'];
@@ -178,6 +198,7 @@
 
                     // echo "$titulo, $presidente, $local, $data, $horario, $descricao, $id_eventos" . "<br>";
                     // echo "$dia, $mes, $ano <br>";
+                    // echo "$id_eventos";
 
                     echo "<div class='item-evento'>";
                     echo "<div class='box__data'>";
@@ -214,7 +235,7 @@
                                         </svg>
                                     </button>
 
-                                    <button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modalExclusaoAviso'>
+                                    <button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modalExclusaoEvento' onclick='setarIdModalExclusaoEvento($id_eventos)'>
                                         <svg xmlns='http://www.w3.org/2000/svg' fill='red' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
                                             <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z' />
                                         </svg>
@@ -352,7 +373,7 @@
                                             </svg>
                                         </button>
                                        
-                                        <button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modalExclusaoAviso' onclick=setarIdModalAviso($id_aviso)>
+                                        <button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modalExclusaoAviso' onclick=setarIdModalExclusaoAviso($id_aviso)>
                                             <svg xmlns='http://www.w3.org/2000/svg' fill='red' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
                                                 <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z' />
                                             </svg>
@@ -548,12 +569,20 @@
         msgContagem('tituloAviso', 'spanAvisoTitulo', '100');
     }
 
-    function setarIdModalAviso(id) {
+    function setarIdModalExclusaoAviso(id) {
         document.getElementById('btnDeleteAvisoModal').value = id;
+    }
+
+    function setarIdModalExclusaoEvento(id) {
+        document.getElementById('btnDeleteEventoModal').value = id;
     }
 
     function deleteAviso(id) {
         window.location.href = "../../controlador/deletarAviso.php?id=" + id;
+    }
+
+    function deleteEvento(id) {
+        window.location.href = "../../controlador/deletarEvento.php?id=" + id;
     }
 </script>
 

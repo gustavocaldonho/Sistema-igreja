@@ -25,7 +25,7 @@ function deleteEvento($conexao, $id_evento)
 
 function updateEvento($conexao, $id_evento, $status, $titulo, $descricao, $data, $horario, $local, $presidente)
 {
-    $sqlUpdate = "UPDATE bd_sistema.eventos SET status='$status', titulo='$titulo', descricao='$descricao', date='$data', horario='$horario', local='$local', presidente='$presidente'  WHERE id_avisos=$id_evento";
+    $sqlUpdate = "UPDATE bd_sistema.eventos SET status='$status', titulo='$titulo', descricao='$descricao', data='$data', horario='$horario', local='$local', presidente='$presidente' WHERE id_eventos=$id_evento";
 
     $result = $conexao->query($sqlUpdate);
 }

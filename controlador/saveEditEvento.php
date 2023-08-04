@@ -13,9 +13,10 @@ $horario = $_POST["horarioEvento"];
 $local = $_POST["localEvento"];
 $presidente = $_POST["presidenteEvento"];
 $status = $_POST["radioEvento"];
+$id_evento = $_POST["id_evento"];
 
 // data e horario não podem assumir qualquer valor (estão definidos os types nos inputs)
-$msgErro = validarEvento($titulo, $descricao, $local, $presidente);
+$msgErro = validarEvento($titulo, $descricao, $data, $horario, $local, $presidente);
 
 if (empty($msgErro)) {
     // echo "tudo certo";

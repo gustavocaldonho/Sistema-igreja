@@ -84,7 +84,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="form-avisos" name="form-avisos" action="../../controlador/cadEventos.php" method="POST">
+                            <form id="form_eventos" name="form_eventos" action="../../controlador/cadEventos.php" method="POST">
                                 <div class="">
                                     <label for="tituloEvento" class="col-form-label">Título</label>
                                     <input type="text" class="form-control" id="tituloEvento" name="tituloEvento" maxlength="70" onkeyup="msgContagem('tituloEvento', 'spanTituloEvento', '70')">
@@ -131,6 +131,8 @@
                                         Visível para toda a Paróquia
                                     </label>
                                 </div>
+                                <input type="text" id="id_evento" name="id_evento" value="23">
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                                     <button type="submit" class="btn btn-primary">Inserir</button>
@@ -229,7 +231,7 @@
                         echo " paroquia'>Paróquia</small>";
                     }
 
-                    echo "<button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modal-avisos'>
+                    echo "<button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modal-eventos' onclick='setarModalEventoUpdate(\"$titulo\", \"$presidente\", \"$local\", \"$data\", \"$horario\", \"$descricao\", $status, $id_eventos)'>
                                         <svg xmlns='http://www.w3.org/2000/svg' fill='blue' class='bi bi-pencil-fill' viewBox='0 0 16 16'>
                                             <path d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z' />
                                         </svg>
@@ -515,8 +517,9 @@
 </script>
 
 <script>
+    // toda vez que o botão 'adicionar evento' for clicado, os campos são limpos
     function setarModalFormEventos() {
-        // document.form_avisos.action = "../../controlador/cadAvisos.php";
+        document.form_eventos.action = "../../controlador/cadEventos.php";
 
         // Limpando os campos
         document.getElementById('tituloEvento').value = "";
@@ -525,7 +528,7 @@
         document.getElementById('dataEvento').value = "";
         document.getElementById('horarioEvento').value = "";
         document.getElementById('descricaoEvento').value = "";
-        // document.getElementById('id_aviso').value = "";
+        document.getElementById('id_evento').value = "";
         const radioOpcao0 = document.querySelector('input[name="radioEvento"][value="0"]');
         radioOpcao0.checked = true;
 
@@ -534,6 +537,7 @@
         msgContagem('descricaoEvento', 'spanDescricaoEvento', '200');
     }
 
+    // toda vez que o botão 'adicionar aviso' for clicado, os campos são limpos
     function setarModalFormAvisos() {
         document.form_avisos.action = "../../controlador/cadAvisos.php";
 
@@ -567,6 +571,32 @@
         // Ajustando a contagem dos caracteres (small)
         msgContagem('descricaoAviso', 'spanAvisoDescricao', '300');
         msgContagem('tituloAviso', 'spanAvisoTitulo', '100');
+    }
+
+    function setarModalEventoUpdate(titulo, presidente, local, data, horario, descricao, status, id_eventos) {
+        document.form_eventos.action = "../../controlador/saveEditEvento.php";
+
+        document.getElementById('tituloEvento').value = titulo;
+        document.getElementById('presidenteEvento').value = presidente;
+        document.getElementById('localEvento').value = local;
+        document.getElementById('dataEvento').value = data;
+        document.getElementById('horarioEvento').value = horario;
+        document.getElementById('descricaoEvento').value = descricao;
+        document.getElementById('id_evento').value = id_eventos;
+        const radioOpcao0 = document.querySelector('input[name="radioEvento"][value="0"]');
+        radioOpcao0.checked = true;
+
+        if (status == 0) {
+            const radioOpcao0 = document.querySelector('input[name="radioEvento"][value="0"]');
+            radioOpcao0.checked = true;
+        } else {
+            const radioOpcao1 = document.querySelector('input[name="radioEvento"][value="1"]');
+            radioOpcao1.checked = true;
+        }
+
+        // Ajustando os contadores de caracteres
+        msgContagem('tituloEvento', 'spanTituloEvento', '70');
+        msgContagem('descricaoEvento', 'spanDescricaoEvento', '200');
     }
 
     function setarIdModalExclusaoAviso(id) {

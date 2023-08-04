@@ -33,6 +33,8 @@ UPDATE bd_sistema.avisos SET titulo='$titulo', descricao='$descricao', status=1 
 -- Cadastro dos eventos
 select * from bd_sistema.eventos  order by id_eventos desc; 
 delete from bd_sistema.eventos where id_eventos > 5;
+UPDATE bd_sistema.eventos SET status='$status', titulo='$titulo', descricao='$descricao', date='$data',
+horario='$horario', local='$local', presidente='$presidente' WHERE id_eventos=10;
 
 
 -- -----------------------------------------------------

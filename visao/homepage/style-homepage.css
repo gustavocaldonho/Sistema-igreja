@@ -148,6 +148,8 @@
     background-color: #fffffe;
     border-right: 5px solid #B36812;
     border-bottom: 2px solid #B36812;
+    /* garante a quebra de liinha quando chega no limite da div: */
+    word-wrap: break-word;
     /* border-bottom: 2px solid #8a4f0d; */
 }
 
@@ -156,6 +158,12 @@
     display: flex;
     justify-content: space-between;
     /* border: 2px solid green; */
+}
+
+/* div inferior, onde fica a descrição, horário, local e presidente do evento */
+.box__informacoes .inferior p{
+    /* retirando o espaçamento dos parágrafos */
+    margin-bottom: 0;
 }
 
 /* Modal Eventos */
@@ -169,6 +177,11 @@
 
 .metade-box {
     width: 48%;
+}
+
+/* retirando o espaçamento entre o spanTituloEvento e os campos de presidenteEvento e localEvento */
+#spanTituloEvento {
+    margin-bottom: -15px;
 }
 
 /* ____________________ Style dos botões de addEvento e addAviso ___________________ */
@@ -192,8 +205,6 @@
 }
 
 
-/* __________________________________________________________________________________ */
-
 /* _________________________ Styles do campo de avisos ______________________________ */
 
 .list-group a {
@@ -202,7 +213,11 @@
     border-bottom: 2px solid gray;
     /* background-color: floralwhite; */
     background-color: white;
+    /* garante a quebra de liinha quando chega no limite da div: */
+    word-wrap: break-word;
 }
+
+
 
 /* Style do botão 'adicionar avisos' */
 .box__button-avisos {
@@ -226,7 +241,8 @@
 }
 
 /* botões de edição e exlusão (canto superior direito) dos avisos e dos eventos*/
-.buttonsAviso button, .buttonsEvento button {
+.buttonsAviso button,
+.buttonsEvento button {
     height: 30px;
     width: 30px;
     background-color: white;
@@ -237,13 +253,15 @@
 }
 
 /* Botões de edição e exclusão dos avisos e dos eventos */
-.buttonsAviso button svg, .buttonsEvento button svg {
+.buttonsAviso button svg,
+.buttonsEvento button svg {
     height: 16px;
     width: 16px;
     transition: height 150ms ease-in-out, width 150ms ease-in-out;
 }
 
-.buttonsAviso button:hover svg, .buttonsEvento button:hover svg{
+.buttonsAviso button:hover svg,
+.buttonsEvento button:hover svg {
     height: 25px;
     width: 25px;
 }

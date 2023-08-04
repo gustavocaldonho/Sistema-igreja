@@ -131,7 +131,7 @@
                                         Visível para toda a Paróquia
                                     </label>
                                 </div>
-                                <input type="text" id="id_evento" name="id_evento" value="23">
+                                <input type="text" id="id_evento" name="id_evento" value="" hidden>
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -152,7 +152,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Deseja excluir este Evento?
+                            Deseja excluir este evento?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
@@ -246,7 +246,9 @@
                     echo "</div>";
                     echo "</div>";
                     echo "<div class='inferior'>
-                            <p>$descricao</p>
+                            <div class='mb-1' id='descricaoEvento'>
+                                <p>$descricao</p>
+                            </div>
                             <p><b>Horário:</b> $horario &emsp; <b>Local:</b>
                                 $local &emsp; <b>Presidida por:</b> $presidente </p>
                         </div>";

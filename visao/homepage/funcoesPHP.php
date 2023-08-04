@@ -40,20 +40,6 @@ function getMes($mes)
     }
 }
 
-// function getDiaSemana($data_evento){
-//     // Array com os dias da semana
-//     $diasemana = array('Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado');
-
-//      // Aqui podemos usar a data atual ou qualquer outra data no formato Ano-mês-dia (2014-02-28)
-//     // $data = date($data_evento);
-
-//      // Varivel que recebe o dia da semana (0 = Domingo, 1 = Segunda ...)
-//     $diasemana_numero = date('w', strtotime($data));
-
-//      // Exibe o dia da semana com o Array
-//     return $diasemana[$diasemana_numero];
-// }
-
 function getDiaSemana($data_evento){
     // Array com os dias da semana
     $diasemana = array('Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado');

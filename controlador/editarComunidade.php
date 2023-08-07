@@ -27,7 +27,9 @@ if (!empty($_GET['id'])) {
         // echo $email;
 
         // Retornando com GET para a página de edição do cadastro da comunidade
-        header("Location: ../visao/cad-com/edit.php?msg=&id_comunidade=$id&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
+        // header("Location: ../visao/cad-com/edit.php?msg=&id_comunidade=$id&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
+
+        header("Location: ../visao/cad-com/index.php?action=saveEditComunidade.php&id_comunidade=$id&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
 
         // print_r($nome);
     } else {

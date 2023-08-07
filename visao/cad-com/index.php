@@ -20,6 +20,13 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     $email = $_GET["email"];
 }
 
+if(isset($_GET["action"])){
+    $action = "../../controlador/saveEditComunidade.php";
+} else{
+    $action = "../../controlador/cadComunidade.php";
+}
+
+
 ?>
 
 <body>
@@ -28,7 +35,7 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 
     <h2 class="text-center">Cadastro Comunidade</h2>
     <div class="container">
-        <form id="formulario" name="formulario" action="../../controlador/cadComunidade.php" method="POST" class="row g-3 form-cadastro">
+        <form id="formulario" name="formulario" action="<?php echo $action ?>" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputPadroeiro" class="form-label required">Padroeiro da Comunidade</label>
                 <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" placeholder="ex.: São Geraldo Magela" onblur="verifText(this)" required value="<?php if (isset($padroeiro)) echo $padroeiro ?>">
@@ -43,6 +50,9 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
                 <label for="inputEmail" class="form-label required">E-mail</label>
                 <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="ex.: saogeraldo@gmail.com" onblur="verifEmail(this)" required value="<?php if (isset($email)) echo $email ?>">
             </div>
+
+            <!-- campo escondido -->
+            <input type="text" id="inputIdComunidade" name="inputIdComunidade" value="<?php if(isset($_GET["id_comunidade"])) echo $_GET["id_comunidade"]?>" hidden>
 
             <div class="col-md-12 box__buttons">
                 <a name="btnCancelar" id="btn-cancelar" name="btn-cancelar" class="btn btn-danger" href="../comunidades/index.php">Cancelar</a>

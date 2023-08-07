@@ -54,16 +54,16 @@ function getDadosComunidade($conexao, $idComunidade)
     return $result;
 }
 
-function updateComunidade($conexao, $idComunidade, $padroeiro, $localizacao, $email)
+function updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email)
 {
-    $sqlUpdate = "UPDATE bd_sistema.comunidade SET padroeiro='$padroeiro', localizacao='$localizacao', email='$email' WHERE id_comunidade=$idComunidade";
+    $sqlUpdate = "UPDATE bd_sistema.comunidade SET padroeiro='$padroeiro', localizacao='$localizacao', email='$email' WHERE id_comunidade=$id_comunidade";
 
     $result = $conexao->query($sqlUpdate);
 }
 
-function deleteComunidade($conexao, $idComunidade)
+function deleteComunidade($conexao, $id_comunidade)
 {
-    $sqlDelete = "DELETE FROM bd_sistema.comunidade WHERE id_comunidade='$idComunidade'";
+    $sqlDelete = "DELETE FROM bd_sistema.comunidade WHERE id_comunidade='$id_comunidade'";
 
     $result = $conexao->query($sqlDelete);
 }

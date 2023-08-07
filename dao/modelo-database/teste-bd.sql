@@ -5,6 +5,10 @@ SELECT * FROM bd_sistema.comunidade WHERE id_comunidade=10;
 select * from bd_sistema.familia;
 select * from bd_sistema.membro_familia order by id_familia;
 
+-- Exclusão família
+DELETE FROM bd_sistema.familia WHERE id_familia = 66;
+DELETE from bd_sistema.membro_familia WHERE id_familia = 66;
+
 delete from bd_sistema.membro_familia where id_familia > 36;
 delete from bd_sistema.familia where id_comunidade < 30;
 

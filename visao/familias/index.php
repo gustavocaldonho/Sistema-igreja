@@ -16,6 +16,26 @@
 
     <header id="header"></header>
 
+    <!-- _____________________ modal confirmação exclusão famílias  _____________________  -->
+    <div class="modal fade" id="modalExclusaoFamilia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Excluir Família</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Deseja excluir esta Família?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnDeleteFamiliaModal" value="" onclick="deleteFamilia(this.value)">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  __________________________________________________________________________________  -->
+
     <div class="box__search">
         <input type="search" class="form-control w-25" placeholder="Pesquisar família" id="pesquisar">
         <button onclick="searchData()" class="btn btn-primary">
@@ -45,7 +65,11 @@
                         // Chamando o controlador para fornecer as famílias a serem exibidas
                         $result = buscarFamilias();
 
+                        // href='../../controlador/deletarFamilia.php?id=$user_data[id_familia]'
+
                         while ($user_data = mysqli_fetch_assoc($result)) {
+                            $id_familia = $user_data['id_familia'];
+
                             echo "<tr>";
                             echo "<td>" . $user_data['id_familia'] . "</td>";
                             echo "<td> <a class='btn btn-outline-primary nome-familia' href='#'>" . $user_data['nome'] . "</a></td>";
@@ -58,7 +82,7 @@
                                     </svg>
                                 </a>
 
-                                <a class='btn btn-sm btn-danger' href='../../controlador/deletarFamilia.php?id=$user_data[id_familia]'>
+                                <a class='btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#modalExclusaoFamilia' onclick='setarModalExclusao($id_familia)'>
                                 <svg xmlns=1http://www.w3.org/2000/svg1 width='16' height='16' fill='currentColor' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
                                     <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z' />
                                 </svg>
@@ -198,6 +222,17 @@
 
     function searchData() {
         window.location = 'index.php?search=' + search.value;
+    }
+</script>
+
+<script>
+    function setarModalExclusao(id) {
+        document.getElementById('btnDeleteFamiliaModal').value = id;
+    }
+
+    function deleteFamilia(id) {
+        window.location.href = "../../controlador/deletarFamilia.php?id_familia=" + id;
+        // alert(id);
     }
 </script>
 

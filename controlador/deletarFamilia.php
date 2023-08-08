@@ -3,7 +3,7 @@
 include_once "../dao/conexao.php";
 include_once "../dao/familiaDAO.php";
 
-$id_familia = $_GET["id"];
+$id_familia = $_GET["id_familia"];
 
 if(isset($id_familia)){
     $conexao = conectar();

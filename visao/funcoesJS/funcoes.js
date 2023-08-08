@@ -80,6 +80,29 @@ function verifComunidade() {
     }
 }
 
+// Máscaras cad família
+// CPF
+function getMaskCpf(id) {
+    var phoneMask = IMask(
+        document.getElementById(id), {
+        mask: '000.000.000-00'
+    });
+}
+// Data de Nascimento
+function getMaskDN(id) {
+    var phoneMask = IMask(
+        document.getElementById(id), {
+        mask: '00/00/0000'
+    });
+}
+// Celular
+function getMaskCel(id) {
+    var phoneMask = IMask(
+        document.getElementById(id), {
+        mask: '(00) 00000-0000'
+    });
+}
+
 function msgContagem(idCampo, spanId, tamanho) {
     var texto = document.getElementById(idCampo).value;
     var contador = texto.length;

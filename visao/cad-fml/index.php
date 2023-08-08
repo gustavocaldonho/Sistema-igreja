@@ -27,7 +27,7 @@
         <form id="formulario" name="formulario" action="../../controlador/cadFamilia.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
-                <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifNome()" placeholder="">
+                <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifText(this)" placeholder="">
                 <!-- is-valid, is-invalid-->
                 <!-- <div class="valid-feedback">
                     Tudo certo!
@@ -39,7 +39,7 @@
 
             <div class="col-md-6">
                 <label for="inputEmail" class="form-label required">E-mail</label>
-                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="nome@gmail.com" onblur="verifEmail()">
+                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="nome@gmail.com" onblur="verifEmail(this)">
             </div>
 
             <div class="col-md-6">
@@ -80,7 +80,7 @@
 
                 <div class="box__inputs" id="formulario-membros">
                     <div class="inputs-membro" id="membro1">
-                        <input type="text" class="form-control nome" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro">
+                        <input type="text" class="form-control nome" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro" onblur="verifText(this)">
                         <input type="text" class="form-control cpf" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onfocus="getMaskCpf(id)">
                         <input type="text" class="form-control dn" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000" onfocus="getMaskDN(id)">
                         <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000" onfocus="getMaskCel(id)">
@@ -135,7 +135,7 @@
         // Limite de 5 membros por família
         if (controleCampos < 5) {
             controleCampos++;
-            document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)"></div>');
+            document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro" onblur="verifText(this)"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)"></div>');
 
             document.getElementById("controleCampos").value = controleCampos;
         }
@@ -152,30 +152,6 @@
     }
 </script>
 
-<!-- Máscaras -->
-<script>
-    // CPF
-    function getMaskCpf(id) {
-        var phoneMask = IMask(
-            document.getElementById(id), {
-                mask: '000.000.000-00'
-            });
-    }
-    // Data de Nascimento
-    function getMaskDN(id) {
-        var phoneMask = IMask(
-            document.getElementById(id), {
-                mask: '00/00/0000'
-            });
-    }
-    // Celular
-    function getMaskCel(id) {
-        var phoneMask = IMask(
-            document.getElementById(id), {
-                mask: '(00) 00000-0000'
-            });
-    }
-</script>
 
 <!-- Verificações -->
 <script>

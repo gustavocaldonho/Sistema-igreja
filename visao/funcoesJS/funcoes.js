@@ -86,3 +86,8 @@ function msgContagem(idCampo, spanId, tamanho) {
 
     document.getElementById(spanId).innerHTML = contador + "/" + tamanho;
 }
+
+function limparFormulario(id_formulario) {
+    const formulario = document.querySelector('#' + id_formulario);
+    formulario.reset();
+}

@@ -57,7 +57,7 @@ if(isset($_GET["action"])){
             <div class="col-md-12 box__buttons">
                 <a name="btnCancelar" id="btn-cancelar" name="btn-cancelar" class="btn btn-danger" href="../comunidades/index.php">Cancelar</a>
 
-                <button type="button" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-secondary" onclick="limparCampos()">Limpar</button>
+                <button type="button" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-secondary" onclick="limparFormulario('formulario')">Limpar</button>
 
                 <button type="submit" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
             </div>
@@ -197,12 +197,6 @@ if(isset($_GET["action"])){
                 mensagemElement.innerHTML = mensagemOriginal;
             }, 1000); // Tempo da animação de fadeOut
         }, tempo);
-    }
-
-    function limparCampos() {
-        document.getElementById("inputPadroeiro").value = "";
-        document.getElementById("inputLocalizacao").value = "";
-        document.getElementById("inputEmail").value = "";
     }
 
     // Aguarde até que o DOM esteja carregado

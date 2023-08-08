@@ -2,7 +2,7 @@
     width: 80vw !important;
 }
 
-h2{
+h2 {
     margin-top: 5px;
     margin-bottom: -25px;
 }
@@ -17,51 +17,54 @@ h2{
 }
 
 #btn-cadastrar,
-#btn-cancelar {
+#btn-cancelar,
+#btn-limpar {
     margin: 10px 20px 0px 0px;
     /* superior, direita, inferior e esquerda */
 }
 
-.input-group{
+.input-group {
     width: 100%;
 }
 
-.box__nomeMembros{
+.box__nomeMembros {
     width: 100%;
     min-height: 200px;
 }
 
-.box__cpfMembros{
+.box__cpfMembros {
     width: 100%;
     min-height: 200px;
 }
 
 /* ___________________________ Cadastro dos Membros ___________________________________ */
 
-.box__cadMembros{
+.box__cadMembros {
     display: block;
 }
 
-.box__labels, .inputs-membro{
+.box__labels,
+.inputs-membro {
     display: flex;
 }
 
-.box__labels input, .box__inputs input{
+.box__labels input,
+.box__inputs input {
     margin-right: 10px;
 }
 
-.box__buttonsMembros{
+.box__buttonsMembros {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#membro-familia{
+#membro-familia {
     margin-right: 30%;
 }
 
 /* Estilizando os campos labels referentes aos membros */
-.box__labels .label{
+.box__labels .label {
     background-color: transparent;
     border: none;
     padding-left: 0;
@@ -69,54 +72,54 @@ h2{
 
 .label::placeholder {
     color: black !important;
-  }
+}
 
 /* Definição das larguras dos labels e dos inputs dos campos de dados dos membros */
-.nome{
+.nome {
     width: 48%;
 }
 
-.cpf{
+.cpf {
     width: 15%;
 }
 
-.dn{
+.dn {
     width: 18%;
 }
 
-.cel{
+.cel {
     width: 15%;
 }
 
-.label-cel{
+.label-cel {
     width: 7%;
     padding-right: 0;
 }
 
 /* Estilizando os botões de adicionar e remover membros (+ e -) */
 
-.box__buttonsMembros button{
+.box__buttonsMembros button {
     font-size: 10px;
     margin: 10px 5px;
     border: none;
     border-radius: 100%;
 }
 
-.box__buttonsMembros #add{
+.box__buttonsMembros #add {
     color: #007BFF;
     background-color: white;
 }
 
-.box__buttonsMembros #add:hover{
+.box__buttonsMembros #add:hover {
     color: #17A2B8;
 }
 
-.box__buttonsMembros #rem{
+.box__buttonsMembros #rem {
     color: rgb(241, 85, 85);
     background-color: white;
 }
 
-.box__buttonsMembros #rem:hover{
+.box__buttonsMembros #rem:hover {
     color: #f08993;
 }
 

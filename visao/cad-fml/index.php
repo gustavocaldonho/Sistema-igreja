@@ -27,12 +27,12 @@
         <form id="formulario" name="formulario" action="../../controlador/cadFamilia.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
-                <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifText(this)" placeholder="">
+                <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifText(this)" placeholder="" value="<?php if (isset($_GET['nomeFamilia'])) echo $_GET['nomeFamilia'] ?>">
             </div>
 
             <div class="col-md-6">
                 <label for="inputEmail" class="form-label required">E-mail</label>
-                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="nome@gmail.com" onblur="verifEmail(this)">
+                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="nome@gmail.com" onblur="verifEmail(this)" value="<?php if (isset($_GET['email'])) echo $_GET['email'] ?>">
             </div>
 
             <div class="col-md-6">
@@ -44,8 +44,15 @@
                     require_once '../../dao/comunidadeDAO.php';
                     require_once '../../dao/conexao.php';
 
+                    // código para a edição da família
+                    if (isset($_GET['id_comunidade'])) {
+                        $id_comunidade = $_GET['id_comunidade'];
+                    } else {
+                        $id_comunidade = 0;
+                    }
+
                     $conexao = conectar();
-                    $itens = carregarComboComunidades($conexao);
+                    $itens = carregarComboComunidades($conexao, $id_comunidade);
                     echo $itens;
                     ?>
                 </select>

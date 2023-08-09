@@ -23,7 +23,7 @@ function selectComunidades($conexao)
     return $result;
 }
 
-function carregarComboComunidades($conexao)
+function carregarComboComunidades($conexao, $id_comEdicao)
 {
     // Variável $sql para criar comando de seleção no banco de dados
     $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro";
@@ -35,19 +35,25 @@ function carregarComboComunidades($conexao)
 
     // Populando o select com os dados do banco
     while ($registro = mysqli_fetch_assoc($res)) {
-        $idComunidade = $registro['id_comunidade'];
+        $id_comunidade = $registro['id_comunidade'];
         $padroeiro = $registro['padroeiro'];
         $localizacao = $registro['localizacao'];
 
-        $itens = $itens . "<option value='$idComunidade'>$padroeiro - $localizacao</option>";
+        // Se o combo for carregado para a atualização dos dados da família, já terá uma comunidade marcada.
+        if ($id_comunidade == $id_comEdicao) {
+            $itens = $itens . "<option value='$id_comunidade' selected>$padroeiro - $localizacao</option>";
+        } else {
+            $itens = $itens . "<option value='$id_comunidade'>$padroeiro - $localizacao</option>";
+
+        }
     }
 
     return $itens;
 }
 
-function getDadosComunidade($conexao, $idComunidade)
+function getDadosComunidade($conexao, $id_comunidade)
 {
-    $sqlSelect = "SELECT * FROM bd_sistema.comunidade WHERE id_comunidade = $idComunidade";
+    $sqlSelect = "SELECT * FROM bd_sistema.comunidade WHERE id_comunidade = $id_comunidade";
 
     $result = $conexao->query($sqlSelect);
 

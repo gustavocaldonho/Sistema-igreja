@@ -53,3 +53,12 @@ function deleteFamilia($conexao, $id_familia){
     $sqlDeleteFamilia = "DELETE FROM bd_sistema.familia WHERE id_familia = '$id_familia'";
     $resFamilia = mysqli_query($conexao, $sqlDeleteFamilia) or die(mysqli_error($conexao));
 }
+
+function getDadosFamilia($conexao, $id_familia)
+{
+    $sqlSelect = "SELECT * FROM bd_sistema.familia WHERE id_familia = $id_familia";
+
+    $result = $conexao->query($sqlSelect);
+
+    return $result;
+}

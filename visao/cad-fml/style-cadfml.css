@@ -27,16 +27,6 @@ h2 {
     width: 100%;
 }
 
-.box__nomeMembros {
-    width: 100%;
-    min-height: 200px;
-}
-
-.box__cpfMembros {
-    width: 100%;
-    min-height: 200px;
-}
-
 /* ___________________________ Cadastro dos Membros ___________________________________ */
 
 .box__cadMembros {
@@ -48,20 +38,37 @@ h2 {
     display: flex;
 }
 
-.box__labels input,
-.box__inputs input {
-    margin-right: 10px;
+/* espaçamento entre os labels e inputs do cadastro dos membros */
+.box__labels .nome,
+.box__labels .dn,
+.box__labels .cpf,
+.box__inputs .nome,
+.box__inputs .cpf,
+.box__inputs .dn {
+    margin-right: 1%;
 }
 
-.box__buttonsMembros {
+/* estilizando o box__titulos e o box__buttonsMembros */
+/* .box__cadMembros{
+    border: 2px solid red;
+} */
+
+.box__titulos{
+    height: 7vh;
+    width: 95%;
+    display: flex;
+    /* border: 2px solid green; */
+}
+
+.box__buttonsMembros{
+    height: 7vh;
+    width: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* border: 2px solid violet; */
 }
-
-#membro-familia {
-    margin-right: 30%;
-}
+/* ____________________________________________________________ */
 
 /* Estilizando os campos labels referentes aos membros */
 .box__labels .label {
@@ -74,30 +81,51 @@ h2 {
     color: black !important;
 }
 
-/* Definição das larguras dos labels e dos inputs dos campos de dados dos membros */
-.nome {
-    width: 48%;
+/* Definição das larguras dos labels (títulos) dos campos de dados dos membros */
+.box__titulos .nome {
+    width: 47.5%;
 }
 
-.cpf {
-    width: 15%;
-}
-
-.dn {
+.box__titulos .cpf {
     width: 18%;
 }
 
-.cel {
-    width: 15%;
+.box__titulos .dn {
+    width: 18%;
 }
 
-.label-cel {
+.box__titulos .cel {
+    width: 17.8%;
+}
+
+.box__titulos .label-cel {
+    width: 7%;
+    padding-right: 0;
+}
+
+/* Definição das larguras dos inputs dos campos de dados dos membros */
+.inputs-membro .nome {
+    width: 45%;
+}
+
+.inputs-membro .cpf {
+    width: 17%;
+}
+
+.inputs-membro .dn {
+    width: 17%;
+}
+
+.inputs-membro .cel {
+    width: 17.8%;
+}
+
+.inputs-membro .label-cel {
     width: 7%;
     padding-right: 0;
 }
 
 /* Estilizando os botões de adicionar e remover membros (+ e -) */
-
 .box__buttonsMembros button {
     font-size: 10px;
     margin: 10px 5px;
@@ -122,5 +150,4 @@ h2 {
 .box__buttonsMembros #rem:hover {
     color: #f08993;
 }
-
 /* _______________________________________________________________________________________ */

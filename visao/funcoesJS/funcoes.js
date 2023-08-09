@@ -16,6 +16,7 @@ function carregaDocumento(arquivo, target) {
     xhr.send(null);
 }
 
+// Funções de verificação do cadFamília e do cadComunidade
 function verifText(campo) {
     var valor = campo.value;
 
@@ -48,35 +49,54 @@ function verifEmail(campo) {
     }
 }
 
-// Se o usuário clicar no campo, não digitar nada e sair do mesmo, nenhuma verificação e nenhum 
-// alerta será dado.
-function verifCel() {
-    var campoCelular1 = document.getElementById("inputCelular1");
-    var celular1 = document.getElementById("inputCelular1").value;
-    // var celular2 = document.getElementById("inputCelular2").value;
-
-    if (celular1.length >= 1) {
-        if (celular1.length < 15) {
-            campoCelular1.classList.remove("is-valid");
-            campoCelular1.classList.add("is-invalid");
-            // campoCelular1.focus();
-        } else {
-            campoCelular1.classList.remove("is-invalid");
-            campoCelular1.classList.add("is-valid");
-        }
-    } else { }
+function verifComunidade(campo) {
+    if (campo.value == 0) {
+        campo.classList.remove("is-valid");
+        campo.classList.add("is-invalid");
+    } else {
+        campo.classList.remove("is-invalid");
+        campo.classList.add("is-valid");
+    }
 }
 
-function verifComunidade() {
-    var comunidade = document.getElementById("inputComunidade");
+// Não valida se o cpf é válido (no controlador, em php, é feita essa verificação), mas apenas se o campo está preenchido completamente.
+function verifCpf(campo) {
+    var cpf = campo.value;
 
-    if (comunidade.value == "Escolha...") {
-        comunidade.classList.remove("is-valid");
-        comunidade.classList.add("is-invalid");
-        // comunidade.focus();
+    if (cpf.length < 14) {
+        campo.classList.remove("is-valid");
+        campo.classList.add("is-invalid");
+        // campo.focus();
     } else {
-        comunidade.classList.remove("is-invalid");
-        comunidade.classList.add("is-valid");
+        campo.classList.remove("is-invalid");
+        campo.classList.add("is-valid");
+    }
+}
+
+// Apenas verifica se o campo foi completamente preenchido (não verifica se é uma data válida)
+function verifDN(campo) {
+    var data = campo.value;
+
+    if (data.length < 10) {
+        campo.classList.remove("is-valid");
+        campo.classList.add("is-invalid");
+        // campo.focus();
+    } else {
+        campo.classList.remove("is-invalid");
+        campo.classList.add("is-valid");
+    }
+}
+
+function verifCel(campo) {
+    var cel = campo.value;
+
+    if (cel.length < 15) {
+        campo.classList.remove("is-valid");
+        campo.classList.add("is-invalid");
+        // campo.focus();
+    } else {
+        campo.classList.remove("is-invalid");
+        campo.classList.add("is-valid");
     }
 }
 

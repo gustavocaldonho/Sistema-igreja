@@ -28,13 +28,6 @@
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
                 <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifText(this)" placeholder="">
-                <!-- is-valid, is-invalid-->
-                <!-- <div class="valid-feedback">
-                    Tudo certo!
-                </div>
-                <div class="invalid-feedback">
-                    Atenção!
-                </div> -->
             </div>
 
             <div class="col-md-6">
@@ -43,9 +36,9 @@
             </div>
 
             <div class="col-md-6">
-                <label for="inputComunidade" class="form-label required">Comunidade</label>
-                <select class="form-select" id="listaComunidades" name="listaComunidades" onblur="verifComunidade()">
-                    <option value="" selected>Selecione a sua Comunidade</option>
+                <label for="inputComunidade" class="form-label required ">Comunidade</label>
+                <select class="form-select" id="listaComunidades" name="listaComunidades" onblur="verifComunidade(this)">
+                    <option value="0" selected>Selecione a sua Comunidade</option>
 
                     <?php
                     require_once '../../dao/comunidadeDAO.php';
@@ -62,10 +55,12 @@
             <div class="box__cadMembros form-group">
 
                 <div class="box__labels">
-                    <input type="text" class="form-control nome label" id="label-nome" placeholder="Nomes dos Membros da Família" disabled>
-                    <input type="text" class="form-control cpf label" id="label-cpf" placeholder="CPFs" disabled>
-                    <input type="text" class="form-control dn label" id="label-dn" placeholder="Datas de Nascimento" disabled>
-                    <input type="text" class="form-control label-cel label" id="label-cel" placeholder="Celulares" disabled>
+                    <div class="box__titulos">
+                        <input type="text" class="form-control nome label" id="label-nome" placeholder="Nomes dos Membros" disabled>
+                        <input type="text" class="form-control cpf label" id="label-cpf" placeholder="CPFs" disabled>
+                        <input type="text" class="form-control dn label" id="label-dn" placeholder="Datas de Nascimento" disabled>
+                        <input type="text" class="form-control label-cel label" id="label-cel" placeholder="Celulares" disabled>
+                    </div>
 
                     <div class="box__buttonsMembros">
                         <button type="button" onclick="adicionarCampos()" id="add"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -81,9 +76,9 @@
                 <div class="box__inputs" id="formulario-membros">
                     <div class="inputs-membro" id="membro1">
                         <input type="text" class="form-control nome" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro" onblur="verifText(this)">
-                        <input type="text" class="form-control cpf" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onfocus="getMaskCpf(id)">
-                        <input type="text" class="form-control dn" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000" onfocus="getMaskDN(id)">
-                        <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000" onfocus="getMaskCel(id)">
+                        <input type="text" class="form-control cpf" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)">
+                        <input type="text" class="form-control dn" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)">
+                        <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)">
                     </div>
                 </div>
 
@@ -105,8 +100,10 @@
     <!-- Campos Inválidos -->
     <div>
         <?php
-        $msg = $_GET["msg"];
-        echo "<font color=red>$msg</font>";
+        if (isset($_GET["msg"])) {
+            $msg = $_GET["msg"];
+            echo "<font color=red>$msg</font>";
+        }
         ?>
     </div>
 </body>
@@ -135,7 +132,7 @@
         // Limite de 5 membros por família
         if (controleCampos < 5) {
             controleCampos++;
-            document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro" onblur="verifText(this)"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)"></div>');
+            document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro" onblur="verifText(this)"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)"></div>');
 
             document.getElementById("controleCampos").value = controleCampos;
         }
@@ -148,85 +145,6 @@
             controleCampos--;
 
             document.getElementById("controleCampos").value = controleCampos;
-        }
-    }
-</script>
-
-
-<!-- Verificações -->
-<script>
-    function verifNome() {
-        var nome = document.getElementById("inputNome");
-        if (nome.value == "") {
-            nome.classList.remove("is-valid");
-            nome.classList.add("is-invalid");
-            // nome.focus();
-        } else {
-            nome.classList.remove("is-invalid");
-            nome.classList.add("is-valid");
-        }
-    }
-
-    function verifCpf() {
-        var campoCpf = document.getElementById("inputCpf");
-        var cpf = document.getElementById("inputCpf").value;
-        if (cpf.length < 14) {
-            campoCpf.classList.remove("is-valid");
-            campoCpf.classList.add("is-invalid");
-            // campoCpf.focus();
-        } else {
-            campoCpf.classList.remove("is-invalid");
-            campoCpf.classList.add("is-valid");
-        }
-    }
-
-    function verifEmail() {
-        var campoEmail = document.getElementById("inputEmail");
-        var email = document.getElementById("inputEmail").value;
-
-        // Se o usuário clicar no campo, não digitar nada e sair do mesmo, nenhuma verificação e nenhum 
-        // alerta será dado.
-        if (email.length >= 1) {
-            if (!email.includes("@") || !email.includes(".com")) {
-                campoEmail.classList.remove("is-valid");
-                campoEmail.classList.add("is-invalid");
-                // campoEmail.focus();
-            } else {
-                campoEmail.classList.remove("is-invalid");
-                campoEmail.classList.add("is-valid");
-            }
-        } else {}
-    }
-
-    // Se o usuário clicar no campo, não digitar nada e sair do mesmo, nenhuma verificação e nenhum 
-    // alerta será dado.
-    function verifCel() {
-        var campoCelular1 = document.getElementById("inputCelular1");
-        var celular1 = document.getElementById("inputCelular1").value;
-        // var celular2 = document.getElementById("inputCelular2").value;
-
-        if (celular1.length >= 1) {
-            if (celular1.length < 15) {
-                campoCelular1.classList.remove("is-valid");
-                campoCelular1.classList.add("is-invalid");
-                // campoCelular1.focus();
-            } else {
-                campoCelular1.classList.remove("is-invalid");
-                campoCelular1.classList.add("is-valid");
-            }
-        } else {}
-    }
-
-    function verifComunidade() {
-        var comunidade = document.getElementById("inputComunidade");
-
-        if (comunidade.value == "Escolha...") {
-            comunidade.classList.remove("is-valid");
-            comunidade.classList.add("is-invalid");
-            // comunidade.focus();
-        } else {
-            comunidade.classList.remove("is-invalid");
-            comunidade.classList.add("is-valid");
         }
     }
 </script>

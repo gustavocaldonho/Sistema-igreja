@@ -62,3 +62,14 @@ function getDadosFamilia($conexao, $id_familia)
 
     return $result;
 }
+
+function getDadosMembrosFamilia($conexao, $id_familia){
+    $sqlSelect = "SELECT * FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";
+    $sqlCount = "SELECT COUNT(*) AS qtd FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";
+
+    $resultSelect = $conexao->query($sqlSelect);
+    $resultCount = $conexao->query($sqlCount);
+
+    // Retorna os dados dos membros e a quantidade
+    return [$resultSelect, $resultCount];
+}

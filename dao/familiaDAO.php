@@ -44,7 +44,8 @@ function cpfDuplicado($conexao, $cpf)
     return $lista;
 }
 
-function deleteFamilia($conexao, $id_familia){
+function deleteFamilia($conexao, $id_familia)
+{
     // Excluindo os membros da família
     $sqlDeleteMembros = "DELETE FROM bd_sistema.membro_familia WHERE id_familia = '$id_familia'";
     $resMembros = mysqli_query($conexao, $sqlDeleteMembros) or die(mysqli_error($conexao));
@@ -63,13 +64,20 @@ function getDadosFamilia($conexao, $id_familia)
     return $result;
 }
 
-function getDadosMembrosFamilia($conexao, $id_familia){
+function getDadosMembrosFamilia($conexao, $id_familia)
+{
     $sqlSelect = "SELECT * FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";
-    $sqlCount = "SELECT COUNT(*) AS qtd FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";
 
     $resultSelect = $conexao->query($sqlSelect);
+
+    return $resultSelect;
+}
+
+function getQtdMembrosFamilia($conexao, $id_familia)
+{
+    $sqlCount = "SELECT COUNT(*) AS qtd FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";
+
     $resultCount = $conexao->query($sqlCount);
 
-    // Retorna os dados dos membros e a quantidade
-    return [$resultSelect, $resultCount];
+    return $resultCount;
 }

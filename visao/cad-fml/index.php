@@ -69,28 +69,9 @@
                         <input type="text" class="form-control label-cel label" id="label-cel" placeholder="Celulares" disabled>
                     </div>
 
-                    <?php
-                    // Na edição da família, os campos para inserção dos dados dos membros serão adicionados automaticamente.
-
-                    include_once "../../dao/conexao.php";
-                    include_once "../../dao/familiaDAO.php";
-
-                    $conexao = conectar();
-
-                    if (isset($_GET['id_familia'])) {
-                        $id_familia = $_GET['id_familia'];
-                        $dadosMembros = getDadosMembrosFamilia($conexao, $id_familia);
-
-                        while ($user_data = mysqli_fetch_assoc($dadosMembros[1])) {
-                            // quantidade de membros
-                            $qtd = $user_data['qtd'];
-                            // echo $qtd;
-                        }
-
-                        // Campo escondido que possui a quantidade de membros da família
-                        echo "<input type='text' id='qtd_Membros' name='qtd_Membros' value=" . $qtd . " hidden>";
-                    }
-                    ?>
+                    <!-- Na edição da família, os campos para inserção dos dados dos membros serão adicionados automaticamente -->
+                    <!-- Campo escondido que possui a quantidade de membros da família -->
+                    <input type="text" style="width: 50px;" id="qtd_membros" name="qtd_membros" disabled value="<?php if (isset($_GET['qtd_membros'])) echo $_GET['qtd_membros'] ?>">
 
                     <div class="box__buttonsMembros">
                         <button type="button" onclick="adicionarCampos()" id="add"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -156,34 +137,40 @@
 <script src="../funcoesJS/funcoes.js"></script>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // Adicionando os campos dos membros automaticamente no carregamento da página (na edição da família).
+        adicionarCampos();
+
+    });
+
     var controleCampos = 1;
 
     function adicionarCampos() {
         // Pegando a quantidade de membros do campo escondido (edição família)
+        qtd_membros = document.getElementById("qtd_membros").value;
+        // alert(qtd_membros);
 
-        // ## não tá pegando o valor, pq o campo não existe (só é colocado na página, quando o loop é acionado, ou seja, quando a família será editada)
-        qtd_membros = document.getElementById("qtd_membros");
-        qtd = qtd_membros.value();
-        alert(qtd); 
-        // alert("qtd"); 
+        repeticao = 1; // contador da quantidade de repetições do código abaixo, ao ser chamada esta função
 
-        // repeticao = 1; // quantidade de repetições do código abaixo, ao ser chamada esta função
+        // Limite de 5 membros por família
+        if (qtd_membros != "") { // se não passar pelo editarFamilia.php (controlador), o valor do campo é "" 
+            repeticao = qtd_membros - 1; // o primeiro campo já é inserido por padrão
+        }
 
-        // // Limite de 5 membros por família
-        // if (qtd_membros != "") {
-        //     repeticao = qtd_membros;
-        // }
+        c = 0; //contador
+        while (c < repeticao) {
+            if (controleCampos < 10) {
+                controleCampos++;
+                document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro" onblur="verifText(this)"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)"></div>');
 
-        // c = 0; //contador
-        // while (c < repeticao) {
-        //     if (controleCampos < 5) {
-        //         controleCampos++;
-        //         document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro" onblur="verifText(this)"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)"></div>');
+                document.getElementById("controleCampos").value = controleCampos;
+            }
+            c++; //contador
+        }
 
-        //         document.getElementById("controleCampos").value = controleCampos;
-        //     }
-        //     c++; //contador
-        // }
+        // resetando o campo
+        document.getElementById("qtd_membros").value = "";
 
     }
 

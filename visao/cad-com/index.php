@@ -26,7 +26,6 @@ if (isset($_GET["action"])) {
     $action = "../../controlador/cadComunidade.php";
 }
 
-
 ?>
 
 <body>

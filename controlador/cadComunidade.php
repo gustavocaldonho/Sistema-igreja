@@ -9,7 +9,12 @@ $localizacao = $_POST["inputLocalizacao"];
 $email = $_POST["inputEmail"];
 
 // Validando os dados de entrada
-$msgErro = validarComunidade($padroeiro, $localizacao, $email);
+$msgErro = "";
+$msgErro .= validarPadroeiro($padroeiro);
+$msgErro .= validarLocalizacao($localizacao);
+$msgErro .= validarEmail($email);
+
+// $msgErro = validarComunidade($padroeiro, $localizacao, $email);
 
 if (empty($msgErro)) {
     $conexao = conectar();

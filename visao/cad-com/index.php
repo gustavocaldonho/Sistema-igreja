@@ -56,9 +56,19 @@ if (isset($_GET["action"])) {
             <div class="col-md-12 box__buttons">
                 <a name="btnCancelar" id="btn-cancelar" name="btn-cancelar" class="btn btn-danger" href="../comunidades/index.php">Cancelar</a>
 
-                <button type="button" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-secondary" onclick="limparFormulario('formulario')">Limpar</button>
+                <?php
 
-                <button type="submit" id="btn-cadastrar" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
+                // só terá o botão 'Limpar' quando não for edição da comunidade
+                if (!isset($_GET["action"])) {
+                    echo "<button type='button' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-secondary' onclick='limparFormulario(\"formulario\")'>Limpar</button>";
+
+                    // Cadastrar
+                    echo "<button type='submit' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-primary'>Cadastrar</button>";
+                } else{
+                    // Atualizar
+                    echo "<button type='submit' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-primary'>Atualizar</button>";
+                }
+                ?>
             </div>
         </form>
 

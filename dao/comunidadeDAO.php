@@ -74,18 +74,9 @@ function deleteComunidade($conexao, $id_comunidade)
     $result = $conexao->query($sqlDelete);
 }
 
-// function padroeiroDuplicado($conexao, $padroeiro)
-// {
-//     $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = '$padroeiro'";
-//     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-//     $lista = mysqli_fetch_assoc($res);
-
-//     return $lista;
-// }
-
 function padroeiroDuplicado($conexao, $padroeiro)
 {
-    $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = '$padroeiro'";
+    $sql = "SELECT COUNT(*) AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = '$padroeiro'";
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
     $lista = mysqli_fetch_assoc($res);
 
@@ -95,6 +86,25 @@ function padroeiroDuplicado($conexao, $padroeiro)
         if ($qtd == 1) {
             return true;
         } else {
+            return false;
+        }
+        break;
+    }
+}
+
+function existeIdComunidade($conexao, $padroeiro, $id_comunidade)
+{
+    $sql = "SELECT * FROM bd_sistema.comunidade WHERE padroeiro='$padroeiro'";
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+    while ($user_data = mysqli_fetch_assoc($res)) {
+        $id_Bd = $user_data["id_comunidade"]; // id que está no bd
+        // 0 = false, 1 = true (comunidade já existe);
+        if ($id_Bd == $id_comunidade) {
+            // atualiza
+            return true;
+        } else {
+            // não pode atualizar
             return false;
         }
         break;

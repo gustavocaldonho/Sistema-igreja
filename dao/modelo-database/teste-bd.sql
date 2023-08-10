@@ -17,7 +17,7 @@ delete from bd_sistema.membro_familia where id_familia > 36;
 delete from bd_sistema.familia where id_comunidade < 30;
 
 select count(*) as 'qtd' from bd_sistema.membro_familia where cpf = '15770484071';
-SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = 'matriz';
+SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = 'São Geraldo';
 
 select * from bd_sistema.membro_conselho;
 

@@ -64,7 +64,7 @@ function validarFamilia($nomeFamilia, $email, $idComunidade)
     return $msgErro;
 }
 
-function validarComunidade($padroeiro, $localizacao, $email)
+function validarPadroeiro($padroeiro)
 {
     $msgErro = "";
 
@@ -80,9 +80,52 @@ function validarComunidade($padroeiro, $localizacao, $email)
         }
     }
 
+    return $msgErro;
+}
+
+function validarPadroeiroUpdate($padroeiro, $id_comunidade)
+{
+    $msgErro = "";
+
+    if (empty($padroeiro)) {
+        $msgErro .= " (Padroeiro) ";
+    } else {
+        $conexao = conectar();
+
+        // verificando se o padroeiro já foi cadastrado no banco anteriormente (retorna true ou false)
+        $assocPadroeiro = padroeiroDuplicado($conexao, $padroeiro); //comunidadeDAO
+
+        // Verificando se o nome do padroeiro está vinculado a mesma comunidade que se dejesa atualizar
+        $assocCom = existeIdComunidade($conexao, $padroeiro, $id_comunidade); //comunidadeDAO
+
+        if ($assocPadroeiro) { //true (padroeiro já existe no banco)
+            // padroeiro já cadastrado e mesmo id_comunidade { atualiza }
+            if ($assocCom) { //true (padroeiro está vinculado a mesma comunidade)
+                // atualizar os dados
+            } else {
+                // inseriu o padroeiro no cadastro, mas ele já está vinculado a outra comunidade
+                $msgErro .= "Comunidade <u>" . $padroeiro . "</u> já cadastrado(a)!";
+            }
+        }
+    }
+
+    return $msgErro;
+}
+
+function validarLocalizacao($localizacao)
+{
+    $msgErro = "";
+
     if (empty($localizacao)) {
         $msgErro .= " (Localizacao) ";
     }
+
+    return $msgErro;
+}
+
+function validarEmail($email)
+{
+    $msgErro = "";
 
     if (empty($email)) {
         $msgErro .= " (Email) ";

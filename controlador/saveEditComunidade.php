@@ -10,7 +10,10 @@ $localizacao = $_POST['inputLocalizacao'];
 $email = $_POST['inputEmail'];
 
 // Validando as atualizações dos dados
-$msgErro = validarComunidade($padroeiro, $localizacao, $email);
+$msgErro = "";
+$msgErro .= validarPadroeiroUpdate($padroeiro, $id_comunidade);
+$msgErro .= validarLocalizacao($localizacao);
+$msgErro .= validarEmail($email);
 
 // Atualizando os dados no banco
 if (empty($msgErro)) {
@@ -20,8 +23,8 @@ if (empty($msgErro)) {
     // comunidadeDAO
     updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email); //# 
 
-    header("Location: ../visao/comunidades/index.php?cod=1&msg=Comunidade $padroeiro atualizada com sucesso!"); //# 
+    header("Location: ../visao/comunidades/index.php?cod=1&msg=Comunidade $padroeiro atualizado(a) com sucesso!"); //# 
 } else {
     // Se houver erro em alguma informação inserida, ao clicar em Cadastrar, ocorrerá uma atualização da tela com os mesmos dados (modificados ou não). 
-    header("Location: ../visao/cad-com/index.php?cod=0&msg=Campos Inválidos: $msgErro&id_comunidade=$id_comunidade&padroeiro=$padroeiro&localizacao=$localizacao&email=$email"); //# 
+    header("Location: ../visao/cad-com/index.php?cod=0&action=saveEditComunidade.php&msg=Campos Inválidos: $msgErro&id_comunidade=$id_comunidade&padroeiro=$padroeiro&localizacao=$localizacao&email=$email"); //# 
 }

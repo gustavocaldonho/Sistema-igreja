@@ -53,7 +53,7 @@ if (!empty($_GET['id_familia'])) {
         // echo $id_comunidade;
 
         // Retornando com GET para a página de edição do cadastro da família
-        header("Location: ../visao/cad-fml/index.php?action=saveEditFamilia.php&id_familia=$id_familia&nomeFamilia=$nomeFamilia&email=$email&id_comunidade=$id_comunidade&qtd_membros=$qtd_membros".$textMbHeader);
+        header("Location: ../visao/cad-fml/index.php?action=../../controlador/saveEditFamilia.php&id_familia=$id_familia&nomeFamilia=$nomeFamilia&email=$email&id_comunidade=$id_comunidade&qtd_membros=$qtd_membros".$textMbHeader);
     } else {
         // Caso ocorra alguma falha, a página de exibição das comunidades só será atualizada
         header("Location: ../visao/familias/index.php");

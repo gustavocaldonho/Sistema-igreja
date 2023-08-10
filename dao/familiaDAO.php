@@ -25,23 +25,25 @@ function cadastrarFamilia($conexao, $nomeFamilia, $email, $idComunidade)
     return $id;
 }
 
+function updateFamilia($conexao, $id_familia, $nomeFamilia, $email, $id_comunidade)
+{
+    $sqlUpdate = "UPDATE bd_sistema.familia SET nome='$nomeFamilia', email='$email', id_comunidade='$id_comunidade' WHERE id_familia='$id_familia'";
+
+    mysqli_query($conexao, $sqlUpdate) or die(mysqli_error($conexao));
+}
+
+
 function cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia)
 {
     $sqlMembro1 = "INSERT INTO bd_sistema.membro_familia (cpf, nome, data_nasc, celular, id_familia) VALUES ( '$cpfMb', '$nomeMb', '$dnMb', '$celMb', '$id_familia')";
     mysqli_query($conexao, $sqlMembro1) or die(mysqli_error($conexao));
 }
 
-// Verifica se o cpf informado existe na base de dados
-function cpfDuplicado($conexao, $cpf)
+function deleteMembros($conexao, $id_familia)
 {
-    // Extrai somente os números
-    $cpfLimpo = preg_replace('/[^0-9]/is', '', $cpf);
+    $sqlDelete = "DELETE FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";
 
-    $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.membro_familia WHERE cpf = '$cpfLimpo'";
-    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-    $lista = mysqli_fetch_assoc($res);
-
-    return $lista;
+    mysqli_query($conexao, $sqlDelete) or die(mysqli_error($conexao));
 }
 
 function deleteFamilia($conexao, $id_familia)
@@ -80,4 +82,17 @@ function getQtdMembrosFamilia($conexao, $id_familia)
     $resultCount = $conexao->query($sqlCount);
 
     return $resultCount;
+}
+
+// Verifica se o cpf informado existe na base de dados
+function cpfDuplicado($conexao, $cpf)
+{
+    // Extrai somente os números
+    $cpfLimpo = preg_replace('/[^0-9]/is', '', $cpf);
+
+    $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.membro_familia WHERE cpf = '$cpfLimpo'";
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    $lista = mysqli_fetch_assoc($res);
+
+    return $lista;
 }

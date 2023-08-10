@@ -5,7 +5,8 @@ SELECT * FROM bd_sistema.comunidade WHERE id_comunidade=10;
 select * from bd_sistema.familia;
 select * from bd_sistema.membro_familia order by id_familia;
 select * from bd_sistema.membro_familia where id_familia = 76;
-select count(*) from bd_sistema.membro_familia where id_familia = 76 as 'qtd';
+select count(*) as qtd from bd_sistema.membro_familia where id_familia = 76;
+UPDATE bd_sistema.familia SET nome='$nomeFamilia', SET email='$email', SET id_comunidade='$id_comunidade' WHERE id_familia='$id_familia';
 
 
 -- Exclusão família

@@ -17,8 +17,8 @@ if (empty($msgErro)) {
     // comunidadeDAO
     cadastrarComunidade($conexao, $padroeiro, $localizacao, $email);
     
-    header("Location: ../visao/cad-com/index.php?msg=sucesso");
+    header("Location: ../visao/cad-com/index.php?cod=1&msg=Comunidade <u>$padroeiro</u> foi inserido(a) com sucesso!");
 } else {
     // ERRO
-    header("Location: ../visao/cad-com/index.php?msg=$msgErro&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
+    header("Location: ../visao/cad-com/index.php?cod=0&msg=Campos Inválidos: $msgErro&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
 }

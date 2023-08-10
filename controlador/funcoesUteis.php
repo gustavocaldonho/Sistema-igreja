@@ -69,28 +69,26 @@ function validarComunidade($padroeiro, $localizacao, $email)
     $msgErro = "";
 
     if (empty($padroeiro)) {
-        $msgErro .= "Padroeiro<br>";
+        $msgErro .= " (Padroeiro) ";
     } else {
         // verificando se o padroeiro já foi cadastrado no banco anteriormente
         $conexao = conectar();
         $assoc = padroeiroDuplicado($conexao, $padroeiro); //comunidadeDAO
 
         if ($assoc) {
-            $msgErro .= $padroeiro . " já cadastrado!";
+            $msgErro .= "Comunidade <u>" . $padroeiro . "</u> já cadastrado(a)!";
         }
     }
 
     if (empty($localizacao)) {
-        $msgErro .= "Localizacao<br>";
+        $msgErro .= " (Localizacao) ";
     }
 
     if (empty($email)) {
-        $msgErro .= "email<br>";
+        $msgErro .= " (Email) ";
     } else {
-        if ((str_contains($email, '@')) && (str_contains($email, '.com'))) {
-            // Faça nada
-        } else {
-            $msgErro .= "email<br>";
+        if (!(str_contains($email, '@')) || !(str_contains($email, '.com'))) {
+            $msgErro .= " (Email) ";
         }
     }
 

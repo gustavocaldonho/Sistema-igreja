@@ -91,3 +91,18 @@ h2 {
         opacity: 0;
     }
 }
+
+/* Estilização dos boxs de msg (sucesso ou erro) do cadastro */
+.box__msgResposta{
+    width: 80vw;
+    margin: 20px auto;
+    /* border: 2px solid red; */
+}
+
+.box__msgResposta p#titulo{
+    margin-bottom: 5px;
+}
+
+.box__msgResposta p#msg{
+    margin-bottom: 0;
+}

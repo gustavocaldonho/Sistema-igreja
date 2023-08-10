@@ -20,9 +20,9 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     $email = $_GET["email"];
 }
 
-if(isset($_GET["action"])){
+if (isset($_GET["action"])) {
     $action = "../../controlador/saveEditComunidade.php";
-} else{
+} else {
     $action = "../../controlador/cadComunidade.php";
 }
 
@@ -52,7 +52,7 @@ if(isset($_GET["action"])){
             </div>
 
             <!-- campo escondido -->
-            <input type="text" id="inputIdComunidade" name="inputIdComunidade" value="<?php if(isset($_GET["id_comunidade"])) echo $_GET["id_comunidade"]?>" hidden>
+            <input type="text" id="inputIdComunidade" name="inputIdComunidade" value="<?php if (isset($_GET["id_comunidade"])) echo $_GET["id_comunidade"] ?>" hidden>
 
             <div class="col-md-12 box__buttons">
                 <a name="btnCancelar" id="btn-cancelar" name="btn-cancelar" class="btn btn-danger" href="../comunidades/index.php">Cancelar</a>
@@ -65,6 +65,32 @@ if(isset($_GET["action"])){
 
     </div>
 
+    <!-- Exibe a msg de retorno de cadComunidade  -->
+    <?php
+    if (isset($_GET["cod"])) {
+        // cod -> 0 = erro, 1 = sucesso
+        $cod = $_GET["cod"];
+        $msg = $_GET["msg"];
+
+        if ($cod == "1") {
+            // Exibe a mensagem de sucesso
+            $titulo = "Cadastro Concluído!";
+            $cor = "success";
+        } else {
+            $titulo = "Falha no Cadastro!";
+            $cor = "danger";
+        }
+
+        echo "<div id='msgResposta' name='msgResposta' class='alert alert-$cor box__msgResposta' role='alert'>
+                <p id='titulo' name='titulo'><b>$titulo</b></p>
+                <p id='msg' name='msg'>$msg</p>
+        </div>";
+    }
+    ?>
+
+
+
+    <!-- Mensagens de erro ou sucesso no canto inferior direito -->
     <div class='alert alert-danger msg-erro fadeInOut' role='alert' id="msg-erro">
         <p id="mensagem-erro"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
@@ -75,21 +101,6 @@ if(isset($_GET["action"])){
         <p id="mensagem-sucesso"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
             </svg></p>
-    </div>
-
-    <!-- Exibe a msg de retorno de cadComunidade  -->
-    <div>
-        <?php
-        if (isset($_GET["msg"])) {
-            $msg = $_GET["msg"];
-            // Verifica se o parâmetro "msg" é igual a "sucesso"
-            if ($msg === "sucesso") {
-                // Exibe a mensagem de sucesso usando a função JavaScript
-                // echo "<script>mostrarDivPorTempo('msg-sucesso', 'mensagem-sucesso', 4000, 'Cadastro Concluído');</script>";
-                echo "<script>alert('Cadastro Concluído!')</script>";
-            }
-        }
-        ?>
     </div>
 </body>
 
@@ -111,64 +122,6 @@ if(isset($_GET["action"])){
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
-    // Função para chamar a função PHP 'conectar' por meio de AJAX
-    function chamarConectar(valor) {
-        return new Promise(function(resolve, reject) {
-            // Faz a chamada AJAX para 'conexao.php'
-            $.ajax({
-                type: 'POST',
-                url: '../../dao/conexao.php',
-                data: {
-                    action: 'conectar',
-                },
-                success: function(conexao) {
-                    // Chama a função para verificar se o padroeiro está duplicado
-                    var padroeiro = valor; // O parâmetro para verificar duplicidade
-
-                    // Encadeia a chamada da função chamarPadroeiroDuplicado e resolve a Promise com o resultado
-                    chamarPadroeiroDuplicado(conexao, padroeiro)
-                        .then(function(resultado) {
-                            // Exibe o resultado na página usando um alert
-                            // alert(resultado);
-                            // Resolve a Promise com o resultado
-                            resolve(resultado);
-                        })
-                        .catch(function(error) {
-                            console.log('Erro ao chamar a função padroeiroDuplicado via AJAX.', error);
-                            reject(error);
-                        });
-                },
-                error: function(error) {
-                    console.log('Erro ao chamar a função conectar via AJAX.', error);
-                    reject(error);
-                },
-            });
-        });
-    }
-
-    // Função para chamar a função PHP 'padroeiroDuplicado' por meio de AJAX
-    function chamarPadroeiroDuplicado(conexao, padroeiro) {
-        return new Promise(function(resolve, reject) {
-            // Faz a chamada AJAX para 'comunidadeDAO.php' passando o parâmetro 'padroeiro' e a conexão
-            $.ajax({
-                type: 'POST',
-                url: '../../dao/comunidadeDAO.php',
-                data: {
-                    action: 'padroeiroDuplicado',
-                    conexao: conexao,
-                    padroeiro: padroeiro,
-                },
-                success: function(resultado) {
-                    resolve(resultado);
-                },
-                error: function(error) {
-                    console.log('Erro ao chamar a função padroeiroDuplicado via AJAX.', error);
-                    reject(error);
-                },
-            });
-        });
-    }
-
     // Função para mostrar a div e depois escondê-la devagar
     var mensagemOriginal = '';
 
@@ -210,7 +163,8 @@ if(isset($_GET["action"])){
             var campoEmail = document.getElementById("inputEmail");
 
             // Verifique se os campos têm dados incorretos
-            if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") ||
+            if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains(
+                    "is-invalid") ||
                 campoEmail.classList.contains("is-invalid")) {
                 mostrarDivPorTempo('msg-erro', 'mensagem-erro', 4000, 'Campos Inválidos');
                 return false;
@@ -218,51 +172,6 @@ if(isset($_GET["action"])){
         });
 
     });
-
-    // // Se algum campo conter dados incorretos não será feito a submissão do formulário
-    // $("#formulario").submit(function() {
-    //     // campos
-    //     var campoPadroeiro = document.getElementById("inputPadroeiro");
-    //     var campoLocalizacao = document.getElementById("inputLocalizacao");
-    //     var campoEmail = document.getElementById("inputEmail");
-
-    //     // ___________________________________________________________________________________
-    //     // Chama a função que faz a chamada AJAX à função PHP 'conectar'
-    //     // var duplicado = chamarConectar(campoPadroeiro.value);
-    //     // alert(duplicado);
-
-    //     // Exemplo de uso
-    //     // chamarConectar(campoPadroeiro.value)
-    //     //     .then(function(resultado) {
-    //     //         // Aqui você pode fazer algo com o resultado retornado, se necessário
-    //     //         console.log('Resultado obtido:', resultado);
-    //     //         alert(resultado);
-    //     //     })
-    //     //     .catch(function(error) {
-    //     //         console.log('Erro ao executar as funções:', error);
-    //     //     });
-
-    //     // if (duplicado) {
-    //     //     alert("duplicado");
-
-    //     // } else {
-    //     //     alert("não duplicado");
-    //     //     // alert(duplicado);
-    //     // }
-    //     // ___________________________________________________________________________________
-
-    //     // NÃO PEGA O ERRO "PADROEIRO JÁ CADASTRADO"
-    //     if (campoPadroeiro.classList.contains("is-invalid") || campoLocalizacao.classList.contains("is-invalid") ||
-    //         campoEmail.classList.contains("is-invalid")) {
-
-    //         // Chama a função para mostrar a div por 4 segundos (4000 milissegundos)
-    //         mostrarDivPorTempo('msg-erro', 'mensagem-erro', 4000, 'Campos Inválidos');
-    //         // mostrarDivPorTempo('msg-sucesso', 'mensagem-sucesso', 4000, 'Cadastro Concluído');
-    //         return false;
-    //     } else{
-    //         mostrarDivPorTempo('msg-sucesso', 'mensagem-sucesso', 4000, 'Cadastro Concluído');
-    //     }
-    // });
 </script>
 
 </html>

@@ -205,6 +205,31 @@ function limparMascaraCpf($cpf)
     }
 }
 
+function devolverMascaraCpf($cpf)
+{
+    // se o cpf começar com zero(s), esse(s) zero(s) não são salvos no bd (005.443.333-34 é salvo como 544333334)
+    if (strlen($cpf) < 11) {
+
+        // quantidade de zeros que faltam
+        $zeros = 11 - strlen($cpf);
+
+        $stringZeros = ""; // string de zeros
+
+        $c = 0; //contador
+        while ($c < $zeros) {
+            $stringZeros .= "0";
+            $c++;
+        }
+
+        // acrescentando a quantidade de zeros que faltam
+        $cpf = $stringZeros . $cpf;
+    }
+
+    $novoCpf = $cpf[0] . $cpf[1] . $cpf[2] . "." . $cpf[3] . $cpf[4] . $cpf[5] . "." . $cpf[6] . $cpf[7] . $cpf[8] . "-" . $cpf[9] . $cpf[10];
+
+    return $novoCpf;
+}
+
 
 // Função apara deixar a data de nascimento no padrão aceitável pelo bd
 function alterarOrdemDN($data_nasc)
@@ -219,6 +244,24 @@ function alterarOrdemDN($data_nasc)
         $ano = $lista[2];
 
         $novaDN = $ano . "-" . "$mes" . "-" . $dia;
+
+        return $novaDN;
+    }
+}
+
+// altera o padrão de data dos eua para o brasileiro (aaaa-mm-dd -> dd/mm/aaaa) 
+function ordemBrDN($data_nasc)
+{
+    if (empty($data_nasc)) {
+        return 0;
+    } else {
+        $lista = explode("-", $data_nasc);
+
+        $dia = $lista[2];
+        $mes = $lista[1];
+        $ano = $lista[0];
+
+        $novaDN = $dia . "/" . "$mes" . "/" . $ano;
 
         return $novaDN;
     }

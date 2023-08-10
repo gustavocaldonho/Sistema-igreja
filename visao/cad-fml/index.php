@@ -71,7 +71,7 @@
 
                     <!-- Na edição da família, os campos para inserção dos dados dos membros serão adicionados automaticamente -->
                     <!-- Campo escondido que possui a quantidade de membros da família -->
-                    <input type="text" style="width: 50px;" id="qtd_membros" name="qtd_membros" disabled value="<?php if (isset($_GET['qtd_membros'])) echo $_GET['qtd_membros'] ?>">
+                    <input type="text" style="width: 50px;" id="qtd_membros" name="qtd_membros" disabled hidden value="<?php if (isset($_GET['qtd_membros'])) echo $_GET['qtd_membros'] ?>">
 
                     <div class="box__buttonsMembros">
                         <button type="button" onclick="adicionarCampos()" id="add"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -86,10 +86,13 @@
 
                 <div class="box__inputs" id="formulario-membros">
                     <div class="inputs-membro" id="membro1">
-                        <input type="text" class="form-control nome" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro" onblur="verifText(this)">
-                        <input type="text" class="form-control cpf" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)">
-                        <input type="text" class="form-control dn" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)">
-                        <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)">
+                        <input type="text" class="form-control nome" id="inputNomeMb1" name="inputNomeMb1" placeholder="1º Membro" onblur="verifText(this)" value="<?php if (isset($_GET['nomeMb1'])) echo $_GET['nomeMb1'] ?>">
+
+                        <input type="text" class="form-control cpf" id="inputCpfMb1" name="inputCpfMb1" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)" value="<?php if (isset($_GET['cpfMb1'])) echo $_GET['cpfMb1'] ?>">
+
+                        <input type="text" class="form-control dn" id="inputDNMb1" name="inputDNMb1" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)" value="<?php if (isset($_GET['dnMb1'])) echo $_GET['dnMb1'] ?>">
+
+                        <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1" placeholder="(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)" value="<?php if (isset($_GET['celMb1'])) echo $_GET['celMb1'] ?>">
                     </div>
                 </div>
 
@@ -158,11 +161,40 @@
             repeticao = qtd_membros - 1; // o primeiro campo já é inserido por padrão
         }
 
+        // atribuindo a url a uma variável
+        const urlParams = new URLSearchParams(location.search);
+
+        urlParams.get('page');
+
         c = 0; //contador
         while (c < repeticao) {
             if (controleCampos < 10) {
                 controleCampos++;
-                document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro" onblur="verifText(this)"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)"></div>');
+
+                // atribuindo os parâmetros da url as seguintes variáveis
+                var nomeMb = urlParams.get('nomeMb' + controleCampos);
+                var cpfMb = urlParams.get('cpfMb' + controleCampos);
+                var dnMb = urlParams.get('dnMb' + controleCampos);
+                var celMb = urlParams.get('celMb' + controleCampos);
+
+                // caso as variáveis forem nulas, será atribuído "" (vazio) a elas
+                if (nomeMb == null) {
+                    nomeMb = "";
+                }
+
+                if (cpfMb == null) {
+                    cpfMb = "";
+                }
+
+                if (dnMb == null) {
+                    dnMb = "";
+                }
+
+                if (celMb == null) {
+                    celMb = "";
+                }
+
+                document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro" onblur="verifText(this)" value="' + nomeMb + '"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)" value="' + cpfMb + '"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)" value="' + dnMb + '"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)" value="' + celMb + '"></div>');
 
                 document.getElementById("controleCampos").value = controleCampos;
             }

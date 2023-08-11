@@ -57,6 +57,24 @@ function deleteFamilia($conexao, $id_familia)
     $resFamilia = mysqli_query($conexao, $sqlDeleteFamilia) or die(mysqli_error($conexao));
 }
 
+function familiaDuplicada($conexao, $nomeFamilia)
+{
+    $sql = "SELECT COUNT(*) AS 'qtd' FROM bd_sistema.familia WHERE nome = '$nomeFamilia'";
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    $lista = mysqli_fetch_assoc($res);
+
+    while ($user_data = $lista) {
+        $qtd = $user_data["qtd"];
+        // 0 = false, 1 = true (nome já existe);
+        if ($qtd == 1) {
+            return true;
+        } else {
+            return false;
+        }
+        break;
+    }
+}
+
 function getDadosFamilia($conexao, $id_familia)
 {
     $sqlSelect = "SELECT * FROM bd_sistema.familia WHERE id_familia = $id_familia";

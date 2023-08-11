@@ -9,7 +9,7 @@ function validarMembros($contador, $cpfMb, $nomeMb, $dnMb)
 
     // verifica se o cpf é válido
     if (validarCPF($cpfMb) == false) {
-        $msgErroMembros .= "cpfMb" . $contador . "<br>";
+        $msgErroMembros .= " (cpf $contador" . "º membro) ";
     } else {
         // o cpf é verdadeiro e precisa ser verificado se já existe no banco de dados
         $conexao = conectar();
@@ -19,46 +19,38 @@ function validarMembros($contador, $cpfMb, $nomeMb, $dnMb)
             $qtd = $user_data["qtd"];
             // 0 = false, 1 = true (cpf já existe);
             if ($qtd == 1) {
-                $msgErroMembros .= "cpfMb" . $contador . " já cadastrado <br>";
+                $msgErroMembros .= " (cpf $cpfMb já está vinculado a outra família) ";
             }
             break;
         }
     }
 
     if (empty($nomeMb)) {
-        $msgErroMembros .= "nomeMb" . $contador . "<br>";
+        $msgErroMembros .= " (nome $contador" . "º membro) ";
     }
 
     // false = "", true = 1
     if (empty(validarDataNascimento($dnMb))) {
-        $msgErroMembros .= "dnMb" . $contador . "<br>";
+        $msgErroMembros .= " (Data de Nascimento $contador" . "º membro) ";
     }
 
     return $msgErroMembros;
 }
 
-function validarFamilia($nomeFamilia, $email, $idComunidade)
+function validarNomeFamilia($nomeFamilia)
 {
     $msgErro = "";
 
     if (empty($nomeFamilia)) {
-        $msgErro .= "NomeFamilia <br>";
-    }
-
-    if (empty($email)) {
-        $msgErro .= "email <br>";
+        $msgErro .= " (Nome da Familia) ";
     } else {
-        // Tem '@' e '.com'?
-        if ((str_contains($email, '@')) && (str_contains($email, '.com'))) {
-            // Faça nada
-        } else {
-            // Se não tem, envia a msg de erro
-            $msgErro .= "email <br>";
-        }
-    }
+        // verificando se o nome da família já foi cadastrado no banco anteriormente
+        $conexao = conectar();
+        $assoc = FamiliaDuplicada($conexao, $nomeFamilia); //familiaDAO
 
-    if (empty($idComunidade)) {
-        $msgErro .= "idComunidade <br>";
+        if ($assoc) {
+            $msgErro .= "Família <i><b>" . $nomeFamilia . "</b></i> já cadastrada!";
+        }
     }
 
     return $msgErro;
@@ -76,7 +68,7 @@ function validarPadroeiro($padroeiro)
         $assoc = padroeiroDuplicado($conexao, $padroeiro); //comunidadeDAO
 
         if ($assoc) {
-            $msgErro .= "Comunidade <i><b>" . $padroeiro . "</b></i> já cadastrado(a)!";
+            $msgErro .= "Comunidade <i><b>" . $padroeiro . "</b></i> já cadastrada!";
         }
     }
 
@@ -104,7 +96,7 @@ function validarPadroeiroUpdate($padroeiro, $id_comunidade)
                 // atualizar os dados
             } else {
                 // inseriu o padroeiro no cadastro, mas ele já está vinculado a outra comunidade
-                $msgErro .= "Comunidade <u>" . $padroeiro . "</u> já cadastrado(a)!";
+                $msgErro .= "Comunidade <u>" . $padroeiro . "</u> já cadastrada!";
             }
         }
     }
@@ -118,6 +110,17 @@ function validarLocalizacao($localizacao)
 
     if (empty($localizacao)) {
         $msgErro .= " (Localizacao) ";
+    }
+
+    return $msgErro;
+}
+
+function validarIdComunidade($id_comunidade)
+{
+    $msgErro = "";
+
+    if (empty($id_comunidade)) {
+        $msgErro .= " (Comunidade) ";
     }
 
     return $msgErro;

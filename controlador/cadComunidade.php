@@ -33,7 +33,8 @@ if ($id_comunidade != "") {
         header("Location: ../visao/comunidades/index.php?cod=1&msg=Comunidade $padroeiro atualizado(a) com sucesso!");
     } else {
         // Se houver erro em alguma informação inserida, ao clicar em Cadastrar, ocorrerá uma atualização da tela com os mesmos dados (modificados ou não). 
-        header("Location: ../visao/cad-com/index.php?cod=0&action=saveEditComunidade.php&msg=Campos Inválidos: $msgErro&id_comunidade=$id_comunidade&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
+        header("Location: ../visao/cad-com/index.php?cod=0&msg=Campos Inválidos: $msgErro&id_comunidade=$id_comunidade&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
+        // retirei (action=saveEditComunidade.php&)
     }
 } else {
     // echo "igual a vazio";

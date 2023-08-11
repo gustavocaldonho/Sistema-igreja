@@ -25,24 +25,22 @@
     <div class="container">
 
         <?php
-        // Definindo o action do formulário
-        if (isset($_GET['action'])) {
-            // redireciona para o saveEditFamilia.php
-            $action = $_GET['action'];
-        } else {
-            $action = "../../controlador/cadFamilia.php";
-        }
+        // // Definindo o action do formulário
+        // if (isset($_GET['action'])) {
+        //     // redireciona para o saveEditFamilia.php
+        //     $action = $_GET['action'];
+        // } else {
+        //     $action = "../../controlador/cadFamilia.php";
+        // }
+
+        // action="<?php echo $action "
         ?>
 
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
-        <form id="formulario" name="formulario" action="<?php echo $action ?>" method="POST" class="row g-3 form-cadastro">
+        <form id="formulario" name="formulario" action="../../controlador/cadFamiliaTeste.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
                 <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifText(this)" placeholder="" value="<?php if (isset($_GET['nomeFamilia'])) echo $_GET['nomeFamilia'] ?>">
-
-                <!-- Campo escondido para passar o id_familia ao saveEditFamilia.php -->
-                <input type="text" class="form-control" id="input_id_familia" name="input_id_familia" placeholder="" hidden value="<?php if (isset($_GET['id_familia'])) echo $_GET['id_familia'] ?>">
-
             </div>
 
             <div class="col-md-6">
@@ -112,6 +110,9 @@
                 </div>
 
                 <input type="number" id="controleCampos" name="controleCampos" value="1" hidden>
+
+                <!-- Campo escondido para passar o id_familia ao saveEditFamilia.php -->
+                <input type="text" id="input_id_familia" name="input_id_familia" placeholder="" value="<?php if (isset($_GET['id_familia'])) echo $_GET['id_familia'] ?>" hidden>
 
             </div>
 

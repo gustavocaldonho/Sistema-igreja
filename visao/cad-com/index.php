@@ -20,11 +20,13 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     $email = $_GET["email"];
 }
 
-if (isset($_GET["action"])) {
-    $action = "../../controlador/saveEditComunidade.php";
-} else {
-    $action = "../../controlador/cadComunidade.php";
-}
+// if (isset($_GET["action"])) {
+//     $action = "../../controlador/saveEditComunidade.php";
+// } else {
+//     $action = "../../controlador/cadComunidade.php";
+// }
+
+// action="<?php echo $action"
 
 ?>
 
@@ -34,7 +36,7 @@ if (isset($_GET["action"])) {
 
     <h2 class="text-center">Cadastro Comunidade</h2>
     <div class="container">
-        <form id="formulario" name="formulario" action="<?php echo $action ?>" method="POST" class="row g-3 form-cadastro">
+        <form id="formulario" name="formulario" action="../../controlador/cadComunidade.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputPadroeiro" class="form-label required">Padroeiro da Comunidade</label>
                 <input type="text" class="form-control" id="inputPadroeiro" name="inputPadroeiro" placeholder="ex.: São Geraldo Magela" onblur="verifText(this)" required value="<?php if (isset($padroeiro)) echo $padroeiro ?>">
@@ -57,14 +59,14 @@ if (isset($_GET["action"])) {
                 <a name="btnCancelar" id="btn-cancelar" name="btn-cancelar" class="btn btn-danger" href="../comunidades/index.php">Cancelar</a>
 
                 <?php
-
                 // só terá o botão 'Limpar' quando não for edição da comunidade
-                if (!isset($_GET["action"])) {
+                if (!isset($_GET["id_comunidade"])) {
+                    // Limpar
                     echo "<button type='button' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-secondary' onclick='limparFormulario(\"formulario\")'>Limpar</button>";
 
                     // Cadastrar
                     echo "<button type='submit' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-primary'>Cadastrar</button>";
-                } else{
+                } else {
                     // Atualizar
                     echo "<button type='submit' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-primary'>Atualizar</button>";
                 }
@@ -163,8 +165,6 @@ if (isset($_GET["action"])) {
 
     // Aguarde até que o DOM esteja carregado
     document.addEventListener("DOMContentLoaded", function() {
-        // Coloque o código de submit aqui
-
         $("#formulario").submit(function() {
             // campos
             var campoPadroeiro = document.getElementById("inputPadroeiro");

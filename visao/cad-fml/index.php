@@ -39,10 +39,10 @@
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
                 <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifText(this)" placeholder="" value="<?php if (isset($_GET['nomeFamilia'])) echo $_GET['nomeFamilia'] ?>">
-                
+
                 <!-- Campo escondido para passar o id_familia ao saveEditFamilia.php -->
-                <input type="text" class="form-control" id="input_id_familia" name="input_id_familia" placeholder="" hidden value="<?php if (isset($_GET['id_familia'])) echo $_GET['id_familia']?>">
-                
+                <input type="text" class="form-control" id="input_id_familia" name="input_id_familia" placeholder="" hidden value="<?php if (isset($_GET['id_familia'])) echo $_GET['id_familia'] ?>">
+
             </div>
 
             <div class="col-md-6">
@@ -126,15 +126,28 @@
         </form>
     </div>
 
-    <!-- Campos Inválidos -->
-    <div>
-        <?php
-        if (isset($_GET["msg"])) {
-            $msg = $_GET["msg"];
-            echo "<font color=red>$msg</font>";
+    <!-- Exibe a msg de retorno de cadFamilia  -->
+    <?php
+    if (isset($_GET["cod"])) {
+        // cod -> 0 = erro, 1 = sucesso
+        $cod = $_GET["cod"];
+        $msg = $_GET["msg"];
+
+        if ($cod == "1") {
+            // Exibe a mensagem de sucesso
+            $titulo = "Cadastro Concluído!";
+            $cor = "success";
+        } else {
+            $titulo = "Falha no Cadastro!";
+            $cor = "danger";
         }
-        ?>
-    </div>
+
+        echo "<div id='msgResposta' name='msgResposta' class='alert alert-$cor box__msgResposta' role='alert'>
+                <p id='titulo' name='titulo'><b>$titulo</b></p>
+                <p id='msg' name='msg'>$msg</p>
+        </div>";
+    }
+    ?>
 </body>
 
 <script src='../funcoesJS/funcoes.js'></script>

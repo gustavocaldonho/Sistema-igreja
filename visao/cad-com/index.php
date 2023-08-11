@@ -99,8 +99,6 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     }
     ?>
 
-
-
     <!-- Mensagens de erro ou sucesso no canto inferior direito -->
     <div class='alert alert-danger msg-erro fadeInOut' role='alert' id="msg-erro">
         <p id="mensagem-erro"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">

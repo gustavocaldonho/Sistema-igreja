@@ -53,14 +53,14 @@ h2 {
     border: 2px solid red;
 } */
 
-.box__titulos{
+.box__titulos {
     height: 7vh;
     width: 95%;
     display: flex;
     /* border: 2px solid green; */
 }
 
-.box__buttonsMembros{
+.box__buttonsMembros {
     height: 7vh;
     width: 5%;
     display: flex;
@@ -68,6 +68,7 @@ h2 {
     justify-content: center;
     /* border: 2px solid violet; */
 }
+
 /* ____________________________________________________________ */
 
 /* Estilizando os campos labels referentes aos membros */
@@ -150,4 +151,19 @@ h2 {
 .box__buttonsMembros #rem:hover {
     color: #f08993;
 }
-/* _______________________________________________________________________________________ */
+/* __________________________________________________________________ */
+
+/* Estilização dos boxs de msg (sucesso ou erro) do cadastro */
+.box__msgResposta {
+    width: 80vw;
+    margin: 20px auto;
+    /* border: 2px solid red; */
+}
+
+.box__msgResposta p#titulo {
+    margin-bottom: 5px;
+}
+
+.box__msgResposta p#msg {
+    margin-bottom: 0;
+}

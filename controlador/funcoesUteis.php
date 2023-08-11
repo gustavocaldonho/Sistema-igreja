@@ -76,7 +76,7 @@ function validarPadroeiro($padroeiro)
         $assoc = padroeiroDuplicado($conexao, $padroeiro); //comunidadeDAO
 
         if ($assoc) {
-            $msgErro .= "Comunidade <u>" . $padroeiro . "</u> já cadastrado(a)!";
+            $msgErro .= "Comunidade <i><b>" . $padroeiro . "</b></i> já cadastrado(a)!";
         }
     }
 

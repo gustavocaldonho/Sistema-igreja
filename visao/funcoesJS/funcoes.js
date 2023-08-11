@@ -130,7 +130,14 @@ function msgContagem(idCampo, spanId, tamanho) {
     document.getElementById(spanId).innerHTML = contador + "/" + tamanho;
 }
 
-function limparFormulario(id_formulario) {
-    const formulario = document.querySelector('#' + id_formulario);
-    formulario.reset();
+// Não reseta o formulário após ter sido feito o envio e retornado com erro.
+// function limparFormulario(id_formulario) {
+//     const formulario = document.querySelector('#' + id_formulario);
+//     formulario.reset();
+// }
+
+function limparFormularioComunidade() {
+    document.getElementById('inputPadroeiro').value = "";
+    document.getElementById('inputLocalizacao').value = "";
+    document.getElementById('inputEmail').value = "";
 }

@@ -62,7 +62,7 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
                 // só terá o botão 'Limpar' quando não for edição da comunidade
                 if (!isset($_GET["id_comunidade"])) {
                     // Limpar
-                    echo "<button type='button' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-secondary' onclick='limparFormulario(\"formulario\")'>Limpar</button>";
+                    echo "<button type='button' id='btn-limpar' name='btn-limpar' class='btn btn-secondary' onclick='limparFormularioComunidade()'>Limpar</button>";
 
                     // Cadastrar
                     echo "<button type='submit' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-primary'>Cadastrar</button>";

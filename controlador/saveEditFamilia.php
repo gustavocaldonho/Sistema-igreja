@@ -17,7 +17,7 @@ $id_comunidade = $_POST["listaComunidades"];
 $id_familia = $_POST['input_id_familia'];
 
 // Validando os dados de entrada da Família
-$msgErroFamilia = validarFamilia($nomeFamilia, $email, $id_comunidade);
+// $msgErroFamilia = validarFamilia($nomeFamilia, $email, $id_comunidade);
 
 // ###### Excluindo todos os membros e adicionando novamente ####
 $conexao = conectar();

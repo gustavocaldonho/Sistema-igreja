@@ -48,6 +48,7 @@ if ($cpfDuplicado >= 1) {
 if ($id_familia != "") { //atualizar
 
     // Validando os dados de entrada da Família
+    // NÃO PERMITIR QUE O NOME SEJA EDITADO PARA UM QUE JÁ EXISTE NO BANCO
     // $msgErroFamilia = validarFamiliaUpdate($nomeFamilia, $email, $id_comunidade); //######
 
     if (empty($msgErroFamilia) && empty($msgErroMembros)) {
@@ -76,7 +77,7 @@ if ($id_familia != "") { //atualizar
     } else {
         // ERRO
         header("Location: ../visao/cad-fml/index.php?cod=0&msg=<b>Campos Inválidos:</b><br>$msgErroFamilia $msgErroMembros");
-        
+
         // header("Location: ../visao/cad-fml/index.php?cod=0&msg=Campos Inválidos: $msgErroFamilia $msgErroMembros" . "&nomeFamilia=$nomeFamilia&email=$email&id_comunidade=$id_comunidade&qtd_membros=$qtd_membros" . $textMbHeader);
     }
 } else { //cadastrar

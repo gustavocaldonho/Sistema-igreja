@@ -56,7 +56,6 @@
                 </select>
             </div>
 
-
             <div class="box__cadMembros form-group">
 
                 <div class="box__labels">
@@ -72,7 +71,7 @@
                     <input type="text" style="width: 50px;" id="qtd_membros" name="qtd_membros" disabled hidden value="<?php if (isset($_GET['qtd_membros'])) echo $_GET['qtd_membros'] ?>">
 
                     <div class="box__buttonsMembros">
-                        <button type="button" onclick="adicionarCampos()" id="add"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <button type="button" onclick="adicionarCampos(false)" id="add"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                             </svg> </button>
 
@@ -94,6 +93,7 @@
                     </div>
                 </div>
 
+                <!-- Quantidade de membros que foram inseridos -->
                 <input type="number" id="controleCampos" name="controleCampos" value="1" hidden>
 
                 <!-- Campo escondido para passar o id_familia ao saveEditFamilia.php -->
@@ -168,22 +168,28 @@
     document.addEventListener("DOMContentLoaded", function() {
 
         // Adicionando os campos dos membros automaticamente no carregamento da página (na edição da família).
-        adicionarCampos();
+        adicionarCampos(true);
 
     });
 
     var controleCampos = 1;
 
-    function adicionarCampos() {
+    function adicionarCampos(carregamentoPagina) {
         // Pegando a quantidade de membros do campo escondido (edição família)
         qtd_membros = document.getElementById("qtd_membros").value;
-        // alert(qtd_membros);
 
-        repeticao = 1; // contador da quantidade de repetições do código abaixo, ao ser chamada esta função
+        // contador da quantidade de repetições do código abaixo ao ser chamada esta função
+        if (carregamentoPagina) {
+            // primeiro carregamento da página (só será visto os campos padrões)
+            repeticao = 0;
+        } else {
+            // se for clicado no botão 'add' (+)
+            repeticao = 1;
+        }
 
-        // Limite de 5 membros por família
+        // se passar pelo editarFamília (quando se deseja fazer alterações na família)
         if (qtd_membros != "") { // se não passar pelo editarFamilia.php (controlador), o valor do campo é "" 
-            repeticao = qtd_membros - 1; // o primeiro campo já é inserido por padrão
+            repeticao = qtd_membros - 1; // o primeiro bloco de campos já é inserido por padrão, por isso o '-1'
         }
 
         // atribuindo a url a uma variável
@@ -193,6 +199,8 @@
 
         c = 0; //contador
         while (c < repeticao) {
+
+            // Limite de 10 membros por família
             if (controleCampos < 10) {
                 controleCampos++;
 
@@ -228,7 +236,6 @@
 
         // resetando o campo
         document.getElementById("qtd_membros").value = "";
-
     }
 
     function removerCampos() {

@@ -10,7 +10,7 @@ require_once '../controlador/funcoesUteis.php';
 $nomeFamilia = $_POST["inputNome"];
 $email = $_POST["inputEmail"];
 $id_comunidade = $_POST["listaComunidades"];
-$qtdMembros = $_POST["controleCampos"];
+$qtd_membros = $_POST["controleCampos"];
 $id_familia = $_POST['input_id_familia']; // se for primeiro cadastro, a família ainda não possui id (id = ""), se for edição, ela já possuirá um id
 
 // Validando os dados de entrada dos membros
@@ -18,7 +18,7 @@ $listaCpf = array(); // lista dos Cpfs dos membros
 $msgErroMembros = "";
 $textMbHeader = "";
 $contador = 1;
-while ($contador <= $qtdMembros) {
+while ($contador <= $qtd_membros) {
     $nomeMb = $_POST["inputNomeMb" . $contador];
     $cpfMb = $_POST["inputCpfMb" . $contador];
     $dnMb = $_POST["inputDNMb" . $contador];
@@ -38,8 +38,8 @@ while ($contador <= $qtdMembros) {
 $cpfDuplicado = array_count_values($listaCpf);
 if ($cpfDuplicado >= 1) {
     foreach ($cpfDuplicado as $key => $value) {
-        if ($value > 1) {
-            $msgErroMembros .= $key . " (Há cpfs duplicados) ";
+        if ($value > 1 && $key != "") {
+            $msgErroMembros .= " (o cpf $key está repetido) ";
         }
     }
 }
@@ -66,7 +66,7 @@ if ($id_familia != "") { //atualizar
 
         $contador = 1;
         // Dados dos membros da família
-        while ($contador <= $qtdMembros) {
+        while ($contador <= $qtd_membros) {
             $nomeMb = $_POST["inputNomeMb" . $contador];
             $cpfMb = limparMascaraCpf($_POST["inputCpfMb" . $contador]);
             $dnMb = alterarOrdemDN($_POST["inputDNMb" . $contador]);
@@ -80,8 +80,6 @@ if ($id_familia != "") { //atualizar
         header("Location: ../visao/familias/index.php?cod=1&msg=Familia <b>$nomeFamilia ($id_familia)</b> atualizada com sucesso!");
     } else {
         // ERRO
-        // header("Location: ../visao/cad-fml/index.php?cod=0&msg=<b>Campos Inválidos:</b><br>$msgErroFamilia $msgErroMembros");
-
         header("Location: ../visao/cad-fml/index.php?cod=0&msg=Campos Inválidos: $msgErroFamilia $msgErroMembros" . "&nomeFamilia=$nomeFamilia&email=$email&id_comunidade=$id_comunidade&id_familia=$id_familia&qtd_membros=$qtd_membros" . $textMbHeader);
     }
 } else { //cadastrar
@@ -103,7 +101,7 @@ if ($id_familia != "") { //atualizar
         $contador = 1;
 
         // Dados dos membros da família
-        while ($contador <= $qtdMembros) {
+        while ($contador <= $qtd_membros) {
             $nomeMb = $_POST["inputNomeMb" . $contador];
             $cpfMb = limparMascaraCpf($_POST["inputCpfMb" . $contador]);
             $dnMb = alterarOrdemDN($_POST["inputDNMb" . $contador]);

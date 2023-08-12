@@ -37,7 +37,7 @@
         ?>
 
         <!-- Para os feedbacks abaixo dos campos: https://getbootstrap.com.br/docs/4.1/components/forms/-->
-        <form id="formulario" name="formulario" action="../../controlador/cadFamiliaTeste.php" method="POST" class="row g-3 form-cadastro">
+        <form id="formulario" name="formulario" action="../../controlador/cadFamilia.php" method="POST" class="row g-3 form-cadastro">
             <div class="col-md-12">
                 <label for="inputNome" class="form-label required">Nome da Família</label>
                 <input type="text" class="form-control" id="inputNome" name="inputNome" onblur="verifText(this)" placeholder="" value="<?php if (isset($_GET['nomeFamilia'])) echo $_GET['nomeFamilia'] ?>">
@@ -119,10 +119,21 @@
             <div class="col-md-12 box__buttons">
                 <a name="btn-cancelar" id="btn-cancelar" class="btn btn-danger" href="../familias/index.php">Cancelar</a>
 
-                <button type="button" name="btn-limpar" id="btn-limpar" class="btn btn-secondary" onclick="limparFormulario('formulario')">Limpar</button>
+                <?php
+                // só terá o botão 'Limpar' quando não for edição da família
+                if (!isset($_GET["id_familia"])) {
+                    // Limpar
+                    echo "<button type='button' id='btn-limpar' name='btn-limpar' class='btn btn-secondary' onclick='limparFormularioComunidade()'>Limpar</button>";
 
-                <button type="submit" name="submit" id="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
+                    // Cadastrar
+                    echo "<button type='submit' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-primary'>Cadastrar</button>";
+                } else {
+                    // Atualizar
+                    echo "<button type='submit' id='btn-atualizar' name='btn-atualizar' class='btn btn-primary'>Atualizar</button>";
+                }
+                ?>
             </div>
+
 
         </form>
     </div>

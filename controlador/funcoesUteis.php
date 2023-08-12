@@ -3,7 +3,7 @@
 include_once '../dao/familiaDAO.php';
 include_once '../dao/conexao.php';
 
-function validarMembros($contador, $cpfMb, $nomeMb, $dnMb)
+function validarMembros($contador, $id_familia, $cpfMb, $nomeMb, $dnMb)
 {
     $msgErroMembros = "";
 
@@ -16,9 +16,11 @@ function validarMembros($contador, $cpfMb, $nomeMb, $dnMb)
         $assoc = cpfDuplicado($conexao, $cpfMb); //familiaDAO
 
         while ($user_data = $assoc) {
-            $qtd = $user_data["qtd"];
-            // 0 = false, 1 = true (cpf já existe);
-            if ($qtd == 1) {
+            $cpf = $user_data["cpf"];
+            $id_Bd = $user_data["id_familia"]; // id fa família que está no bd
+
+            // se o cpf do membro já estiver no banco e o id da família a qual ele está vinculado é diferente do id que vem como parâmetro, é porque o cpf já está vinculado a outra família (se fosse igual, quer dizer que está ocorrendo uma atualização da família)
+            if (!empty($cpf) && $id_familia != $id_Bd) {
                 $msgErroMembros .= " (cpf $cpfMb já está vinculado a outra família) ";
             }
             break;
@@ -91,12 +93,41 @@ function validarPadroeiroUpdate($padroeiro, $id_comunidade)
         $assocCom = existeIdComunidade($conexao, $padroeiro, $id_comunidade); //comunidadeDAO
 
         if ($assocPadroeiro) { //true (padroeiro já existe no banco)
-            // padroeiro já cadastrado e mesmo id_comunidade { atualiza }
+            // Se padroeiro já cadastrado e mesmo id_comunidade { atualiza }
             if ($assocCom) { //true (padroeiro está vinculado a mesma comunidade)
                 // atualizar os dados
             } else {
                 // inseriu o padroeiro no cadastro, mas ele já está vinculado a outra comunidade
                 $msgErro .= "Comunidade <u>" . $padroeiro . "</u> já cadastrada!";
+            }
+        }
+    }
+
+    return $msgErro;
+}
+
+function validarNomeFamiliaUpdate($nomeFamilia, $id_familia)
+{
+    $msgErro = "";
+
+    if (empty($nomeFamilia)) {
+        $msgErro .= " (nome da familia) ";
+    } else {
+        $conexao = conectar();
+
+        // verificando se a família já foi cadastrada no banco anteriormente (retorna true ou false)
+        $assocFamilia = familiaDuplicada($conexao, $nomeFamilia); //comunidadeDAO
+
+        // Verificando se o nome da família está vinculada a mesma família (id) que se dejesa atualizar
+        $assocFam = existeIdFamilia($conexao, $nomeFamilia, $id_familia); //familiaDAO
+
+        if ($assocFamilia) { //true (nome já existe no banco)
+            // Se nome já cadastrado e mesmo id_família { atualiza }
+            if ($assocFam) { //true (nome está vinculado a mesma família)
+                // atualizar os dados
+            } else {
+                // inseriu o nome no cadastro, mas ele já está vinculado a outra família
+                $msgErro .= "Família <u>" . $nomeFamilia . "</u> já cadastrada!";
             }
         }
     }

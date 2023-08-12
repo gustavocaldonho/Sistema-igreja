@@ -75,6 +75,24 @@ function familiaDuplicada($conexao, $nomeFamilia)
     }
 }
 
+function existeIdFamilia($conexao, $nomeFamilia, $id_familia)
+{
+    $sql = "SELECT * FROM bd_sistema.familia WHERE nome='$nomeFamilia'";
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+    while ($user_data = mysqli_fetch_assoc($res)) {
+        $id_Bd = $user_data["id_familia"]; // id que está no bd
+        if ($id_Bd == $id_familia) {
+            // atualiza
+            return true;
+        } else {
+            // não pode atualizar
+            return false;
+        }
+        break;
+    }
+}
+
 function getDadosFamilia($conexao, $id_familia)
 {
     $sqlSelect = "SELECT * FROM bd_sistema.familia WHERE id_familia = $id_familia";
@@ -108,7 +126,8 @@ function cpfDuplicado($conexao, $cpf)
     // Extrai somente os números
     $cpfLimpo = preg_replace('/[^0-9]/is', '', $cpf);
 
-    $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.membro_familia WHERE cpf = '$cpfLimpo'";
+    // $sql = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.membro_familia WHERE cpf = '$cpfLimpo'";
+    $sql = "SELECT * FROM bd_sistema.membro_familia WHERE cpf = '$cpfLimpo'";
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
     $lista = mysqli_fetch_assoc($res);
 

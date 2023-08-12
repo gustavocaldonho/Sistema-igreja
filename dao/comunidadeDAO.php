@@ -44,7 +44,6 @@ function carregarComboComunidades($conexao, $id_comEdicao)
             $itens = $itens . "<option value='$id_comunidade' selected>$padroeiro - $localizacao</option>";
         } else {
             $itens = $itens . "<option value='$id_comunidade'>$padroeiro - $localizacao</option>";
-
         }
     }
 
@@ -99,7 +98,6 @@ function existeIdComunidade($conexao, $padroeiro, $id_comunidade)
 
     while ($user_data = mysqli_fetch_assoc($res)) {
         $id_Bd = $user_data["id_comunidade"]; // id que está no bd
-        // 0 = false, 1 = true (comunidade já existe);
         if ($id_Bd == $id_comunidade) {
             // atualiza
             return true;

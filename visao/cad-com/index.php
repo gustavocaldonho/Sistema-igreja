@@ -68,7 +68,7 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
                     echo "<button type='submit' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-primary'>Cadastrar</button>";
                 } else {
                     // Atualizar
-                    echo "<button type='submit' id='btn-cadastrar' name='btn-cadastrar' class='btn btn-primary'>Atualizar</button>";
+                    echo "<button type='submit' id='btn-atualizar' name='btn-atualizar' class='btn btn-primary'>Atualizar</button>";
                 }
                 ?>
             </div>

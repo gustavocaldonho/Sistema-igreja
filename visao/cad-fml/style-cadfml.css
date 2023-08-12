@@ -18,7 +18,8 @@ h2 {
 
 #btn-cadastrar,
 #btn-cancelar,
-#btn-limpar {
+#btn-limpar,
+#btn-atualizar {
     margin: 10px 20px 0px 0px;
     /* superior, direita, inferior e esquerda */
 }
@@ -151,6 +152,7 @@ h2 {
 .box__buttonsMembros #rem:hover {
     color: #f08993;
 }
+
 /* __________________________________________________________________ */
 
 /* Estilização dos boxs de msg (sucesso ou erro) do cadastro */

@@ -84,7 +84,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="form_eventos" name="form_eventos" action="../../controlador/cadEventos.php" method="POST">
+                            <form id="form_eventos" name="form_eventos" action="../../controlador/cadEvento.php" method="POST">
                                 <div class="">
                                     <label for="tituloEvento" class="col-form-label">Título</label>
                                     <input type="text" class="form-control" id="tituloEvento" name="tituloEvento" maxlength="70" onkeyup="msgContagem('tituloEvento', 'spanTituloEvento', '70')">
@@ -281,7 +281,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="form_avisos" name="form_avisos" enctype='multipart/form-data' action="../../controlador/cadAvisos.php" method="POST" class="row g-3">
+                            <form id="form_avisos" name="form_avisos" enctype='multipart/form-data' action="../../controlador/cadAviso.php" method="POST" class="row g-3">
                                 <div class="">
                                     <label for="tituloAviso" class="col-form-label">Título</label>
                                     <input type="text" class="form-control" id="tituloAviso" name="tituloAviso" maxlength="100" onkeyup="msgContagem('tituloAviso', 'spanAvisoTitulo', '100')">
@@ -522,7 +522,7 @@
 <script>
     // toda vez que o botão 'adicionar evento' for clicado, os campos são limpos
     function setarModalFormEventos() {
-        document.form_eventos.action = "../../controlador/cadEventos.php";
+        // document.form_eventos.action = "../../controlador/cadEvento.php";
 
         // Limpando os campos
         document.getElementById('tituloEvento').value = "";
@@ -540,9 +540,35 @@
         msgContagem('descricaoEvento', 'spanDescricaoEvento', '200');
     }
 
+    function setarModalEventoUpdate(titulo, presidente, local, data, horario, descricao, status, id_eventos) {
+        // document.form_eventos.action = "../../controlador/saveEditEvento.php";
+
+        document.getElementById('tituloEvento').value = titulo;
+        document.getElementById('presidenteEvento').value = presidente;
+        document.getElementById('localEvento').value = local;
+        document.getElementById('dataEvento').value = data;
+        document.getElementById('horarioEvento').value = horario;
+        document.getElementById('descricaoEvento').value = descricao;
+        document.getElementById('id_evento').value = id_eventos;
+        const radioOpcao0 = document.querySelector('input[name="radioEvento"][value="0"]');
+        radioOpcao0.checked = true;
+
+        if (status == 0) {
+            const radioOpcao0 = document.querySelector('input[name="radioEvento"][value="0"]');
+            radioOpcao0.checked = true;
+        } else {
+            const radioOpcao1 = document.querySelector('input[name="radioEvento"][value="1"]');
+            radioOpcao1.checked = true;
+        }
+
+        // Ajustando os contadores de caracteres
+        msgContagem('tituloEvento', 'spanTituloEvento', '70');
+        msgContagem('descricaoEvento', 'spanDescricaoEvento', '200');
+    }
+
     // toda vez que o botão 'adicionar aviso' for clicado, os campos são limpos
     function setarModalFormAvisos() {
-        // document.form_avisos.action = "../../controlador/cadAvisos.php";
+        // document.form_avisos.action = "../../controlador/cadAviso.php";
 
         // Limpando os campos
         document.getElementById('tituloAviso').value = "";
@@ -575,32 +601,6 @@
         // Ajustando a contagem dos caracteres (small)
         msgContagem('descricaoAviso', 'spanAvisoDescricao', '300');
         msgContagem('tituloAviso', 'spanAvisoTitulo', '100');
-    }
-
-    function setarModalEventoUpdate(titulo, presidente, local, data, horario, descricao, status, id_eventos) {
-        document.form_eventos.action = "../../controlador/saveEditEvento.php";
-
-        document.getElementById('tituloEvento').value = titulo;
-        document.getElementById('presidenteEvento').value = presidente;
-        document.getElementById('localEvento').value = local;
-        document.getElementById('dataEvento').value = data;
-        document.getElementById('horarioEvento').value = horario;
-        document.getElementById('descricaoEvento').value = descricao;
-        document.getElementById('id_evento').value = id_eventos;
-        const radioOpcao0 = document.querySelector('input[name="radioEvento"][value="0"]');
-        radioOpcao0.checked = true;
-
-        if (status == 0) {
-            const radioOpcao0 = document.querySelector('input[name="radioEvento"][value="0"]');
-            radioOpcao0.checked = true;
-        } else {
-            const radioOpcao1 = document.querySelector('input[name="radioEvento"][value="1"]');
-            radioOpcao1.checked = true;
-        }
-
-        // Ajustando os contadores de caracteres
-        msgContagem('tituloEvento', 'spanTituloEvento', '70');
-        msgContagem('descricaoEvento', 'spanDescricaoEvento', '200');
     }
 
     function setarIdModalExclusaoAviso(id) {

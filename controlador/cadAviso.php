@@ -14,31 +14,25 @@ $status = $_POST["radioAviso"];
 $id_aviso = $_POST["id_aviso"];
 
 $msgErro = validarAviso($titulo, $descricao);
+$conexao = conectar();
 
 // se for recebido o id do aviso, é porque se trata da edição
 if ($id_aviso != "") { //atualização
 
     if (empty($msgErro)) {
-        // echo "tudo certo";
-        $conexao = conectar();
-        updateAviso($conexao, $id_aviso, $titulo, $descricao, $status);
+        updateAviso($conexao, $id_aviso, $titulo, $descricao, $status); //avisoDAO
 
         header("Location: ../visao/homepage/index.php?msg=Aviso atualizado com sucesso");
     } else {
-        // echo "$msgErro";
         header("Location: ../visao/homepage/index.php?msg=$msgErro");
     }
 } else { //cadastro
     if (empty($msgErro)) {
-        // echo "tudo certo";
-        $conexao = conectar();
+        cadastrarAviso($conexao, $titulo, $descricao, $status); //avisoDAO
 
-        // avisoDAO
-        cadastrarAviso($conexao, $titulo, $descricao, $status);
 
         header("Location: ../visao/homepage/index.php?msg=Aviso inserido com sucesso");
     } else {
-        // echo "$msgErro";
         header("Location: ../visao/homepage/index.php?msg=$msgErro");
     }
 }

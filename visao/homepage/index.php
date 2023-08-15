@@ -308,6 +308,7 @@
                                         Visível para toda a Paróquia
                                     </label>
                                 </div>
+                                <!-- Campo escondido para passar o id do aviso em caso de edição (setado o value ao clicar no botão de edição) -->
                                 <input type="text" id="id_aviso" name="id_aviso" value="" hidden>
 
                                 <div class="modal-footer">
@@ -541,7 +542,7 @@
 
     // toda vez que o botão 'adicionar aviso' for clicado, os campos são limpos
     function setarModalFormAvisos() {
-        document.form_avisos.action = "../../controlador/cadAvisos.php";
+        // document.form_avisos.action = "../../controlador/cadAvisos.php";
 
         // Limpando os campos
         document.getElementById('tituloAviso').value = "";
@@ -555,8 +556,9 @@
         msgContagem('descricaoAviso', 'spanAvisoDescricao', '300');
     }
 
+    // Carregando as informações para o modal de edição (pega direto da página, já que a query ao banco já foi feita)
     function setarModalAvisoUpdate(titulo, descricao, status, id_aviso) {
-        document.form_avisos.action = "../../controlador/saveEditAviso.php";
+        // document.form_avisos.action = "../../controlador/saveEditAviso.php";
 
         document.getElementById('tituloAviso').value = titulo;
         document.getElementById('descricaoAviso').value = descricao;

@@ -1,12 +1,19 @@
+-- LOGIN
+-- Perfil: 0 - membro da família; 1 - membro do conselho, 2 - líder paroquiano (administrador)
+select * from bd_sistema.login;
+
+
 select * from bd_sistema.comunidade;
 SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro;
-SELECT * FROM bd_sistema.comunidade WHERE id_comunidade=10;
+SELECT * FROM bd_sistema.comunidade WHERE padroeiro='São Geraldo';
 
 select * from bd_sistema.familia;
 select * from bd_sistema.membro_familia order by id_familia;
-select * from bd_sistema.membro_familia where id_familia = 76;
+select * from bd_sistema.membro_familia where id_familia = 96;
+SELECT * FROM bd_sistema.membro_familia WHERE cpf = '02172119091';
 select count(*) as qtd from bd_sistema.membro_familia where id_familia = 76;
 UPDATE bd_sistema.familia SET nome='$nomeFamilia', email='$email', id_comunidade='$id_comunidade' WHERE id_familia='$id_familia';
+SELECT * FROM bd_sistema.familia WHERE nome='Drago';
 
 
 -- Exclusão família

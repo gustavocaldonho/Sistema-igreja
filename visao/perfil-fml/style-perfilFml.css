@@ -1,0 +1,34 @@
+.container{
+    height: 90vh;
+    width: 100vw;
+    padding: 0;
+    border: 2px solid green;
+}
+
+.box__foto{
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    border: 2px solid red;
+}
+
+.box__infos{
+    height: 30%;
+    width: 100%;
+    border: 2px solid orange;
+}
+
+.box__pagamentos{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid blueviolet;
+}
+
+/* ___________________________________________ */
+
+.box__foto img{
+    width: 250px;
+    border-radius: 20px;
+}

@@ -10,7 +10,7 @@ $titulo = $_POST["tituloAviso"];
 $descricao = $_POST["descricaoAviso"];
 $status = $_POST["radioAviso"];
 
-// edição
+// usado na edição
 $id_aviso = $_POST["id_aviso"];
 
 $msgErro = validarAviso($titulo, $descricao);

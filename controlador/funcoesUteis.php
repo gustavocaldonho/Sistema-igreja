@@ -1,7 +1,7 @@
 <?php
 
-include_once '../dao/familiaDAO.php';
-include_once '../dao/conexao.php';
+include_once("../dao/familiaDAO.php");
+include_once("../dao/conexao.php");
 
 function validarMembros($contador, $id_familia, $cpfMb, $nomeMb, $dnMb)
 {

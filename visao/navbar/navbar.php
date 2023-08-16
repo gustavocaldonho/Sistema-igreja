@@ -14,6 +14,23 @@
 
 <body>
 
+    <?php
+
+    session_start();
+    // print_r($_SESSION);
+
+    if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+
+        unset($_SESSION["cpf"]);
+        unset($_SESSION["senha"]);
+        header("Location: ../login/index.php");
+    } else {
+
+        $logado = $_SESSION["cpf"];
+    }
+
+    ?>
+
     <nav>
         <div class="box__navbar">
             <ul id="ul-left">
@@ -35,6 +52,14 @@
                 <li>
                     <a href="../caixa-mortuario/">Caixa Mortuário</a>
                 </li>
+
+                <?php 
+                    if($logado == 14734570760){
+                        echo "<li>
+                                <a href='../caixa-mortuario/'>Olha ele aí</a>
+                            </li>";
+                    }
+                ?>
             </ul>
 
             <!-- Canto direito -> aba de notificações e de login -->
@@ -42,10 +67,8 @@
                 <li class="dropdown">
                     <a href="">
                         <!-- Sininho das notificações -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
-                            class="bi bi-bell-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
                         </svg>
                     </a>
                     <!-- O alinhamento a esquerda foi feito por meio da classe drop-notificacao, usando margin-left (negativo) -->
@@ -62,12 +85,10 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="">Gustavo
+                    <a href="">Gustavo - <?php echo"$logado"?>
                         <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
-                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                             </svg>
                         </span>
                     </a>
@@ -75,7 +96,7 @@
                     <div class="dropdown-menu drop-perfil">
                         <a href="">Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a href="">Sair</a>
+                        <a href="../login/sair.php" class="btn">Sair</a>
                     </div>
                 </li>
             </ul>
@@ -84,14 +105,8 @@
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 
 </html>

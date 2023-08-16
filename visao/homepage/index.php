@@ -16,6 +16,23 @@
 
 <body>
 
+    <?php
+
+    session_start();
+    // print_r($_SESSION);
+
+    if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+
+        unset($_SESSION["cpf"]);
+        unset($_SESSION["senha"]);
+        header("Location: ../login/index.php");
+    } else{
+
+        $logado = $_SESSION["cpf"];
+    }
+
+    ?>
+
     <!--  _________________________________________________________________________________________________ -->
 
     <!-- Link do site onde peguei o código para linkar a função em js em arquivo separado -->

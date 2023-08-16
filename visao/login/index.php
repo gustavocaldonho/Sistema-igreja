@@ -21,7 +21,7 @@
 
         <div class="box__login-ext">
             <div class="box__login-int">
-                <form action="home.php" method="POST">
+                <form action="testLogin.php" method="POST">
 
                     <div class="box__titulo">
                         <h2>Login</h2>
@@ -29,15 +29,16 @@
 
                     <div class="mb-3">
                         <label for="inputCpf" class="form-label">CPF: </label>
-                        <input type="text" class="form-control" id="inputCpf" placeholder="000.000.000-00">
+                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00">
                     </div>
 
                     <div class="mb-1">
                         <label for="inputSenha" class="form-label">Senha: </label>
-                        <input type="password" class="form-control" id="inputSenha" placeholder="Digite sua senha">
+                        <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Digite sua senha">
                     </div>
 
-                    <div class="box__obs">
+                    <!-- Desativado -->
+                    <div class="box__obs" hidden>
                         <div>
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label" for="flexCheckChecked">Lembrar de mim</label>
@@ -48,7 +49,7 @@
                     </div>
 
                     <div class="box__btn">
-                        <button type="button" class="btn btn-primary">Entrar</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Entrar</button>
                         <button type="button" class="btn btn-outline-primary">Cadastrar Família</button>
                     </div>
                 </form>

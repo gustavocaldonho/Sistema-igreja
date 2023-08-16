@@ -35,8 +35,12 @@ function updateFamilia($conexao, $id_familia, $nomeFamilia, $email, $id_comunida
 
 function cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia)
 {
-    $sqlMembro1 = "INSERT INTO bd_sistema.membro_familia (cpf, nome, data_nasc, celular, id_familia) VALUES ( '$cpfMb', '$nomeMb', '$dnMb', '$celMb', '$id_familia')";
-    mysqli_query($conexao, $sqlMembro1) or die(mysqli_error($conexao));
+    $sqlMembro = "INSERT INTO bd_sistema.membro_familia (cpf, nome, data_nasc, celular, id_familia) VALUES ( '$cpfMb', '$nomeMb', '$dnMb', '$celMb', '$id_familia')";
+    mysqli_query($conexao, $sqlMembro) or die(mysqli_error($conexao));
+
+    // Inserindo o login do membro
+    $sqlLogin = "INSERT INTO bd_sistema.login (membro_familia_cpf, senha, perfil) VALUES ('$cpfMb', '1234', 0)";
+    mysqli_query($conexao, $sqlLogin) or die(mysqli_error($conexao));
 }
 
 function deleteMembros($conexao, $id_familia)

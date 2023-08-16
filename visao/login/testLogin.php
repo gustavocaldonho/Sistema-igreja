@@ -15,6 +15,8 @@ if (isset($_POST["submit"]) && !empty($_POST["inputCpf"]) && !empty($_POST["inpu
 
     // print_r("Cpf: " . $cpfLimpo . "<br> Senha: " . $senha);
 
+    // ######## SQL para pegar o nome do membro (referenciar a tabela membro_familia) ########
+    // ######## Retirar os códigos sql dessa arquivo e colocar em função na pasta dao ########
     $sql = "SELECT * FROM bd_sistema.login WHERE membro_familia_cpf = '$cpfLimpo' AND senha = '$senha'";
     $conexao = conectar();
 

@@ -26,6 +26,33 @@
         header("Location: ../login/index.php");
     } else {
 
+        include_once("../../dao/conexao.php");
+        include_once("../../dao/familiaDAO.php");
+        include_once("../../dao/loginDAO.php");
+        include_once("../login/funcoesPHP.php");
+
+        $conexao = conectar();
+        $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]);
+        $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]);
+
+        $codPerfil = getCodPerfil($resLogin);
+        $arrayDados = getDadosMembro($resMembro);
+
+        // // Buscando o código de perfil do membro
+        // while ($user_data = mysqli_fetch_assoc($resLogin)) {
+        //     $codPerfil = $user_data["perfil"];
+        // }
+
+        // // Buscando os dados do membro
+        // while ($user_data = mysqli_fetch_assoc($resMembro)) {
+        //     $nome = $user_data["nome"];
+        //     $data_nasc = $user_data["data_nasc"];
+        //     $celular = $user_data["celular"];
+        //     $id_familia = $user_data["id_familia"];
+        // }
+
+        // $logadoCodPerfil = $_SESSION["$codPerfil"];
+        // $_SESSION['arrayItens'] = array();
         $logado = $_SESSION["cpf"];
     }
 
@@ -40,12 +67,23 @@
                 <li>
                     <a href="../homepage/">Página Inicial</a>
                 </li>
-                <li class="dropdown">
-                    <a href="../comunidades/">Comunidades</a>
-                </li>
-                <li class="dropdown">
-                    <a href="../familias/">Famílias</a>
-                </li>
+
+                <?php
+                if ($codPerfil == 2) {
+                    echo "<li class='dropdown'>
+                            <a href='../comunidades/'>Comunidades</a>
+                         </li>";
+                }
+                ?>
+
+                <?php
+                if ($codPerfil == 1 || $codPerfil == 2) {
+                    echo "<li class='dropdown'>
+                            <a href='../familias/'>Famílias</a>
+                        </li>";
+                }
+                ?>
+
                 <li>
                     <a href="../dizimo/">Dízimo</a>
                 </li>
@@ -53,13 +91,12 @@
                     <a href="../caixa-mortuario/">Caixa Mortuário</a>
                 </li>
 
-                <?php 
-                    if($logado == 14734570760){
-                        echo "<li>
-                                <a href='../caixa-mortuario/'>Olha ele aí</a>
-                            </li>";
-                    }
-                ?>
+                <!---------------------------- campo teste --------------------------------->
+                <li hidden>
+                    <a href=""><?php echo "$nome - $data_nasc - $celular - $id_familia"?></a>
+                </li>
+                <!-------------------------------------------------------------------------->
+
             </ul>
 
             <!-- Canto direito -> aba de notificações e de login -->
@@ -85,7 +122,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="">Gustavo - <?php echo"$logado"?>
+                    <a href=""><?php echo "$nome - $codPerfil" ?>
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                 <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />

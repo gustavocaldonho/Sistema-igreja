@@ -26,9 +26,9 @@
         unset($_SESSION["cpf"]);
         unset($_SESSION["senha"]);
         header("Location: ../login/index.php");
-    } else{
+    } else {
 
-        $logado = $_SESSION["cpf"];
+        // $logado = $_SESSION["cpf"];
     }
 
     ?>
@@ -87,10 +87,16 @@
                 <h2 class="text-center">— Eventos —</h2>
             </div>
 
-            <div class="box__button-avisos">
-                <button type="button" id="btn-addEvento" name="btn-addEvento" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-eventos" data-bs-whatever="@mdo" onclick="setarModalFormEventos()">Adicionar
-                    Evento</button>
-            </div>
+            <?php
+            $codPerfil = 2; // ################ retirar #######################
+
+            if ($codPerfil == 1 || $codPerfil == 2) {
+                echo "<div class='box__button-avisos'>
+                            <button type='button' id='btn-addEvento' name='btn-addEvento' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal-eventos' data-bs-whatever='@mdo' onclick='setarModalFormEventos()'>Adicionar
+                            Evento</button>
+                        </div>";
+            }
+            ?>
 
             <!-- ___________________________ modal de cadastro dos eventos _____________________________ -->
             <div class="modal fade" id="modal-eventos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -240,15 +246,18 @@
                             </div>";
                     echo "<div>";
 
-                    echo "<div class='buttonsEvento'>
-                                    <small class='small-status";
-                    if ($status == 0) {
-                        echo " comunidade'>Comunidade</small>";
-                    } else {
-                        echo " paroquia'>Paróquia</small>";
-                    }
+                    //Não é visto pelos membros comuns
+                    if ($codPerfil == 1 || $codPerfil == 2) {
 
-                    echo "<button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modal-eventos' onclick='setarModalEventoUpdate(\"$titulo\", \"$presidente\", \"$local\", \"$data\", \"$horario\", \"$descricao\", $status, $id_eventos)'>
+                        echo "<div class='buttonsEvento'>
+                                    <small class='small-status";
+                        if ($status == 0) {
+                            echo " comunidade'>Comunidade</small>";
+                        } else {
+                            echo " paroquia'>Paróquia</small>";
+                        }
+
+                        echo "<button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modal-eventos' onclick='setarModalEventoUpdate(\"$titulo\", \"$presidente\", \"$local\", \"$data\", \"$horario\", \"$descricao\", $status, $id_eventos)'>
                                         <svg xmlns='http://www.w3.org/2000/svg' fill='blue' class='bi bi-pencil-fill' viewBox='0 0 16 16'>
                                             <path d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z' />
                                         </svg>
@@ -260,6 +269,8 @@
                                         </svg>
                                     </button>
                                 </div>";
+                    }
+
                     echo "</div>";
                     echo "</div>";
                     echo "<div class='inferior'>
@@ -284,10 +295,15 @@
                 <h2 class="text-center">— Notícias & Avisos —</h2>
             </div>
 
-            <div class="box__button-avisos">
-                <button type="button" id="btn-addAviso" name="btn-addAviso" onclick="setarModalFormAvisos()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-avisos" data-bs-whatever="@mdo">Adicionar
-                    Aviso</button>
-            </div>
+            <?php
+
+            if ($codPerfil == 1 || $codPerfil == 2) {
+                echo "<div class='box__button-avisos'>
+                        <button type='button' id='btn-addAviso' name='btn-addAviso' onclick='setarModalFormAvisos()' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal-avisos' data-bs-whatever='@mdo'>Adicionar
+                        Aviso" .  $_SESSION['cpf'] . "</button>
+                    </div>";
+            }
+            ?>
 
             <!-- _____________________ modal de cadastro dos avisos _____________________ -->
             <div class="modal fade" id="modal-avisos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -381,26 +397,30 @@
                         echo " " . $titulo;
                         echo "</h5>";
 
-                        echo "<div class='buttonsAviso'>
-                                        <small class='small-status";
-                        if ($status == 0) {
-                            echo " comunidade'>Comunidade</small>";
-                        } else {
-                            echo " paroquia'>Paróquia</small>";
+                        //Não é visto pelos membros comuns
+                        if ($codPerfil == 1 || $codPerfil == 2) {
+
+                            echo "<div class='buttonsAviso'>
+                            <small class='small-status";
+                            if ($status == 0) {
+                                echo " comunidade'>Comunidade</small>";
+                            } else {
+                                echo " paroquia'>Paróquia</small>";
+                            }
+                            echo "<button class='btn btn-sm' data-bs-toggle='modal'                 data-bs-target='#modal-avisos' onclick='setarModalAvisoUpdate(\"$titulo\", \"$descricao\", $status, $id_aviso)'>
+                                    <svg xmlns='http://www.w3.org/2000/svg' fill='blue' class='bi bi-pencil-fill' viewBox='0 0 16 16'>
+                                        <path d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z'/>
+                                    </svg>
+                                </button>
+                            
+                                <button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modalExclusaoAviso' onclick=setarIdModalExclusaoAviso($id_aviso)>
+                                    <svg xmlns='http://www.w3.org/2000/svg' fill='red' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
+                                        <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z' />
+                                    </svg>
+                                </button>
+                            </div>";
                         }
 
-                        echo "<button class='btn btn-sm' data-bs-toggle='modal'                 data-bs-target='#modal-avisos' onclick='setarModalAvisoUpdate(\"$titulo\", \"$descricao\", $status, $id_aviso)'>
-                                            <svg xmlns='http://www.w3.org/2000/svg' fill='blue' class='bi bi-pencil-fill' viewBox='0 0 16 16'>
-                                                <path d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z'/>
-                                            </svg>
-                                        </button>
-                                       
-                                        <button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modalExclusaoAviso' onclick=setarIdModalExclusaoAviso($id_aviso)>
-                                            <svg xmlns='http://www.w3.org/2000/svg' fill='red' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
-                                                <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z' />
-                                            </svg>
-                                        </button>
-                                    </div>";
                         echo "</div>";
                         echo "<p class='mb-1'> $descricao  </p>";
                         // echo "<small hidden>And some small print.</small>";

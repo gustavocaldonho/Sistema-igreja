@@ -1,8 +1,10 @@
 -- LOGIN
 -- Perfil: 0 - membro da família; 1 - membro do conselho, 2 - líder paroquiano (administrador)
-select * from bd_sistema.login;
+select * from bd_sistema.login;	
+SELECT * FROM bd_sistema.login WHERE membro_familia_cpf = 14734570760;
+INSERT INTO bd_sistema.login (membro_familia_cpf, senha, perfil) VALUES ('14734570760', '1234', 0);
 
-
+ 
 select * from bd_sistema.comunidade;
 SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro;
 SELECT * FROM bd_sistema.comunidade WHERE padroeiro='São Geraldo';

@@ -115,6 +115,15 @@ function getDadosMembrosFamilia($conexao, $id_familia)
     return $resultSelect;
 }
 
+function getDadosMembrosFamiliaLogin($conexao, $cpf)
+{
+    $sqlSelect = "SELECT * FROM bd_sistema.membro_familia WHERE cpf = $cpf";
+
+    $resultSelect = $conexao->query($sqlSelect);
+
+    return $resultSelect;
+}
+
 function getQtdMembrosFamilia($conexao, $id_familia)
 {
     $sqlCount = "SELECT COUNT(*) AS qtd FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";

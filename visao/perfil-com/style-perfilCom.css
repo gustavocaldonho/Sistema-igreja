@@ -1,109 +1,47 @@
 .container {
     width: 90vw;
-    height: 85vh;
+    /* height: 85vh; */
     margin: auto;
     margin-top: 10px;
     padding: 0;
     /* display: block; */
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: bisque;
-    /* border: 2px solid green; */
+    /* border: 2px solid #B36812; */
+    border-radius: 10px;
 }
 
-/* __________________________ Style box__superior __________________________*/
-
-.box__superior{
-    display: flex;
-    height: 65%;
+/* ____________________________________________________________________________ */
+.box__img {
     width: 100%;
-    /* background-color: gainsboro; */
-}
-
-.box__infos{
-    height: 100%;
-    width: 60%;
-    /* padding: 0 30px; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* border: 2px solid red; */
-    /* background-color: red; */
-}
-
-.box__infos .info p{
-    font-size: 22px;
-}
-
-.box__infos .info{
-    width: 100%;
-    height: 40%;
-    padding: 20px;
-    /* border: 2px solid green; */
-}
-
-/* _________________ Style de cada avatar dos membros do conselho  _________________ */
-.box__membros-conselho{
-    height: 60%;
-    width: 100%;
-    /* border: 2px solid blue; */
-}
-
-.box__membros-conselho .header{
-    height: 15%;
-    width: 100%;
-    padding: 20px;
-    /* text-align: center; */
-    /* border: 2px solid green; */
-}
-
-.box__membros-conselho .header p{
-    margin: 0;
-    font-size: 18px;
-}
-
-.box__membros-conselho .bory{
-    height: 85%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /* border: 2px solid green; */
-}
-
-.box__membros-conselho img{
-    width: 80px;
-    border-radius: 100%;
-}
-
-.membro{
-    height: 80%;
-    width: 150px;
-    text-align: center;
-    /* border: 2px solid black; */
-}
-
-.membro p{
-    font-size: 16px;
-}
-/* ____________________________ Style da imagem da comunidade ________________________ */
-
-.box__img{
-    height: 100%;
-    width: 40%;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 2px solid violet; */
-    /* background-color: violet; */
+    /* border: 2px solid green; */
 }
 
-.box__img img{
-    width: 50%;
+.box__img img {
+    border-radius: 20px;
 }
 
-/* __________________________ Style box__inferior __________________________*/
+/* ____________________________________________________________________________ */
+.box__NomeComunidade {
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+    padding-top: 10px;
+    /* border: 2px solid red; */
+}
 
-.box__inferior{
-    height: 35%;
+.box__NomeComunidade h1 {
+    font-size: 50px;
+}
+
+/* ____________________________________________________________________________ */
+
+.box__destaques {
+    height: 25vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -111,13 +49,13 @@
     /* border: 2px solid red; */
 }
 
-.box__inferior .bloco{
+.box__destaques .bloco {
     height: 50%;
     width: 20%;
     /* border: 2px solid black; */
 }
 
-.bloco div{
+.bloco div {
     height: 50%;
     width: 100%;
     display: flex;
@@ -126,14 +64,14 @@
     /* border: 2px solid blue; */
 }
 
-.bloco .number{
+.bloco .number {
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 1em;
     color: coral;
 }
 
-.bloco .text{
+.bloco .text {
     height: 50px;
     width: 80%;
     font-size: 20px;
@@ -145,6 +83,54 @@
     text-align: center;
 }
 
-.bloco .text:hover{
+.bloco .text:hover {
     opacity: .9;
+}
+
+/* ____________________________________________________________________________ */
+.box__membros-conselho {
+    width: 100%;
+    height: 30vh;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid violet; */
+}
+
+.box__membros-conselho .titulo {
+    width: 100%;
+    height: 15%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.box__membros-conselho .body {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid green; */
+}
+
+.box__membros-conselho .card {
+    width: 250px;
+    margin: 10px;
+}
+
+.box__membros-conselho .button {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+
+.box__membros-conselho button{
+    font-size: 17px;
+    /* background-color: darksalmon; */
+}
+/* ____________________________________________________________________________ */
+
+
+hr {
+    margin: 10px 0;
 }

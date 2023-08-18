@@ -16,51 +16,33 @@
     <header id="header"></header>
 
     <div class="container">
-        <div class="box__superior">
-            <div class="box__infos">
-                <div class="info">
-                    <h1>Comunidade São Geraldo Magela</h1>
-                    <p>Distrito de Sapucaia - Marilândia (ES)</p>
-                </div>
-                <div class="box__membros-conselho">
 
-                    <div class="header">
-                        <p>Membros do Conselho:</p>
-                    </div>
-
-                    <div class="bory">
-                        <div class="membro">
-                            <img src="img/avatar.png" alt="membro">
-                            <p>Amanda Santos</p>
-                        </div>
-                        <div class="membro">
-                            <img src="img/avatar.png" alt="membro">
-                            <p>Amanda Santos</p>
-                        </div>
-                        <div class="membro">
-                            <img src="img/avatar.png" alt="membro">
-                            <p>Amanda Santos</p>
-                        </div>
-                        <div class="membro">
-                            <img src="img/avatar.png" alt="membro">
-                            <p>Amanda Santos</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="box__img">
-                <img src="img/igreja-placeholder.png" alt="igreja">
-            </div>
+        <div class="box__img">
+            <img width="460px" src="img/desenho-da-igreja_75802-396.avif" alt="foto-igreja">
         </div>
 
-        <div class="box__inferior">
+        <div class="box__NomeComunidade">
+            <h1>Comunidade São Geraldo Magela</h1>
+            <h5>Distrito de Sapucaia - Marilândia (ES)</h5>
+        </div>
+
+        <hr>
+
+        <div class="box__destaques">
             <div class="bloco">
                 <div>
                     <p class="number">237</p>
                 </div>
                 <div>
                     <p class="text">Famílias</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div>
+                    <p class="number">1522</p>
+                </div>
+                <div>
+                    <p class="text">Fiéis</p>
                 </div>
             </div>
             <div class="bloco">
@@ -79,15 +61,40 @@
                     <p class="text">Dízimo</p>
                 </div>
             </div>
-            <div class="bloco">
-                <div>
-                    <p class="number">1522</p>
+        </div>
+
+        <hr>
+
+        <div class="box__membros-conselho">
+            <div class="titulo">
+                <h3>Membros do Conselho</h3>
+            </div>
+
+            <div class="body">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Pessoa Sobrenome Sobrenome</h5>
+                        <p class="card-text">cargo cargo cargo</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="text">Fiéis</p>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Pessoa Sobrenome Sobrenome</h5>
+                        <p class="card-text">cargo cargo cargo</p>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Pessoa Sobrenome Sobrenome</h5>
+                        <p class="card-text">cargo cargo cargo</p>
+                    </div>
                 </div>
             </div>
 
+            <div class="button">
+                <button type="button" id="btn-addAviso" name="btn-addAviso" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-avisos" data-bs-whatever="@mdo">Adicionar Membro</button>
+            </div>
+            
         </div>
     </div>
 </body>

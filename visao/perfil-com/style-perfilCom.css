@@ -2,7 +2,7 @@
     width: 90vw;
     margin: 10px auto 10px;
     padding: 0;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     background-color: bisque;
     border-radius: 10px;
     /* border: 2px solid #B36812; */
@@ -36,7 +36,6 @@
 }
 
 /* ____________________________________________________________________________ */
-
 .box__destaques {
     height: 25vh;
     width: 100%;
@@ -80,10 +79,6 @@
     text-align: center;
 }
 
-.bloco .text:hover {
-    opacity: .9;
-}
-
 /* ____________________________________________________________________________ */
 .box__membros-conselho {
     width: 100%;
@@ -112,7 +107,8 @@
     /* width: 250px;
     height: 120px; */
     border-radius: 10px;
-    flex: 0 0 calc(25% - 20px); /* Defina a largura do card (25% para 4 cards por linha) */
+    flex: 0 0 calc(25% - 20px);
+    /* Defina a largura do card (25% para 4 cards por linha) */
     margin: 10px;
 }
 
@@ -123,12 +119,20 @@
     /* border: 2px solid orange; */
 }
 
-.box__membros-conselho button{
-    font-size: 17px;
+.box__membros-conselho #btn-addMembro {
+    padding: 10px;
+    opacity: 1;
+    background-color: #B36812;
+    border: 1px solid #B36812;
+    border-radius: 10px;
+    transition: opacity 200ms ease-in-out;
     /* background-color: darksalmon; */
 }
-/* ____________________________________________________________________________ */
 
+.box__membros-conselho #btn-addMembro:hover {
+    opacity: .7;
+}
+/* ____________________________________________________________________________ */
 
 hr {
     margin: 10px 0;

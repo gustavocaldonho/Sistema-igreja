@@ -22,7 +22,7 @@
         </div>
 
         <div class="box__NomeComunidade">
-            <h1>Comunidade São Geraldo Magela</h1>
+            <h1>São Geraldo Magela</h1>
             <h5>Distrito de Sapucaia - Marilândia (ES)</h5>
         </div>
 
@@ -32,7 +32,7 @@
                     <p class="number">237</p>
                 </div>
                 <div>
-                    <p class="text">Famílias</p>
+                    <p class="text"><i>Famílias</i></p>
                 </div>
             </div>
             <div class="bloco">
@@ -40,7 +40,7 @@
                     <p class="number">1522</p>
                 </div>
                 <div>
-                    <p class="text">Fiéis</p>
+                    <p class="text"><i>Fiéis</i></p>
                 </div>
             </div>
             <div class="bloco">
@@ -48,7 +48,7 @@
                     <p class="number">198</p>
                 </div>
                 <div>
-                    <p class="text">Pagantes</p>
+                    <p class="text"><i>Pagantes</i></p>
                 </div>
             </div>
             <div class="bloco">
@@ -56,7 +56,7 @@
                     <p class="number">3.200,00</p>
                 </div>
                 <div>
-                    <p class="text">Dízimo</p>
+                    <p class="text"><i>Dízimo</i></p>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="body">
-                
+
                 <div class="card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Pessoa Sobrenome Sobrenome</h5>
@@ -83,14 +83,14 @@
                         <p class="card-text text-secondary">cargo cargo cargo</p>
                     </div>
                 </div>
-                
+
                 <div class="card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Pessoa Sobrenome Sobrenome</h5>
                         <p class="card-text text-secondary">cargo cargo cargo</p>
                     </div>
                 </div>
-                
+
                 <div class="card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Pessoa Sobrenome Sobrenome</h5>
@@ -109,13 +109,13 @@
                         <p class="card-text text-secondary">cargo cargo cargo</p>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="button">
-                <button type="button" id="btn-addAviso" name="btn-addAviso" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-avisos" data-bs-whatever="@mdo">Adicionar Membro</button>
+                <button type="button" id="btn-addMembro" name="btn-addMembro" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-avisos" data-bs-whatever="@mdo">Adicionar Membro</button>
             </div>
-            
+
         </div>
     </div>
 </body>

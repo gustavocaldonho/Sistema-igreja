@@ -18,7 +18,9 @@
     <div class="container">
 
         <div class="box__img">
-            <img width="460px" src="img/desenho-da-igreja_75802-396.avif" alt="foto-igreja">
+            <div>
+                <img src="img/desenho-igreja-sem-padding.avif" alt="foto-igreja">
+            </div>
         </div>
 
         <div class="box__NomeComunidade">

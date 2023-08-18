@@ -18,7 +18,20 @@
     /* border: 2px solid green; */
 }
 
+.box__img div {
+    width: 50%;
+    height: 90%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    /* border: 2px solid black; */
+}
+
 .box__img img {
+    width: 70%;
     border-radius: 20px;
 }
 
@@ -132,6 +145,7 @@
 .box__membros-conselho #btn-addMembro:hover {
     opacity: .7;
 }
+
 /* ____________________________________________________________________________ */
 
 hr {

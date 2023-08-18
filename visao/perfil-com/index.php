@@ -97,6 +97,18 @@
                         <p class="card-text text-secondary">cargo cargo cargo</p>
                     </div>
                 </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Pessoa Sobrenome Sobrenome</h5>
+                        <p class="card-text text-secondary">cargo cargo cargo</p>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Pessoa Sobrenome Sobrenome</h5>
+                        <p class="card-text text-secondary">cargo cargo cargo</p>
+                    </div>
+                </div>
                 
             </div>
 

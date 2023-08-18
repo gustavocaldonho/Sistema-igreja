@@ -97,6 +97,7 @@
                         <p class="card-text text-secondary">cargo cargo cargo</p>
                     </div>
                 </div>
+                
             </div>
 
             <div class="button">

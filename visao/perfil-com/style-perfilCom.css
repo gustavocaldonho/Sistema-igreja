@@ -49,7 +49,7 @@
 }
 
 /* ____________________________________________________________________________ */
-.box__destaques {
+.box__estatisticas {
     height: 25vh;
     width: 100%;
     display: flex;
@@ -58,7 +58,7 @@
     /* border: 2px solid red; */
 }
 
-.box__destaques .bloco {
+.box__estatisticas .bloco {
     height: 50%;
     width: 20%;
     /* border: 2px solid black; */

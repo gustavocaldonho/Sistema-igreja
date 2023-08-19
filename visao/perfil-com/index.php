@@ -28,7 +28,7 @@
             <h5>Distrito de Sapucaia - Marilândia (ES)</h5>
         </div>
 
-        <div class="box__destaques">
+        <div class="box__estatisticas">
             <div class="bloco">
                 <div>
                     <p class="number">237</p>

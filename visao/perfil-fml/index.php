@@ -38,19 +38,19 @@
 
                 <div class="card text-center">
                     <div class="card-body">
-                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                        <p class="card-title">Pessoa Sobrenome Sobrenome Sobrenome Sobrenome</p>
                     </div>
                 </div>
 
                 <div class="card text-center">
                     <div class="card-body">
-                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                        <p class="card-title">Pessoa Sobrenome Sobrenome Sobrenome Sobrenome Sobrenome Sobrenome Sobrenome</p>
                     </div>
                 </div>
 
                 <div class="card text-center">
                     <div class="card-body">
-                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                        <p class="card-title">Pessoa Sobrenome Sobrenome Sobrenome Sobrenome</p>
                     </div>
                 </div>
 

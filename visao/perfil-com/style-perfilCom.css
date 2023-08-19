@@ -140,14 +140,17 @@
     border: 1.5px solid #B36812;
     border-radius: 10px;
     font-weight: 400;
-    /* transition: opacity 200ms ease-in-out; */
+    transition: opacity 400ms ease-in-out;
     transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 
 .box__membros-conselho #btn-addMembro:hover {
     background-color: #B36812;
     color: white;
-    /* opacity: .7; */
+}
+
+.box__membros-conselho #btn-addMembro:active {
+    opacity: .9;
 }
 
 /* ____________________________________________________________________________ */

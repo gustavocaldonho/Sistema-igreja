@@ -11,54 +11,89 @@
     <link rel="stylesheet" href="style-perfilFml.css">
 </head>
 
-<body class="body">
+<body>
     <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
     <header id="header"></header>
 
     <div class="container">
-        <div class="box__foto">
-            <img src="imgs/retrato-familia.avif" alt="retrato-familia">
-        </div>
-
-        <div class="box__infos">
-            <div class="box__membros">
-                <!-- ######## COLOCAR O EMAIL E A COMUNIDADE DA FAMÍLIA ######## -->
-                <table class="table-membros table-sm col-12">
-                    <thead>
-                        <th scope="col" class="col-4">Membros da Família</th>
-                        <th scope="col" class="col-2">CPF</th>
-                        <th scope="col" class="col-3">Data De Nascimento</th>
-                        <th scope="col" class="col-3">Celular</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ramon Soares</td>
-                            <td>000.000.000-00</td>
-                            <td>00/00/0000</td>
-                            <td>(00) 00000-0000</td>
-                        </tr>
-                        <tr>
-                            <td>Ramon Soares Dias Gomes</td>
-                            <td>000.000.000-00</td>
-                            <td>00/00/0000</td>
-                            <td>(00) 00000-0000</td>
-                        </tr>
-                        <tr>
-                            <td>Delma Gomes Dias</td>
-                            <td>000.000.000-00</td>
-                            <td>00/00/0000</td>
-                            <td>(00) 00000-0000</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="box__img">
+            <div>
+                <img src="img/retrato-familia.avif" alt="retrato-familia">
             </div>
         </div>
 
+        <div class="box__NomeFamilia">
+            <h1>Nome Sobrenome Sobrenome</h1>
+            <h5>Comunidade Comunidade - Localização Localização</h5>
+        </div>
+
+        <!-- <hr> -->
+
+        <div class="box__membros-familia">
+            <div class="titulo">
+                <h3>Membros da Família</h3>
+            </div>
+
+            <div class="body">
+
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="button">
+                <button type="button" id="btn-editFamilia" name="btn-editFamilia" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-avisos" data-bs-whatever="@mdo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-pencil-square mb-1" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                    </svg> Editar Família</button>
+            </div>
+
+        </div>
+
+        <hr>
+
         <div class="box__pagamentos">
+            <div class="titulo">
+                <h3>Colaborações</h3>
+            </div>
+
+            <div class="body">
                 <div class="dizimo">
                     <table>
                         <thead>
-                            <th scope="col" class="col-12">Pagamentos Dízimo</th>
+                            <th scope="col" class="col-12 mb-3">Dízimo</th>
                         </thead>
                         <tbody>
                             <tr>
@@ -109,7 +144,7 @@
                 <div class="caixaMortuario">
                     <table>
                         <thead>
-                            <th scope="col" class="col-12">Pagamentos Caixa Mortuário</th>
+                            <th scope="col" class="col-12">Caixa Mortuário</th>
                         </thead>
                         <tbody>
                             <tr>
@@ -121,15 +156,52 @@
                                         <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off" disabled>
                                         <label class="btn btn-outline-success" for="btncheck24">2024</label>
 
+                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off" disabled>
+                                        <label class="btn btn-outline-success" for="btncheck24">2025</label>
+
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
+
+        <hr>
+
+        <div class="box__membros" hidden>
+            <!-- ######## COLOCAR O EMAIL E A COMUNIDADE DA FAMÍLIA ######## -->
+            <table class="table-membros table-sm col-12">
+                <thead>
+                    <th scope="col" class="col-4">Membros da Família</th>
+                    <th scope="col" class="col-2">CPF</th>
+                    <th scope="col" class="col-3">Data De Nascimento</th>
+                    <th scope="col" class="col-3">Celular</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ramon Soares</td>
+                        <td>000.000.000-00</td>
+                        <td>00/00/0000</td>
+                        <td>(00) 00000-0000</td>
+                    </tr>
+                    <tr>
+                        <td>Ramon Soares Dias Gomes</td>
+                        <td>000.000.000-00</td>
+                        <td>00/00/0000</td>
+                        <td>(00) 00000-0000</td>
+                    </tr>
+                    <tr>
+                        <td>Delma Gomes Dias</td>
+                        <td>000.000.000-00</td>
+                        <td>00/00/0000</td>
+                        <td>(00) 00000-0000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     </div>
 </body>
 

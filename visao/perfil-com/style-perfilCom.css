@@ -132,7 +132,7 @@
     /* border: 2px solid orange; */
 }
 
-.box__membros-conselho #btn-addMembro {
+.box__membros-conselho #btn-editConselho {
     padding: 10px;
     opacity: 1;
     background-color: white;
@@ -144,12 +144,12 @@
     transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 
-.box__membros-conselho #btn-addMembro:hover {
+.box__membros-conselho #btn-editConselho:hover {
     background-color: #B36812;
     color: white;
 }
 
-.box__membros-conselho #btn-addMembro:active {
+.box__membros-conselho #btn-editConselho:active {
     opacity: .9;
 }
 

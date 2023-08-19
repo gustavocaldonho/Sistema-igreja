@@ -135,19 +135,22 @@
 .box__membros-conselho #btn-addMembro {
     padding: 10px;
     opacity: 1;
-    background-color: #B36812;
-    border: 1px solid #B36812;
+    background-color: white;
+    color: #B36812;
+    border: 1.5px solid #B36812;
     border-radius: 10px;
-    transition: opacity 200ms ease-in-out;
-    /* background-color: darksalmon; */
+    font-weight: 400;
+    /* transition: opacity 200ms ease-in-out; */
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 
 .box__membros-conselho #btn-addMembro:hover {
-    opacity: .7;
+    background-color: #B36812;
+    color: white;
+    /* opacity: .7; */
 }
 
 /* ____________________________________________________________________________ */
-
 hr {
     margin: 10px 0;
 }

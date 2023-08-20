@@ -24,7 +24,7 @@
 
         <div class="box__NomeFamilia">
             <h1>Nome Sobrenome Sobrenome</h1>
-            <h5>Comunidade Comunidade - Localização Localização</h5>
+            <h5><a href="../perfil-com/">Comunidade Comunidade - Localização Localização</a></h5>
         </div>
 
         <!-- <hr> -->

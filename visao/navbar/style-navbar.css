@@ -45,7 +45,7 @@ nav li a:hover {
 }
 
 .link-dgapy:hover {
-    color: black !important;
+    /* color: black !important; */
     background-color: #B88615 !important;
 }
 
@@ -79,9 +79,9 @@ nav li a:hover {
     background-color: whitesmoke;
 }
 
-.drop-perfil{
+/* .drop-perfil{
     margin-left: -55px;
-}
+} */
 
 .dropdown-menu a {
     display: block;
@@ -110,4 +110,16 @@ nav li a:hover {
 a:hover .bi-caret-right-fill{
     /* transition: 300ms; */
     transform: rotate(90deg);
+}
+
+#btn-sair{
+    width: 70px;
+    padding: 6px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#btn-sair:hover{
+    background-color: #B88615;
+    border: 1px solid white;
 }

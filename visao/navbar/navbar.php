@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Se o link abaixo for descomentado, a navbar nas outras páginas perde a formatação -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style-navbar.css">
     <title>Dropdown menu</title>
 </head>
@@ -16,45 +15,45 @@
 
     <?php
 
-    session_start();
-    // print_r($_SESSION);
+    // session_start();
+    // // print_r($_SESSION);
 
-    if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+    // if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
 
-        unset($_SESSION["cpf"]);
-        unset($_SESSION["senha"]);
-        header("Location: ../login/index.php");
-    } else {
+    //     unset($_SESSION["cpf"]);
+    //     unset($_SESSION["senha"]);
+    //     header("Location: ../login/index.php");
+    // } else {
 
-        include_once("../../dao/conexao.php");
-        include_once("../../dao/familiaDAO.php");
-        include_once("../../dao/loginDAO.php");
-        include_once("../login/funcoesPHP.php");
+    //     include_once("../../dao/conexao.php");
+    //     include_once("../../dao/familiaDAO.php");
+    //     include_once("../../dao/loginDAO.php");
+    //     include_once("../login/funcoesPHP.php");
 
-        $conexao = conectar();
-        $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]);
-        $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]);
+    //     $conexao = conectar();
+    //     $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]);
+    //     $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]);
 
-        $codPerfil = getCodPerfil($resLogin);
-        $arrayDados = getDadosMembro($resMembro);
+    //     $codPerfil = getCodPerfil($resLogin);
+    //     $arrayDados = getDadosMembro($resMembro);
 
-        // // Buscando o código de perfil do membro
-        // while ($user_data = mysqli_fetch_assoc($resLogin)) {
-        //     $codPerfil = $user_data["perfil"];
-        // }
+    //     // // Buscando o código de perfil do membro
+    //     // while ($user_data = mysqli_fetch_assoc($resLogin)) {
+    //     //     $codPerfil = $user_data["perfil"];
+    //     // }
 
-        // // Buscando os dados do membro
-        // while ($user_data = mysqli_fetch_assoc($resMembro)) {
-        //     $nome = $user_data["nome"];
-        //     $data_nasc = $user_data["data_nasc"];
-        //     $celular = $user_data["celular"];
-        //     $id_familia = $user_data["id_familia"];
-        // }
+    //     // // Buscando os dados do membro
+    //     // while ($user_data = mysqli_fetch_assoc($resMembro)) {
+    //     //     $nome = $user_data["nome"];
+    //     //     $data_nasc = $user_data["data_nasc"];
+    //     //     $celular = $user_data["celular"];
+    //     //     $id_familia = $user_data["id_familia"];
+    //     // }
 
-        // $logadoCodPerfil = $_SESSION["$codPerfil"];
-        // $_SESSION['arrayItens'] = array();
-        $logado = $_SESSION["cpf"];
-    }
+    //     // $logadoCodPerfil = $_SESSION["$codPerfil"];
+    //     // $_SESSION['arrayItens'] = array();
+    //     $logado = $_SESSION["cpf"];
+    // }
 
     ?>
 
@@ -69,6 +68,7 @@
                 </li>
 
                 <?php
+                $codPerfil = 2; // ###############################################
                 if ($codPerfil == 2) {
                     echo "<li class='dropdown'>
                             <a href='../comunidades/'>Comunidades</a>
@@ -93,7 +93,8 @@
 
                 <!---------------------------- campo teste --------------------------------->
                 <li hidden>
-                    <a href=""><?php echo "$nome - $data_nasc - $celular - $id_familia"?></a>
+                    <a href=""><?php //echo "$nome - $data_nasc - $celular - $id_familia"
+                                ?></a>
                 </li>
                 <!-------------------------------------------------------------------------->
 
@@ -121,21 +122,23 @@
                     </div>
                 </li>
 
-                <li class="dropdown">
-                    <a href=""><?php echo "Nome - $codPerfil" ?>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                            </svg>
-                        </span>
+                <li>
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill mb-1" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg> Usuário
                     </a>
-                    <!-- O alinhamento a esquerda foi feito por meio da classe drop-left, usando margin-left (negativo) -->
-                    <div class="dropdown-menu drop-perfil">
-                        <a href="">Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="../login/sair.php" class="btn">Sair</a>
-                    </div>
                 </li>
+
+                <li>
+                    <a href="../login/sair.php" id="btn-sair">Sair
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right mb-1" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                        </svg>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </nav>

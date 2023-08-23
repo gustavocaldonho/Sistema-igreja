@@ -36,13 +36,24 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     include_once("../login/funcoesPHP.php");
 
     $conexao = conectar();
-    $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
-    $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
+
+    // ao clicar numa família na aba 'famílias'
+    if (isset($_GET['id_familia'])) {
+        $id_familia = $_GET['id_familia'];
+    } else {
+        // quando o usuário clica para ver o perfil da sua família
+        $id_familia = $_SESSION['id_familia'];
+    }
+
+    // ------------------------------------------------------------------------------------
+    // $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
+    // $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
 
     // Buscando os dados do membro que está logado
-    $arrayDadosMembro = getDadosMembroLogado($resMembro); // login/funcoesPHP
-    $id_familia = $arrayDadosMembro[3];
+    // $arrayDadosMembro = getDadosMembroLogado($resMembro); // login/funcoesPHP
+    // $id_familia = $arrayDadosMembro[3];
     // print_r($id_familia);
+    // ------------------------------------------------------------------------------------
 
     // Buscando os dados da família
     $resFamilia = getDadosFamilia($conexao, $id_familia); // familiaDAO

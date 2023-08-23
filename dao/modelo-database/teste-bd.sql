@@ -2,6 +2,7 @@
 -- Perfil: 0 - membro da família; 1 - membro do conselho, 2 - líder paroquiano (administrador)
 select * from bd_sistema.login;	
 update bd_sistema.login set perfil = 2 where membro_familia_cpf = 2;
+delete from bd_sistema.login where membro_familia_cpf = 93130693009;
 SELECT * FROM bd_sistema.login WHERE membro_familia_cpf = 14734570760;
 INSERT INTO bd_sistema.login (membro_familia_cpf, senha, perfil) VALUES ('14734570760', '1234', 0);
 
@@ -12,16 +13,16 @@ SELECT * FROM bd_sistema.comunidade WHERE padroeiro='São Geraldo';
 
 select * from bd_sistema.familia;
 select * from bd_sistema.membro_familia order by id_familia;
-select * from bd_sistema.membro_familia where id_familia = 96;
+select * from bd_sistema.membro_familia where id_familia = 107;
 SELECT * FROM bd_sistema.membro_familia WHERE cpf = '02172119091';
-select count(*) as qtd from bd_sistema.membro_familia where id_familia = 76;
+select count(*) as qtd from bd_sistema.membro_familia where id_familia = 102;
 UPDATE bd_sistema.familia SET nome='$nomeFamilia', email='$email', id_comunidade='$id_comunidade' WHERE id_familia='$id_familia';
 SELECT * FROM bd_sistema.familia WHERE nome='Drago';
 
 
 -- Exclusão família
-DELETE FROM bd_sistema.familia WHERE id_familia = 66;
-DELETE from bd_sistema.membro_familia WHERE id_familia = 66;
+DELETE FROM bd_sistema.familia WHERE id_familia = 103;
+DELETE from bd_sistema.membro_familia WHERE id_familia = 103;
 
 delete from bd_sistema.membro_familia where id_familia > 36;
 delete from bd_sistema.familia where id_comunidade < 30;

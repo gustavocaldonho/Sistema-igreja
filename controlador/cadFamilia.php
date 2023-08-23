@@ -1,6 +1,7 @@
 <?php
 
 require_once '../dao/familiaDAO.php';
+require_once '../dao/loginDAO.php';
 require_once '../dao/conexao.php';
 require_once '../controlador/funcoesUteis.php';
 
@@ -62,6 +63,7 @@ if ($id_familia != "") { //atualizar
         updateFamilia($conexao, $id_familia, $nomeFamilia, $email, $id_comunidade);
 
         // Excluindo todos os possíveis membros já existentes para depois serem adicionados
+        // DELETER OS LOGINS ##############
         deleteMembros($conexao, $id_familia);
 
         $contador = 1;
@@ -111,7 +113,10 @@ if ($id_familia != "") { //atualizar
             cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $idFamilia);
             $contador++;
 
-            // CADASTRAR LOGIN ##################
+            // loginDAO
+            cadastrarLogin($conexao, $cpfMb);// todos os membros são inseridos com o perfil padrão de '0'
+
+
         }
 
         header("Location: ../visao/cad-fml/index.php?cod=1&msg=Familia <i><b>$nomeFamilia</b></i> cadastrada com sucesso!");

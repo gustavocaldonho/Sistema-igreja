@@ -37,10 +37,6 @@ function cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia)
 {
     $sqlMembro = "INSERT INTO bd_sistema.membro_familia (cpf, nome, data_nasc, celular, id_familia) VALUES ( '$cpfMb', '$nomeMb', '$dnMb', '$celMb', '$id_familia')";
     mysqli_query($conexao, $sqlMembro) or die(mysqli_error($conexao));
-
-    // Inserindo o login do membro
-    $sqlLogin = "INSERT INTO bd_sistema.login (membro_familia_cpf, senha, perfil) VALUES ('$cpfMb', '1234', 0)";
-    mysqli_query($conexao, $sqlLogin) or die(mysqli_error($conexao));
 }
 
 function deleteMembros($conexao, $id_familia)
@@ -52,13 +48,8 @@ function deleteMembros($conexao, $id_familia)
 
 function deleteFamilia($conexao, $id_familia)
 {
-    // Excluindo os membros da família
-    $sqlDeleteMembros = "DELETE FROM bd_sistema.membro_familia WHERE id_familia = '$id_familia'";
-    $resMembros = mysqli_query($conexao, $sqlDeleteMembros) or die(mysqli_error($conexao));
-
-    // Excluindo a família
     $sqlDeleteFamilia = "DELETE FROM bd_sistema.familia WHERE id_familia = '$id_familia'";
-    $resFamilia = mysqli_query($conexao, $sqlDeleteFamilia) or die(mysqli_error($conexao));
+    mysqli_query($conexao, $sqlDeleteFamilia) or die(mysqli_error($conexao));
 }
 
 function familiaDuplicada($conexao, $nomeFamilia)

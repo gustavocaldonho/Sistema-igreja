@@ -11,6 +11,57 @@
     <link rel="stylesheet" href="style-perfilFml.css">
 </head>
 
+<?php
+
+// pegar o id da família e procurar o nome
+
+// pegar o id da comunidade e procurar padroeiro e localizacao
+
+// exibir: nome da família, padroeiro e localização, membros da familia
+
+session_start();
+// print_r($_SESSION);
+
+if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+
+    unset($_SESSION["cpf"]);
+    unset($_SESSION["senha"]);
+    header("Location: ../login/index.php");
+} else {
+
+    include_once("../../dao/conexao.php");
+    include_once("../../dao/familiaDAO.php");
+    include_once("../../dao/comunidadeDAO.php");
+    include_once("../../dao/loginDAO.php");
+    include_once("../login/funcoesPHP.php");
+
+    $conexao = conectar();
+    $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
+    $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
+
+    // Buscando os dados do membro que está logado
+    $arrayDadosMembro = getDadosMembroLogado($resMembro); // login/funcoesPHP
+    $id_familia = $arrayDadosMembro[3];
+    // print_r($id_familia);
+
+    // Buscando os dados da família
+    $resFamilia = getDadosFamilia($conexao, $id_familia); // familiaDAO
+    $arrayDadosFamilia = getDadosFamiliaPerfil($resFamilia); // login/funcoesPHP
+    $nomeFamilia = $arrayDadosFamilia[0];
+    $id_comunidade = $arrayDadosFamilia[2];
+    // print_r($arrayDadosFamilia[0] . " " . $arrayDadosFamilia[1] . " " . $arrayDadosFamilia[2]);
+
+    // Buscando os dados da comunidade
+    $resComunidade = getDadosComunidade($conexao, $id_comunidade); // comunidadeDAO
+    $arrayDadosComunidade = getDadosComunidadePerfil($resComunidade); // login/funcoesPHP
+    $padroeiro = $arrayDadosComunidade[0];
+    $localizacao = $arrayDadosComunidade[1];
+    // print_r($arrayDadosComunidade[0] . " " . $arrayDadosComunidade[1] . " " . $arrayDadosComunidade[2]);
+
+}
+
+?>
+
 <body>
     <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
     <header id="header"></header>
@@ -23,8 +74,8 @@
         </div>
 
         <div class="box__NomeFamilia">
-            <h1>Nome Sobrenome Sobrenome</h1>
-            <h5><a href="../perfil-com/">Comunidade Comunidade - Localização Localização</a></h5>
+            <h1> <?php echo $nomeFamilia; ?> </h1>
+            <h5><a href="../perfil-com/"> <?php echo "$padroeiro - $localizacao"; ?> </a></h5>
         </div>
 
         <!-- <hr> -->
@@ -36,39 +87,41 @@
 
             <div class="body">
 
-                <div class="card text-center">
+                <?php
+
+                // Buscando os dados dos membros da família
+                $resMembros = getDadosMembrosFamilia($conexao, $id_familia);
+                // $resQtdMembros = getQtdMembrosFamilia($conexao, $id_familia);
+
+                // Quantidade de membros que a família possui
+                // while($user_data = mysqli_fetch_assoc($resQtdMembros)){
+                //     $qtd_membros = $user_data["qtd"];
+                // }
+
+                // print_r(var_dump($resMembros));
+
+                // Passa uma linha por vez
+                while ($user_data = mysqli_fetch_assoc($resMembros)) {
+                    $nome = $user_data["nome"];
+
+                    echo "
+                        <div class='card text-center'>
+                            <div class='card-body'>
+                                <p class='card-title'>$nome</p>
+                            </div>
+                        </div>
+                        ";
+                }
+
+                ?>
+
+                <!-------------- Modelo padrão (Código de backup) ------------>
+                <div class="card text-center" hidden>
                     <div class="card-body">
                         <p class="card-title">Pessoa Sobrenome Sobrenome Sobrenome Sobrenome</p>
                     </div>
                 </div>
-
-                <div class="card text-center">
-                    <div class="card-body">
-                        <p class="card-title">Pessoa Sobrenome Sobrenome Sobrenome Sobrenome Sobrenome Sobrenome Sobrenome</p>
-                    </div>
-                </div>
-
-                <div class="card text-center">
-                    <div class="card-body">
-                        <p class="card-title">Pessoa Sobrenome Sobrenome Sobrenome Sobrenome</p>
-                    </div>
-                </div>
-
-                <div class="card text-center">
-                    <div class="card-body">
-                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <p class="card-title">Pessoa Sobrenome Sobrenome</p>
-                    </div>
-                </div>
+                <!------------------------------------------------------------>
 
             </div>
 

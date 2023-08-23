@@ -38,7 +38,7 @@
         $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
 
         // Buscando os dados do membro
-        $arrayDados = getDadosMembro($resMembro); // login/funcoesPHP
+        $arrayDados = getDadosMembroLogado($resMembro); // login/funcoesPHP
 
         // $logado = $_SESSION["cpf"];
     }
@@ -79,7 +79,7 @@
                 </li>
 
                 <!---------------------------- campo teste --------------------------------->
-                <li>
+                <li hidden>
                     <a href=""><?php echo "#$codPerfil ";
                                 echo "$arrayDados[1] - $arrayDados[2] - $arrayDados[3]"
                                 ?></a>
@@ -114,7 +114,7 @@
                     <a href="../perfil-fml/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill mb-1" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                        </svg> <?php echo $arrayDados[0] ?>
+                        </svg> <?php echo $arrayDados[0]; ?>
                     </a>
                 </li>
 

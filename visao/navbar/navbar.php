@@ -15,45 +15,45 @@
 
     <?php
 
-    // session_start();
-    // // print_r($_SESSION);
+    session_start();
+    // print_r($_SESSION);
 
-    // if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+    if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
 
-    //     unset($_SESSION["cpf"]);
-    //     unset($_SESSION["senha"]);
-    //     header("Location: ../login/index.php");
-    // } else {
+        unset($_SESSION["cpf"]);
+        unset($_SESSION["senha"]);
+        header("Location: ../login/index.php");
+    } else {
 
-    //     include_once("../../dao/conexao.php");
-    //     include_once("../../dao/familiaDAO.php");
-    //     include_once("../../dao/loginDAO.php");
-    //     include_once("../login/funcoesPHP.php");
+        include_once("../../dao/conexao.php");
+        include_once("../../dao/familiaDAO.php");
+        include_once("../../dao/loginDAO.php");
+        include_once("../login/funcoesPHP.php");
 
-    //     $conexao = conectar();
-    //     $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]);
-    //     $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]);
+        $conexao = conectar();
+        $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
+        $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
 
-    //     $codPerfil = getCodPerfil($resLogin);
-    //     $arrayDados = getDadosMembro($resMembro);
+        // $codPerfil = getCodPerfil($resLogin);
+        // $arrayDados = getDadosMembro($resMembro);
 
-    //     // // Buscando o código de perfil do membro
-    //     // while ($user_data = mysqli_fetch_assoc($resLogin)) {
-    //     //     $codPerfil = $user_data["perfil"];
-    //     // }
+        // Buscando o código de perfil do membro
+        while ($user_data = mysqli_fetch_assoc($resLogin)) {
+            $codPerfil = $user_data["perfil"];
+        }
 
-    //     // // Buscando os dados do membro
-    //     // while ($user_data = mysqli_fetch_assoc($resMembro)) {
-    //     //     $nome = $user_data["nome"];
-    //     //     $data_nasc = $user_data["data_nasc"];
-    //     //     $celular = $user_data["celular"];
-    //     //     $id_familia = $user_data["id_familia"];
-    //     // }
+        // Buscando os dados do membro
+        while ($user_data = mysqli_fetch_assoc($resMembro)) {
+            $nome = $user_data["nome"];
+            $data_nasc = $user_data["data_nasc"];
+            $celular = $user_data["celular"];
+            $id_familia = $user_data["id_familia"];
+        }
 
-    //     // $logadoCodPerfil = $_SESSION["$codPerfil"];
-    //     // $_SESSION['arrayItens'] = array();
-    //     $logado = $_SESSION["cpf"];
-    // }
+        // $logadoCodPerfil = $_SESSION["$codPerfil"];
+        // $_SESSION['arrayItens'] = array();
+        $logado = $_SESSION["cpf"];
+    }
 
     ?>
 
@@ -68,7 +68,6 @@
                 </li>
 
                 <?php
-                $codPerfil = 2; // ###############################################
                 if ($codPerfil == 2) {
                     echo "<li class='dropdown'>
                             <a href='../comunidades/'>Comunidades</a>
@@ -93,7 +92,8 @@
 
                 <!---------------------------- campo teste --------------------------------->
                 <li hidden>
-                    <a href=""><?php //echo "$nome - $data_nasc - $celular - $id_familia"
+                    <a href=""><?php echo "#$codPerfil";
+                                echo " $nome - $data_nasc - $celular - $id_familia"
                                 ?></a>
                 </li>
                 <!-------------------------------------------------------------------------->
@@ -126,7 +126,7 @@
                     <a href="../perfil-fml/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill mb-1" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                        </svg> Usuário
+                        </svg> <?php echo $nome ?>
                     </a>
                 </li>
 

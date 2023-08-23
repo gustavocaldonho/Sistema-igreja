@@ -8,4 +8,11 @@ function getDadosLogin($conexao, $cpf){
     return $result;
 }
 
-?>
+function getDadosMembrosFamiliaLogin($conexao, $cpf)
+{
+    $sqlSelect = "SELECT * FROM bd_sistema.membro_familia WHERE cpf = $cpf";
+
+    $resultSelect = $conexao->query($sqlSelect);
+
+    return $resultSelect;
+}

@@ -81,8 +81,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`Login` (
   PRIMARY KEY (`membro_familia_cpf`),
     FOREIGN KEY (`membro_familia_cpf`)
     REFERENCES `bd_sistema`.`membro_familia` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

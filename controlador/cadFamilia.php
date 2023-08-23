@@ -63,7 +63,7 @@ if ($id_familia != "") { //atualizar
         updateFamilia($conexao, $id_familia, $nomeFamilia, $email, $id_comunidade);
 
         // Excluindo todos os possíveis membros já existentes para depois serem adicionados
-        // DELETER OS LOGINS ##############
+        // Os logins são deletados automaticamente, de acordo com a especificação 'cascade' na tabela
         deleteMembros($conexao, $id_familia);
 
         $contador = 1;
@@ -77,6 +77,9 @@ if ($id_familia != "") { //atualizar
             // familiaDAO
             cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia);
             $contador++;
+
+            // loginDAO
+            cadastrarLogin($conexao, $cpfMb); // todos os membros são inseridos com o perfil padrão de '0'
         }
 
         header("Location: ../visao/familias/index.php?cod=1&msg=Familia <b>$nomeFamilia ($id_familia)</b> atualizada com sucesso!");
@@ -114,9 +117,7 @@ if ($id_familia != "") { //atualizar
             $contador++;
 
             // loginDAO
-            cadastrarLogin($conexao, $cpfMb);// todos os membros são inseridos com o perfil padrão de '0'
-
-
+            cadastrarLogin($conexao, $cpfMb); // todos os membros são inseridos com o perfil padrão de '0'
         }
 
         header("Location: ../visao/cad-fml/index.php?cod=1&msg=Familia <i><b>$nomeFamilia</b></i> cadastrada com sucesso!");

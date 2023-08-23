@@ -34,25 +34,13 @@
         $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
         $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
 
-        // $codPerfil = getCodPerfil($resLogin);
-        // $arrayDados = getDadosMembro($resMembro);
-
         // Buscando o código de perfil do membro
-        while ($user_data = mysqli_fetch_assoc($resLogin)) {
-            $codPerfil = $user_data["perfil"];
-        }
+        $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
 
         // Buscando os dados do membro
-        while ($user_data = mysqli_fetch_assoc($resMembro)) {
-            $nome = $user_data["nome"];
-            $data_nasc = $user_data["data_nasc"];
-            $celular = $user_data["celular"];
-            $id_familia = $user_data["id_familia"];
-        }
+        $arrayDados = getDadosMembro($resMembro); // login/funcoesPHP
 
-        // $logadoCodPerfil = $_SESSION["$codPerfil"];
-        // $_SESSION['arrayItens'] = array();
-        $logado = $_SESSION["cpf"];
+        // $logado = $_SESSION["cpf"];
     }
 
     ?>
@@ -91,9 +79,9 @@
                 </li>
 
                 <!---------------------------- campo teste --------------------------------->
-                <li hidden>
-                    <a href=""><?php echo "#$codPerfil";
-                                echo " $nome - $data_nasc - $celular - $id_familia"
+                <li>
+                    <a href=""><?php echo "#$codPerfil ";
+                                echo "$arrayDados[1] - $arrayDados[2] - $arrayDados[3]"
                                 ?></a>
                 </li>
                 <!-------------------------------------------------------------------------->
@@ -126,7 +114,7 @@
                     <a href="../perfil-fml/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill mb-1" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                        </svg> <?php echo $nome ?>
+                        </svg> <?php echo $arrayDados[0] ?>
                     </a>
                 </li>
 

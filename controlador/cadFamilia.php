@@ -110,6 +110,8 @@ if ($id_familia != "") { //atualizar
             // familiaDAO
             cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $idFamilia);
             $contador++;
+
+            // CADASTRAR LOGIN ##################
         }
 
         header("Location: ../visao/cad-fml/index.php?cod=1&msg=Familia <i><b>$nomeFamilia</b></i> cadastrada com sucesso!");

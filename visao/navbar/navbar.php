@@ -41,6 +41,7 @@
         $arrayDados = getDadosMembroLogado($resMembro); // login/funcoesPHP
 
         $_SESSION['id_familia'] = $arrayDados[3];
+        $_SESSION['codPerfil'] = $codPerfil;
 
         // $logado = $_SESSION["cpf"];
     }

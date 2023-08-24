@@ -37,8 +37,8 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
     $conexao = conectar();
 
-    // ao clicar numa família na aba 'famílias'
-    if (isset($_GET['id_familia'])) {
+    // ao clicar numa família na aba 'famílias' (somente o conselheiro (1) e o administrador(2) podem visualizar os perfis de outras famílias, além das suas próprias)
+    if (isset($_GET['id_familia']) && ($_SESSION['codPerfil'] == 1 || $_SESSION['codPerfil'] == 2)) {
         $id_familia = $_GET['id_familia'];
     } else {
         // quando o usuário clica para ver o perfil da sua família

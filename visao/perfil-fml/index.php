@@ -39,6 +39,8 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
         $id_familia = $_SESSION['id_familia'];
     }
 
+    // Com base no id_familia passado na url, os dados que serão exibidos nesta página são buscados no bd
+
     // Buscando os dados da família
     $resFamilia = getDadosFamilia($conexao, $id_familia); // familiaDAO
     $arrayDadosFamilia = getDadosFamiliaPerfil($resFamilia); // login/funcoesPHP

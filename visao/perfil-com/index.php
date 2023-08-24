@@ -11,6 +11,30 @@
     <link rel="stylesheet" href="style-perfilCom.css">
 </head>
 
+<?php
+
+session_start();
+
+if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true)) {
+
+    unset($_SESSION["cpf"]);
+    unset($_SESSION["senha"]);
+    header("Location: ../login/index.php");
+} else {
+
+    include_once("../../dao/conexao.php");
+    include_once("../../dao/familiaDAO.php");
+    include_once("../../dao/comunidadeDAO.php");
+    include_once("../../dao/loginDAO.php");
+    include_once("../login/funcoesPHP.php");
+
+    $conexao = conectar();
+
+    // print_r($_SESSION["id_familia"]);
+}
+
+?>
+
 <body>
     <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
     <header id="header"></header>
@@ -31,7 +55,7 @@
         <div class="box__estatisticas">
             <div class="bloco">
                 <div>
-                    <p class="number">237</p>
+                    <p class="number">0</p>
                 </div>
                 <div>
                     <p class="text"><i>Famílias</i></p>
@@ -39,7 +63,7 @@
             </div>
             <div class="bloco">
                 <div>
-                    <p class="number">1522</p>
+                    <p class="number">0</p>
                 </div>
                 <div>
                     <p class="text"><i>Fiéis</i></p>
@@ -47,7 +71,7 @@
             </div>
             <div class="bloco">
                 <div>
-                    <p class="number">198</p>
+                    <p class="number">0</p>
                 </div>
                 <div>
                     <p class="text"><i>Pagantes</i></p>
@@ -55,7 +79,7 @@
             </div>
             <div class="bloco">
                 <div>
-                    <p class="number">3.200,00</p>
+                    <p class="number">0,00</p>
                 </div>
                 <div>
                     <p class="text"><i>Dízimo</i></p>

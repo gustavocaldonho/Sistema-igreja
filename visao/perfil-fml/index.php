@@ -13,12 +13,6 @@
 
 <?php
 
-// pegar o id da família e procurar o nome
-
-// pegar o id da comunidade e procurar padroeiro e localizacao
-
-// exibir: nome da família, padroeiro e localização, membros da familia
-
 session_start();
 // print_r($_SESSION);
 
@@ -102,14 +96,6 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
                 // Buscando os dados dos membros da família
                 $resMembros = getDadosMembrosFamilia($conexao, $id_familia);
-                // $resQtdMembros = getQtdMembrosFamilia($conexao, $id_familia);
-
-                // Quantidade de membros que a família possui
-                // while($user_data = mysqli_fetch_assoc($resQtdMembros)){
-                //     $qtd_membros = $user_data["qtd"];
-                // }
-
-                // print_r(var_dump($resMembros));
 
                 // Passa uma linha por vez
                 while ($user_data = mysqli_fetch_assoc($resMembros)) {

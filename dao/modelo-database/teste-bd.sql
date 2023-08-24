@@ -1,7 +1,7 @@
 -- LOGIN
 -- Perfil: 0 - membro da família; 1 - membro do conselho, 2 - líder paroquiano (administrador)
 select * from bd_sistema.login;	
-update bd_sistema.login set perfil = 2 where membro_familia_cpf = 2;
+update bd_sistema.login set perfil = 1 where membro_familia_cpf = 1; -- usar no botão 'Editar Conselho'
 delete from bd_sistema.login where membro_familia_cpf = 93130693009;
 SELECT * FROM bd_sistema.login WHERE membro_familia_cpf = 14734570760;
 INSERT INTO bd_sistema.login (membro_familia_cpf, senha, perfil) VALUES ('14734570760', '1234', 0);

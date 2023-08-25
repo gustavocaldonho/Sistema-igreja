@@ -27,6 +27,16 @@
         unset($_SESSION["senha"]);
         header("Location: ../login/index.php");
     } else {
+        include_once("../../dao/conexao.php");
+        include_once("../../dao/loginDAO.php");
+        include_once("../login/funcoesPHP.php");
+
+        $conexao = conectar();
+
+        // Buscando o código de perfil do membro
+        $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
+        $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
+        $_SESSION['codPerfil'] = $codPerfil;
 
         // $logado = $_SESSION["cpf"];
     }
@@ -88,8 +98,6 @@
             </div>
 
             <?php
-            $codPerfil = 2; // ################ retirar #######################
-
             if ($codPerfil == 1 || $codPerfil == 2) {
                 echo "<div class='box__button-avisos'>
                             <button type='button' id='btn-addEvento' name='btn-addEvento' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal-eventos' data-bs-whatever='@mdo' onclick='setarModalFormEventos()'>Adicionar
@@ -300,7 +308,7 @@
             if ($codPerfil == 1 || $codPerfil == 2) {
                 echo "<div class='box__button-avisos'>
                         <button type='button' id='btn-addAviso' name='btn-addAviso' onclick='setarModalFormAvisos()' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal-avisos' data-bs-whatever='@mdo'>Adicionar
-                        Aviso" .  $_SESSION['cpf'] . "</button>
+                        Aviso</button>
                     </div>";
             }
             ?>

@@ -1,26 +1,3 @@
-/* _______________________ Personalizando a scrollbar ________________________ */
-::-webkit-scrollbar {
-    width: 8px;
-    /* width of the entire scrollbar */
-}
-
-/* Personalização do funda da scrollbar */
-::-webkit-scrollbar-track {
-    /* color of the tracking area */
-    background: gainsboro;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #a8a8a8;
-    /* color of the scroll thumb */
-    /* border-radius: 10px; */
-    /* roundness of the scroll thumb */
-}
-
-/* _________________________________________________________________________________ */
-
 .container {
     width: 100%;
     min-height: 100vh;

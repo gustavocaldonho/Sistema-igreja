@@ -1,6 +1,40 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #FAEBD7;
-    min-height: 400px;
+  margin: 0;
+  padding: 0;
+  background-color: #faebd7;
+  min-height: 400px;
+}
+
+/* _______________________ Personalizando a scrollbar ________________________ */
+::-webkit-scrollbar {
+  width: 8px;
+  /* width of the entire scrollbar */
+}
+
+/* Personalização do funda da scrollbar */
+::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track {
+  /* color of the tracking area */
+  background: gainsboro;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+  /* background-color: #a8a8a8; */
+  background-color: #c5c3c3;
+  /* color of the scroll thumb */
+  /* border-radius: 10px; */
+  /* roundness of the scroll thumb */
+}
+
+div::-webkit-scrollbar-thumb {
+  border-top-right-radius: 10px;
+}
+
+/* _______________________ Personalizando a scrollbar da tabela principal ________________________ */
+div::-webkit-scrollbar {
+  width: 4px;
+  /* width of the entire scrollbar */
 }

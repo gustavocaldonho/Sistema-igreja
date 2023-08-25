@@ -56,7 +56,7 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
             <input type="text" id="inputIdComunidade" name="inputIdComunidade" value="<?php if (isset($_GET["id_comunidade"])) echo $_GET["id_comunidade"] ?>" hidden>
 
             <div class="col-md-12 box__buttons">
-                <a name="btnCancelar" id="btn-cancelar" name="btn-cancelar" class="btn btn-danger" href="../comunidades/index.php">Cancelar</a>
+                <a name="btnCancelar" id="btn-cancelar" name="btn-cancelar" class="btn btn-danger" href="#" onclick="history.back()">Cancelar</a>
 
                 <?php
                 // só terá o botão 'Limpar' quando não for edição da comunidade

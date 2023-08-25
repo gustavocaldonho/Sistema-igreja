@@ -82,7 +82,9 @@ if ($id_familia != "") { //atualizar
             cadastrarLogin($conexao, $cpfMb); // todos os membros são inseridos com o perfil padrão de '0'
         }
 
-        header("Location: ../visao/familias/index.php?cod=1&msg=Familia <b>$nomeFamilia ($id_familia)</b> atualizada com sucesso!");
+        header("Location: ../visao/perfil-fml/index.php?id_familia=$id_familia&cod=1&msg=Familia <b>$nomeFamilia ($id_familia)</b> atualizada com sucesso!");
+
+        // header("Location: ../visao/familias/index.php?cod=1&msg=Familia <b>$nomeFamilia ($id_familia)</b> atualizada com sucesso!");
     } else {
         // ERRO
         header("Location: ../visao/cad-fml/index.php?cod=0&msg=Campos Inválidos: $msgErroFamilia $msgErroMembros" . "&nomeFamilia=$nomeFamilia&email=$email&id_comunidade=$id_comunidade&id_familia=$id_familia&qtd_membros=$qtd_membros" . $textMbHeader);

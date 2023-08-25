@@ -12,6 +12,22 @@
     <link rel="stylesheet" href="../navbar/style-navbar.css">
 </head>
 
+<?php
+
+session_start();
+
+if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+
+    unset($_SESSION["cpf"]);
+    unset($_SESSION["senha"]);
+    header("Location: ../login/index.php");
+} else {
+
+
+}
+
+?>
+
 <body>
 
     <header id="header"></header>
@@ -102,9 +118,9 @@
             </div>
 
             <div class="col-md-12 box__buttons">
-                <a name="btn-cancelar" id="btn-cancelar" class="btn btn-danger" href="../familias/index.php">Cancelar</a>
+                <a name="btn-cancelar" id="btn-cancelar" class="btn btn-danger" <?php if($_SESSION['codPerfil'] == 0) echo "href='../perfil-fml/index.php'"; else echo "href='../familias/index.php'"; ?> >Cancelar</a>
 
-                <?php
+                <?php 
                 // só terá o botão 'Limpar' quando não for edição da família
                 if (!isset($_GET["id_familia"])) {
                     // Limpar

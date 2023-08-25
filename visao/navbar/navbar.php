@@ -32,16 +32,21 @@
         include_once("../login/funcoesPHP.php");
 
         $conexao = conectar();
-        $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
-        $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
 
         // Buscando o código de perfil do membro
+        $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
         $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
-
-        // Buscando os dados do membro
-        $arrayDados = getDadosMembroLogado($resMembro); // login/funcoesPHP
-        $_SESSION['id_familia'] = $arrayDados[3];
         $_SESSION['codPerfil'] = $codPerfil;
+
+        // Buscando os dados do membro (id_familia)
+        $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
+        $arrayDadosMembro = getDadosMembroLogado($resMembro); // login/funcoesPHP
+        $_SESSION['id_familia'] = $arrayDadosMembro[3];
+
+        // Buscando o id_comunidade que está vinculado a família
+        $resFamilia = getDadosFamilia($conexao, $_SESSION['id_familia']); // familiaDAO
+        $arrayDadosFamilia = getDadosFamiliaPerfil($resFamilia); // login/funcoesPHP
+        $_SESSION['id_comunidade'] = $arrayDadosFamilia[2];
 
         // $logado = $_SESSION["cpf"];
     }
@@ -84,7 +89,7 @@
                 <!---------------------------- campo teste --------------------------------->
                 <li hidden>
                     <a href=""><?php echo "#$codPerfil ";
-                                echo "$arrayDados[1] - $arrayDados[2] - $arrayDados[3]"
+                                echo "$arrayDadosMembro[1] - $arrayDadosMembro[2] - $arrayDadosMembro[3]"
                                 ?></a>
                 </li>
                 <!-------------------------------------------------------------------------->
@@ -117,7 +122,7 @@
                     <a href="../perfil-fml/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill mb-1" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                        </svg> <?php echo $arrayDados[0]; ?>
+                        </svg> <?php echo $arrayDadosMembro[0]; ?>
                     </a>
                 </li>
 

@@ -39,9 +39,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
         $id_familia = $_SESSION['id_familia'];
     }
 
-    // Com base no id_familia passado na url, os dados que serão exibidos nesta página são buscados no bd
-
-    // Buscando os dados da família
+    // Buscando os dados da família (com base no id_familia passado na url)
     $resFamilia = getDadosFamilia($conexao, $id_familia); // familiaDAO
     $arrayDadosFamilia = getDadosFamiliaPerfil($resFamilia); // login/funcoesPHP
     $nomeFamilia = $arrayDadosFamilia[0];
@@ -72,7 +70,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
         <div class="box__NomeFamilia">
             <h1> <?php echo $nomeFamilia; ?> </h1>
-            <h5><a href="../perfil-com/"> <?php echo "$padroeiro - $localizacao"; ?> </a></h5>
+            <h5><a href="../perfil-com/index.php?id_comunidade=<?php echo $id_comunidade ?>"> <?php echo "$padroeiro - $localizacao"; ?> </a></h5>
         </div>
 
         <!-- <hr> -->

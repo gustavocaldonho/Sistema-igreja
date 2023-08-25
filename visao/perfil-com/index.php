@@ -30,7 +30,21 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
     $conexao = conectar();
 
-    // print_r($_SESSION["id_familia"]);
+    // se houver o id_comunidade na url e se estiver logado um administrador -> acesso a todas as comunidades (aba 'Comunidades')
+    if (isset($_GET['id_comunidade']) && $_SESSION['codPerfil'] == 2) {
+        $id_comunidade = $_GET['id_comunidade'];
+    } else {
+        // quando o usuário ou o conselheiro clica para ver o perfil da sua comunidade
+        $id_comunidade = $_SESSION['id_comunidade'];
+    }
+
+    // Buscando os dados da comunidade (com base no id_comunidade passado na url)
+    $resComunidade = getDadosComunidade($conexao, $id_comunidade); // comunidadeDAO
+    $arrayDadosComunidade = getDadosComunidadePerfil($resComunidade); // login/funcoesPHP
+    $padroeiro = $arrayDadosComunidade[0];
+    $localizacao = $arrayDadosComunidade[1];
+    // print_r($arrayDadosComunidade[0] . " " . $arrayDadosComunidade[1] . " " . $arrayDadosComunidade[2]);
+
 }
 
 ?>
@@ -48,8 +62,8 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
         </div>
 
         <div class="box__NomeComunidade">
-            <h1>São Geraldo Magela</h1>
-            <h5>Distrito de Sapucaia - Marilândia (ES)</h5>
+            <h1><?php echo $padroeiro; ?></h1>
+            <h5><?php echo $localizacao; ?></h5>
         </div>
 
         <div class="box__estatisticas">

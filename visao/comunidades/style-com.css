@@ -51,6 +51,28 @@ div label[for="flexRadioDefault1"] {
     margin-right: 30px;
 }
 
+/* _______________________________________________ */
+.box_button{
+    height: 10vh;
+    width: 85vw;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid green; */
+}
+
+#btn-cadComunidade {
+    background-color: #B36812;
+    border: 1px solid #B36812;
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+}
+
+#btn-cadComunidade:hover {
+    opacity: .7;
+}
+
 /* _______________________ Personalizando a scrollbar da tabela principal ________________________ */
 div::-webkit-scrollbar {
     width: 8px;

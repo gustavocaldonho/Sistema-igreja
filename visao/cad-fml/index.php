@@ -118,7 +118,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
             </div>
 
             <div class="col-md-12 box__buttons">
-                <a name="btn-cancelar" id="btn-cancelar" class="btn btn-danger" <?php if($_SESSION['codPerfil'] == 0) echo "href='../perfil-fml/index.php'"; else echo "href='../familias/index.php'"; ?> >Cancelar</a>
+                <a name="btn-cancelar" id="btn-cancelar" class="btn btn-danger" href="#" onclick="history.back()" >Cancelar</a>
 
                 <?php 
                 // só terá o botão 'Limpar' quando não for edição da família

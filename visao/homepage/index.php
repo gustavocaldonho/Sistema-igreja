@@ -36,7 +36,7 @@
         // Buscando o código de perfil do membro
         $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
         $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
-        $_SESSION['codPerfil'] = $codPerfil;
+        $_SESSION["codPerfil"] = $codPerfil;
 
         // $logado = $_SESSION["cpf"];
     }

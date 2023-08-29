@@ -31,7 +31,7 @@ while ($contador <= $qtd_membros) {
     // inserindo os cpfs numa lista, a fim de verificar se tem algum duplicado
     array_push($listaCpf, $cpfMb);
 
-    // $msgErroMembros .= validarMembros($contador, $id_familia, $cpfMb, $nomeMb, $dnMb);
+    $msgErroMembros .= validarMembros($contador, $id_familia, $cpfMb, $nomeMb, $dnMb);
     $contador++;
 }
 

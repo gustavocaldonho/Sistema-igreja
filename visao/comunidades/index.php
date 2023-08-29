@@ -14,6 +14,22 @@
 
 <body>
 
+    <?php
+
+    session_start();
+
+    if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+        unset($_SESSION["cpf"]);
+        unset($_SESSION["senha"]);
+        header("Location: ../login/index.php");
+    } else {
+        if ($_SESSION["codPerfil"] != 2) {
+            header("location: ../homepage/index.php");
+        }
+    }
+
+    ?>
+
     <header id="header"></header>
 
     <!-- _____________________ modal confirmação exclusão comunidades  _____________________  -->

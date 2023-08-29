@@ -33,7 +33,7 @@ div::-webkit-scrollbar-thumb {
   border-top-right-radius: 10px;
 }
 
-/* _______________________ Personalizando a scrollbar da tabela principal ________________________ */
+/* ___________ Personalizando a scrollbar da tabela principal de 'Comunidades' e 'Famílias' __________ */
 div::-webkit-scrollbar {
   width: 4px;
   /* width of the entire scrollbar */

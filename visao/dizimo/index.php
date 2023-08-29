@@ -14,6 +14,20 @@
 
 <body>
 
+    <?php
+
+    session_start();
+
+    if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+        unset($_SESSION["cpf"]);
+        unset($_SESSION["senha"]);
+        header("Location: ../login/index.php");
+    } else {
+
+    }
+
+    ?>
+
     <header id="header"></header>
 
     <div class="container">

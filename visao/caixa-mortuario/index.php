@@ -14,6 +14,20 @@
 
 <body>
 
+    <?php
+
+    session_start();
+
+    if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
+        unset($_SESSION["cpf"]);
+        unset($_SESSION["senha"]);
+        header("Location: ../login/index.php");
+    } else {
+
+    }
+
+    ?>
+
     <header id="header"></header>
 
     <div class="container">
@@ -24,10 +38,10 @@
                 <h4>Relatório de</h4>
             </div>
             <div class="box__select">
-            <select class="form-select select-ano" aria-label="Default select example">
-                <option value="2023" selected>2023</option>
-                <option value="2024">2024</option>
-            </select>
+                <select class="form-select select-ano" aria-label="Default select example">
+                    <option value="2023" selected>2023</option>
+                    <option value="2024">2024</option>
+                </select>
             </div>
         </div>
 

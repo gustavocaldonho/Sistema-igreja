@@ -104,22 +104,3 @@ div label[for="flexRadioDefault1"] {
     /* Label 'Ativos'*/
     margin-right: 30px;
 }
-
-/* _______________________ Personalizando a scrollbar da tabela principal ________________________ */
-div::-webkit-scrollbar {
-    width: 8px;
-    /* width of the entire scrollbar */
-}
-
-div::-webkit-scrollbar-track {
-    /* color of the tracking area */
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-div::-webkit-scrollbar-thumb {
-    background-color: #a8a8a8;
-    /* color of the scroll thumb */
-    border-radius: 10px;
-    /* roundness of the scroll thumb */
-}

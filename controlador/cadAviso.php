@@ -9,6 +9,7 @@ require_once "../dao/avisoDAO.php";
 $titulo = $_POST["tituloAviso"];
 $descricao = $_POST["descricaoAviso"];
 $status = $_POST["radioAviso"];
+$id_comunidade = $_POST["id_comunidade"];
 
 // usado na edição
 $id_aviso = $_POST["id_aviso"];
@@ -28,7 +29,7 @@ if ($id_aviso != "") { //atualização
     }
 } else { //cadastro
     if (empty($msgErro)) {
-        cadastrarAviso($conexao, $titulo, $descricao, $status); //avisoDAO
+        cadastrarAviso($conexao, $titulo, $descricao, $status, $id_comunidade); //avisoDAO
 
 
         header("Location: ../visao/homepage/index.php?msg=Aviso inserido com sucesso");

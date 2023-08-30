@@ -1,10 +1,10 @@
 <?php
 
-function cadastrarAviso($conexao, $titulo, $descricao, $status)
+function cadastrarAviso($conexao, $titulo, $descricao, $status, $id_comunidade)
 {
     // ########################### Trocar o valor id_comunidade ->>> pegar de acordo com o login
 
-    $sqlAviso = "INSERT INTO bd_sistema.avisos (status, titulo, descricao, id_comunidade) VALUES ($status, '$titulo', '$descricao', 10)";
+    $sqlAviso = "INSERT INTO bd_sistema.avisos (status, titulo, descricao, id_comunidade) VALUES ($status, '$titulo', '$descricao', $id_comunidade)";
 
     mysqli_query($conexao, $sqlAviso) or die(mysqli_error($conexao));
 }

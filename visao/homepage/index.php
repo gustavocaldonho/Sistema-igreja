@@ -30,6 +30,8 @@
         include_once("../../dao/conexao.php");
         include_once("../../dao/loginDAO.php");
         include_once("../login/funcoesPHP.php");
+        include_once("../../dao/familiaDAO.php");
+        include_once("../../dao/comunidadeDAO.php");
 
         $conexao = conectar();
 
@@ -38,7 +40,15 @@
         $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
         $_SESSION["codPerfil"] = $codPerfil;
 
-        // $logado = $_SESSION["cpf"];
+        // Buscando os dados do membro (id_familia)
+        $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
+        $arrayDadosMembro = getDadosMembroLogado($resMembro); // login/funcoesPHP
+        $_SESSION['id_familia'] = $arrayDadosMembro[3];
+
+        // Buscando o id_comunidade que está vinculado a família
+        $resFamilia = getDadosFamilia($conexao, $_SESSION['id_familia']); // familiaDAO
+        $arrayDadosFamilia = getDadosFamiliaPerfil($resFamilia); // login/funcoesPHP
+        $_SESSION['id_comunidade'] = $arrayDadosFamilia[2];
     }
 
     ?>
@@ -211,7 +221,6 @@
                     $data = $user_data['data'];
                     $horario = $user_data['horario'];
                     $descricao = $user_data['descricao'];
-                    $id_eventos = $user_data['id_eventos'];
                     $status = $user_data['status'];
 
                     // separando a data em dia, mes e ano
@@ -349,8 +358,11 @@
                                         Visível para toda a Paróquia
                                     </label>
                                 </div>
-                                <!-- Campo escondido para passar o id do aviso em caso de edição (setado o value ao clicar no botão de edição) -->
+                                <!-- Campo escondido para passar o id do aviso em caso de edição (setado o value ao clicar no botão de edição). No cadastro inicial, não existe o id_aviso -->
                                 <input type="text" id="id_aviso" name="id_aviso" value="" hidden>
+
+                                <!-- Campo escondido para passar o id da comunidade, de acordo com o usuário logado -->
+                                <input type="text" id="id_comunidade" name="id_comunidade" value="">
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -396,26 +408,34 @@
                         $status = $user_data['status'];
                         $titulo = $user_data['titulo'];
                         $descricao = $user_data['descricao'];
+                        $id_comunidade = $user_data['id_comunidade'];
 
-                        echo "<a class='list-group-item' aria-current='true'>";
-                        echo "<div class='d-flex w-100 justify-content-between'>";
-                        echo "<h5 class='mb-1'><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-arrow-right mb-1' viewBox='0 0 16 16'>";
-                        echo "<path fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z'/>";
-                        echo "</svg>";
-                        echo " " . $titulo;
-                        echo "</h5>";
+                        // Os avisos serão filtrados pelo status (0 - somente a comunidade verá, 1 - todos da paróquia) e pelo id da comunidade (somente verá se os avisos forem da comunidade do usuário, em caso de status == 0)
 
-                        //Não é visto pelos membros comuns
-                        if ($codPerfil == 1 || $codPerfil == 2) {
+                        // status == 1 ou (status == 0 e comunidade de quem inseriu == comunidade de quem visualizou) {visto} 
+                        if ($codPerfil == 2 || $status == 1 || ($status == 0 && $id_comunidade == $_SESSION['id_comunidade'])) {
+                            // echo "Inserido por: " . $id_comunidade . " # Visualizado por: " . $_SESSION['id_comunidade'] . " # Status: " . $status;
+                            // echo " VISTO ";
 
-                            echo "<div class='buttonsAviso'>
+                            echo "<a class='list-group-item' aria-current='true'>";
+                            echo "<div class='d-flex w-100 justify-content-between'>";
+                            echo "<h5 class='mb-1'><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-arrow-right mb-1' viewBox='0 0 16 16'>";
+                            echo "<path fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z'/>";
+                            echo "</svg>";
+                            echo " " . $titulo;
+                            echo "</h5>";
+
+                            //Não é visto pelos membros comuns
+                            if ($codPerfil == 1 || $codPerfil == 2) {
+
+                                echo "<div class='buttonsAviso'>
                             <small class='small-status";
-                            if ($status == 0) {
-                                echo " comunidade'>Comunidade</small>";
-                            } else {
-                                echo " paroquia'>Paróquia</small>";
-                            }
-                            echo "<button class='btn btn-sm' data-bs-toggle='modal'                 data-bs-target='#modal-avisos' onclick='setarModalAvisoUpdate(\"$titulo\", \"$descricao\", $status, $id_aviso)'>
+                                if ($status == 0) {
+                                    echo " comunidade'>Comunidade</small>";
+                                } else {
+                                    echo " paroquia'>Paróquia</small>";
+                                }
+                                echo "<button class='btn btn-sm' data-bs-toggle='modal'                 data-bs-target='#modal-avisos' onclick='setarModalAvisoUpdate(\"$titulo\", \"$descricao\", $status, $id_aviso, $id_comunidade)'>
                                     <svg xmlns='http://www.w3.org/2000/svg' fill='blue' class='bi bi-pencil-fill' viewBox='0 0 16 16'>
                                         <path d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z'/>
                                     </svg>
@@ -427,12 +447,13 @@
                                     </svg>
                                 </button>
                             </div>";
-                        }
+                            }
 
-                        echo "</div>";
-                        echo "<p class='mb-1'> $descricao  </p>";
-                        // echo "<small hidden>And some small print.</small>";
-                        echo "</a>";
+                            echo "</div>";
+                            echo "<p class='mb-1'> $descricao  </p>";
+                            // echo "<small hidden>And some small print.</small>";
+                            echo "</a>";
+                        }
                     }
                     ?>
 
@@ -619,6 +640,7 @@
         document.getElementById('tituloAviso').value = "";
         document.getElementById('descricaoAviso').value = "";
         document.getElementById('id_aviso').value = "";
+        document.getElementById('id_comunidade').value = "<?php echo $_SESSION['id_comunidade'] ?>";
         const radioOpcao0 = document.querySelector('input[name="radioAviso"][value="0"]');
         radioOpcao0.checked = true;
 
@@ -628,12 +650,13 @@
     }
 
     // Carregando as informações para o modal de edição (pega direto da página, já que a query ao banco já foi feita)
-    function setarModalAvisoUpdate(titulo, descricao, status, id_aviso) {
+    function setarModalAvisoUpdate(titulo, descricao, status, id_aviso, id_comunidade) {
         // document.form_avisos.action = "../../controlador/saveEditAviso.php";
 
         document.getElementById('tituloAviso').value = titulo;
         document.getElementById('descricaoAviso').value = descricao;
         document.getElementById('id_aviso').value = id_aviso;
+        document.getElementById('id_comunidade').value = id_comunidade;
 
         if (status == 0) {
             const radioOpcao0 = document.querySelector('input[name="radioAviso"][value="0"]');

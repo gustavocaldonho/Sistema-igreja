@@ -361,8 +361,8 @@
                                 <!-- Campo escondido para passar o id do aviso em caso de edição (setado o value ao clicar no botão de edição). No cadastro inicial, não existe o id_aviso -->
                                 <input type="text" id="id_aviso" name="id_aviso" value="" hidden>
 
-                                <!-- Campo escondido para passar o id da comunidade, de acordo com o usuário logado -->
-                                <input type="text" id="id_comunidade" name="id_comunidade" value="">
+                                <!-- Campo escondido para passar o id da comunidade (se for inserção — id da comunidade de quem está logado; se for update — id da comunidade de quem já havia inserido o aviso -->
+                                <input type="text" id="id_comunidade" name="id_comunidade" value="" hidden>
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -415,7 +415,6 @@
                         // status == 1 ou (status == 0 e comunidade de quem inseriu == comunidade de quem visualizou) {visto} 
                         if ($codPerfil == 2 || $status == 1 || ($status == 0 && $id_comunidade == $_SESSION['id_comunidade'])) {
                             // echo "Inserido por: " . $id_comunidade . " # Visualizado por: " . $_SESSION['id_comunidade'] . " # Status: " . $status;
-                            // echo " VISTO ";
 
                             echo "<a class='list-group-item' aria-current='true'>";
                             echo "<div class='d-flex w-100 justify-content-between'>";

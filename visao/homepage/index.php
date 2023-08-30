@@ -160,18 +160,22 @@
                                         <span id="spanDescricaoEvento" name="spanDescricaoEvento">0/200</span>
                                     </div>
                                 </div>
-                                <div class="form-check">
+
+                                <!-------------------------- Desativado --------------------------->
+                                <div class="form-check" hidden>
                                     <input class="form-check-input" type="radio" name="radioEvento" id="radioEventCom" value="0" checked>
                                     <label class="form-check-label" for="radioEventCom">
                                         Visível somente para a Comunidade
                                     </label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check" hidden>
                                     <input class="form-check-input" type="radio" name="radioEvento" id="radioEventParoq" value="1">
                                     <label class="form-check-label" for="radioEventParoq">
                                         Visível para toda a Paróquia
                                     </label>
                                 </div>
+                                <!---------------------------------------------------------------->
+
                                 <input type="text" id="id_evento" name="id_evento" value="" hidden>
 
                                 <div class="modal-footer">
@@ -266,13 +270,15 @@
                     //Não é visto pelos membros comuns
                     if ($codPerfil == 1 || $codPerfil == 2) {
 
-                        echo "<div class='buttonsEvento'>
-                                    <small class='small-status";
-                        if ($status == 0) {
-                            echo " comunidade'>Comunidade</small>";
-                        } else {
-                            echo " paroquia'>Paróquia</small>";
-                        }
+                        // >>> tirar  "; e descomentar o texto
+
+                        echo "<div class='buttonsEvento'>"; // ## esse ";
+                        //             <small class='small-status";
+                        // if ($status == 0) {
+                        //     echo " comunidade'>Comunidade</small>";
+                        // } else {
+                        //     echo " paroquia'>Paróquia</small>";
+                        // }
 
                         echo "<button class='btn btn-sm' data-bs-toggle='modal' data-bs-target='#modal-eventos' onclick='setarModalEventoUpdate(\"$titulo\", \"$presidente\", \"$local\", \"$data\", \"$horario\", \"$descricao\", $status, $id_eventos)'>
                                         <svg xmlns='http://www.w3.org/2000/svg' fill='blue' class='bi bi-pencil-fill' viewBox='0 0 16 16'>

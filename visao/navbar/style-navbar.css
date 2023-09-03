@@ -27,7 +27,7 @@ nav {
   background-color: #b88615;
 /* offset-x | offset-y | blur-radius (opacidade) | spread-radius (dispersão) | color */
 /* https://box-shadow.dev/ */
-box-shadow: 0 3px 25px 15px #cfab7d;
+box-shadow: 0 3px 25px 8px #cfab7d;
 }
 
 nav li {

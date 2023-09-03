@@ -64,7 +64,7 @@
     <!--  _________________________________________________________________________________________________ -->
 
     <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
-    <header id="header"></header>
+    <header id="header" class="sticky-top"></header>
     <?php //include("../navbar/navbar-echo.php") ?>
 
     <div class="container" id="container">

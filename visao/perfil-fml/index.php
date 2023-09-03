@@ -59,7 +59,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
 <body>
     <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
-    <header id="header"></header>
+    <header id="header" class="sticky-top"></header>
 
     <div class="container">
         <div class="box__img">

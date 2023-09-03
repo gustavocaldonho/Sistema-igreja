@@ -1,82 +1,85 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .box__navbar {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
 }
 
 /* Código abaixo adicionado porque as páginas Dízimo, Caixa Mortuário, Cadastro de Comunidade e Pessoa
 apresentavam um padding-left na ul da navbar */
 ul {
-    padding-left: 0;
-    margin: 0;
+  padding-left: 0;
+  margin: 0;
 }
 
-#ul-right{
-    margin-right: 20px;
-    /* border: 2px solid red; */
+#ul-right {
+  margin-right: 20px;
+  /* border: 2px solid red; */
 }
 
 nav {
-    background-color: #B88615;
+  background-color: #b88615;
+/* offset-x | offset-y | blur-radius (opacidade) | spread-radius (dispersão) | color */
+/* https://box-shadow.dev/ */
+box-shadow: 0 3px 25px 15px #cfab7d;
 }
 
 nav li {
-    display: inline-block;
+  display: inline-block;
 }
 
 nav li a {
-    display: inline-block;
-    color: white;
-    text-decoration: none !important;
-    padding: 15px;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  display: inline-block;
+  color: white;
+  text-decoration: none !important;
+  padding: 15px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
 nav li a:hover {
-    background-color: #d8b07b;
-    color: white;
+  background-color: #d8b07b;
+  color: white;
 }
 
 .link-dgapy:hover {
-    /* color: black !important; */
-    background-color: #B88615 !important;
+  /* color: black !important; */
+  background-color: #b88615 !important;
 }
 
 .dropdown-menu {
-    position: absolute;
-    /* box-shadow: 0 0 2px black; */
-    display: none;
-    margin-top: -1px;
-    background-color: #B88615;
+  position: absolute;
+  /* box-shadow: 0 0 2px black; */
+  display: none;
+  margin-top: -1px;
+  background-color: #b88615;
 }
 
-.drop-notificacao{
-    width: 300px;
-    margin-left: -253px;
-    background-color: white;
-    box-shadow: 0 0 2px #B88615;
-    /* display: block !important; para visualizar o dropdown*/
+.drop-notificacao {
+  width: 300px;
+  margin-left: -253px;
+  background-color: white;
+  box-shadow: 0 0 2px #b88615;
+  /* display: block !important; para visualizar o dropdown*/
 }
 
-.drop-notificacao p{
-    margin: 0;
-    padding: 10px;
-    color: #B88615;
+.drop-notificacao p {
+  margin: 0;
+  padding: 10px;
+  color: #b88615;
 }
 
-.dropdown-divider{
-    margin: 0;
+.dropdown-divider {
+  margin: 0;
 }
 
-.drop-notificacao p:hover{
-    background-color: whitesmoke;
+.drop-notificacao p:hover {
+  background-color: whitesmoke;
 }
 
 /* .drop-perfil{
@@ -84,42 +87,42 @@ nav li a:hover {
 } */
 
 .dropdown-menu a {
-    display: block;
-    color: white;
-    padding: 10px;
+  display: block;
+  color: white;
+  padding: 10px;
 }
 
 .dropdown-menu a:hover {
-    background-color: white;
-    color: #B88615;
+  background-color: white;
+  color: #b88615;
 }
 
 .dropdown-menu a:active {
-    background-color: gainsboro;
-    /* Quando clica no link */
+  background-color: gainsboro;
+  /* Quando clica no link */
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 
-.bi-caret-right-fill{
-    margin-bottom: 3px;
+.bi-caret-right-fill {
+  margin-bottom: 3px;
 }
 
-a:hover .bi-caret-right-fill{
-    /* transition: 300ms; */
-    transform: rotate(90deg);
+a:hover .bi-caret-right-fill {
+  /* transition: 300ms; */
+  transform: rotate(90deg);
 }
 
-#btn-sair{
-    width: 70px;
-    padding: 6px;
-    border-radius: 8px;
-    text-align: center;
+#btn-sair {
+  width: 70px;
+  padding: 6px;
+  border-radius: 8px;
+  text-align: center;
 }
 
-#btn-sair:hover{
-    background-color: #B88615;
-    border: 1px solid white;
+#btn-sair:hover {
+  background-color: #b88615;
+  border: 1px solid white;
 }

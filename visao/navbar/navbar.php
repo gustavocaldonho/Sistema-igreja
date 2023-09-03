@@ -57,7 +57,7 @@
     ?>
 
     <nav>
-        <div class="box__navbar">
+        <div class="sticky-top box__navbar">
             <ul id="ul-left">
                 <li>
                     <a class="link-dgapy" href="">Dgapy</a>

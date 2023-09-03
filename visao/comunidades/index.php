@@ -65,7 +65,7 @@
             <div>
                 <table class="table table-bg table-hover">
                     <thead>
-                        <tr>
+                        <tr class="sticky-top titulo-table">
                             <th scope="col" class="col-1">#</th>
                             <th scope="col" class="col-5">Comunidade</th>
                             <th scope="col" class="col-2">Total Arrecadado</th>

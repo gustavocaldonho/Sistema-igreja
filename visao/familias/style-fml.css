@@ -1,106 +1,113 @@
 .box__content-table {
-    width: 100%;
-    height: 65vh;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 65vh;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box__search {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.1%;
-    margin-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1%;
+  margin-top: 15px;
 }
 
 .box__principal {
-    width: 85%;
-    height: 100%;
-    /* O que sair da div, se esconde */
-    overflow: hidden;
-    /* Permite visualizar o que saiu da div (verticalmente) por meio de uma barra de rolagem */
-    overflow-y: scroll;
-    border-radius: 10px 10px 0 0;
-    background-color: rgba(0, 0, 0, 0.1);
+  width: 85%;
+  height: 100%;
+  /* O que sair da div, se esconde */
+  overflow: hidden;
+  /* Permite visualizar o que saiu da div (verticalmente) por meio de uma barra de rolagem */
+  overflow-y: scroll;
+  border-radius: 10px 10px 0 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Style título da tabela */
+.titulo-table {
+    background-color: #CABDAD;
+    box-shadow: 0 1px 20px 1px #a79b8e;
 }
 
 /* Estilizando os nomes das pessoas */
-.table .nome-familia{
-    color: black;
-    border: none;
+.table .nome-familia {
+  color: black;
+  border: none;
 }
 
-.table .nome-familia:hover{
-    background-color: darkgoldenrod;
-    color: white;
+.table .nome-familia:hover {
+  background-color: darkgoldenrod;
+  color: white;
 }
 
 .box__tableMembros {
-    height: 200px;
-    width: 85%;
-    margin: 15px auto;
-    display: flex;
-    box-shadow: 0 0 10px gray;
-    border-radius: 10px;
+  height: 200px;
+  width: 85%;
+  margin: 15px auto;
+  display: flex;
+  box-shadow: 0 0 10px gray;
+  border-radius: 10px;
 }
 
 .sub-box__left {
-    width: 40%;
-    height: 100%;
+  width: 40%;
+  height: 100%;
 }
 
 .sub-box__right {
-    width: 60%;
-    height: 100%;
+  width: 60%;
+  height: 100%;
 }
 
 .sub-box__right-top {
-    width: 100%;
-    height: 50%;
+  width: 100%;
+  height: 50%;
 }
 
-.sub-box__right th{
-    padding-bottom: 10px;
+.sub-box__right th {
+  padding-bottom: 10px;
 }
 
 .sub-box__right-down {
-    width: 100%;
-    height: 50%;
+  width: 100%;
+  height: 50%;
 }
 
-.sub-box .box-2 table{
-    width: 100%;
+.sub-box .box-2 table {
+  width: 100%;
 }
 
-.sub-box__left, .sub-box__right{
-    padding: 10px;
+.sub-box__left,
+.sub-box__right {
+  padding: 10px;
 }
 
 .table-membros {
-    width: 100%;
-    background-color: #E7E8E9;
-    border-radius: 10px;
+  width: 100%;
+  background-color: #e7e8e9;
+  border-radius: 10px;
 }
 
 /* Estilizando os campos de chekbox (pagamentos do dízimo e do caixa mortuário */
-.box__tableMembros .btn{
-    background-color: gray;
-    color: white !important;
-    border: none;
+.box__tableMembros .btn {
+  background-color: gray;
+  color: white !important;
+  border: none;
 }
 
 .div-rodape button {
-    margin: 10px;
+  margin: 10px;
 }
 
 .table-bg {
-    border-radius: 10px 0 0 0;
+  border-radius: 10px 0 0 0;
 }
 
 div label[for="flexRadioDefault1"] {
-    /* Label 'Ativos'*/
-    margin-right: 30px;
+  /* Label 'Ativos'*/
+  margin-right: 30px;
 }

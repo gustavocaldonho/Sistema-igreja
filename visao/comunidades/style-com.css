@@ -31,6 +31,12 @@ div h2 {
     margin-bottom: -15px;
 }
 
+/* Style título da tabela */
+.titulo-table {
+    background-color: #CABDAD;
+    box-shadow: 0 1px 20px 1px #a79b8e;
+}
+
 .table-bg {
     border-radius: 10px 0 0 0;
 }

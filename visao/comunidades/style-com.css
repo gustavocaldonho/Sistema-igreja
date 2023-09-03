@@ -37,6 +37,12 @@ div h2 {
     box-shadow: 0 1px 20px 1px #a79b8e;
 }
 
+tr{
+    height: 60px;
+    vertical-align: middle;
+    /* border: 2px solid green; */
+}
+
 .table-bg {
     border-radius: 10px 0 0 0;
 }
@@ -45,11 +51,12 @@ div h2 {
 .table .nome-comunidade{
     color: black;
     border: none;
+    padding: 0;
+    transition: 200ms;
 }
 
 .table .nome-comunidade:hover{
-    background-color: darkgoldenrod;
-    color: white;
+    font-size: 18px;
 }
 
 div label[for="flexRadioDefault1"] {

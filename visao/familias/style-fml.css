@@ -33,15 +33,22 @@
     box-shadow: 0 1px 20px 1px #a79b8e;
 }
 
+tr{
+  height: 60px;
+  vertical-align: middle;
+  /* border: 2px solid green; */
+}
+
 /* Estilizando os nomes das pessoas */
 .table .nome-familia {
   color: black;
   border: none;
+  padding: 0;
+  transition: 200ms;
 }
 
 .table .nome-familia:hover {
-  background-color: darkgoldenrod;
-  color: white;
+  font-size: 18px;
 }
 
 .box__tableMembros {

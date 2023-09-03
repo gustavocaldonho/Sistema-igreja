@@ -104,7 +104,7 @@
 
                                 echo "<tr>";
                                 echo "<td>" . $user_data['id_familia'] . "</td>";
-                                echo "<td> <a class='btn btn-outline-primary nome-familia' href='../perfil-fml/index.php?id_familia=" . $id_familia . "'>" . $user_data['nome'] . "</a></td>";
+                                echo "<td> <a class='btn nome-familia' href='../perfil-fml/index.php?id_familia=" . $id_familia . "'>" . $user_data['nome'] . "</a></td>";
                                 echo "<td>" . buscarDadosComunidade($user_data['id_comunidade']) . "</td>";
                                 echo "<td>" . $user_data['email'] . "</td>";
                                 echo "<td>

@@ -39,6 +39,10 @@ tr {
   /* border: 2px solid green; */
 }
 
+td{
+  border-bottom: 1px solid gainsboro;
+}
+
 /* Estilizando os nomes das pessoas */
 .table .nome-familia {
   color: black;
@@ -47,8 +51,9 @@ tr {
   transition: 200ms;
 }
 
-tr:hover .nome-familia {
+.nome-familia:hover {
   font-size: 18px;
+  cursor: pointer;
 }
 
 .box__tableMembros {

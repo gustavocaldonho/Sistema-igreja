@@ -102,9 +102,9 @@
                                 // echo "[" . $user_data['nome'] . "] ";
                                 // }
 
-                                echo "<tr>";
+                                echo "<tr class='nome-familia' onclick='redirecionarPerfilFamilia(" . $user_data['id_familia'] . ")'>";
                                 echo "<td>" . $user_data['id_familia'] . "</td>";
-                                echo "<td> <a class='btn nome-familia' href='../perfil-fml/index.php?id_familia=" . $id_familia . "'>" . $user_data['nome'] . "</a></td>";
+                                echo "<td>" . $user_data['nome'] . "</td>";
                                 echo "<td>" . buscarDadosComunidade($user_data['id_comunidade']) . "</td>";
                                 echo "<td>" . $user_data['email'] . "</td>";
                                 echo "<td>
@@ -256,9 +256,7 @@
     function searchData() {
         window.location = 'index.php?search=' + search.value;
     }
-</script>
 
-<script>
     function setarModalExclusao(id) {
         document.getElementById('btnDeleteFamiliaModal').value = id;
     }
@@ -266,6 +264,10 @@
     function deleteFamilia(id) {
         window.location.href = "../../controlador/deletarFamilia.php?id_familia=" + id;
         // alert(id);
+    }
+
+    function redirecionarPerfilFamilia(id) {
+        window.location.href = "../perfil-fml/index.php?id_familia=" + id;
     }
 </script>
 

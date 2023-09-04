@@ -29,11 +29,11 @@
 
 /* Style título da tabela */
 .titulo-table {
-    background-color: #CABDAD;
-    box-shadow: 0 1px 20px 1px #a79b8e;
+  background-color: #cabdad;
+  box-shadow: 0 1px 20px 1px #a79b8e;
 }
 
-tr{
+tr {
   height: 60px;
   vertical-align: middle;
   /* border: 2px solid green; */
@@ -47,7 +47,7 @@ tr{
   transition: 200ms;
 }
 
-.table .nome-familia:hover {
+tr:hover .nome-familia {
   font-size: 18px;
 }
 

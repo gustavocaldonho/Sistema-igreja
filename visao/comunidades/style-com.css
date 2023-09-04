@@ -43,6 +43,10 @@ tr {
   /* border: 2px solid green; */
 }
 
+td{
+    border-bottom: 1px solid gainsboro;
+}
+
 .table-bg {
   border-radius: 10px 0 0 0;
 }
@@ -55,8 +59,9 @@ tr {
   transition: 200ms;
 }
 
-tr:hover .nome-comunidade {
+.nome-comunidade:hover {
   font-size: 18px;
+  cursor: pointer;
 }
 
 div label[for="flexRadioDefault1"] {

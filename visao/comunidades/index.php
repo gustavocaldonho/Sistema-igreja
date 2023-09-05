@@ -67,10 +67,10 @@
                     <thead>
                         <tr class="sticky-top titulo-table">
                             <th scope="col" class="col-1">#</th>
-                            <th scope="col" class="col-5">Comunidade</th>
+                            <th scope="col" class="col-6">Comunidade</th>
                             <th scope="col" class="col-2">Total Arrecadado</th>
                             <th scope="col" class="col-2">Total da Paróquia</th>
-                            <th scope="col" class="col-2">...</th>
+                            <th scope="col" class="col-1">...</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,11 +83,11 @@
 
                         // 
                         while ($user_data = mysqli_fetch_assoc($result)) {
-                            echo "<tr class='nome-comunidade' onclick='redirecionarPerfilComunidade(". $user_data['id_comunidade'] . ")'>";
-                            echo "<td>" . $user_data['id_comunidade'] . "</td>";
-                            echo "<td>"  . $user_data['padroeiro'] . " - " . $user_data['localizacao'] . "</td>";
-                            echo "<td>" . "R$: 0,00" . "</td>";
-                            echo "<td>" . "R$: 0,00" . "</td>";
+                            echo "<tr class='nome-comunidade'>";
+                            echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>" . $user_data['id_comunidade'] . "</td>";
+                            echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>"  . $user_data['padroeiro'] . " - " . $user_data['localizacao'] . "</td>";
+                            echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>" . "R$: 0,00" . "</td>";
+                            echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>" . "R$: 0,00" . "</td>";
                             // echo "<td>" . $user_data['R$: 0,00'] . "</td>";
                             // echo "<td>" . $user_data['R$: 0,00'] . "</td>";
                             echo "<td>

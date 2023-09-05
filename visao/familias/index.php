@@ -74,9 +74,9 @@
                         <tr class="sticky-top titulo-table">
                             <th scope="col" class="col-1">#</th>
                             <th scope="col" class="col-4">Nome</th>
-                            <th scope="col" class="col-3">Comunidade</th>
+                            <th scope="col" class="col-4">Comunidade</th>
                             <th scope="col" class="col-2">Email</th>
-                            <th scope="col" class="col-2">...</th>
+                            <th scope="col" class="col-1">...</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,11 +102,11 @@
                                 // echo "[" . $user_data['nome'] . "] ";
                                 // }
 
-                                echo "<tr class='nome-familia' onclick='redirecionarPerfilFamilia(" . $user_data['id_familia'] . ")'>";
-                                echo "<td>" . $user_data['id_familia'] . "</td>";
-                                echo "<td>" . $user_data['nome'] . "</td>";
-                                echo "<td>" . buscarDadosComunidade($user_data['id_comunidade']) . "</td>";
-                                echo "<td>" . $user_data['email'] . "</td>";
+                                echo "<tr class='nome-familia'>";
+                                echo "<td onclick='redirecionarPerfilFamilia(" . $user_data['id_familia'] . ")'>" . $user_data['id_familia'] . "</td>";
+                                echo "<td onclick='redirecionarPerfilFamilia(" . $user_data['id_familia'] . ")'>" . $user_data['nome'] . "</td>";
+                                echo "<td onclick='redirecionarPerfilFamilia(" . $user_data['id_familia'] . ")'>" . buscarDadosComunidade($user_data['id_comunidade']) . "</td>";
+                                echo "<td onclick='redirecionarPerfilFamilia(" . $user_data['id_familia'] . ")'>" . $user_data['email'] . "</td>";
                                 echo "<td>
                                         <a class='btn btn-sm btn-primary' href='../../controlador/editarFamilia.php?id_familia=$user_data[id_familia]'>
                                             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
@@ -114,7 +114,7 @@
                                             </svg>
                                         </a>
 
-                                        <a class='btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#modalExclusaoFamilia' onclick='setarModalExclusao($id_familia)'>
+                                        <a class='btn btn-sm btn-danger btn-exclusaoFamilia' data-bs-toggle='modal' data-bs-target='#modalExclusaoFamilia' onclick='setarModalExclusao($id_familia)'>
                                         <svg xmlns=1http://www.w3.org/2000/svg1 width='16' height='16' fill='currentColor' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
                                             <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z' />
                                         </svg>

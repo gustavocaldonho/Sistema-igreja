@@ -45,6 +45,17 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
     $localizacao = $arrayDadosComunidade[1];
     // print_r($arrayDadosComunidade[0] . " " . $arrayDadosComunidade[1] . " " . $arrayDadosComunidade[2]);
 
+    // Buscando a quatidade de famílias que pertencem a comunidade
+    $resQtdFamilias = getQtdFamiliasComunidade($conexao, $id_comunidade);
+    while ($user_data = mysqli_fetch_assoc($resQtdFamilias)) {
+        $qtdFamilias = $user_data['qtd'];
+    }
+
+    // Buscando a quatidade de membros que pertencem a comunidade
+    $resQtdMembros = getQtdMembrosComunidade($conexao, $id_comunidade);
+    while ($user_data = mysqli_fetch_assoc($resQtdMembros)) {
+        $qtdMembros = $user_data['qtd'];
+    }
 }
 
 ?>
@@ -69,7 +80,7 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
         <div class="box__estatisticas">
             <div class="bloco">
                 <div>
-                    <p class="number">0</p>
+                    <p class="number"><?php echo $qtdFamilias; ?></p>
                 </div>
                 <div>
                     <p class="text"><i>Famílias</i></p>
@@ -77,7 +88,7 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
             </div>
             <div class="bloco">
                 <div>
-                    <p class="number">0</p>
+                    <p class="number"><?php echo $qtdMembros; ?></p>
                 </div>
                 <div>
                     <p class="text"><i>Fiéis</i></p>

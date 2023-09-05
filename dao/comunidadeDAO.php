@@ -59,6 +59,27 @@ function getDadosComunidade($conexao, $id_comunidade)
     return $result;
 }
 
+function getQtdFamiliasComunidade($conexao, $id_comunidade)
+{
+    $sqlSelect = "SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.familia WHERE id_comunidade = $id_comunidade";
+
+    $result = $conexao->query($sqlSelect);
+
+    return $result;
+}
+
+function getQtdMembrosComunidade($conexao, $id_comunidade)
+{
+    $sqlSelect = "SELECT COUNT(*) AS 'qtd'
+    FROM bd_sistema.membro_familia mf
+    INNER JOIN bd_sistema.familia f ON mf.id_familia = f.id_familia
+    WHERE f.id_comunidade = $id_comunidade";
+
+    $result = $conexao->query($sqlSelect);
+
+    return $result;
+}
+
 function updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email)
 {
     $sqlUpdate = "UPDATE bd_sistema.comunidade SET padroeiro='$padroeiro', localizacao='$localizacao', email='$email' WHERE id_comunidade=$id_comunidade";

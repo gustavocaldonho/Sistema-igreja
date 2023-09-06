@@ -50,7 +50,7 @@
 
                     <div class="box__btn">
                         <button type="submit" name="submit" class="btn btn-primary">Entrar</button>
-                        <button type="button" class="btn btn-outline-primary">Cadastrar Família</button>
+                        <a type="button" class="btn btn-outline-primary" href="../cad-fml/">Cadastrar Família</a>
                     </div>
                 </form>
             </div>

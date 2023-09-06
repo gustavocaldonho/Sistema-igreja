@@ -2,9 +2,8 @@
     width: 80vw !important;
 }
 
-h2 {
-    margin-top: 5px;
-    margin-bottom: -25px;
+#titulo-cadastro {
+    margin-top: 20px;
 }
 
 .required:after {

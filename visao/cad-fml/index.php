@@ -20,10 +20,11 @@
 
 <body>
 
-    <header id="header"></header>
+    <!-- <header id="header"></header> -->
+    <?php include("../navbar/navbar-echo.php"); ?>
 
     <div class="titulo">
-        <h2 class="text-center">Cadastro Família</h2>
+        <h2 id="titulo-cadastro" class="text-center">Cadastro Família</h2>
     </div>
 
     <div class="container">

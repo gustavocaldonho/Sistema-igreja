@@ -15,18 +15,6 @@
 </head>
 
 <body>
-    <!--  _________________________________________________________________________________________________ -->
-
-    <!-- Link do site onde peguei o código para linkar a função em js em arquivo separado -->
-    <!-- https://www.guj.com.br/t/chamando-uma-funcao-javascript-em-outra-pagina/150406 -->
-
-    <!-- Abaixo está o site de onde peguei o código para linkar a navbar nas páginas -->
-    <!-- https://pt.stackoverflow.com/questions/215177/importar-header-e-footer-em-todas-as-p%C3%A1ginas -->
-
-    <!--  _________________________________________________________________________________________________ -->
-
-    <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
-    <!-- <header id="header" class="sticky-top"></header> -->
 
     <?php
     include("../login/inicia-sessao.php");

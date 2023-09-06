@@ -20,8 +20,13 @@
 
 <body>
 
-    <!-- <header id="header"></header> -->
-    <?php include("../navbar/navbar-echo.php"); ?>
+    <?php
+    if (!isset($_GET["id_familia"])) {
+        include("../navbar/navbar-cadfml-login.php");
+    } else {
+        echo "<header id='header'></header>";
+    }
+    ?>
 
     <div class="titulo">
         <h2 id="titulo-cadastro" class="text-center">Cadastro Família</h2>
@@ -109,9 +114,9 @@
             </div>
 
             <div class="col-md-12 box__buttons">
-                <a name="btn-cancelar" id="btn-cancelar" class="btn btn-danger" href="#" onclick="history.back()" >Cancelar</a>
+                <a name="btn-cancelar" id="btn-cancelar" class="btn btn-danger" href="#" onclick="history.back()">Cancelar</a>
 
-                <?php 
+                <?php
                 // só terá o botão 'Limpar' quando não for edição da família
                 if (!isset($_GET["id_familia"])) {
                     // Limpar

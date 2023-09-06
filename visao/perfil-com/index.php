@@ -186,12 +186,4 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
 <script src='../funcoesJS/funcoes.js'></script>
 
-<script type="text/javascript">
-    // Código para linkar a navbar
-    carregaDocumento("../navbar/navbar.php", "#header");
-
-    // Código para linkar o footer (rodapé)
-    // carregaDocumento("rodape.html", "#mainfooter");
-</script>
-
 </html>

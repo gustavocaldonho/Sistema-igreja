@@ -44,8 +44,6 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 
 <body>
 
-    <!-- <header id="header"></header> -->
-
     <div class="sticky-top">
         <?php
         include("../navbar/navbar.php");
@@ -131,14 +129,9 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     </div>
 </body>
 
-<script src='../funcoesJS/funcoes.js'></script>
+<script src="../funcoesJS/funcoes.js"></script>
 <script src='../../dao/conexao.php'></script>
 <script src='../../dao/comunidadeDAO.php'></script>
-
-<script type="text/javascript">
-    carregaDocumento("../navbar/navbar.php", "#header");
-    // carregaDocumento("rodape.html", "#mainfooter");
-</script>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 

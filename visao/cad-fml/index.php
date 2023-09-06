@@ -18,7 +18,8 @@
     if (!isset($_GET["id_familia"])) {
         include("../navbar/navbar-cadfml-login.php");
     } else {
-        include("../navbar/navbar-teste.php");
+        include("../login/inicia-sessao.php");
+        include("../navbar/navbar.php");
     }
     ?>
 

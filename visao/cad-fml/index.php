@@ -12,19 +12,13 @@
     <link rel="stylesheet" href="../navbar/style-navbar.css">
 </head>
 
-<?php
-
-// PARA CADASTRAR A FAMÍLIA, O USUÁRIO AINDA NÃO TEM SEU LOGIN
-
-?>
-
 <body>
 
     <?php
     if (!isset($_GET["id_familia"])) {
         include("../navbar/navbar-cadfml-login.php");
     } else {
-        echo "<header id='header'></header>";
+        include("../navbar/navbar-teste.php");
     }
     ?>
 

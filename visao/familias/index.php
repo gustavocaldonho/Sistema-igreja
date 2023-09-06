@@ -16,8 +16,8 @@
 
     <?php
 
-    session_start();
-
+    include("../login/inicia-sessao.php");
+    
     if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
         unset($_SESSION["cpf"]);
         unset($_SESSION["senha"]);
@@ -36,7 +36,13 @@
 
     ?>
 
-    <header id="header"></header>
+    <!-- <header id="header"></header> -->
+
+    <div class="sticky-top">
+        <?php
+        include("../navbar/navbar.php");
+        ?>
+    </div>
 
     <!-- _____________________ modal confirmação exclusão famílias  _____________________  -->
     <div class="modal fade" id="modalExclusaoFamilia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

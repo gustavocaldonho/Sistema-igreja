@@ -13,7 +13,7 @@
 
 <?php
 
-session_start();
+include("../login/inicia-sessao.php");
 
 if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true)) {
 
@@ -62,7 +62,13 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
 <body>
     <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
-    <header id="header" class="sticky-top"></header>
+    <!-- <header id="header" class="sticky-top"></header> -->
+
+    <div class="sticky-top">
+        <?php
+        include("../navbar/navbar.php");
+        ?>
+    </div>
 
     <div class="container">
 

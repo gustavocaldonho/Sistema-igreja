@@ -16,19 +16,24 @@
 
     <?php
 
-    session_start();
+    include("../login/inicia-sessao.php");
 
     if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
         unset($_SESSION["cpf"]);
         unset($_SESSION["senha"]);
         header("Location: ../login/index.php");
     } else {
-
     }
 
     ?>
 
-    <header id="header"></header>
+    <!-- <header id="header"></header> -->
+
+    <div class="sticky-top">
+        <?php
+        include("../navbar/navbar.php");
+        ?>
+    </div>
 
     <div class="container">
         <h1>Dízimo</h1>

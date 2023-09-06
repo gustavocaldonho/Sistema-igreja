@@ -16,7 +16,7 @@
 
     <?php
 
-    session_start();
+    include("../login/inicia-sessao.php");
 
     if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
         unset($_SESSION["cpf"]);
@@ -30,7 +30,13 @@
 
     ?>
 
-    <header id="header"></header>
+    <!-- <header id="header"></header> -->
+
+    <div class="sticky-top">
+        <?php
+        include("../navbar/navbar.php");
+        ?>
+    </div>
 
     <!-- _____________________ modal confirmação exclusão comunidades  _____________________  -->
     <div class="modal fade" id="modalExclusaoComunidade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

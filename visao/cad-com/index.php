@@ -14,7 +14,7 @@
 
 <?php
 
-session_start();
+include("../login/inicia-sessao.php");
 
 if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
     unset($_SESSION["cpf"]);
@@ -44,8 +44,13 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 
 <body>
 
-    <header id="header"></header>
-    <?php //include("../navbar/navbar.php"); ?>
+    <!-- <header id="header"></header> -->
+
+    <div class="sticky-top">
+        <?php
+        include("../navbar/navbar.php");
+        ?>
+    </div>
 
     <h2 class="text-center">Cadastro Comunidade</h2>
     <div class="container">

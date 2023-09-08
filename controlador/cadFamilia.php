@@ -5,8 +5,7 @@ require_once '../dao/loginDAO.php';
 require_once '../dao/conexao.php';
 require_once '../controlador/funcoesUteis.php';
 
-var_dump($_POST);
-// return;
+// var_dump($_POST);
 
 // Dados da família
 $nomeFamilia = $_POST["inputNome"];
@@ -14,32 +13,27 @@ $email = $_POST["inputEmail"];
 $id_comunidade = $_POST["listaComunidades"];
 $qtd_membros = $_POST["controleCampos"];
 $id_familia = $_POST['input_id_familia']; // se for primeiro cadastro, a família ainda não possui id (id = ""), se for edição, ela já possuirá um id
-$listaComIdMembros = explode(",", $_POST["idsCampos"]);
 
 // Validando os dados de entrada dos membros
 $listaCpf = array(); // lista dos Cpfs dos membros
 $msgErroMembros = "";
 $textMbHeader = "";
-$contador = 0;
-// while ($contador <= $qtd_membros) {
-while ($contador <= $qtd_membros - 1) {
-    $nomeMb = $_POST["inputNomeMb" . $listaComIdMembros[$contador]];
-    $cpfMb = $_POST["inputCpfMb" . $listaComIdMembros[$contador]];
-    $dnMb = $_POST["inputDNMb" . $listaComIdMembros[$contador]];
-    $celMb = $_POST["inputCelMb" . $listaComIdMembros[$contador]]; // não é obrigatório possuir
+$contador = 1;
+while ($contador <= $qtd_membros) {
+    $nomeMb = $_POST["inputNomeMb" . $contador];
+    $cpfMb = $_POST["inputCpfMb" . $contador];
+    $dnMb = $_POST["inputDNMb" . $contador];
+    $celMb = $_POST["inputCelMb" . $contador]; // não é obrigatório possuir
 
     // Caso ocorra algum erro, os dados são guardados para serem devolvidos a página de cadastro
-    $textMbHeader .= "&cpfMb" . $listaComIdMembros[$contador] . "=$cpfMb" . "&nomeMb" . $listaComIdMembros[$contador] . "=$nomeMb" . "&dnMb" . $listaComIdMembros[$contador] . "=$dnMb" . "&celMb" . $listaComIdMembros[$contador] . "=$celMb";
+    $textMbHeader .= "&cpfMb" . $contador . "=$cpfMb" . "&nomeMb" . $contador . "=$nomeMb" . "&dnMb" . $contador . "=$dnMb" . "&celMb" . $contador . "=$celMb";
 
     // inserindo os cpfs numa lista, a fim de verificar se tem algum duplicado
     array_push($listaCpf, $cpfMb);
 
-    $msgErroMembros .= validarMembros($listaComIdMembros[$contador], $id_familia, $cpfMb, $nomeMb, $dnMb);
+    $msgErroMembros .= validarMembros($contador, $id_familia, $cpfMb, $nomeMb, $dnMb);
     $contador++;
 }
-
-// echo "<br><br>" . $textMbHeader . "<br>" . $qtd_membros . "<br>";
-// return;
 
 // Verificando se foi inserido algum cpf repetido no formulário
 $cpfDuplicado = array_count_values($listaCpf);

@@ -78,11 +78,9 @@
                     <input type="text" style="width: 50px;" id="qtd_membros" name="qtd_membros" disabled hidden value="<?php if (isset($_GET['qtd_membros'])) echo $_GET['qtd_membros'] ?>">
 
                     <div class="box__buttonsMembros">
-                        <button type="button" onclick="adicionarCampos(false)" id="add">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <button type="button" onclick="adicionarCampos(false)" id="add"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                            </svg>
-                        </button>
+                            </svg> </button>
 
                         <button type="button" onclick="removerCampos()" id="rem"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
@@ -161,8 +159,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <!-- Código de ativação do js (sem ele, o modal não funciona) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -174,7 +171,7 @@
 
     });
 
-    let listaComIdcampos = [1];
+    var controleCampos = 1;
 
     function adicionarCampos(carregamentoPagina) {
         // Pegando a quantidade de membros do campo escondido (edição família)
@@ -203,18 +200,14 @@
         while (c < repeticao) {
 
             // Limite de 10 membros por família
-            if (listaComIdcampos.length < 10) {
-                let ultimoElemento = listaComIdcampos[listaComIdcampos.length - 1];
+            if (controleCampos < 10) {
+                controleCampos++;
 
-                listaComIdcampos.push(ultimoElemento + 1);
-
-                ultimoElemento = listaComIdcampos[listaComIdcampos.length - 1];
-
-                // atribuindo os parâmetros da url as seguintes variáveis (pega o último valor)
-                var nomeMb = urlParams.get('nomeMb' + ultimoElemento);
-                var cpfMb = urlParams.get('cpfMb' + ultimoElemento);
-                var dnMb = urlParams.get('dnMb' + ultimoElemento);
-                var celMb = urlParams.get('celMb' + ultimoElemento);
+                // atribuindo os parâmetros da url as seguintes variáveis
+                var nomeMb = urlParams.get('nomeMb' + controleCampos);
+                var cpfMb = urlParams.get('cpfMb' + controleCampos);
+                var dnMb = urlParams.get('dnMb' + controleCampos);
+                var celMb = urlParams.get('celMb' + controleCampos);
 
                 // caso as variáveis forem nulas, será atribuído "" (vazio) a elas
                 if (nomeMb == null) {
@@ -233,69 +226,38 @@
                     celMb = "";
                 }
 
-                document.getElementById('formulario-membros').insertAdjacentHTML('beforeend',
-                    // '<div class="inputs-membro" id="membro' + campos +
-                    // '" ><input type="text" class="form-control nome" id="inputNomeMb' + campos +
-                    // '" name="inputNomeMb' + campos + '" placeholder="' + campos +
-                    // 'º Membro" onblur="verifText(this)" value="' + nomeMb +
-                    // '"><input type="text" class="form-control cpf" id="inputCpfMb' + campos +
-                    // '" name="inputCpfMb' + campos +
-                    // '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)" value="' + cpfMb +
-                    // '"><input type="text" class="form-control dn" id="inputDNMb' + campos +
-                    // '" name="inputDNMb' + campos +
-                    // '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)" value="' + dnMb +
-                    // '"> <input type = "text" class = "form-control cel" id = "inputCelMb' + campos +
-                    // '" name = "inputCelMb' + campos +
-                    // '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)" value="' +
-                    // celMb + '"></div>');
+                document.getElementById('formulario-membros').insertAdjacentHTML('beforeend', '<div class="inputs-membro" id="membro' + controleCampos + '" ><input type="text" class="form-control nome" id="inputNomeMb' + controleCampos + '" name="inputNomeMb' + controleCampos + '" placeholder="' + controleCampos + 'º Membro" onblur="verifText(this)" value="' + nomeMb + '"><input type="text" class="form-control cpf" id="inputCpfMb' + controleCampos + '" name="inputCpfMb' + controleCampos + '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)" value="' + cpfMb + '"><input type="text" class="form-control dn" id="inputDNMb' + controleCampos + '" name="inputDNMb' + controleCampos + '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)" value="' + dnMb + '"> <input type = "text" class = "form-control cel" id = "inputCelMb' + controleCampos + '" name = "inputCelMb' + controleCampos + '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)" value="' + celMb + '"></div>');
 
-                    '<div class="inputs-membro" id="membro' + ultimoElemento +
-                    '" ><input type="text" class="form-control nome" id="inputNomeMb' + ultimoElemento +
-                    '" name="inputNomeMb' + ultimoElemento + '" placeholder="' + ultimoElemento +
-                    'º Membro" onblur="verifText(this)" value="' + nomeMb +
-                    '"><input type="text" class="form-control cpf" id="inputCpfMb' + ultimoElemento +
-                    '" name="inputCpfMb' + ultimoElemento +
-                    '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)" value="' + cpfMb +
-                    '"><input type="text" class="form-control dn" id="inputDNMb' + ultimoElemento +
-                    '" name="inputDNMb' + ultimoElemento +
-                    '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)" value="' + dnMb +
-                    '"> <input type = "text" class = "form-control cel" id = "inputCelMb' + ultimoElemento +
-                    '" name = "inputCelMb' + ultimoElemento +
-                    '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)" value="' +
-                    celMb +
-                    '"><button type="button" onclick="removerCampos(' + ultimoElemento + ')" id="rem' +
-                    ultimoElemento +
-                    '" class="btn-rem"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg></button></div>'
-                );
-
-                document.getElementById("controleCampos").value = listaComIdcampos.length;
+                document.getElementById("controleCampos").value = controleCampos;
             }
             c++; //contador
         }
 
         // resetando o campo
         document.getElementById("qtd_membros").value = "";
-        alert(listaComIdcampos);
     }
 
-    function removerCampos(idMembro) {
-        let quantidadeCampos = listaComIdcampos.length;
+    function removerCampos() {
+        // atribuindo a url a uma variável
+        const urlParams = new URLSearchParams(location.search);
 
         // Não remove o primeiro campo (é obrigatório ter pelo menos um membro na família)
-        if (quantidadeCampos > 1) {
-            // Remove toda a div onde tem os campos inputs com os dados do membro
-            // alert(idMembro);
-            document.getElementById("membro" + idMembro).remove();
+        if (controleCampos > 1) {
+            document.getElementById('membro' + controleCampos).remove();
+            controleCampos--;
 
-            let minhaLista = listaComIdcampos;
-            let elementoParaRemover = idMembro;
-            // cria uma nova lista sem o valor especificado
-            let novaLista = minhaLista.filter(item => item !== elementoParaRemover);
+            // ######################################################
+            // remove da url os dados do membro excluído (quando clicar no botão '-')
+            // urlParams.delete('nomeMb' + controleCampos);
+            // urlParams.delete('cpfMb' + controleCampos);
+            // urlParams.delete('dnMb' + controleCampos);
+            // urlParams.delete('celMb' + controleCampos);
 
-            listaComIdcampos = novaLista;
+            // Atualizando a URL atual no histórico do navegador
+            // window.history.replaceState({}, '', urlObj.toString());
+            // location.reload(true);
 
-            document.getElementById("controleCampos").value = listaComIdcampos.length;
-            alert(listaComIdcampos + ' l:' + listaComIdcampos.length);
+            document.getElementById("controleCampos").value = controleCampos;
         }
     }
 </script>

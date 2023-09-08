@@ -69,6 +69,10 @@ if ($id_familia != "") { //atualizar
         $contador = 1;
         // Dados dos membros da família
         while ($contador <= $qtd_membros) {
+            // ###### 
+            // verificar se o cpf já existe no banco. Se existir, atualizar os dados, se não, cadastrar.
+            // -> quando se atualizar o membro, os dados na tabela Login não são mexidos.
+
             $nomeMb = $_POST["inputNomeMb" . $contador];
             $cpfMb = limparMascaraCpf($_POST["inputCpfMb" . $contador]);
             $dnMb = alterarOrdemDN($_POST["inputDNMb" . $contador]);

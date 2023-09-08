@@ -1,41 +1,41 @@
 .container {
-    width: 80vw !important;
+  width: 80vw !important;
 }
 
 #titulo-cadastro {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .required:after {
-    content: " *";
-    color: red;
+  content: " *";
+  color: red;
 }
 
 .box__buttons {
-    text-align: center;
+  text-align: center;
 }
 
 #btn-cadastrar,
 #btn-cancelar,
 #btn-limpar,
 #btn-atualizar {
-    margin: 10px 20px 0px 0px;
-    /* superior, direita, inferior e esquerda */
+  margin: 10px 20px 0px 0px;
+  /* superior, direita, inferior e esquerda */
 }
 
 .input-group {
-    width: 100%;
+  width: 100%;
 }
 
 /* ___________________________ Cadastro dos Membros ___________________________________ */
 
 .box__cadMembros {
-    display: block;
+  display: block;
 }
 
 .box__labels,
 .inputs-membro {
-    display: flex;
+  display: flex;
 }
 
 /* espaçamento entre os labels e inputs do cadastro dos membros */
@@ -45,7 +45,7 @@
 .box__inputs .nome,
 .box__inputs .cpf,
 .box__inputs .dn {
-    margin-right: 1%;
+  margin-right: 1%;
 }
 
 /* estilizando o box__titulos e o box__buttonsMembros */
@@ -54,117 +54,118 @@
 } */
 
 .box__titulos {
-    height: 7vh;
-    width: 95%;
-    display: flex;
-    /* border: 2px solid green; */
+  height: 7vh;
+  width: 95%;
+  display: flex;
+  /* border: 2px solid green; */
 }
 
 .box__buttonsMembros {
-    height: 7vh;
-    width: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 2px solid violet; */
+  height: 7vh;
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  /* border: 2px solid violet; */
 }
 
 /* ____________________________________________________________ */
 
 /* Estilizando os campos labels referentes aos membros */
 .box__labels .label {
-    background-color: transparent;
-    border: none;
-    padding-left: 0;
+  background-color: transparent;
+  border: none;
+  padding-left: 0;
 }
 
 .label::placeholder {
-    color: black !important;
+  color: black !important;
 }
 
 /* Definição das larguras dos labels (títulos) dos campos de dados dos membros */
 .box__titulos .nome {
-    width: 47.5%;
+  width: 47.5%;
 }
 
 .box__titulos .cpf {
-    width: 18%;
+  width: 18%;
 }
 
 .box__titulos .dn {
-    width: 18%;
+  width: 18%;
 }
 
 .box__titulos .cel {
-    width: 17.8%;
+  width: 17.8%;
 }
 
 .box__titulos .label-cel {
-    width: 7%;
-    padding-right: 0;
+  width: 7%;
+  padding-right: 0;
 }
 
 /* Definição das larguras dos inputs dos campos de dados dos membros */
 .inputs-membro .nome {
-    width: 45%;
+  width: 45%;
 }
 
 .inputs-membro .cpf {
-    width: 17%;
+  width: 17%;
 }
 
 .inputs-membro .dn {
-    width: 17%;
+  width: 17%;
 }
 
 .inputs-membro .cel {
-    width: 17.8%;
+  width: 15%;
 }
 
 .inputs-membro .label-cel {
-    width: 7%;
-    padding-right: 0;
+  width: 7%;
+  padding-right: 0;
 }
 
 /* Estilizando os botões de adicionar e remover membros (+ e -) */
-.box__buttonsMembros button {
-    font-size: 10px;
-    margin: 10px 5px;
-    border: none;
-    border-radius: 100%;
+.box__buttonsMembros button,
+.inputs-membro button {
+  font-size: 10px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 100%;
 }
 
 .box__buttonsMembros #add {
-    color: #007BFF;
-    background-color: white;
+  color: #007bff;
+  background-color: white;
 }
 
 .box__buttonsMembros #add:hover {
-    color: #17A2B8;
+  color: #17a2b8;
 }
 
-.box__buttonsMembros #rem {
-    color: rgb(241, 85, 85);
-    background-color: white;
+.inputs-membro .btn-rem {
+  color: rgb(241, 85, 85);
+  background-color: white;
 }
 
-.box__buttonsMembros #rem:hover {
-    color: #f08993;
+.inputs-membro .btn-rem:hover {
+  color: #f08993;
 }
 
 /* __________________________________________________________________ */
 
 /* Estilização dos boxs de msg (sucesso ou erro) do cadastro */
 .box__msgResposta {
-    width: 80vw;
-    margin: 20px auto;
-    /* border: 2px solid red; */
+  width: 80vw;
+  margin: 20px auto;
+  /* border: 2px solid red; */
 }
 
 .box__msgResposta p#titulo {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .box__msgResposta p#msg {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }

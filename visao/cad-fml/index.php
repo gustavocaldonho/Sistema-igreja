@@ -122,6 +122,14 @@
                         <input type="text" class="form-control cel" id="inputCelMb1" name="inputCelMb1"
                             placeholder="(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)"
                             value="<?php if (isset($_GET['celMb1'])) echo $_GET['celMb1'] ?>">
+
+                        <button type="button" onclick="removerCampos(1)" id="rem" class="btn-rem">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -200,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-let listaComIdcampos = [1];
+let listaComIdcampos = [];
 
 function adicionarCampos(carregamentoPagina) {
     // Pegando a quantidade de membros do campo escondido (edição família)
@@ -210,6 +218,7 @@ function adicionarCampos(carregamentoPagina) {
     if (carregamentoPagina) {
         // primeiro carregamento da página (só será visto os campos padrões)
         repeticao = 0;
+        listaComIdcampos = [1];
     } else {
         // se for clicado no botão 'add' (+)
         repeticao = 1;
@@ -260,21 +269,6 @@ function adicionarCampos(carregamentoPagina) {
             }
 
             document.getElementById('formulario-membros').insertAdjacentHTML('beforeend',
-                // '<div class="inputs-membro" id="membro' + campos +
-                // '" ><input type="text" class="form-control nome" id="inputNomeMb' + campos +
-                // '" name="inputNomeMb' + campos + '" placeholder="' + campos +
-                // 'º Membro" onblur="verifText(this)" value="' + nomeMb +
-                // '"><input type="text" class="form-control cpf" id="inputCpfMb' + campos +
-                // '" name="inputCpfMb' + campos +
-                // '" placeholder="000.000.000-00" onfocus="getMaskCpf(id)" onblur="verifCpf(this)" value="' + cpfMb +
-                // '"><input type="text" class="form-control dn" id="inputDNMb' + campos +
-                // '" name="inputDNMb' + campos +
-                // '" placeholder="00/00/0000" onfocus="getMaskDN(id)" onblur="verifDN(this)" value="' + dnMb +
-                // '"> <input type = "text" class = "form-control cel" id = "inputCelMb' + campos +
-                // '" name = "inputCelMb' + campos +
-                // '" placeholder = "(00) 00000-0000" onfocus="getMaskCel(id)" onblur="verifCel(this)" value="' +
-                // celMb + '"></div>');
-
                 '<div class="inputs-membro" id="membro' + ultimoElemento +
                 '" ><input type="text" class="form-control nome" id="inputNomeMb' + ultimoElemento +
                 '" name="inputNomeMb' + ultimoElemento + '" placeholder="' + ultimoElemento +

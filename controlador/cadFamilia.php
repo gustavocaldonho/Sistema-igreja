@@ -6,7 +6,16 @@ require_once '../dao/conexao.php';
 require_once '../controlador/funcoesUteis.php';
 
 // var_dump($_POST);
+// $conexao = conectar();
+// $result = cpfDuplicado($conexao, "147.34570760");
 
+// if (isset($result)) {
+//     echo 1;
+// } else {
+//     echo 2;
+// }
+
+// return;
 // Dados da família
 $nomeFamilia = $_POST["inputNome"];
 $email = $_POST["inputEmail"];
@@ -64,13 +73,12 @@ if ($id_familia != "") { //atualizar
 
         // Excluindo todos os possíveis membros já existentes para depois serem adicionados
         // Os logins são deletados automaticamente, de acordo com a especificação 'cascade' na tabela
-        deleteMembros($conexao, $id_familia);
+        // deleteMembros($conexao, $id_familia);
 
         $contador = 1;
         // Dados dos membros da família
         while ($contador <= $qtd_membros) {
-            // ###### 
-            // verificar se o cpf já existe no banco. Se existir, atualizar os dados, se não, cadastrar.
+            // verifica se o cpf já existe no banco. Se existir, atualizar os dados, se não, cadastra.
             // -> quando se atualizar o membro, os dados na tabela Login não são mexidos.
 
             $nomeMb = $_POST["inputNomeMb" . $contador];
@@ -78,12 +86,20 @@ if ($id_familia != "") { //atualizar
             $dnMb = alterarOrdemDN($_POST["inputDNMb" . $contador]);
             $celMb = $_POST["inputCelMb" . $contador];
 
-            // familiaDAO
-            cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia);
-            $contador++;
+            // se não existir o cpf no banco, retorna null.
+            $existeCpf = cpfDuplicado($conexao, $cpfMb);
+            if (!isset($existeCpf)) {
+                // familiaDAO
+                cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia);
+                $contador++;
 
-            // loginDAO
-            cadastrarLogin($conexao, $cpfMb); // todos os membros são inseridos com o perfil padrão de '0'
+                // loginDAO
+                cadastrarLogin($conexao, $cpfMb); // todos os membros são inseridos com o perfil padrão de '0'
+            } else {
+                // se já existir o cpf, atualizar os dados (não altera os dados na tabela de login)
+                updateMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb);
+            }
+            $contador++;
         }
 
         header("Location: ../visao/perfil-fml/index.php?id_familia=$id_familia&cod=1&msg=Familia <b>$nomeFamilia ($id_familia)</b> atualizada com sucesso!");

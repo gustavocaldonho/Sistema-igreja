@@ -53,6 +53,13 @@ function deleteMembros($conexao, $id_familia)
     mysqli_query($conexao, $sqlDelete) or die(mysqli_error($conexao));
 }
 
+function deleteMembroPerfilFamilia($conexao, $cpfMb)
+{
+    $sqlDelete = "DELETE FROM bd_sistema.membro_familia WHERE cpf = '$cpfMb'";
+
+    mysqli_query($conexao, $sqlDelete) or die(mysqli_error($conexao));
+}
+
 function deleteFamilia($conexao, $id_familia)
 {
     $sqlDeleteFamilia = "DELETE FROM bd_sistema.familia WHERE id_familia = '$id_familia'";

@@ -31,6 +31,7 @@
 .titulo-table {
   background-color: #cabdad;
   box-shadow: 0 1px 20px 1px #a79b8e;
+  z-index: 1;
 }
 
 tr {
@@ -39,7 +40,7 @@ tr {
   /* border: 2px solid green; */
 }
 
-td{
+td {
   border-bottom: 1px solid gainsboro;
 }
 

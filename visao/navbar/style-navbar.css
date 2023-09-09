@@ -25,9 +25,9 @@ ul {
 
 nav {
   background-color: #b88615;
-/* offset-x | offset-y | blur-radius (opacidade) | spread-radius (dispersão) | color */
-/* https://box-shadow.dev/ */
-box-shadow: 0 3px 25px 8px #cfab7d;
+  /* offset-x | offset-y | blur-radius (opacidade) | spread-radius (dispersão) | color */
+  /* https://box-shadow.dev/ */
+  box-shadow: 0 3px 25px 8px #cfab7d;
 }
 
 nav li {
@@ -58,6 +58,7 @@ nav li a:hover {
   display: none;
   margin-top: -1px;
   background-color: #b88615;
+  z-index: 2;
 }
 
 .drop-notificacao {

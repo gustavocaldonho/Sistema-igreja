@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-fml.css">
     <link rel="stylesheet" href="../navbar/style-navbar.css">
@@ -43,7 +44,8 @@
     </div>
 
     <!-- _____________________ modal confirmação exclusão famílias  _____________________  -->
-    <div class="modal fade" id="modalExclusaoFamilia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="modalExclusaoFamilia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -55,7 +57,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnDeleteFamiliaModal" value="" onclick="deleteFamilia(this.value)">Excluir</button>
+                    <button type="button" class="btn btn-primary" id="btnDeleteFamiliaModal" value=""
+                        onclick="deleteFamilia(this.value)">Excluir</button>
                 </div>
             </div>
         </div>
@@ -65,13 +68,16 @@
     <div class="box__search">
         <input type="search" class="form-control w-25" placeholder="Pesquisar família" id="pesquisar">
         <button onclick="searchData()" class="btn btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
         </button>
     </div>
     <div class="box__content-table">
-        <div class="box__principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+        <div class="box__principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
+            class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
             <div>
                 <table class="table table-bg table-hover">
                     <thead>
@@ -173,19 +179,24 @@
                         <tr>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" checked disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" checked
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck1">JAN</label>
 
-                                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" checked disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" checked
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck2">FEV</label>
 
-                                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" checked disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" checked
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck3">MAR</label>
 
-                                    <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off" checked disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off" checked
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck4">ABR</label>
 
-                                    <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off" checked disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off" checked
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck5">MAI</label>
 
                                     <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off" disabled>
@@ -200,13 +211,16 @@
                                     <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off" disabled>
                                     <label class="btn btn-outline-success" for="btncheck9">SET</label>
 
-                                    <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off" disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off"
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck10">OUT</label>
 
-                                    <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off" disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off"
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck11">NOV</label>
 
-                                    <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off" disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off"
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck12">DEZ</label>
                                 </div>
                             </td>
@@ -223,10 +237,12 @@
                         <tr>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                    <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off" checked disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off" checked
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck23">2023</label>
 
-                                    <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off" disabled>
+                                    <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off"
+                                        disabled>
                                     <label class="btn btn-outline-success" for="btncheck24">2024</label>
 
                                 </div>
@@ -239,33 +255,35 @@
     </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+</script>
 
 <script>
-    var search = document.getElementById('pesquisar');
+var search = document.getElementById('pesquisar');
 
-    search.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            searchData();
-        }
-    });
-
-    function searchData() {
-        window.location = 'index.php?search=' + search.value;
+search.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        searchData();
     }
+});
 
-    function setarModalExclusao(id) {
-        document.getElementById('btnDeleteFamiliaModal').value = id;
-    }
+function searchData() {
+    window.location = 'index.php?search=' + search.value;
+}
 
-    function deleteFamilia(id) {
-        window.location.href = "../../controlador/deletarFamilia.php?id_familia=" + id;
-        // alert(id);
-    }
+function setarModalExclusao(id) {
+    document.getElementById('btnDeleteFamiliaModal').value = id;
+}
 
-    function redirecionarPerfilFamilia(id) {
-        window.location.href = "../perfil-fml/index.php?id_familia=" + id;
-    }
+function deleteFamilia(id) {
+    window.location.href = "../../controlador/deletarFamilia.php?id_familia=" + id;
+    // alert(id);
+}
+
+function redirecionarPerfilFamilia(id) {
+    window.location.href = "../perfil-fml/index.php?id_familia=" + id;
+}
 </script>
 
 </html>

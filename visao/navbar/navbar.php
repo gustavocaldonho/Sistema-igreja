@@ -1,6 +1,6 @@
 <?php
 
-    echo "
+echo "
     <nav>
         <div class='sticky-top box__navbar'>
             <ul id='ul-left'>
@@ -12,21 +12,21 @@
                 </li>";
 
 
-    if ($codPerfil == 2) {
-        echo "<li class='dropdown'>
+if ($codPerfil == 2) {
+    echo "<li class='dropdown'>
                             <a href='../comunidades/'>Comunidades</a>
                          </li>";
-    }
+}
 
 
-    if ($codPerfil == 1 || $codPerfil == 2) {
-        echo "<li class='dropdown'>
+if ($codPerfil == 1 || $codPerfil == 2) {
+    echo "<li class='dropdown'>
                             <a href='../familias/'>Famílias</a>
                         </li>";
-    }
+}
 
 
-    echo "<li>
+echo "<li>
                     <a href='../dizimo/'>Dízimo</a>
                 </li>
                 <li>

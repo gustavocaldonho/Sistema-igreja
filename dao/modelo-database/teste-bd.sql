@@ -1,3 +1,12 @@
+CREATE TABLE IF NOT EXISTS `bd_sistema`.`membro_conselho` (
+  `membro_familia_cpf` BIGINT(11) NOT NULL,
+  `cargo` VARCHAR(45) NULL,
+    FOREIGN KEY (`membro_familia_cpf`)
+    REFERENCES `bd_sistema`.`membro_familia` (`cpf`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+
 -- LOGIN
 -- Perfil: 0 - membro da família; 1 - membro do conselho, 2 - líder paroquiano (administrador)
 select * from bd_sistema.login;	

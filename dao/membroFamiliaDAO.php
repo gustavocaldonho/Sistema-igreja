@@ -21,9 +21,9 @@ function carregarComboMembros($conexao, $id_comuidade)
     return $itens;
 }
 
-function cadastrarMembroConselho($conexao, $cpf)
+function cadastrarMembroConselho($conexao, $cpf, $cargo)
 {
-    $sql = "UPDATE bd_sistema.login SET perfil = 1 WHERE membro_familia_cpf = $cpf";
+    $sql = "INSERT INTO bd_sistema.membro_conselho (membro_familia_cpf, cargo) VALUES ($cpf, '$cargo')";
 
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }

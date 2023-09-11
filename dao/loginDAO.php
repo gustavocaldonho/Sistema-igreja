@@ -33,3 +33,10 @@ function getDadosMembrosFamiliaLogin($conexao, $cpf)
 
     return $resultSelect;
 }
+
+function updateLoginMembroConselho($conexao, $cpf)
+{
+    $sql = "UPDATE bd_sistema.login SET perfil = 1 WHERE membro_familia_cpf = $cpf";
+
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}

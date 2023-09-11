@@ -71,7 +71,7 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
         ?>
     </div>
 
-    <!-- _____________________ modal de cadastro dos avisos _____________________ -->
+    <!-- ___________________________________ modal de cadastro dos avisos _________________________________ -->
     <div class="modal fade" id="modal-conselho" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -120,6 +120,7 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
             </div>
         </div>
     </div>
+    <!-- ______________________________________________________________________________________________________ -->
 
     <div class="container">
 

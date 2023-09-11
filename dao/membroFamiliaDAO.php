@@ -27,3 +27,27 @@ function cadastrarMembroConselho($conexao, $cpf, $cargo)
 
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
+
+
+function getMembrosConselho($conexao)
+{
+    $sql = "SELECT * FROM bd_sistema.membro_conselho";
+
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+    return $res;
+}
+
+function getNomeMembroConselho($conexao, $cpf, $id_comuidade)
+{
+    // $sql = "SELECT nome FROM bd_sistema.membro_familia WHERE cpf = $cpf";
+
+    // $sql = "SELECT mf.nome AS nome FROM bd_sistema.membro_conselho mc INNER JOIN bd_sistema.membro_familia mf ON mc.membro_familia_cpf = mf.cpf INNER JOIN bd_sistema.familia f ON mf.id_familia = f.id_familia WHERE f.id_comunidade = $id_comuidade";
+
+    $sql = "SELECT mf.nome AS nome FROM bd_sistema.membro_conselho mc INNER JOIN bd_sistema.membro_familia mf ON mc.membro_familia_cpf = mf.cpf INNER JOIN bd_sistema.familia f ON mf.id_familia = f.id_familia
+    WHERE mc.membro_familia_cpf = $cpf AND f.id_comunidade = $id_comuidade";
+
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+    return $res;
+}

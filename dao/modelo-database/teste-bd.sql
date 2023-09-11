@@ -1,11 +1,13 @@
-CREATE TABLE IF NOT EXISTS `bd_sistema`.`membro_conselho` (
-  `membro_familia_cpf` BIGINT(11) NOT NULL,
-  `cargo` VARCHAR(45) NULL,
-    FOREIGN KEY (`membro_familia_cpf`)
-    REFERENCES `bd_sistema`.`membro_familia` (`cpf`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
+select * from bd_sistema.membro_conselho;
+insert into bd_sistema.membro_conselho (membro_familia_cpf, cargo) values ();
+SELECT nome FROM bd_sistema.membro_familia WHERE cpf = 14734570760;
+
+SELECT mf.nome AS nome_membro_conselho
+FROM membro_conselho mc
+INNER JOIN membro_familia mf ON mc.membro_familia_cpf = mf.cpf
+INNER JOIN familia f ON mf.id_familia = f.id_familia
+WHERE f.id_comunidade = 10;
+
 
 -- LOGIN
 -- Perfil: 0 - membro da família; 1 - membro do conselho, 2 - líder paroquiano (administrador)

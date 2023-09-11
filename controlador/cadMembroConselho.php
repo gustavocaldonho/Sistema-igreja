@@ -11,7 +11,8 @@ $cargo = $_POST["inputCargo"];
 
 $id_comunidade = $_POST["id_comunidade"];
 
-if (($cpf != 0) && (isset($cargo))) {
+// Verifica se foi selecionada alguma opção, se não, value (cpf) == 0.
+if ($cpf != 0) {
     $conexao = conectar();
     updateLoginMembroConselho($conexao, $cpf);
     cadastrarMembroConselho($conexao, $cpf, $cargo);

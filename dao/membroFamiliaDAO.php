@@ -40,14 +40,13 @@ function getMembrosConselho($conexao)
 
 function getNomeMembroConselho($conexao, $cpf, $id_comuidade)
 {
-    // $sql = "SELECT nome FROM bd_sistema.membro_familia WHERE cpf = $cpf";
-
-    // $sql = "SELECT mf.nome AS nome FROM bd_sistema.membro_conselho mc INNER JOIN bd_sistema.membro_familia mf ON mc.membro_familia_cpf = mf.cpf INNER JOIN bd_sistema.familia f ON mf.id_familia = f.id_familia WHERE f.id_comunidade = $id_comuidade";
-
     $sql = "SELECT mf.nome AS nome FROM bd_sistema.membro_conselho mc INNER JOIN bd_sistema.membro_familia mf ON mc.membro_familia_cpf = mf.cpf INNER JOIN bd_sistema.familia f ON mf.id_familia = f.id_familia
     WHERE mc.membro_familia_cpf = $cpf AND f.id_comunidade = $id_comuidade";
 
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
-    return $res;
+    // Retorna somente um nome a cada chamada da função.
+    while ($user_data_nome = mysqli_fetch_assoc($res)) {
+        return $user_data_nome["nome"];
+    }
 }

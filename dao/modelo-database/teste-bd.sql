@@ -8,6 +8,17 @@ INNER JOIN membro_familia mf ON mc.membro_familia_cpf = mf.cpf
 INNER JOIN familia f ON mf.id_familia = f.id_familia
 WHERE f.id_comunidade = 10;
 
+SELECT mf.nome AS nome FROM bd_sistema.membro_conselho mc 
+INNER JOIN bd_sistema.membro_familia mf ON mc.membro_familia_cpf = mf.cpf 
+INNER JOIN bd_sistema.familia f ON mf.id_familia = f.id_familia WHERE f.id_comunidade = 111;
+
+SELECT mf.nome AS nome_membro_conselho
+FROM membro_conselho mc
+INNER JOIN membro_familia mf ON mc.membro_familia_cpf = mf.cpf
+INNER JOIN familia f ON mf.id_familia = f.id_familia
+WHERE mc.membro_familia_cpf = 14734570760
+AND f.id_comunidade = 10;
+
 
 -- LOGIN
 -- Perfil: 0 - membro da família; 1 - membro do conselho, 2 - líder paroquiano (administrador)

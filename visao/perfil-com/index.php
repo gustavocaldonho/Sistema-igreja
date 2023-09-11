@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Comunidade</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="../../visao/navbar/style-navbar.css">
     <link rel="stylesheet" href="style-perfilCom.css">
@@ -79,7 +80,8 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="form_conselho" name="form_conselho" enctype='multipart/form-data' action="../../controlador/cadMembroConselho.php" method="POST" class="row g-3">
+                    <form id="form_conselho" name="form_conselho" enctype='multipart/form-data'
+                        action="../../controlador/cadMembroConselho.php" method="POST" class="row g-3">
                         <div>
                             <label for="listaMembros" class="form-label required ">Membro</label>
                             <select class="form-select" id="listaMembros" name="listaMembros">
@@ -106,7 +108,8 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
 
                         <!-- Campo escondido para passar o id da comunidade (se for inserção — id da comunidade de quem está logado; se for update — id da comunidade de quem já havia inserido o aviso -->
-                        <input type="text" id="id_comunidade" name="id_comunidade" value="<?php echo $_GET['id_comunidade'] ?>" hidden>
+                        <input type="text" id="id_comunidade" name="id_comunidade"
+                            value="<?php echo $_GET['id_comunidade'] ?>" hidden>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -189,17 +192,16 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
                     $cpf = $user_data["membro_familia_cpf"];
 
                     $resultNome = getNomeMembroConselho($conexao, $cpf, $id_comunidade);
-                    while ($user_data_nome = mysqli_fetch_assoc($resultNome)) {
-                        $nome = $user_data_nome["nome"];
-                    }
 
-                    echo "
-                        <div class='card text-center'>
-                            <div class='card-body'>
-                                <h5 class='card-title'>$nome</h5>
-                                <p class='card-text text-secondary'>$cargo</p>
-                            </div>
-                        </div>";
+                    if ($resultNome != "") {
+                        echo "
+                            <div class='card text-center'>
+                                <div class='card-body'>
+                                    <h5 class='card-title'>$resultNome</h5>
+                                    <p class='card-text text-secondary'>$cargo</p>
+                                </div>
+                            </div>";
+                    }
                 }
                 ?>
 
@@ -208,10 +210,15 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
             </div>
 
             <div class="button">
-                <button type="button" id="btn-editConselho" name="btn-editConselho" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-conselho" data-bs-whatever="@mdo" onclick="setarModalConselho()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-pencil-square mb-1" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                <button type="button" id="btn-editConselho" name="btn-editConselho" class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#modal-conselho" data-bs-whatever="@mdo"
+                    onclick="setarModalConselho()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                        class="bi bi-pencil-square mb-1" viewBox="0 0 16 16">
+                        <path
+                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                        <path fill-rule="evenodd"
+                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                     </svg> Editar Conselho</button>
             </div>
 
@@ -219,16 +226,17 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
     </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
 
 <script src='../funcoesJS/funcoes.js'></script>
 
 <script>
-    function setarModalConselho() {
-        document.getElementById("funcaoConselho").value = "";
-        document.getElementById("listaMembros").value = 0;
-    }
+function setarModalConselho() {
+    document.getElementById("funcaoConselho").value = "";
+    document.getElementById("listaMembros").value = 0;
+}
 </script>
 
 </html>

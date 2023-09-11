@@ -1,6 +1,7 @@
 select * from bd_sistema.membro_conselho;
 insert into bd_sistema.membro_conselho (membro_familia_cpf, cargo) values ();
 SELECT nome FROM bd_sistema.membro_familia WHERE cpf = 14734570760;
+DELETE FROM bd_sistema.membro_conselho WHERE cpf = 14734570760;
 
 SELECT mf.nome AS nome_membro_conselho
 FROM membro_conselho mc

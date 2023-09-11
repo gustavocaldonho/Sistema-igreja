@@ -1,159 +1,186 @@
 .container {
-    width: 90vw;
-    margin: 10px auto 10px;
-    padding: 0;
-    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-    background-color: bisque;
-    border-radius: 10px;
-    /* border: 2px solid #B36812; */
+  width: 90vw;
+  margin: 10px auto 10px;
+  padding: 0;
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+  background-color: bisque;
+  border-radius: 10px;
+  /* border: 2px solid #B36812; */
 }
 
 /* ____________________________________________________________________________ */
 .box__img {
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 2px solid green; */
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid green; */
 }
 
 .box__img div {
-    width: 50%;
-    height: 90%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 20px;
-    /* border: 2px solid black; */
+  width: 50%;
+  height: 90%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 20px;
+  /* border: 2px solid black; */
 }
 
 .box__img img {
-    width: 70%;
-    border-radius: 20px;
+  width: 70%;
+  border-radius: 20px;
 }
 
 /* ____________________________________________________________________________ */
 .box__NomeComunidade {
-    width: 100%;
-    height: 20vh;
-    text-align: center;
-    padding-top: 10px;
-    /* border: 2px solid red; */
+  width: 100%;
+  height: 20vh;
+  text-align: center;
+  padding-top: 10px;
+  /* border: 2px solid red; */
 }
 
 .box__NomeComunidade h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 /* ____________________________________________________________________________ */
 .box__estatisticas {
-    height: 25vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /* border: 2px solid red; */
+  height: 25vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* border: 2px solid red; */
 }
 
 .box__estatisticas .bloco {
-    height: 50%;
-    width: 20%;
-    /* border: 2px solid black; */
+  height: 50%;
+  width: 20%;
+  /* border: 2px solid black; */
 }
 
 .bloco div {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 2px solid blue; */
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid blue; */
 }
 
 .bloco .number {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 1em;
-    color: coral;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 1em;
+  color: coral;
 }
 
 .bloco .text {
-    height: 50px;
-    width: 80%;
-    font-size: 20px;
-    background-color: #B36812;
-    color: white;
-    border: 2px solid #B36812;
-    border-radius: 8px;
-    padding: 6px 12px;
-    text-align: center;
+  height: 50px;
+  width: 80%;
+  font-size: 20px;
+  background-color: #b36812;
+  color: white;
+  border: 2px solid #b36812;
+  border-radius: 8px;
+  padding: 6px 12px;
+  text-align: center;
 }
 
 /* ____________________________________________________________________________ */
 .box__membros-conselho {
-    width: 100%;
-    padding-bottom: 10px;
-    /* border: 2px solid violet; */
+  width: 100%;
+  padding-bottom: 10px;
+  /* border: 2px solid violet; */
 }
 
 .box__membros-conselho .titulo {
-    width: 100%;
-    height: 15%;
-    margin-bottom: 10px;
-    text-align: center;
+  width: 100%;
+  height: 15%;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .box__membros-conselho .body {
-    width: 100%;
-    height: 85%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-    /* border: 2px solid green; */
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  /* border: 2px solid green; */
 }
 
 .box__membros-conselho .card {
-    /* width: 250px;
+  /* width: 250px;
     height: 120px; */
-    border-radius: 10px;
-    flex: 0 0 calc(25% - 20px);
-    /* Defina a largura do card (25% para 4 cards por linha) */
-    margin: 10px;
+  border-radius: 10px;
+  flex: 0 0 calc(25% - 20px);
+  /* Defina a largura do card (25% para 4 cards por linha) */
+  margin: 10px;
 }
 
 .box__membros-conselho .button {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    /* border: 2px solid orange; */
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  /* border: 2px solid orange; */
 }
 
 .box__membros-conselho #btn-editConselho {
-    padding: 10px;
-    opacity: 1;
-    background-color: white;
-    color: #B36812;
-    border: 1.5px solid #B36812;
-    border-radius: 10px;
-    font-weight: 400;
-    transition: opacity 400ms ease-in-out;
-    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+  padding: 10px;
+  opacity: 1;
+  background-color: white;
+  color: #b36812;
+  border: 1.5px solid #b36812;
+  border-radius: 10px;
+  font-weight: 400;
+  transition: opacity 400ms ease-in-out;
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 
 .box__membros-conselho #btn-editConselho:hover {
-    background-color: #B36812;
-    color: white;
+  background-color: #b36812;
+  color: white;
 }
 
 .box__membros-conselho #btn-editConselho:active {
-    opacity: .9;
+  opacity: 0.9;
 }
+
+/* ________________________ Style .btn-deleteMb ___________________________ */
+
+.box__membros-conselho .btn-deleteMbConselho {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  color: red;
+  /* border: 2px solid green; */
+}
+
+.box__membros-conselho .btn-deleteMbConselho svg {
+  transition: height 150ms ease-in-out, width 150ms ease-in-out;
+}
+
+.box__membros-conselho .btn-deleteMbConselho:hover svg {
+  height: 25px;
+  width: 25px;
+}
+
+/* ______________________________________________________________________ */
 
 /* ____________________________________________________________________________ */
 hr {
-    margin: 10px 0;
+  margin: 10px 0;
 }

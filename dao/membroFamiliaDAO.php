@@ -50,3 +50,10 @@ function getNomeMembroConselho($conexao, $cpf, $id_comuidade)
         return $user_data_nome["nome"];
     }
 }
+
+function deleteMembroConselho($conexao, $cpf)
+{
+    $sql = "DELETE FROM bd_sistema.membro_conselho WHERE membro_familia_cpf = $cpf";
+
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}

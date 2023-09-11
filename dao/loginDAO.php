@@ -40,3 +40,10 @@ function updateLoginMembroConselho($conexao, $cpf)
 
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
+
+function resetarLoginMembroConselho($conexao, $cpf)
+{
+    $sql = "UPDATE bd_sistema.login SET perfil = 0 WHERE membro_familia_cpf = $cpf";
+
+    $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}

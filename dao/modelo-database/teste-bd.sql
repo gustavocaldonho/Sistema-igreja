@@ -12,7 +12,7 @@ SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro;
 SELECT * FROM bd_sistema.comunidade WHERE padroeiro='São Geraldo';
 
 select * from bd_sistema.familia;
-select * from bd_sistema.membro_familia order by id_familia;
+select * from bd_sistema.membro_familia order by nome;
 select * from bd_sistema.membro_familia where id_familia = 107;
 SELECT * FROM bd_sistema.membro_familia WHERE cpf = '49762728009';
 select count(*) as qtd from bd_sistema.membro_familia where id_familia = 102;
@@ -32,9 +32,9 @@ SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.comunidade WHERE padroeiro = 'São Ger
 SELECT COUNT(*)  AS 'qtd' FROM bd_sistema.familia WHERE id_comunidade = 79;
 -- seleciona os dados dos membros
 SELECT mf.*
-FROM membro_familia mf
+FROM bd_sistema.membro_familia mf
 INNER JOIN familia f ON mf.id_familia = f.id_familia
-WHERE f.id_comunidade = 79;
+WHERE f.id_comunidade = 111;
 
 -- seleciona a quantidade de membros
 SELECT COUNT(*) AS 'qtd'

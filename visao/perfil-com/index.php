@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Comunidade</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="../../visao/navbar/style-navbar.css">
     <link rel="stylesheet" href="style-perfilCom.css">
@@ -80,8 +79,7 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="form_conselho" name="form_conselho" enctype='multipart/form-data'
-                        action="../../controlador/cadMembroConselho.php" method="POST" class="row g-3">
+                    <form id="form_conselho" name="form_conselho" enctype='multipart/form-data' action="../../controlador/cadMembroConselho.php" method="POST" class="row g-3">
                         <div>
                             <label for="listaMembros" class="form-label required ">Membro</label>
                             <select class="form-select" id="listaMembros" name="listaMembros">
@@ -108,8 +106,7 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
 
                         <!-- Campo escondido para passar o id da comunidade (se for inserção — id da comunidade de quem está logado; se for update — id da comunidade de quem já havia inserido o aviso -->
-                        <input type="text" id="id_comunidade" name="id_comunidade"
-                            value="<?php echo $_GET['id_comunidade'] ?>" hidden>
+                        <input type="text" id="id_comunidade" name="id_comunidade" value="<?php echo $_GET['id_comunidade'] ?>" hidden>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -123,8 +120,7 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
     <!-- ______________________________________________________________________________________________________ -->
 
     <!-- __________________________ modal confirmação exclusão membro  __________________________  -->
-    <div class="modal fade" id="modalExclusaoMembroConselho" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="modalExclusaoMembroConselho" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -136,8 +132,7 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnDeleteMembroConselhoModal" value=""
-                        onclick="deleteMembroConselho(this.value, <?php echo $id_comunidade ?>)">Excluir</button>
+                    <button type="button" class="btn btn-primary" id="btnDeleteMembroConselhoModal" value="" onclick="deleteMembroConselho(this.value, <?php echo $id_comunidade ?>)">Excluir</button>
                 </div>
             </div>
         </div>
@@ -217,62 +212,70 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
                     if ($resultNome != "") {
                         echo "
-                            <div class='card text-center'>
-                                <button class='btn-deleteMbConselho btn btn-sm' data-bs-toggle='modal' data-bs-target='#modalExclusaoMembroConselho' onclick=setarIdModalExclusaoMembroConselho($cpf)>
+                            <div class='card text-center'>";
+
+                        if ($codPerfil == 1 || $codPerfil == 2) {
+                            echo
+                            "<button class='btn-deleteMbConselho btn btn-sm' data-bs-toggle='modal'     data-bs-target='#modalExclusaoMembroConselho' onclick=setarIdModalExclusaoMembroConselho($cpf)>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
                                         class='bi bi-trash3-fill' viewBox='0 0 16 16'>
                                         <path
                                             d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z' />
                                     </svg>
-                                </button>
-                                <div class='card-body'>
-                                    <h5 class='card-title'>$resultNome</h5>
-                                    <p class='card-text text-secondary'>$cargo</p>
-                                </div>
-                            </div>";
+                            </button>";
+                        }
+                        echo
+                        "<div class='card-body'>
+                                <h5 class='card-title'>$resultNome</h5>
+                                <p class='card-text text-secondary'>$cargo</p>
+                            </div>
+                        </div>";
                     }
                 }
                 ?>
             </div>
 
-            <div class="button">
-                <button type="button" id="btn-editConselho" name="btn-editConselho" class="btn btn-primary"
-                    data-bs-toggle="modal" data-bs-target="#modal-conselho" data-bs-whatever="@mdo"
-                    onclick="setarModalConselho()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
-                        class="bi bi-plus-circle mb-1" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        <path
-                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                    </svg>
-                    Adicionar Membro
-                </button>
-            </div>
-
+            <?php
+            if ($codPerfil == 1 || $codPerfil == 2) {
+                echo " 
+                <div class='button'>
+                    <button type='button' id='btn-editConselho' name='btn-editConselho' class='btn btn-primary'
+                        data-bs-toggle='modal' data-bs-target='#modal-conselho' data-bs-whatever='@mdo'
+                        onclick='setarModalConselho()'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='21' height='21' fill='currentColor'
+                            class='bi bi-plus-circle mb-1' viewBox='0 0 16 16'>
+                            <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' />
+                            <path
+                            d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z' />
+                        </svg>
+                            Adicionar Membro
+                    </button>
+                </div>";
+            }
+            ?>
         </div>
     </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
 
 <script src='../funcoesJS/funcoes.js'></script>
 
 <script>
-function setarModalConselho() {
-    document.getElementById("funcaoConselho").value = "";
-    document.getElementById("listaMembros").value = 0;
-}
+    function setarModalConselho() {
+        document.getElementById("funcaoConselho").value = "";
+        document.getElementById("listaMembros").value = 0;
+    }
 
-function setarIdModalExclusaoMembroConselho(id) {
-    document.getElementById('btnDeleteMembroConselhoModal').value = id;
-}
+    function setarIdModalExclusaoMembroConselho(id) {
+        document.getElementById('btnDeleteMembroConselhoModal').value = id;
+    }
 
-function deleteMembroConselho(id, id_comunidade) {
-    window.location.href = "../../controlador/deletarMembroConselho.php?id=" + id + "&id_comunidade=" + id_comunidade;
-    // window.location.href = "../../controlador/teste.php?id=" + id;
-}
+    function deleteMembroConselho(id, id_comunidade) {
+        window.location.href = "../../controlador/deletarMembroConselho.php?id=" + id + "&id_comunidade=" + id_comunidade;
+        // window.location.href = "../../controlador/teste.php?id=" + id;
+    }
 </script>
 
 </html>

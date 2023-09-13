@@ -5,17 +5,6 @@ require_once '../dao/loginDAO.php';
 require_once '../dao/conexao.php';
 require_once '../controlador/funcoesUteis.php';
 
-// var_dump($_POST);
-// $conexao = conectar();
-// $result = cpfDuplicado($conexao, "147.34570760");
-
-// if (isset($result)) {
-//     echo 1;
-// } else {
-//     echo 2;
-// }
-
-// return;
 // Dados da família
 $nomeFamilia = $_POST["inputNome"];
 $email = $_POST["inputEmail"];
@@ -71,10 +60,6 @@ if ($id_familia != "") { //atualizar
         // familiaDAO
         updateFamilia($conexao, $id_familia, $nomeFamilia, $email, $id_comunidade);
 
-        // Excluindo todos os possíveis membros já existentes para depois serem adicionados
-        // Os logins são deletados automaticamente, de acordo com a especificação 'cascade' na tabela
-        // deleteMembros($conexao, $id_familia);
-
         $contador = 1;
         // Dados dos membros da família
         while ($contador <= $qtd_membros) {
@@ -91,7 +76,6 @@ if ($id_familia != "") { //atualizar
             if (!isset($existeCpf)) {
                 // familiaDAO
                 cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia);
-                $contador++;
 
                 // loginDAO
                 cadastrarLogin($conexao, $cpfMb); // todos os membros são inseridos com o perfil padrão de '0'
@@ -136,10 +120,11 @@ if ($id_familia != "") { //atualizar
 
             // familiaDAO
             cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $idFamilia);
-            $contador++;
 
             // loginDAO
             cadastrarLogin($conexao, $cpfMb); // todos os membros são inseridos com o perfil padrão de '0'
+
+            $contador++;
         }
 
         header("Location: ../visao/cad-fml/index.php?cod=1&msg=Familia <i><b>$nomeFamilia</b></i> cadastrada com sucesso!");

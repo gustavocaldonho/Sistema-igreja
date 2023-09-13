@@ -16,6 +16,8 @@ if ($cpf != 0) {
     $conexao = conectar();
     updateLoginMembroConselho($conexao, $cpf);
     cadastrarMembroConselho($conexao, $cpf, $cargo);
-}
 
-header("Location: ../visao/perfil-com/index.php?id_comunidade=$id_comunidade&msg=Membro $cpf adicionado(a) com sucesso!");
+    header("Location: ../visao/perfil-com/index.php?id_comunidade=$id_comunidade&msg=Membro $cpf adicionado(a) com sucesso!");
+} else {
+    header("Location: ../visao/perfil-com/index.php?id_comunidade=$id_comunidade&msg=Falha na Inserção!");
+}

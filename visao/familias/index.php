@@ -18,7 +18,7 @@
     <?php
 
     include("../login/inicia-sessao.php");
-    
+
     if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
         unset($_SESSION["cpf"]);
         unset($_SESSION["senha"]);
@@ -32,8 +32,6 @@
         $id_familiaLogado = $_SESSION["id_familia"];
         $id_comunidadeLogado = $_SESSION["id_comunidade"];
     }
-
-    // print_r($codPerfil);
 
     ?>
 
@@ -97,11 +95,6 @@
                         // Chamando o controlador para fornecer as famílias a serem exibidas
                         $result = buscarFamilias();
 
-                        // href='../../controlador/deletarFamilia.php?id=$user_data[id_familia]'
-
-                        // echo "<u>Famílias observadas:</u> ";
-
-
                         while ($user_data = mysqli_fetch_assoc($result)) {
                             $id_familia = $user_data['id_familia'];
 
@@ -109,8 +102,6 @@
                             // Se for conselheiro (codPerfil == 1), verá somente as famílias da sua comunidade (id_comunidadeLogado == id_comunidade).
 
                             if ($codPerfil == 2 || ($codPerfil == 1 && $id_comunidadeLogado == $user_data['id_comunidade'])) {
-                                // echo "[" . $user_data['nome'] . "] ";
-                                // }
 
                                 echo "<tr class='nome-familia'>";
                                 echo "<td onclick='redirecionarPerfilFamilia(" . $user_data['id_familia'] . ")'>" . $user_data['id_familia'] . "</td>";
@@ -135,119 +126,6 @@
                             }
                         }
                         ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- __________________________________ DESATIVADO __________________________________ -->
-
-    <!-- Devolver classe 'collapse' -->
-    <div class="collapse box__tableMembros" id="collapseExample" hidden>
-
-        <div class="sub-box__left">
-            <table class="table-membros table-sm col-12">
-                <thead>
-                    <th scope="col" class="col-8">Membros da Família</th>
-                    <th scope="col" class="col-4">CPF</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ramon Soares</td>
-                        <td>000.000.000-00</td>
-                    </tr>
-                    <tr>
-                        <td>Ramon Soares Dias Gomes</td>
-                        <td>000.000.000-00</td>
-                    </tr>
-                    <tr>
-                        <td>Delma Gomes Dias</td>
-                        <td>000.000.000-00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="sub-box__right">
-            <div class="sub-box__right-top">
-                <table>
-                    <thead>
-                        <th scope="col" class="col-12">Pagamentos Dízimo</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" checked
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck1">JAN</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" checked
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck2">FEV</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" checked
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck3">MAR</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off" checked
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck4">ABR</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off" checked
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck5">MAI</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off" disabled>
-                                    <label class="btn btn-outline-success" for="btncheck6">JUN</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off" disabled>
-                                    <label class="btn btn-outline-success" for="btncheck7">JUL</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off" disabled>
-                                    <label class="btn btn-outline-success" for="btncheck8">AGO</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off" disabled>
-                                    <label class="btn btn-outline-success" for="btncheck9">SET</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off"
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck10">OUT</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off"
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck11">NOV</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off"
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck12">DEZ</label>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="sub-box__right-down">
-                <table>
-                    <thead>
-                        <th scope="col" class="col-12">Pagamentos Caixa Mortuário</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                    <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off" checked
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck23">2023</label>
-
-                                    <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off"
-                                        disabled>
-                                    <label class="btn btn-outline-success" for="btncheck24">2024</label>
-
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -278,7 +156,6 @@ function setarModalExclusao(id) {
 
 function deleteFamilia(id) {
     window.location.href = "../../controlador/deletarFamilia.php?id_familia=" + id;
-    // alert(id);
 }
 
 function redirecionarPerfilFamilia(id) {

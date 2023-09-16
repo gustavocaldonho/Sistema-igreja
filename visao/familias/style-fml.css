@@ -37,7 +37,6 @@
 tr {
   height: 60px;
   vertical-align: middle;
-  /* border: 2px solid green; */
 }
 
 td {
@@ -50,80 +49,9 @@ td {
   border: none;
   padding: 0;
   transition: 200ms;
-  /* border: 2px solid green; */
 }
 
 .nome-familia:hover {
   font-size: 18px;
   cursor: pointer;
-}
-
-/* ________________________________________________ Desativado ____________________________________________ */
-
-.box__tableMembros {
-  height: 200px;
-  width: 85%;
-  margin: 15px auto;
-  display: flex;
-  box-shadow: 0 0 10px gray;
-  border-radius: 10px;
-}
-
-.sub-box__left {
-  width: 40%;
-  height: 100%;
-}
-
-.sub-box__right {
-  width: 60%;
-  height: 100%;
-}
-
-.sub-box__right-top {
-  width: 100%;
-  height: 50%;
-}
-
-.sub-box__right th {
-  padding-bottom: 10px;
-}
-
-.sub-box__right-down {
-  width: 100%;
-  height: 50%;
-}
-
-.sub-box .box-2 table {
-  width: 100%;
-}
-
-.sub-box__left,
-.sub-box__right {
-  padding: 10px;
-}
-
-.table-membros {
-  width: 100%;
-  background-color: #e7e8e9;
-  border-radius: 10px;
-}
-
-/* Estilizando os campos de chekbox (pagamentos do dízimo e do caixa mortuário */
-.box__tableMembros .btn {
-  background-color: gray;
-  color: white !important;
-  border: none;
-}
-
-.div-rodape button {
-  margin: 10px;
-}
-
-.table-bg {
-  border-radius: 10px 0 0 0;
-}
-
-div label[for="flexRadioDefault1"] {
-  /* Label 'Ativos'*/
-  margin-right: 30px;
 }

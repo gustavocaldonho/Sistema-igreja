@@ -43,8 +43,6 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`familia` (
   `email` VARCHAR(45) NOT NULL,
   `id_comunidade` INT NOT NULL,
   PRIMARY KEY (`id_familia`),
-  INDEX `fk_familia_comunidade1_idx` (`id_comunidade` ASC) VISIBLE,
-  CONSTRAINT `fk_familia_comunidade1`
     FOREIGN KEY (`id_comunidade`)
     REFERENCES `bd_sistema`.`comunidade` (`id_comunidade`)
     ON DELETE NO ACTION
@@ -64,8 +62,6 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`membro_familia` (
   `celular` VARCHAR(45) NULL,
   `id_familia` INT NOT NULL,
   PRIMARY KEY (`cpf`),
-  INDEX `fk_membro_familia_familia1_idx` (`id_familia` ASC) VISIBLE,
-  CONSTRAINT `fk_membro_familia_familia1`
     FOREIGN KEY (`id_familia`)
     REFERENCES `bd_sistema`.`familia` (`id_familia`)
     ON DELETE NO ACTION
@@ -82,9 +78,7 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`Login` (
   `membro_familia_cpf` BIGINT(11) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   `perfil` INT NOT NULL,
-  INDEX `fk_Login_membro_familia1_idx` (`membro_familia_cpf` ASC) VISIBLE,
   PRIMARY KEY (`membro_familia_cpf`),
-  CONSTRAINT `fk_Login_membro_familia1`
     FOREIGN KEY (`membro_familia_cpf`)
     REFERENCES `bd_sistema`.`membro_familia` (`cpf`)
     ON DELETE NO ACTION
@@ -104,8 +98,6 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`Boleto` (
   `competencia` VARCHAR(7) NOT NULL,
   `data_pagamento` DATE NULL,
   `valor` FLOAT NOT NULL,
-  INDEX `fk_Contas_familia1_idx` (`id_familia` ASC) VISIBLE,
-  CONSTRAINT `fk_Contas_familia1`
     FOREIGN KEY (`id_familia`)
     REFERENCES `bd_sistema`.`familia` (`id_familia`)
     ON DELETE NO ACTION
@@ -125,8 +117,6 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`Avisos` (
   `descricao` VARCHAR(300) NULL,
   `id_comunidade` INT NOT NULL,
   PRIMARY KEY (`id_avisos`),
-  INDEX `fk_Avisos_comunidade1_idx` (`id_comunidade` ASC) VISIBLE,
-  CONSTRAINT `fk_Avisos_comunidade1`
     FOREIGN KEY (`id_comunidade`)
     REFERENCES `bd_sistema`.`comunidade` (`id_comunidade`)
     ON DELETE NO ACTION
@@ -160,8 +150,6 @@ DROP TABLE IF EXISTS `bd_sistema`.`membro_conselho` ;
 CREATE TABLE IF NOT EXISTS `bd_sistema`.`membro_conselho` (
   `membro_familia_cpf` BIGINT(11) NOT NULL,
   `cargo` VARCHAR(45) NULL,
-  INDEX `fk_membro_conselho_membro_familia1_idx` (`membro_familia_cpf` ASC) VISIBLE,
-  CONSTRAINT `fk_membro_conselho_membro_familia1`
     FOREIGN KEY (`membro_familia_cpf`)
     REFERENCES `bd_sistema`.`membro_familia` (`cpf`)
     ON DELETE NO ACTION

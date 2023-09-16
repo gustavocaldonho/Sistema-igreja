@@ -32,14 +32,6 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     $email = $_GET["email"];
 }
 
-// if (isset($_GET["action"])) {
-//     $action = "../../controlador/saveEditComunidade.php";
-// } else {
-//     $action = "../../controlador/cadComunidade.php";
-// }
-
-// action="<?php echo $action"
-
 ?>
 
 <body>

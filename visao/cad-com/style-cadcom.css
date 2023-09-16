@@ -1,110 +1,109 @@
 .container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .form-cadastro {
-    width: 80vw !important;
+  width: 80vw !important;
 }
 
 h2 {
-    margin-top: 5px;
-    margin-bottom: -25px;
+  margin-top: 5px;
+  margin-bottom: -25px;
 }
 
 .required:after {
-    content: " *";
-    color: red;
+  content: " *";
+  color: red;
 }
 
 .box__buttons {
-    text-align: center;
+  text-align: center;
 }
 
 #btn-cadastrar,
 #btn-cancelar,
 #btn-limpar,
 #btn-atualizar {
-    margin: 10px 20px 0px 0px;
-    /* superior, direita, inferior e esquerda */
+  margin: 10px 20px 0px 0px;
+  /* superior, direita, inferior e esquerda */
 }
 
 .input-group {
-    width: 100%;
+  width: 100%;
 }
 
 .box__nomeMembros,
 .box__cpfMembros {
-    width: 100%;
-    height: 120px;
+  width: 100%;
+  height: 120px;
 }
 
 /* Estilização modal */
 
 .modal-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Estilizando a mensagem de erro */
 .msg-erro,
 .msg-sucesso {
-    position: absolute;
-    right: 30px;
-    bottom: 10px;
-    padding: 8px;
-    opacity: 0;
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+  padding: 8px;
+  opacity: 0;
 }
 
 .msg-erro p,
 .msg-sucesso p {
-    /* Alinha o texto no meio da div */
-    margin: auto;
+  /* Alinha o texto no meio da div */
+  margin: auto;
 }
 
 .fadeIn {
-    /* tempo para aparecer com efeito de esmaecimento */
-    animation: fadeInAnimation .5s forwards;
+  /* tempo para aparecer com efeito de esmaecimento */
+  animation: fadeInAnimation 0.5s forwards;
 }
 
 .fadeOut {
-    /* tempo para esconder com efeito de esmaecimento */
-    animation: fadeOutAnimation .5s forwards;
+  /* tempo para esconder com efeito de esmaecimento */
+  animation: fadeOutAnimation 0.5s forwards;
 }
 
 @keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOutAnimation {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Estilização dos boxs de msg (sucesso ou erro) do cadastro */
 .box__msgResposta {
-    width: 80vw;
-    margin: 20px auto;
-    /* border: 2px solid red; */
+  width: 80vw;
+  margin: 20px auto;
 }
 
 .box__msgResposta p#titulo {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .box__msgResposta p#msg {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }

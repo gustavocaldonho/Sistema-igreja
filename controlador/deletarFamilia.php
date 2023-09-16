@@ -9,9 +9,8 @@ $id_familia = $_GET["id_familia"];
 if (isset($id_familia)) {
     $conexao = conectar();
 
-    // familiaDAO
-    deleteMembros($conexao, $id_familia);
-    deleteFamilia($conexao, $id_familia);
+    deleteMembros($conexao, $id_familia); // membroFamiliaDAO
+    deleteFamilia($conexao, $id_familia); // familiaDAO
 
     header("Location: ../visao/familias/index.php?msg=Família excluída com sucesso!");
 } else {

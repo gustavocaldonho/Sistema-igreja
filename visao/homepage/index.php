@@ -16,19 +16,6 @@
 </head>
 
 <body>
-    <!--  _________________________________________________________________________________________________ -->
-
-    <!-- Link do site onde peguei o código para linkar a função em js em arquivo separado -->
-    <!-- https://www.guj.com.br/t/chamando-uma-funcao-javascript-em-outra-pagina/150406 -->
-
-    <!-- Abaixo está o site de onde peguei o código para linkar a navbar nas páginas -->
-    <!-- https://pt.stackoverflow.com/questions/215177/importar-header-e-footer-em-todas-as-p%C3%A1ginas -->
-
-    <!--  _________________________________________________________________________________________________ -->
-
-    <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
-    <!-- <header id="header" class="sticky-top"></header> -->
-
     <?php
     include("../login/inicia-sessao.php");
     ?>
@@ -228,10 +215,6 @@
                     // chamando a função para fornecer o dia da semana
                     $diaSemana = getDiaSemana($dataToString);
 
-                    // echo "$titulo, $presidente, $local, $data, $horario, $descricao, $id_eventos" . "<br>";
-                    // echo "$dia, $mes, $ano <br>";
-                    // echo "$id_eventos";
-
                     echo "<div class='item-evento'>";
                     echo "<div class='box__data'>";
                     echo "<div class='mes text-uppercase'>
@@ -253,12 +236,10 @@
                             </div>";
                     echo "<div>";
 
-                    //Não é visto pelos membros comuns
+                    // Não é visto pelos membros comuns
                     if ($codPerfil == 1 || $codPerfil == 2) {
 
-                        // >>> tirar  "; e descomentar o texto
-
-                        echo "<div class='buttonsEvento'>"; // ## esse ";
+                        echo "<div class='buttonsEvento'>";
                         //             <small class='small-status";
                         // if ($status == 0) {
                         //     echo " comunidade'>Comunidade</small>";
@@ -501,9 +482,6 @@
     </div>
     </div>
 
-    <!-- Código para linkar o footer (rodape), caso ele seja colocado em arquivo separado -->
-    <!-- <header id="mainfooter"></header> -->
-
     <div class="rodape">
         <div class="box__local-rodape">
             <header>Venha nos Visitar!</header>
@@ -597,8 +575,6 @@
 <script>
 // toda vez que o botão 'adicionar evento' for clicado, os campos são limpos
 function setarModalFormEventos() {
-    // document.form_eventos.action = "../../controlador/cadEvento.php";
-
     // Limpando os campos
     document.getElementById('tituloEvento').value = "";
     document.getElementById('presidenteEvento').value = "";
@@ -616,8 +592,6 @@ function setarModalFormEventos() {
 }
 
 function setarModalEventoUpdate(titulo, presidente, local, data, horario, descricao, status, id_eventos) {
-    // document.form_eventos.action = "../../controlador/saveEditEvento.php";
-
     document.getElementById('tituloEvento').value = titulo;
     document.getElementById('presidenteEvento').value = presidente;
     document.getElementById('localEvento').value = local;
@@ -643,8 +617,6 @@ function setarModalEventoUpdate(titulo, presidente, local, data, horario, descri
 
 // toda vez que o botão 'adicionar aviso' for clicado, os campos são limpos
 function setarModalFormAvisos() {
-    // document.form_avisos.action = "../../controlador/cadAviso.php";
-
     // Limpando os campos
     document.getElementById('tituloAviso').value = "";
     document.getElementById('descricaoAviso').value = "";
@@ -660,8 +632,6 @@ function setarModalFormAvisos() {
 
 // Carregando as informações para o modal de edição (pega direto da página, já que a query ao banco já foi feita)
 function setarModalAvisoUpdate(titulo, descricao, status, id_aviso, id_comunidade) {
-    // document.form_avisos.action = "../../controlador/saveEditAviso.php";
-
     document.getElementById('tituloAviso').value = titulo;
     document.getElementById('descricaoAviso').value = descricao;
     document.getElementById('id_aviso').value = id_aviso;

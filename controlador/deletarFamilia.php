@@ -2,6 +2,7 @@
 
 include_once "../dao/conexao.php";
 include_once "../dao/familiaDAO.php";
+include_once '../../dao/membroFamiliaDAO.php';
 
 $id_familia = $_GET["id_familia"];
 
@@ -16,5 +17,3 @@ if(isset($id_familia)){
 } else{
     header("Location: ../visao/familias/index.php?msg=Falha na exclusão");
 }
-
-?>

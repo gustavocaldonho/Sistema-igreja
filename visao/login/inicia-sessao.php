@@ -12,6 +12,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
     include_once("../../dao/conexao.php");
     include_once("../../dao/familiaDAO.php");
+    include_once("../../dao/membroFamiliaDAO.php");
     include_once("../../dao/comunidadeDAO.php");
     include_once("../../dao/loginDAO.php");
     include_once("../login/funcoesPHP.php");

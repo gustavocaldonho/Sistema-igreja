@@ -2,6 +2,7 @@
 
 include_once '../dao/conexao.php';
 include_once '../dao/familiaDAO.php';
+include_once '../../dao/membroFamiliaDAO.php';
 
 // var_dump($_GET);
 

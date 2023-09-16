@@ -1,6 +1,7 @@
 <?php
 
 require_once '../dao/familiaDAO.php';
+require_once '../dao/membroFamiliaDAO.php';
 require_once '../dao/loginDAO.php';
 require_once '../dao/conexao.php';
 require_once '../controlador/funcoesUteis.php';

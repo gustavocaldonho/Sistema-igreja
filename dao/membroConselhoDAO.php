@@ -7,7 +7,6 @@ function cadastrarMembroConselho($conexao, $cpf, $cargo)
     $res = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 
-
 function getMembrosConselho($conexao)
 {
     $sql = "SELECT * FROM bd_sistema.membro_conselho";

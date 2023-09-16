@@ -59,7 +59,6 @@ function cpfDuplicado($conexao, $cpf)
     return $lista;
 }
 
-
 function carregarComboMembros($conexao, $id_comuidade)
 {
     // Variável $sql para criar comando de seleção no banco de dados

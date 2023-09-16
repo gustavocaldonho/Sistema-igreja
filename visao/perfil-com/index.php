@@ -61,9 +61,6 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 ?>
 
 <body>
-    <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
-    <!-- <header id="header" class="sticky-top"></header> -->
-
     <div class="sticky-top">
         <?php
         include("../navbar/navbar.php");
@@ -274,7 +271,6 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
     function deleteMembroConselho(id, id_comunidade) {
         window.location.href = "../../controlador/deletarMembroConselho.php?id=" + id + "&id_comunidade=" + id_comunidade;
-        // window.location.href = "../../controlador/teste.php?id=" + id;
     }
 </script>
 

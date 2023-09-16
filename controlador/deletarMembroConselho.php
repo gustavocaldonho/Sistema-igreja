@@ -5,6 +5,7 @@
 include_once("../dao/conexao.php");
 include_once("../dao/loginDAO.php");
 include_once("../dao/membroConselhoDAO.php");
+include_once("../dao/membroFamiliaDAO.php");
 
 $cpf = $_GET["id"];
 $id_comunidade = $_GET["id_comunidade"];

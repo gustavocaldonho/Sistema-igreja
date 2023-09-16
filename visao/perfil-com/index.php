@@ -25,6 +25,8 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
     include_once("../../dao/conexao.php");
     include_once("../../dao/familiaDAO.php");
+    include_once("../../dao/membroFamiliaDAO.php");
+    include_once("../../dao/membroConselhoDAO.php");
     include_once("../../dao/comunidadeDAO.php");
     include_once("../../dao/loginDAO.php");
     include_once("../login/funcoesPHP.php");
@@ -85,9 +87,6 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
                                 <option value="0" selected>Selecione o Novo Membro</option>
 
                                 <?php
-                                require_once '../../dao/membroConselhoDAO.php';
-                                require_once '../../dao/conexao.php';
-
                                 if (isset($_GET['id_comunidade'])) {
                                     $id_comunidade = $_GET['id_comunidade'];
                                 }
@@ -199,9 +198,6 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
             <div class="body">
 
                 <?php
-                include_once("../../dao/conexao.php");
-                include_once("../../dao/membroConselhoDAO.php");
-
                 $conexao = conectar();
 
                 $result = getMembrosConselho($conexao);

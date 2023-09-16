@@ -32,34 +32,6 @@ function updateFamilia($conexao, $id_familia, $nomeFamilia, $email, $id_comunida
     mysqli_query($conexao, $sqlUpdate) or die(mysqli_error($conexao));
 }
 
-
-function cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia)
-{
-    $sqlMembro = "INSERT INTO bd_sistema.membro_familia (cpf, nome, data_nasc, celular, id_familia) VALUES ( '$cpfMb', '$nomeMb', '$dnMb', '$celMb', '$id_familia')";
-    mysqli_query($conexao, $sqlMembro) or die(mysqli_error($conexao));
-}
-
-function updateMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb)
-{
-    $sqlUpdate = "UPDATE bd_sistema.membro_familia SET nome='$nomeMb', data_nasc='$dnMb', celular='$celMb' WHERE cpf='$cpfMb'";
-
-    mysqli_query($conexao, $sqlUpdate) or die(mysqli_error($conexao));
-}
-
-function deleteMembros($conexao, $id_familia)
-{
-    $sqlDelete = "DELETE FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";
-
-    mysqli_query($conexao, $sqlDelete) or die(mysqli_error($conexao));
-}
-
-function deleteMembroPerfilFamilia($conexao, $cpfMb)
-{
-    $sqlDelete = "DELETE FROM bd_sistema.membro_familia WHERE cpf = '$cpfMb'";
-
-    mysqli_query($conexao, $sqlDelete) or die(mysqli_error($conexao));
-}
-
 function deleteFamilia($conexao, $id_familia)
 {
     $sqlDeleteFamilia = "DELETE FROM bd_sistema.familia WHERE id_familia = '$id_familia'";
@@ -109,6 +81,33 @@ function getDadosFamilia($conexao, $id_familia)
     $result = $conexao->query($sqlSelect);
 
     return $result;
+}
+
+function cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia)
+{
+    $sqlMembro = "INSERT INTO bd_sistema.membro_familia (cpf, nome, data_nasc, celular, id_familia) VALUES ( '$cpfMb', '$nomeMb', '$dnMb', '$celMb', '$id_familia')";
+    mysqli_query($conexao, $sqlMembro) or die(mysqli_error($conexao));
+}
+
+function updateMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb)
+{
+    $sqlUpdate = "UPDATE bd_sistema.membro_familia SET nome='$nomeMb', data_nasc='$dnMb', celular='$celMb' WHERE cpf='$cpfMb'";
+
+    mysqli_query($conexao, $sqlUpdate) or die(mysqli_error($conexao));
+}
+
+function deleteMembros($conexao, $id_familia)
+{
+    $sqlDelete = "DELETE FROM bd_sistema.membro_familia WHERE id_familia = $id_familia";
+
+    mysqli_query($conexao, $sqlDelete) or die(mysqli_error($conexao));
+}
+
+function deleteMembroPerfilFamilia($conexao, $cpfMb)
+{
+    $sqlDelete = "DELETE FROM bd_sistema.membro_familia WHERE cpf = '$cpfMb'";
+
+    mysqli_query($conexao, $sqlDelete) or die(mysqli_error($conexao));
 }
 
 function getDadosMembrosFamilia($conexao, $id_familia)

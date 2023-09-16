@@ -21,6 +21,9 @@ function carregarComboMembros($conexao, $id_comuidade)
     return $itens;
 }
 
+
+
+
 function cadastrarMembroConselho($conexao, $cpf, $cargo)
 {
     $sql = "INSERT INTO bd_sistema.membro_conselho (membro_familia_cpf, cargo) VALUES ($cpf, '$cargo')";

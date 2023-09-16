@@ -4,7 +4,7 @@
 
 include_once("../dao/conexao.php");
 include_once("../dao/loginDAO.php");
-include_once("../dao/membroFamiliaDAO.php");
+include_once("../dao/membroConselhoDAO.php");
 
 $cpf = $_GET["id"];
 $id_comunidade = $_GET["id_comunidade"];
@@ -15,7 +15,7 @@ $conexao = conectar();
 resetarLoginMembroConselho($conexao, $cpf); //loginDAO
 
 // excluir na tabela membros conselho
-deleteMembroConselho($conexao, $cpf); //membroFamiliaDAO
+deleteMembroConselho($conexao, $cpf); //membroConselhoDAO
 
 
 header("Location: ../visao/perfil-com/index.php?id_comunidade=$id_comunidade&msg=Membro $cpf excluído(a) com sucesso!");

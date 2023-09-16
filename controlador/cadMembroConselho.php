@@ -1,7 +1,7 @@
 <?php
 
 include_once "../dao/conexao.php";
-include_once "../dao/membroFamiliaDAO.php";
+include_once "../dao/membroConselhoDAO.php";
 include_once "../dao/loginDAO.php";
 
 var_dump($_POST);

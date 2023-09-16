@@ -20,7 +20,6 @@ ul {
 
 #ul-right {
   margin-right: 20px;
-  /* border: 2px solid red; */
 }
 
 nav {
@@ -48,13 +47,11 @@ nav li a:hover {
 }
 
 .link-dgapy:hover {
-  /* color: black !important; */
   background-color: #b88615 !important;
 }
 
 .dropdown-menu {
   position: absolute;
-  /* box-shadow: 0 0 2px black; */
   display: none;
   margin-top: -1px;
   background-color: #b88615;
@@ -66,7 +63,6 @@ nav li a:hover {
   margin-left: -253px;
   background-color: white;
   box-shadow: 0 0 2px #b88615;
-  /* display: block !important; para visualizar o dropdown*/
 }
 
 .drop-notificacao p {
@@ -82,10 +78,6 @@ nav li a:hover {
 .drop-notificacao p:hover {
   background-color: whitesmoke;
 }
-
-/* .drop-perfil{
-    margin-left: -55px;
-} */
 
 .dropdown-menu a {
   display: block;
@@ -112,7 +104,6 @@ nav li a:hover {
 }
 
 a:hover .bi-caret-right-fill {
-  /* transition: 300ms; */
   transform: rotate(90deg);
 }
 

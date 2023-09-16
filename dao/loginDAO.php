@@ -1,5 +1,12 @@
 <?php
 
+function acessarLogin($conexao, $cpfLimpo, $senha)
+{
+    $sql = "SELECT * FROM bd_sistema.login WHERE membro_familia_cpf = '$cpfLimpo' AND senha = '$senha'";
+
+    return mysqli_query($conexao, $sql);
+}
+
 function cadastrarLogin($conexao, $cpfMb)
 {
     // ALTERAR A SENHA ##########

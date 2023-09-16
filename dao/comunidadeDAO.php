@@ -129,20 +129,3 @@ function existeIdComunidade($conexao, $padroeiro, $id_comunidade)
         break;
     }
 }
-
-// // Função para pegar o id da comunidade, a fim de realizar o cadastro dos membros do conselho da mesma
-// function selectIdComunidade($conexao, $cpfChefe)
-// {
-//     $sqlIdComunidade = "SELECT idComunidade FROM bd_sistema.comunidade WHERE chefe_conselho_cpf='$cpfChefe'";
-
-//     // Executa o comando sql
-//     $res = mysqli_query($conexao, $sqlIdComunidade) or die(mysqli_error($conexao));
-
-//     // Captura os registros da tabela (linhas)
-//     $registro = mysqli_fetch_assoc($res);
-
-//     // Atribui a $idComunidade o que está na célula da coluna 'idComunidade'
-//     $idComunidade = $registro['idComunidade'];
-
-//     return $idComunidade;
-// }

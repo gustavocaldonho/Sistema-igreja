@@ -57,9 +57,6 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 ?>
 
 <body>
-    <!-- Código para linkar a navbar, que se encontra em arquivo separado -->
-    <!-- <header id="header" class="sticky-top"></header> -->
-
     <div class="sticky-top">
         <?php
         include("../navbar/navbar.php");
@@ -243,41 +240,6 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                 </div>
             </div>
         </div>
-
-        <hr>
-
-        <div class="box__membros" hidden>
-            <!-- ######## COLOCAR O EMAIL E A COMUNIDADE DA FAMÍLIA ######## -->
-            <table class="table-membros table-sm col-12">
-                <thead>
-                    <th scope="col" class="col-4">Membros da Família</th>
-                    <th scope="col" class="col-2">CPF</th>
-                    <th scope="col" class="col-3">Data De Nascimento</th>
-                    <th scope="col" class="col-3">Celular</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ramon Soares</td>
-                        <td>000.000.000-00</td>
-                        <td>00/00/0000</td>
-                        <td>(00) 00000-0000</td>
-                    </tr>
-                    <tr>
-                        <td>Ramon Soares Dias Gomes</td>
-                        <td>000.000.000-00</td>
-                        <td>00/00/0000</td>
-                        <td>(00) 00000-0000</td>
-                    </tr>
-                    <tr>
-                        <td>Delma Gomes Dias</td>
-                        <td>000.000.000-00</td>
-                        <td>00/00/0000</td>
-                        <td>(00) 00000-0000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
     </div>
 </body>
 
@@ -293,7 +255,6 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
     function deleteMembro(id) {
         window.location.href = "../../controlador/deletarMembro.php?id=" + id;
-        // window.location.href = "../../controlador/teste.php?id=" + id;
     }
 </script>
 

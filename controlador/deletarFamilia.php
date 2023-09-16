@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 include_once "../dao/conexao.php";
 include_once "../dao/familiaDAO.php";
-include_once '../../dao/membroFamiliaDAO.php';
+include_once '../dao/membroFamiliaDAO.php';
 
 $id_familia = $_GET["id_familia"];
 
-if(isset($id_familia)){
+if (isset($id_familia)) {
     $conexao = conectar();
 
     // familiaDAO
@@ -14,6 +14,6 @@ if(isset($id_familia)){
     deleteFamilia($conexao, $id_familia);
 
     header("Location: ../visao/familias/index.php?msg=Família excluída com sucesso!");
-} else{
+} else {
     header("Location: ../visao/familias/index.php?msg=Falha na exclusão");
 }

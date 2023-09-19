@@ -20,6 +20,8 @@ if (!empty($_GET['id'])) {
             $padroeiro = $user_data['padroeiro'];
             $localizacao = $user_data['localizacao'];
             $email = $user_data['email'];
+            $foto = $user_data['foto']; //binário
+            $fotoPronta = mysqli_fetch_object($foto);
         }
 
         // echo $padroeiro ."<br>";
@@ -27,7 +29,8 @@ if (!empty($_GET['id'])) {
         // echo $email;
 
         // Retornando com GET para a página de edição do cadastro da comunidade
-        header("Location: ../visao/cad-com/index.php?id_comunidade=$id&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
+        header("Location: ../visao/cad-com/index.php?id_comunidade=$id&padroeiro=$padroeiro&localizacao=$localizacao&email=$email&foto=$fotoPronta");
+        // Content-type: image/gif 
     } else {
         // Caso ocorra alguma falha, a página de exibição das comunidades só será atualizada
         header("Location: ../visao/comunidades/index.php");

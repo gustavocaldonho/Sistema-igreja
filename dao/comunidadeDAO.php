@@ -1,8 +1,13 @@
 <?php
 
-function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email)
+function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email, $foto)
 {
-    $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, email) VALUES ('$padroeiro', '$localizacao', '$email')";
+    // Códigos para inserir a imagem no banco
+    $tamanhoImg = $foto["size"];
+    $imgAberto = fopen($foto["tmp_name"], "r");
+    $fotoPronta = addslashes(fread($imgAberto, $tamanhoImg));
+
+    $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, email, foto) VALUES ('$padroeiro', '$localizacao', '$email', '$fotoPronta')";
     mysqli_query($conexao, $sqlComunidade) or die(mysqli_error($conexao));
 
     // $id = mysqli_insert_id($conexao);

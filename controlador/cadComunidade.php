@@ -11,15 +11,16 @@ $localizacao = $_POST["inputLocalizacao"];
 $email = $_POST["inputEmail"];
 // sempre receberá um id pelo POST (se for primeiro cadastro, o valor padrão é zero; se for edição, receberá o id da comunidade a ser editada)
 $id_comunidade = $_POST["inputIdComunidade"];
+$foto = $_FILES["inputFoto"];
 
 // Validando os dados de entrada (não importa se é edição ou primeiro cadastro)
 $msgErro = "";
 $msgErro .= validarLocalizacao($localizacao);
 $msgErro .= validarEmail($email);
+$msgErro .= validarImagem($foto);
 
 // se receber um id, é porque se trata de uma edição do cadastro
 if ($id_comunidade != "") {
-    // echo "diferente vazio";
     $msgErro .= validarPadroeiroUpdate($padroeiro, $id_comunidade);
 
     // Atualizando os dados no banco
@@ -34,17 +35,15 @@ if ($id_comunidade != "") {
     } else {
         // Se houver erro em alguma informação inserida, ao clicar em Cadastrar, ocorrerá uma atualização da tela com os mesmos dados (modificados ou não). 
         header("Location: ../visao/cad-com/index.php?cod=0&msg=Campos Inválidos: $msgErro&id_comunidade=$id_comunidade&padroeiro=$padroeiro&localizacao=$localizacao&email=$email");
-        // retirei (action=saveEditComunidade.php&)
     }
 } else {
-    // echo "igual a vazio";
     $msgErro .= validarPadroeiro($padroeiro);
 
     if (empty($msgErro)) {
         $conexao = conectar();
 
         // comunidadeDAO
-        cadastrarComunidade($conexao, $padroeiro, $localizacao, $email);
+        cadastrarComunidade($conexao, $padroeiro, $localizacao, $email, $foto);
 
         header("Location: ../visao/cad-com/index.php?cod=1&msg=Comunidade <i><b>$padroeiro</b></i> foi inserida com sucesso!");
     } else {

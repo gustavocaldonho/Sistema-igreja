@@ -7,7 +7,7 @@ SELECT mf.nome AS nome_membro_conselho
 FROM membro_conselho mc
 INNER JOIN membro_familia mf ON mc.membro_familia_cpf = mf.cpf
 INNER JOIN familia f ON mf.id_familia = f.id_familia
-WHERE f.id_comunidade = 10;
+WHERE f.id_comunidade = 111;
 
 SELECT mf.nome AS nome FROM bd_sistema.membro_conselho mc 
 INNER JOIN bd_sistema.membro_familia mf ON mc.membro_familia_cpf = mf.cpf 
@@ -36,7 +36,7 @@ SELECT * FROM bd_sistema.comunidade WHERE padroeiro='São Geraldo';
 
 select * from bd_sistema.familia;
 select * from bd_sistema.membro_familia order by nome;
-select * from bd_sistema.membro_familia where id_familia = 107;
+select * from bd_sistema.membro_familia where id_familia = 126;
 SELECT * FROM bd_sistema.membro_familia WHERE cpf = '49762728009';
 select count(*) as qtd from bd_sistema.membro_familia where id_familia = 102;
 UPDATE bd_sistema.familia SET nome='$nomeFamilia', email='$email', id_comunidade='$id_comunidade' WHERE id_familia='$id_familia';

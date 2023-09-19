@@ -173,6 +173,30 @@ function validarEmail($email)
     return $msgErro;
 }
 
+function validarImagem($foto)
+{
+    $msg = "";
+
+    // Só permite arquivos até 100.000 bytes, o que são 100 Kbytes (Kb)
+    if ($foto["size"] > 100000) {
+        $msg .= "O arquivo de imagem é muito grande! <br>";
+    }
+
+    if (($foto["type"] != "image/gif") &&
+        ($foto["type"] != "image/jpeg") &&
+        ($foto["type"] != "image/pjpeg") &&
+        ($foto["type"] != "image/png") &&
+        ($foto["type"] != "image/x-png") &&
+        ($foto["type"] != "image/bmp")
+    ) {
+
+        $msg .= "Tipo não permitido!<br>";
+        // Se não for selecionado nenhuma imagem, também apontará esta mensagem de erro
+    }
+
+    return $msg;
+}
+
 function validarEvento($titulo, $descricao, $data, $horario, $local, $presidente)
 {
     $msgErro = "";

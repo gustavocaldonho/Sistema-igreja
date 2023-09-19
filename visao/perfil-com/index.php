@@ -144,7 +144,19 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
 
         <div class="box__img">
             <div>
-                <img src="img/desenho-igreja-sem-padding.avif" alt="foto-igreja">
+                <?php
+
+                $result = getDadosComunidade($conexao, $id_comunidade);
+                while ($user_data = mysqli_fetch_assoc($result)) {
+                    $foto = $user_data["foto"];
+                }
+
+                if (isset($foto)) {
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($foto) . '"/>';
+                } else {
+                    echo '<img src="img/desenho-igreja-sem-padding.avif" alt="foto-igreja">';
+                }
+                ?>
             </div>
         </div>
 
@@ -198,8 +210,6 @@ if ((!isset($_SESSION["cpf"]) == true) and ((!isset($_SESSION["senha"])) == true
             <div class="body">
 
                 <?php
-                $conexao = conectar();
-
                 $result = getMembrosConselho($conexao);
 
                 while ($user_data = mysqli_fetch_assoc($result)) {

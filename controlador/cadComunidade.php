@@ -29,7 +29,7 @@ if ($id_comunidade != "") {
         $conexao = conectar();
 
         // comunidadeDAO
-        updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email);
+        updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email, $foto);
 
         header("Location: ../visao/comunidades/index.php?cod=1&msg=Comunidade $padroeiro atualizado(a) com sucesso!");
     } else {

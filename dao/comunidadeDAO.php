@@ -2,10 +2,7 @@
 
 function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email, $foto)
 {
-    // Códigos para inserir a imagem no banco
-    $tamanhoImg = $foto["size"];
-    $imgAberto = fopen($foto["tmp_name"], "r");
-    $fotoPronta = addslashes(fread($imgAberto, $tamanhoImg));
+    $fotoPronta = prepararImagem($foto);
 
     $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, email, foto) VALUES ('$padroeiro', '$localizacao', '$email', '$fotoPronta')";
     mysqli_query($conexao, $sqlComunidade) or die(mysqli_error($conexao));
@@ -85,9 +82,11 @@ function getQtdMembrosComunidade($conexao, $id_comunidade)
     return $result;
 }
 
-function updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email)
+function updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email, $foto)
 {
-    $sqlUpdate = "UPDATE bd_sistema.comunidade SET padroeiro='$padroeiro', localizacao='$localizacao', email='$email' WHERE id_comunidade=$id_comunidade";
+    $fotoPronta = prepararImagem($foto);
+
+    $sqlUpdate = "UPDATE bd_sistema.comunidade SET padroeiro='$padroeiro', localizacao='$localizacao', email='$email', foto='$fotoPronta' WHERE id_comunidade=$id_comunidade";
 
     $result = $conexao->query($sqlUpdate);
 }

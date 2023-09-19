@@ -197,6 +197,16 @@ function validarImagem($foto)
     return $msg;
 }
 
+function prepararImagem($foto)
+{
+    // Códigos para inserir a imagem no banco
+    $tamanhoImg = $foto["size"];
+    $imgAberto = fopen($foto["tmp_name"], "r");
+    $fotoPronta = addslashes(fread($imgAberto, $tamanhoImg));
+
+    return $fotoPronta;
+}
+
 function validarEvento($titulo, $descricao, $data, $horario, $local, $presidente)
 {
     $msgErro = "";

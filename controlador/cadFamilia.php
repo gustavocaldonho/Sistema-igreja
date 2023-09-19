@@ -11,7 +11,8 @@ $nomeFamilia = $_POST["inputNome"];
 $email = $_POST["inputEmail"];
 $id_comunidade = $_POST["listaComunidades"];
 $qtd_membros = $_POST["controleCampos"];
-$id_familia = $_POST['input_id_familia']; // se for primeiro cadastro, a família ainda não possui id (id = ""), se for edição, ela já possuirá um id
+$id_familia = $_POST["input_id_familia"]; // se for primeiro cadastro, a família ainda não possui id (id = ""), se for edição, ela já possuirá um id
+$foto = $_FILES["inputFoto"];
 
 // Validando os dados de entrada dos membros
 $listaCpf = array(); // lista dos Cpfs dos membros
@@ -101,6 +102,7 @@ if ($id_familia != "") { //atualizar
     // Validando os dados de entrada da Família
     $msgErroFamilia .= validarNomeFamilia($nomeFamilia);
     $msgErroFamilia .= validarEmail($email);
+    $msgErroFamilia .= validarImagem($foto);
     $msgErroFamilia .= validarIdComunidade($id_comunidade);
 
     if (empty($msgErroFamilia) && empty($msgErroMembros)) {
@@ -108,7 +110,7 @@ if ($id_familia != "") { //atualizar
 
         // familiaDAO
         // retorna o id da família que acabou de ser inserida, para que seus membros possam ser vinculados a ela
-        $idFamilia = cadastrarFamilia($conexao, $nomeFamilia, $email, $id_comunidade);
+        $idFamilia = cadastrarFamilia($conexao, $nomeFamilia, $email, $id_comunidade, $foto);
 
         $contador = 1;
 

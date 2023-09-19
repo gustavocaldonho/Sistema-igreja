@@ -15,9 +15,11 @@ function selectFamilias($conexao)
     return $result;
 }
 
-function cadastrarFamilia($conexao, $nomeFamilia, $email, $idComunidade)
+function cadastrarFamilia($conexao, $nomeFamilia, $email, $idComunidade, $foto)
 {
-    $sqlFamilia = "INSERT INTO bd_sistema.familia (nome, email, id_comunidade) VALUES ('$nomeFamilia', '$email', '$idComunidade')";
+    $fotoPronta = prepararImagem($foto);
+
+    $sqlFamilia = "INSERT INTO bd_sistema.familia (nome, email, foto, id_comunidade) VALUES ('$nomeFamilia', '$email', '$fotoPronta', '$idComunidade')";
     mysqli_query($conexao, $sqlFamilia) or die(mysqli_error($conexao));
 
     $id = mysqli_insert_id($conexao);

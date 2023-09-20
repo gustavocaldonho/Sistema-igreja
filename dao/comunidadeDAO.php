@@ -1,13 +1,13 @@
 <?php
 
-function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email, $foto)
+function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email)
 {
-    $fotoPronta = prepararImagem($foto);
-
-    $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, email, foto) VALUES ('$padroeiro', '$localizacao', '$email', '$fotoPronta')";
+    $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, email) VALUES ('$padroeiro', '$localizacao', '$email')";
     mysqli_query($conexao, $sqlComunidade) or die(mysqli_error($conexao));
 
-    // $id = mysqli_insert_id($conexao);
+    $id = mysqli_insert_id($conexao);
+
+    return $id;
 }
 
 // Função para exibir as comunidades no panorama geral
@@ -82,11 +82,18 @@ function getQtdMembrosComunidade($conexao, $id_comunidade)
     return $result;
 }
 
-function updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email, $foto)
+function updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email)
+{
+    $sqlUpdate = "UPDATE bd_sistema.comunidade SET padroeiro='$padroeiro', localizacao='$localizacao', email='$email' WHERE id_comunidade=$id_comunidade";
+
+    $result = $conexao->query($sqlUpdate);
+}
+
+function updateFotoComunidade($conexao, $id_comunidade, $foto)
 {
     $fotoPronta = prepararImagem($foto);
 
-    $sqlUpdate = "UPDATE bd_sistema.comunidade SET padroeiro='$padroeiro', localizacao='$localizacao', email='$email', foto='$fotoPronta' WHERE id_comunidade=$id_comunidade";
+    $sqlUpdate = "UPDATE bd_sistema.comunidade SET foto='$fotoPronta' WHERE id_comunidade=$id_comunidade";
 
     $result = $conexao->query($sqlUpdate);
 }

@@ -177,21 +177,26 @@ function validarImagem($foto)
 {
     $msg = "";
 
-    // Só permite arquivos até 100.000 bytes, o que são 100 Kbytes (Kb)
-    if ($foto["size"] > 100000) {
-        $msg .= "O arquivo de imagem é muito grande! <br>";
-    }
+    // se não for inserido imagem, não retorna erro
+    if ($foto["size"] === 0) {
+        return $msg;
+    } else {
+        // Só permite arquivos até 100.000 bytes, o que são 100 Kbytes (Kb)
+        if ($foto["size"] > 100000) {
+            $msg .= "O arquivo de imagem é muito grande! <br>";
+        }
 
-    if (($foto["type"] != "image/gif") &&
-        ($foto["type"] != "image/jpeg") &&
-        ($foto["type"] != "image/pjpeg") &&
-        ($foto["type"] != "image/png") &&
-        ($foto["type"] != "image/x-png") &&
-        ($foto["type"] != "image/bmp")
-    ) {
+        if (($foto["type"] != "image/gif") &&
+            ($foto["type"] != "image/jpeg") &&
+            ($foto["type"] != "image/pjpeg") &&
+            ($foto["type"] != "image/png") &&
+            ($foto["type"] != "image/x-png") &&
+            ($foto["type"] != "image/bmp")
+        ) {
 
-        $msg .= "Tipo não permitido!<br>";
-        // Se não for selecionado nenhuma imagem, também apontará esta mensagem de erro
+            $msg .= "Tipo não permitido!<br>";
+            // Se não for selecionado nenhuma imagem, também apontará esta mensagem de erro
+        }
     }
 
     return $msg;

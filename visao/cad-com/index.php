@@ -72,9 +72,9 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
             </div>
 
             <div class="col-md-12">
-                <label for="inputFoto" class="form-label required">Foto</label>
+                <label for="inputFoto" class="form-label">Foto</label>
                 <input type="file" class="form-control" id="inputFoto" name="inputFoto" accept="image/*"
-                    onchange="exibirPrevia()" required>
+                    onchange="exibirPrevia()">
 
                 <?php
 

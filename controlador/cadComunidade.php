@@ -29,7 +29,11 @@ if ($id_comunidade != "") {
         $conexao = conectar();
 
         // comunidadeDAO
-        updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email, $foto);
+        updateComunidade($conexao, $id_comunidade, $padroeiro, $localizacao, $email);
+
+        if ($foto["size"] > 0) {
+            updateFotoComunidade($conexao, $id_comunidade, $foto);
+        }
 
         header("Location: ../visao/comunidades/index.php?cod=1&msg=Comunidade $padroeiro atualizado(a) com sucesso!");
     } else {
@@ -43,7 +47,12 @@ if ($id_comunidade != "") {
         $conexao = conectar();
 
         // comunidadeDAO
-        cadastrarComunidade($conexao, $padroeiro, $localizacao, $email, $foto);
+        $id_comunidade = cadastrarComunidade($conexao, $padroeiro, $localizacao, $email);
+
+        // a foto não é obrigatória
+        if ($foto["size"] > 0) {
+            updateFotoComunidade($conexao, $id_comunidade, $foto);
+        }
 
         header("Location: ../visao/cad-com/index.php?cod=1&msg=Comunidade <i><b>$padroeiro</b></i> foi inserida com sucesso!");
     } else {

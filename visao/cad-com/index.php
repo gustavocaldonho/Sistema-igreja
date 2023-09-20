@@ -160,7 +160,7 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
     </div>
 </body>
 
-<script src="../funcoesJS/funcoes.js"></script>
+<script src='../funcoesJS/funcoes.js'></script>
 <script src='../../dao/conexao.php'></script>
 <script src='../../dao/comunidadeDAO.php'></script>
 
@@ -222,26 +222,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-
-// colocar em arquivo separado
-function exibirPrevia() {
-    const inputFoto = document.getElementById('inputFoto');
-    const imagemPreview = document.getElementById('imagemPreview');
-
-    if (inputFoto.files && inputFoto.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            imagemPreview.src = e.target.result;
-            imagemPreview.style.display = 'block';
-        }
-
-        reader.readAsDataURL(inputFoto.files[0]);
-    } else {
-        imagemPreview.src = '';
-        imagemPreview.style.display = 'none';
-    }
-}
 </script>
 
 </html>

@@ -15,6 +15,9 @@
 
 <?php
 
+include_once("../../dao/conexao.php");
+include_once("../../dao/comunidadeDAO.php");
+
 include("../login/inicia-sessao.php");
 
 if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true)) {
@@ -70,8 +73,24 @@ if (isset($_GET["padroeiro"]) && isset($_GET["localizacao"]) && isset($_GET["ema
 
             <div class="col-md-12">
                 <label for="inputFoto" class="form-label required">Foto</label>
-                <input type="file" class="form-control" id="inputFoto" name="inputFoto" required
-                    value="<?php if (isset($_GET["foto"])) echo $_GET["foto"] ?>">
+                <input type="file" class="form-control" id="inputFoto" name="inputFoto" accept="image/*"
+                    onchange="exibirPrevia()" required>
+
+                <?php
+
+                if (!isset($_GET["id_comunidade"])) {
+                    echo '<img src="" id="imagemPreview" alt="Prévia da imagem" style="max-width: 300px; display: none;">';
+                } else {
+                    $conexao = conectar();
+                    $result = getDadosComunidade($conexao, $_GET["id_comunidade"]);
+
+                    while ($user_data = mysqli_fetch_assoc($result)) {
+                        $imagemDoBanco = $user_data["foto"];
+                    }
+
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($imagemDoBanco) . '" id="imagemPreview" alt="Prévia da imagem" style="max-width: 300px;" />';
+                }
+                ?>
             </div>
 
             <!-- campo escondido -->
@@ -203,6 +222,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+// colocar em arquivo separado
+function exibirPrevia() {
+    const inputFoto = document.getElementById('inputFoto');
+    const imagemPreview = document.getElementById('imagemPreview');
+
+    if (inputFoto.files && inputFoto.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            imagemPreview.src = e.target.result;
+            imagemPreview.style.display = 'block';
+        }
+
+        reader.readAsDataURL(inputFoto.files[0]);
+    } else {
+        imagemPreview.src = '';
+        imagemPreview.style.display = 'none';
+    }
+}
 </script>
 
 </html>

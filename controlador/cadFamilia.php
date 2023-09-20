@@ -62,6 +62,11 @@ if ($id_familia != "") { //atualizar
         // familiaDAO
         updateFamilia($conexao, $id_familia, $nomeFamilia, $email, $id_comunidade);
 
+        // a foto não é obrigatória
+        if ($foto["size"] > 0) {
+            updateFotoFamilia($conexao, $id_familia, $foto);
+        }
+
         $contador = 1;
         // Dados dos membros da família
         while ($contador <= $qtd_membros) {
@@ -110,7 +115,12 @@ if ($id_familia != "") { //atualizar
 
         // familiaDAO
         // retorna o id da família que acabou de ser inserida, para que seus membros possam ser vinculados a ela
-        $idFamilia = cadastrarFamilia($conexao, $nomeFamilia, $email, $id_comunidade, $foto);
+        $id_familia = cadastrarFamilia($conexao, $nomeFamilia, $email, $id_comunidade);
+
+        // a foto não é obrigatória
+        if ($foto["size"] > 0) {
+            updateFotoFamilia($conexao, $id_familia, $foto);
+        }
 
         $contador = 1;
 
@@ -122,7 +132,7 @@ if ($id_familia != "") { //atualizar
             $celMb = $_POST["inputCelMb" . $contador];
 
             // familiaDAO
-            cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $idFamilia);
+            cadastrarMembro($conexao, $cpfMb, $nomeMb, $dnMb, $celMb, $id_familia);
 
             // loginDAO
             cadastrarLogin($conexao, $cpfMb); // todos os membros são inseridos com o perfil padrão de '0'

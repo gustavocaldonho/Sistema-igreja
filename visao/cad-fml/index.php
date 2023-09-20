@@ -63,11 +63,6 @@
                 </select>
             </div>
 
-            <div class="col-md-12">
-                <label for="inputFoto" class="form-label required">Foto</label>
-                <input type="file" class="form-control" id="inputFoto" name="inputFoto" required value="">
-            </div>
-
             <div class="box__cadMembros form-group">
 
                 <div class="box__labels">
@@ -111,6 +106,26 @@
                 <!-- Campo escondido para passar o id_familia ao saveEditFamilia.php -->
                 <input type="text" id="input_id_familia" name="input_id_familia" placeholder="" value="<?php if (isset($_GET['id_familia'])) echo $_GET['id_familia'] ?>" hidden>
 
+            </div>
+
+            <div class="col-md-12">
+                <label for="inputFoto" class="form-label">Foto</label>
+                <input type="file" class="form-control" id="inputFoto" name="inputFoto" accept="image/*" onchange="exibirPrevia()">
+
+                <?php
+                if (!isset($_GET["id_familia"])) {
+                    echo '<img src="" id="imagemPreview" alt="Prévia da imagem" style="max-width: 300px; display: none;">';
+                } else {
+                    $conexao = conectar();
+                    $result = getDadosFamilia($conexao, $_GET["id_familia"]);
+
+                    while ($user_data = mysqli_fetch_assoc($result)) {
+                        $imagemDoBanco = $user_data["foto"];
+                    }
+
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($imagemDoBanco) . '" id="imagemPreview" alt="Prévia da imagem" style="max-width: 300px;" />';
+                }
+                ?>
             </div>
 
             <div class="col-md-12 box__buttons">

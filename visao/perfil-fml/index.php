@@ -99,7 +99,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                 if (isset($foto)) {
                     echo '<img src="data:image/jpeg;base64,' . base64_encode($foto) . '"/>';
                 } else {
-                    echo '<img src="img/retrato-familia.avif" alt="retrato-familia">';
+                    echo '<img src="img/retrato-familia.avif" alt="foto da família">';
                 }
                 ?>
             </div>

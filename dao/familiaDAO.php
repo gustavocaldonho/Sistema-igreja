@@ -15,11 +15,9 @@ function selectFamilias($conexao)
     return $result;
 }
 
-function cadastrarFamilia($conexao, $nomeFamilia, $email, $idComunidade, $foto)
+function cadastrarFamilia($conexao, $nomeFamilia, $email, $idComunidade)
 {
-    $fotoPronta = prepararImagem($foto);
-
-    $sqlFamilia = "INSERT INTO bd_sistema.familia (nome, email, foto, id_comunidade) VALUES ('$nomeFamilia', '$email', '$fotoPronta', '$idComunidade')";
+    $sqlFamilia = "INSERT INTO bd_sistema.familia (nome, email, id_comunidade) VALUES ('$nomeFamilia', '$email', '$idComunidade')";
     mysqli_query($conexao, $sqlFamilia) or die(mysqli_error($conexao));
 
     $id = mysqli_insert_id($conexao);
@@ -32,6 +30,15 @@ function updateFamilia($conexao, $id_familia, $nomeFamilia, $email, $id_comunida
     $sqlUpdate = "UPDATE bd_sistema.familia SET nome='$nomeFamilia', email='$email', id_comunidade='$id_comunidade' WHERE id_familia='$id_familia'";
 
     mysqli_query($conexao, $sqlUpdate) or die(mysqli_error($conexao));
+}
+
+function updateFotoFamilia($conexao, $id_familia, $foto)
+{
+    $fotoPronta = prepararImagem($foto);
+
+    $sqlUpdate = "UPDATE bd_sistema.familia SET foto='$fotoPronta' WHERE id_familia=$id_familia";
+
+    $result = $conexao->query($sqlUpdate);
 }
 
 function deleteFamilia($conexao, $id_familia)

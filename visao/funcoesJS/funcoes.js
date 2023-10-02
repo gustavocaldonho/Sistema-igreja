@@ -140,3 +140,13 @@ function exibirPrevia() {
     imagemPreview.style.display = "none";
   }
 }
+
+function mudarStatus(id) {
+  campo = document.getElementById(id);
+
+  if (campo.classList.contains("esmaecer") === true) {
+    campo.classList.remove("esmaecer");
+  } else {
+    campo.classList.add("esmaecer");
+  }
+}

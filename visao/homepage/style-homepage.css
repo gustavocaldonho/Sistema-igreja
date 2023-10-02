@@ -160,7 +160,7 @@
   padding: 6px;
 }
 
-/* _________________________ Styles do campo de avisos ______________________________ */
+/* _________________________ Styles do campo de eventos e avisos ______________________________ */
 
 .list-group a {
   margin-bottom: 10px;
@@ -189,6 +189,18 @@
 .box__span {
   display: flex;
   justify-content: right;
+}
+
+/* radio ativar e desativar evento/aviso */
+.form-switch {
+  margin-left: 10px;
+}
+
+.buttonsEvento,
+.buttonsAviso {
+  display: flex;
+  align-items: center;
+  /* border: 2px solid green; */
 }
 
 /* botões de edição e exlusão (canto superior direito) dos avisos e dos eventos*/

@@ -5,6 +5,12 @@ body {
   min-height: 400px;
 }
 
+/* radio - ativar e desativar */
+.esmaecer {
+  opacity: 0.5;
+  transition: 200ms;
+}
+
 /* _______________________ Personalizando a scrollbar ________________________ */
 ::-webkit-scrollbar {
   width: 8px;

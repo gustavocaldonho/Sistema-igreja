@@ -191,11 +191,6 @@
   justify-content: right;
 }
 
-/* radio ativar e desativar evento/aviso */
-.form-switch {
-  margin-left: 10px;
-}
-
 .buttonsEvento,
 .buttonsAviso {
   display: flex;

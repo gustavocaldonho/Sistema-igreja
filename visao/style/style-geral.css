@@ -11,6 +11,11 @@ body {
   transition: 200ms;
 }
 
+/* radio ativar e desativar evento/aviso */
+.form-switch {
+  margin-left: 10px;
+}
+
 /* _______________________ Personalizando a scrollbar ________________________ */
 ::-webkit-scrollbar {
   width: 8px;

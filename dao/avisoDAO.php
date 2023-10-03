@@ -29,3 +29,10 @@ function updateAviso($conexao, $id_aviso, $titulo, $descricao, $visivel)
 
     $result = $conexao->query($sqlUpdate);
 }
+
+function ativarEDesativarAviso($conexao, $id_aviso, $cod)
+{
+    $sql = "UPDATE bd_sistema.avisos SET ativo = $cod WHERE id_avisos = $id_aviso";
+
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}

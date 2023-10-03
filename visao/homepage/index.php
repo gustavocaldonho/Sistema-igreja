@@ -433,10 +433,11 @@
                                 </button>
 
                                 <div class='form-check form-switch'>
-                                    <input class='form-check-input' type='checkbox' role='switch' checked id='radioStatusAviso-$id_aviso' onclick=mudarStatus('item-aviso-$id_aviso')>
+                                    <input class='form-check-input' type='checkbox' role='switch' checked id='radioStatusAviso-$id_aviso' onclick='ativarDesativarAviso($id_aviso, this.checked)'>
                                 </div>
                             </div>";
                             }
+                            // onclick=mudarStatus('item-aviso-$id_aviso'); ativarDesativarAviso($id_aviso, 0)
 
                             echo "</div>";
                             echo "<p class='mb-1'> $descricao  </p>";

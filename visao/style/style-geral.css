@@ -16,6 +16,9 @@ body {
   margin-left: 10px;
 }
 
+.form-check-input {
+  cursor: pointer;
+}
 /* _______________________ Personalizando a scrollbar ________________________ */
 ::-webkit-scrollbar {
   width: 8px;

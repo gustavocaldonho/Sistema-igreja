@@ -222,20 +222,20 @@
   width: 25px;
 }
 
-/* campo status aviso e evento */
-.small-status {
+/* campo 'visivel' aviso e evento */
+.small-visivel {
   font-size: 12px;
   border-radius: 4px;
   padding: 3px;
   margin-right: 12px;
 }
 
-.small-status.comunidade {
+.small-visivel.comunidade {
   color: orange;
   border: 1px solid orange;
 }
 
-.small-status.paroquia {
+.small-visivel.paroquia {
   padding: 3px 13px;
   color: orangered;
   border: 1px solid orangered;

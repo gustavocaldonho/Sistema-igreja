@@ -8,7 +8,7 @@ require_once "../dao/avisoDAO.php";
 
 $titulo = $_POST["tituloAviso"];
 $descricao = $_POST["descricaoAviso"];
-$status = $_POST["radioAviso"];
+$visivel = $_POST["radioAviso"];
 $id_comunidade = $_POST["id_comunidade"];
 
 // usado na edição
@@ -21,7 +21,7 @@ $conexao = conectar();
 if ($id_aviso != "") { //atualização
 
     if (empty($msgErro)) {
-        updateAviso($conexao, $id_aviso, $titulo, $descricao, $status); //avisoDAO
+        updateAviso($conexao, $id_aviso, $titulo, $descricao, $visivel); //avisoDAO
 
         header("Location: ../visao/homepage/index.php?msg=Aviso atualizado com sucesso");
     } else {
@@ -29,7 +29,7 @@ if ($id_aviso != "") { //atualização
     }
 } else { //cadastro
     if (empty($msgErro)) {
-        cadastrarAviso($conexao, $titulo, $descricao, $status, $id_comunidade); //avisoDAO
+        cadastrarAviso($conexao, $titulo, $descricao, $visivel, $id_comunidade); //avisoDAO
 
 
         header("Location: ../visao/homepage/index.php?msg=Aviso inserido com sucesso");

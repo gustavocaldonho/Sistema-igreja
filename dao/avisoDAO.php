@@ -2,7 +2,7 @@
 
 function cadastrarAviso($conexao, $titulo, $descricao, $visivel, $id_comunidade)
 {
-    $sqlAviso = "INSERT INTO bd_sistema.avisos (visivel, titulo, descricao, id_comunidade) VALUES ($visivel, '$titulo', '$descricao', $id_comunidade)";
+    $sqlAviso = "INSERT INTO bd_sistema.avisos (ativo, visivel, titulo, descricao, id_comunidade) VALUES (1, $visivel, '$titulo', '$descricao', $id_comunidade)";
 
     mysqli_query($conexao, $sqlAviso) or die(mysqli_error($conexao));
 }

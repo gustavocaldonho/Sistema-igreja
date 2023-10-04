@@ -59,3 +59,20 @@ function ativarDesativarComunidade(id_comunidade, checked) {
   var data = "id_comunidade=" + id_comunidade + "&cod=" + cod;
   xhr.send(data);
 }
+
+function ativarDesativarFamilia(id_familia, checked) {
+  cod = verificarChecked(checked);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // A solicitação foi bem-sucedida, você pode tratar a resposta aqui se necessário
+      alert(xhr.responseText);
+    }
+  };
+
+  xhr.open("POST", "../../controlador/ativarEDesativarFamilia.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  var data = "id_familia=" + id_familia + "&cod=" + cod;
+  xhr.send(data);
+}

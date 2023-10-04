@@ -17,7 +17,7 @@ function selectFamilias($conexao)
 
 function cadastrarFamilia($conexao, $nomeFamilia, $email, $idComunidade)
 {
-    $sqlFamilia = "INSERT INTO bd_sistema.familia (nome, email, id_comunidade) VALUES ('$nomeFamilia', '$email', '$idComunidade')";
+    $sqlFamilia = "INSERT INTO bd_sistema.familia (ativo, nome, email, id_comunidade) VALUES (1, '$nomeFamilia', '$email', '$idComunidade')";
     mysqli_query($conexao, $sqlFamilia) or die(mysqli_error($conexao));
 
     $id = mysqli_insert_id($conexao);
@@ -90,4 +90,11 @@ function getDadosFamilia($conexao, $id_familia)
     $result = $conexao->query($sqlSelect);
 
     return $result;
+}
+
+function ativarEDesativarFamilia($conexao, $id_familia, $cod)
+{
+    $sql = "UPDATE bd_sistema.familia SET ativo = $cod WHERE id_familia = $id_familia";
+
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }

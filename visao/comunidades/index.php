@@ -88,8 +88,13 @@
                         // 
                         while ($user_data = mysqli_fetch_assoc($result)) {
                             $id_comunidade = $user_data['id_comunidade'];
+                            $ativo = $user_data['ativo'];
 
-                            echo "<tr id='item-comunidade-$id_comunidade' class='nome-comunidade'>";
+                            echo "<tr id='item-comunidade-$id_comunidade' class='nome-comunidade";
+                            if ($ativo == 0) {
+                                echo " esmaecer";
+                            }
+                            echo "'>";
                             // echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>" . $user_data['id_comunidade'] . "</td>";
                             echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>"  . $user_data['padroeiro'] . " - " . $user_data['localizacao'] . "</td>";
                             echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>" . "R$: 0,00" . "</td>";
@@ -111,8 +116,14 @@
                                     </a>
 
                                     <div class='form-check form-switch'>
-                                        <input class='form-check-input' type='checkbox' role='switch' checked id='radioStatusComunidade-' onclick='mudarStatus(\"item-comunidade-$id_comunidade\"); ativarDesativarComunidade($id_comunidade, this.checked)'>
-                                    </div>
+                                        <input class='form-check-input' type='checkbox' role='switch'";
+
+                            if ($ativo == 1) {
+                                echo " checked ";
+                            }
+
+                            echo "id='radioStatusComunidade-' onclick='mudarStatus(\"item-comunidade-$id_comunidade\"); ativarDesativarComunidade($id_comunidade, this.checked)'>
+                                    </div>                 
                                 </div>
                             </td>";
 

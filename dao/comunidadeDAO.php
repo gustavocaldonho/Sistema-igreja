@@ -15,9 +15,9 @@ function selectComunidades($conexao)
 {
     if (!empty($_GET['search'])) {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM bd_sistema.comunidade WHERE padroeiro LIKE '%$data%' or localizacao LIKE '%$data%' or email LIKE '%$data%'";
+        $sql = "SELECT * FROM bd_sistema.comunidade WHERE padroeiro LIKE '%$data%' or localizacao LIKE '%$data%' or email LIKE '%$data%' ORDER BY CASE WHEN ativo = 1 THEN 0 ELSE 1 END, id_comunidade DESC";
     } else {
-        $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY padroeiro";
+        $sql = "SELECT * FROM bd_sistema.comunidade ORDER BY CASE WHEN ativo = 1 THEN 0 ELSE 1 END, id_comunidade DESC";
     }
 
     $result = $conexao->query($sql);

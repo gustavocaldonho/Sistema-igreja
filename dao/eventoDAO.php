@@ -3,14 +3,15 @@
 function cadastrarEvento($conexao, $status, $titulo, $descricao, $data, $horario, $local, $presidente)
 {
 
-    $sqlEvento = "INSERT INTO bd_sistema.eventos (status, titulo, descricao, data, horario, local, presidente) VALUES ($status, '$titulo', '$descricao', '$data', '$horario', '$local', '$presidente')";
+    $sqlEvento = "INSERT INTO bd_sistema.eventos (ativo, status, titulo, descricao, data, horario, local, presidente) VALUES (1, $status, '$titulo', '$descricao', '$data', '$horario', '$local', '$presidente')";
 
     mysqli_query($conexao, $sqlEvento) or die(mysqli_error($conexao));
 }
 
 function selectEventos($conexao)
 {
-    $sql = "SELECT * FROM bd_sistema.eventos ORDER BY id_eventos DESC";
+    $sql = "SELECT * FROM bd_sistema.eventos
+    ORDER BY CASE WHEN ativo = 1 THEN 0 ELSE 1 END, id_eventos DESC";
 
     $result = $conexao->query($sql);
 

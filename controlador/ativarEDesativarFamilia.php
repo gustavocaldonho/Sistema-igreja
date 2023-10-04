@@ -10,5 +10,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     ativarEDesativarFamilia($conexao, $id_familia, $cod);
 
-    echo "opa";
+    // echo "opa";
 }

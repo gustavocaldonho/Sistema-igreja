@@ -67,7 +67,7 @@ function ativarDesativarFamilia(id_familia, checked) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       // A solicitação foi bem-sucedida, você pode tratar a resposta aqui se necessário
-      alert(xhr.responseText);
+      // alert(xhr.responseText);
     }
   };
 

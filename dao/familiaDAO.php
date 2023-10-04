@@ -5,9 +5,9 @@ function selectFamilias($conexao)
 {
     if (!empty($_GET['search'])) {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM bd_sistema.familia WHERE nome LIKE '%$data%'";
+        $sql = "SELECT * FROM bd_sistema.familia WHERE nome LIKE '%$data%' ORDER BY CASE WHEN ativo = 1 THEN 0 ELSE 1 END, nome ASC, id_familia DESC";
     } else {
-        $sql = "SELECT * FROM bd_sistema.familia ORDER BY nome";
+        $sql = "SELECT * FROM bd_sistema.familia ORDER BY CASE WHEN ativo = 1 THEN 0 ELSE 1 END, nome ASC, id_familia DESC";
     }
 
     $result = $conexao->query($sql);

@@ -94,7 +94,9 @@
 
                         // 
                         while ($user_data = mysqli_fetch_assoc($result)) {
-                            echo "<tr id='item-com-" . $user_data['id_comunidade'] . "class='nome-comunidade'>";
+                            $id_comunidade = $user_data['id_comunidade'];
+
+                            echo "<tr id='item-comunidade-$id_comunidade' class='nome-comunidade'>";
                             // echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>" . $user_data['id_comunidade'] . "</td>";
                             echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>"  . $user_data['padroeiro'] . " - " . $user_data['localizacao'] . "</td>";
                             echo "<td onclick='redirecionarPerfilComunidade(" . $user_data['id_comunidade'] . ")'>" . "R$: 0,00" . "</td>";
@@ -116,7 +118,7 @@
                                     </a>
 
                                     <div class='form-check form-switch'>
-                                        <input class='form-check-input' type='checkbox' role='switch' checked id='radioStatusAviso-' onclick=mudarStatus('item-aviso-')>
+                                        <input class='form-check-input' type='checkbox' role='switch' checked id='radioStatusComunidade-' onclick=mudarStatus('item-comunidade-$id_comunidade')>
                                     </div>
                                 </div>
                             </td>";
@@ -139,6 +141,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
+
+<script src="../funcoesJS/funcoes.js"></script>
 
 <script>
 var search = document.getElementById('pesquisar');

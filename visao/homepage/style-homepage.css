@@ -223,19 +223,19 @@
 }
 
 /* campo 'visivel' aviso e evento */
-.small-visivel {
+.small-abrangencia {
   font-size: 12px;
   border-radius: 4px;
   padding: 3px;
   margin-right: 12px;
 }
 
-.small-visivel.comunidade {
+.small-abrangencia.comunidade {
   color: orange;
   border: 1px solid orange;
 }
 
-.small-visivel.paroquia {
+.small-abrangencia.paroquia {
   padding: 3px 13px;
   color: orangered;
   border: 1px solid orangered;

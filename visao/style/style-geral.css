@@ -18,7 +18,10 @@ body {
 
 .form-check-input {
   cursor: pointer;
+  width: 35px !important;
+  height: 17px;
 }
+
 /* _______________________ Personalizando a scrollbar ________________________ */
 ::-webkit-scrollbar {
   width: 8px;

@@ -94,9 +94,3 @@ div label[for="flexRadioDefault1"] {
   display: flex;
   gap: 10px;
 }
-/* _______________________________________________ */
-
-.form-check-input {
-  width: 35px !important;
-  height: 17px;
-}

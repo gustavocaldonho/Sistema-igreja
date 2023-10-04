@@ -55,3 +55,8 @@ td {
   font-size: 18px;
   cursor: pointer;
 }
+
+.buttonsFamilia {
+  display: flex;
+  gap: 10px;
+}

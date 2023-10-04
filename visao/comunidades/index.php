@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="../navbar/style-navbar.css">
     <link rel="stylesheet" href="../../visao/comunidades/style-com.css">
@@ -37,7 +38,8 @@
     </div>
 
     <!-- _____________________ modal confirmação exclusão comunidades  _____________________  -->
-    <div class="modal fade" id="modalExclusaoComunidade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="modalExclusaoComunidade" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -49,7 +51,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnDeleteComunidadeModal" value="" onclick="deleteComunidade(this.value)">Excluir</button>
+                    <button type="button" class="btn btn-primary" id="btnDeleteComunidadeModal" value=""
+                        onclick="deleteComunidade(this.value)">Excluir</button>
                 </div>
             </div>
         </div>
@@ -57,15 +60,19 @@
     <!--  __________________________________________________________________________________  -->
 
     <div class="box__search">
-        <input type="search" class="form-control w-25" placeholder="Pesquisar comunidade" id="pesquisar" name="pesquisar">
+        <input type="search" class="form-control w-25" placeholder="Pesquisar comunidade" id="pesquisar"
+            name="pesquisar">
         <button onclick="searchData()" class="btn btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
         </button>
     </div>
     <div class="box__content-table">
-        <div class="box__principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+        <div class="box__principal" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
+            class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
             <div>
                 <table class="table table-bg table-hover">
                     <thead>
@@ -122,7 +129,7 @@
                                 echo " checked ";
                             }
 
-                            echo "id='radioStatusComunidade-' onclick='mudarStatus(\"item-comunidade-$id_comunidade\"); ativarDesativarComunidade($id_comunidade, this.checked)'>
+                            echo "id='radioStatusComunidade-$id_comunidade' onclick='mudarStatus(\"item-comunidade-$id_comunidade\"); ativarDesativarComunidade($id_comunidade, this.checked)'>
                                     </div>                 
                                 </div>
                             </td>";
@@ -142,36 +149,37 @@
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
 
 <script src="../funcoesJS/funcoes.js"></script>
 <script src="../funcoesJS/funcoesAjax.js"></script>
 
 <script>
-    var search = document.getElementById('pesquisar');
+var search = document.getElementById('pesquisar');
 
-    search.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            searchData();
-        }
-    });
-
-    function searchData() {
-        window.location = 'index.php?search=' + search.value;
+search.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        searchData();
     }
+});
 
-    function setarModalExclusao(id) {
-        document.getElementById('btnDeleteComunidadeModal').value = id;
-    }
+function searchData() {
+    window.location = 'index.php?search=' + search.value;
+}
 
-    function deleteComunidade(id) {
-        window.location.href = "../../controlador/deletarComunidade.php?id_comunidade=" + id;
-    }
+function setarModalExclusao(id) {
+    document.getElementById('btnDeleteComunidadeModal').value = id;
+}
 
-    function redirecionarPerfilComunidade(id) {
-        window.location.href = "../perfil-com/index.php?id_comunidade=" + id;
-    }
+function deleteComunidade(id) {
+    window.location.href = "../../controlador/deletarComunidade.php?id_comunidade=" + id;
+}
+
+function redirecionarPerfilComunidade(id) {
+    window.location.href = "../perfil-com/index.php?id_comunidade=" + id;
+}
 </script>
 
 </html>

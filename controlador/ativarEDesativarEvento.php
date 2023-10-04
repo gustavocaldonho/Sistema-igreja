@@ -1,14 +1,14 @@
 <?php
 include_once("../dao/conexao.php");
-include_once("../dao/avisoDAO.php");
+include_once("../dao/eventoDAO.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $id_aviso = $_POST["id_aviso"];
+    $id_evento = $_POST["id_evento"];
     $cod = $_POST["cod"];
 
     $conexao = conectar();
 
-    ativarEDesativarAviso($conexao, $id_aviso, $cod);
+    ativarEDesativarEvento($conexao, $id_evento, $cod);
 
     // echo "opa";
 }

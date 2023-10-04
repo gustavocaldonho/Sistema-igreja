@@ -260,7 +260,7 @@
                                     </button>
                                     
                                     <div class='form-check form-switch'>
-                                        <input class='form-check-input' type='checkbox' role='switch' checked id='radioStatusEvento-$id_eventos' onclick=mudarStatus('item-evento-$id_eventos')>
+                                        <input class='form-check-input' type='checkbox' role='switch' checked id='radioStatusEvento-$id_eventos' onclick='ativarDesativarEvento($id_eventos, this.checked); mudarStatus(\"item-evento-$id_eventos\")'>
                                     </div>
                                 </div>";
                     }
@@ -452,7 +452,6 @@
                                 </div>
                             </div>";
                             }
-                            // onclick=mudarStatus('item-aviso-$id_aviso'); ativarDesativarAviso($id_aviso, 0)
 
                             echo "</div>";
                             echo "<p class='mb-1'> $descricao  </p>";
@@ -595,6 +594,7 @@
 </script>
 
 <script src='../funcoesJS/funcoes.js'></script>
+<script src='../funcoesJS/funcoesAjax.js'></script>
 
 <script>
 // toda vez que o botão 'adicionar evento' for clicado, os campos são limpos

@@ -17,12 +17,9 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     include_once("../../dao/loginDAO.php");
     include_once("../login/funcoesPHP.php");
 
-    $conexao = conectar();
+    // ________________________________________________________________________________
 
-    // Buscando o código de perfil do membro
-    $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
-    $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
-    $_SESSION['codPerfil'] = $codPerfil;
+    $conexao = conectar();
 
     // Buscando os dados do membro (id_familia)
     $resMembro = getDadosMembrosFamiliaLogin($conexao, $_SESSION["cpf"]); // loginDAO
@@ -33,6 +30,16 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     $resFamilia = getDadosFamilia($conexao, $_SESSION['id_familia']); // familiaDAO
     $arrayDadosFamilia = getDadosFamiliaPerfil($resFamilia); // login/funcoesPHP
     $_SESSION['id_comunidade'] = $arrayDadosFamilia[2];
+
+    // ________________________________________________________________________________
+    // VERIFICAR SE A COMUNIDADE E A FAMÍLIA DO USUÁRIO ESTÃO ATIVADOS
+    // ________________________________________________________________________________
+
+
+    // Buscando o código de perfil do membro
+    $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
+    $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
+    $_SESSION['codPerfil'] = $codPerfil;
 
     $explodeNome = explode(" ", $arrayDadosMembro[0]);
     // print_r(var_dump($explodeNome[0]));

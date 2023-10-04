@@ -140,3 +140,10 @@ function existeIdComunidade($conexao, $padroeiro, $id_comunidade)
         break;
     }
 }
+
+function ativarEDesativarComunidade($conexao, $id_comunidade, $cod)
+{
+    $sql = "UPDATE bd_sistema.comunidade SET ativo = $cod WHERE id_comunidade = $id_comunidade";
+
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}

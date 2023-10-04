@@ -376,7 +376,7 @@
                         // Os avisos serão filtrados pelo abrangencia (0 - somente a comunidade verá, 1 - todos da paróquia) e pelo id da comunidade (somente verá se os avisos forem da comunidade do usuário, em caso de abrangencia == 0)
 
                         // abrangencia == 1 ou (abrangencia == 0 e comunidade de quem inseriu == comunidade de quem visualizou) {visto} 
-                        if ($codPerfil == 2 || $abrangencia == 1 || ($abrangencia == 0 && $id_comunidade == $_SESSION['id_comunidade'])) {
+                        if (($ativo == 1 || $codPerfil == 2 || $codPerfil == 1) && ($codPerfil == 2 || $abrangencia == 1 || ($abrangencia == 0 && $id_comunidade == $_SESSION['id_comunidade']))) {
                             // echo "Inserido por: " . $id_comunidade . " # Visualizado por: " . $_SESSION['id_comunidade'] . " # abrangencia: " . $abrangencia;
 
                             echo "<a id='item-aviso-$id_aviso' class='list-group-item";

@@ -1,9 +1,14 @@
-function ativarDesativarAviso(id_aviso, checked) {
+// verifica se o aviso está ativo (1) ou inativo (0)
+function verificarChecked(checked) {
   if (checked === true) {
-    cod = 1;
+    return 1;
   } else {
-    cod = 0;
+    return 0;
   }
+}
+
+function ativarDesativarAviso(id_aviso, checked) {
+  cod = verificarChecked(checked);
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -22,11 +27,7 @@ function ativarDesativarAviso(id_aviso, checked) {
 }
 
 function ativarDesativarEvento(id_evento, checked) {
-  if (checked === true) {
-    cod = 1;
-  } else {
-    cod = 0;
-  }
+  cod = verificarChecked(checked);
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -40,16 +41,10 @@ function ativarDesativarEvento(id_evento, checked) {
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   var data = "id_evento=" + id_evento + "&cod=" + cod;
   xhr.send(data);
-
-  // alert(id_evento + " " + cod);
 }
 
 function ativarDesativarComunidade(id_comunidade, checked) {
-  if (checked === true) {
-    cod = 1;
-  } else {
-    cod = 0;
-  }
+  cod = verificarChecked(checked);
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -63,6 +58,4 @@ function ativarDesativarComunidade(id_comunidade, checked) {
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   var data = "id_comunidade=" + id_comunidade + "&cod=" + cod;
   xhr.send(data);
-
-  // alert(id_evento + " " + cod);
 }

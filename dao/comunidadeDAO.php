@@ -40,12 +40,16 @@ function carregarComboComunidades($conexao, $id_comEdicao)
         $id_comunidade = $registro['id_comunidade'];
         $padroeiro = $registro['padroeiro'];
         $localizacao = $registro['localizacao'];
+        $ativo = $registro['ativo'];
 
-        // Se o combo for carregado para a atualização dos dados da família, já terá uma comunidade marcada.
-        if ($id_comunidade == $id_comEdicao) {
-            $itens = $itens . "<option value='$id_comunidade' selected>$padroeiro - $localizacao</option>";
-        } else {
-            $itens = $itens . "<option value='$id_comunidade'>$padroeiro - $localizacao</option>";
+        // Só exibirá no combobox as comunidades ativas
+        if ($ativo == 1) {
+            // Se o combo for carregado para a atualização dos dados da família, já terá uma comunidade marcada.
+            if ($id_comunidade == $id_comEdicao) {
+                $itens = $itens . "<option value='$id_comunidade' selected>$padroeiro - $localizacao</option>";
+            } else {
+                $itens = $itens . "<option value='$id_comunidade'>$padroeiro - $localizacao</option>";
+            }
         }
     }
 

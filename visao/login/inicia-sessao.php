@@ -17,8 +17,6 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     include_once("../../dao/loginDAO.php");
     include_once("../login/funcoesPHP.php");
 
-    // ________________________________________________________________________________
-
     $conexao = conectar();
 
     // Buscando os dados do membro (id_familia)
@@ -43,13 +41,10 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
     // ________________________________________________________________________________
     // Verifica se a comunidade e a família do usuário estão ativos
-
     $resComunidade = getDadosComunidade($conexao, $_SESSION['id_comunidade']);
     $arrayDadosComunidade = getDadosComunidadePerfil($resComunidade);
 
     if ($arrayDadosFamilia[3] == 0 || $arrayDadosComunidade[3] == 0) {
         header("Location: ../login/index.php?msg=Acesso Negado!");
     }
-
-    // ________________________________________________________________________________
 }

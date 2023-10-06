@@ -42,7 +42,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     // $logado = $_SESSION["cpf"];
 
     // ________________________________________________________________________________
-    // VERIFICAR SE A COMUNIDADE E A FAMÍLIA DO USUÁRIO ESTÃO ATIVADOS
+    // Verifica se a comunidade e a família do usuário estão ativos
 
     $resComunidade = getDadosComunidade($conexao, $_SESSION['id_comunidade']);
     $arrayDadosComunidade = getDadosComunidadePerfil($resComunidade);
@@ -50,13 +50,6 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     if ($arrayDadosFamilia[3] == 0 || $arrayDadosComunidade[3] == 0) {
         header("Location: ../login/index.php?msg=Acesso Negado!");
     }
-
-    // $i = 0;
-    // while ($i < 4) {
-    //     echo ($arrayDadosFamilia[$i]);
-    //     echo "<br>";
-    //     $i++;
-    // }
 
     // ________________________________________________________________________________
 }

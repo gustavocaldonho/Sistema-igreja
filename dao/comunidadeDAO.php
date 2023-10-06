@@ -2,7 +2,7 @@
 
 function cadastrarComunidade($conexao, $padroeiro, $localizacao, $email)
 {
-    $sqlComunidade = "INSERT INTO bd_sistema.comunidade (padroeiro, localizacao, email) VALUES ('$padroeiro', '$localizacao', '$email')";
+    $sqlComunidade = "INSERT INTO bd_sistema.comunidade (ativo, padroeiro, localizacao, email) VALUES (1, '$padroeiro', '$localizacao', '$email')";
     mysqli_query($conexao, $sqlComunidade) or die(mysqli_error($conexao));
 
     $id = mysqli_insert_id($conexao);

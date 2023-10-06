@@ -46,6 +46,7 @@ function getDadosComunidadePerfil($resComunidade)
         array_push($array, $user_data["padroeiro"]);
         array_push($array, $user_data["localizacao"]);
         array_push($array, $user_data["email"]);
+        array_push($array, $user_data["ativo"]);
     }
 
     return $array;

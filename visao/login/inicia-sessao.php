@@ -43,8 +43,12 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
     // ________________________________________________________________________________
     // VERIFICAR SE A COMUNIDADE E A FAMÍLIA DO USUÁRIO ESTÃO ATIVADOS
-    if ($arrayDadosFamilia[3] == 0) {
-        header("Location: ../login/index.php?msg=Família Desativada!");
+
+    $resComunidade = getDadosComunidade($conexao, $_SESSION['id_comunidade']);
+    $arrayDadosComunidade = getDadosComunidadePerfil($resComunidade);
+
+    if ($arrayDadosFamilia[3] == 0 || $arrayDadosComunidade[3] == 0) {
+        header("Location: ../login/index.php?msg=Acesso Negado!");
     }
 
     // $i = 0;

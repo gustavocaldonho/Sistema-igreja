@@ -32,6 +32,7 @@ function getDadosFamiliaPerfil($resFamilia)
         array_push($array, $user_data["nome"]);
         array_push($array, $user_data["email"]);
         array_push($array, $user_data["id_comunidade"]);
+        array_push($array, $user_data["ativo"]);
     }
 
     return $array;

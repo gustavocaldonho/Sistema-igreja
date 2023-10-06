@@ -7,7 +7,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
 
     unset($_SESSION["cpf"]);
     unset($_SESSION["senha"]);
-    header("Location: ../login/index.php");
+    header("Location: ../login/index.php?msg=Usuário não existe!");
 } else {
 
     include_once("../../dao/conexao.php");
@@ -31,11 +31,6 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     $arrayDadosFamilia = getDadosFamiliaPerfil($resFamilia); // login/funcoesPHP
     $_SESSION['id_comunidade'] = $arrayDadosFamilia[2];
 
-    // ________________________________________________________________________________
-    // VERIFICAR SE A COMUNIDADE E A FAMÍLIA DO USUÁRIO ESTÃO ATIVADOS
-    // ________________________________________________________________________________
-
-
     // Buscando o código de perfil do membro
     $resLogin = getDadosLogin($conexao, $_SESSION["cpf"]); // loginDAO
     $codPerfil = getCodPerfil($resLogin); // login/funcoesPHP
@@ -45,4 +40,19 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     // print_r(var_dump($explodeNome[0]));
 
     // $logado = $_SESSION["cpf"];
+
+    // ________________________________________________________________________________
+    // VERIFICAR SE A COMUNIDADE E A FAMÍLIA DO USUÁRIO ESTÃO ATIVADOS
+    if ($arrayDadosFamilia[3] == 0) {
+        header("Location: ../login/index.php?msg=Família Desativada!");
+    }
+
+    // $i = 0;
+    // while ($i < 4) {
+    //     echo ($arrayDadosFamilia[$i]);
+    //     echo "<br>";
+    //     $i++;
+    // }
+
+    // ________________________________________________________________________________
 }

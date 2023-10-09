@@ -228,6 +228,7 @@
   border-radius: 4px;
   padding: 3px;
   margin-right: 12px;
+  user-select: none;
 }
 
 .small-abrangencia.comunidade {

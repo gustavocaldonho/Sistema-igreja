@@ -11,6 +11,11 @@ body {
   transition: 200ms;
 }
 
+.padrao {
+  opacity: 1;
+  transition: 200ms;
+}
+
 /* radio ativar e desativar evento/aviso */
 .form-switch {
   margin-left: 10px;

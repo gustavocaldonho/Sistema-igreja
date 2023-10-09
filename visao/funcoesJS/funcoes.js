@@ -146,7 +146,9 @@ function mudarStatus(id) {
 
   if (campo.classList.contains("esmaecer") === true) {
     campo.classList.remove("esmaecer");
+    campo.classList.add("padrao");
   } else {
+    campo.classList.remove("padrao");
     campo.classList.add("esmaecer");
   }
 }

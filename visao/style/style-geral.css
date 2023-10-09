@@ -21,9 +21,9 @@ body {
   margin-left: 10px;
 }
 
-.form-check-input {
+.form-switch .form-check-input {
   cursor: pointer;
-  width: 35px !important;
+  width: 35px;
   height: 17px;
 }
 

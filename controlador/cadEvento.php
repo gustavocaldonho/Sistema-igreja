@@ -12,7 +12,7 @@ $data = $_POST["dataEvento"];
 $horario = $_POST["horarioEvento"];
 $local = $_POST["localEvento"];
 $presidente = $_POST["presidenteEvento"];
-$status = $_POST["radioEvento"];
+// $status = $_POST["radioEvento"];
 
 // usado na edição do evento
 $id_evento = $_POST["id_evento"];
@@ -25,7 +25,7 @@ if ($id_evento != "") { //atualizar
 
     if (empty($msgErro)) {
         // eventoDAO
-        updateEvento($conexao, $id_evento, $status, $titulo, $descricao, $data, $horario, $local, $presidente);
+        updateEvento($conexao, $id_evento, $titulo, $descricao, $data, $horario, $local, $presidente);
 
         header("Location: ../visao/homepage/index.php?msg=Evento atualizado com sucesso");
     } else {
@@ -35,7 +35,7 @@ if ($id_evento != "") { //atualizar
 
     if (empty($msgErro)) {
         // eventoDAO
-        cadastrarEvento($conexao, $status, $titulo, $descricao, $data, $horario, $local, $presidente);
+        cadastrarEvento($conexao, $titulo, $descricao, $data, $horario, $local, $presidente);
 
         header("Location: ../visao/homepage/index.php?msg=Evento inserido com sucesso");
     } else {

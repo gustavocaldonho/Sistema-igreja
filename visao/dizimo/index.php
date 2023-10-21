@@ -150,9 +150,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -171,19 +168,19 @@
 <script>
 function resetarModalPagamento() {
     document.getElementById("valorPagamento").value = "";
-    document.getElementById("box__infosPagamento").style.visibility = "visible";
-    document.getElementById("img-QRcode").style.visibility = "hidden";
-    document.getElementById("codigoCampo").style.visibility = "hidden";
-    document.getElementById("botaoCopia").style.visibility = "hidden";
-    document.getElementById("tituloCodigoPix").style.visibility = "hidden";
+    document.getElementById("box__infosPagamento").style.display = "block";
+    document.getElementById("img-QRcode").style.display = "none";
+    document.getElementById("codigoCampo").style.display = "none";
+    document.getElementById("botaoCopia").style.display = "none";
+    document.getElementById("tituloCodigoPix").style.display = "none";
 }
 
 function visualizarQRcode() {
-    document.getElementById("box__infosPagamento").style.visibility = "hidden";
-    document.getElementById("img-QRcode").style.visibility = "visible";
-    document.getElementById("codigoCampo").style.visibility = "visible";
-    document.getElementById("botaoCopia").style.visibility = "visible";
-    document.getElementById("tituloCodigoPix").style.visibility = "visible";
+    document.getElementById("box__infosPagamento").style.display = "none";
+    document.getElementById("img-QRcode").style.display = "block";
+    document.getElementById("codigoCampo").style.display = "block";
+    document.getElementById("botaoCopia").style.display = "block";
+    document.getElementById("tituloCodigoPix").style.display = "block";
 }
 
 function copiarCodigo() {

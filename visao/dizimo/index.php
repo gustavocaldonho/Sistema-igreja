@@ -127,7 +127,8 @@
                     </div>
                     <div class="modal-body">
                         <div id="box__infosPagamento">
-                            <label for="valorPagamento" class="mb-2 fs-5 text-start">Qual valor deseja pagar?</label>
+                            <label id="labelValor" for="valorPagamento" class="mb-2 fs-5">Qual valor deseja
+                                pagar?</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">R$:</span>
                                 <input id="valorPagamento" class="form-control form-control-lg" type="number"
@@ -139,7 +140,7 @@
                         </div>
 
                         <label id="tituloCodigoPix" for="botaoCopia" class="mb-2">Código Pix:</label>
-                        <div>
+                        <div id="box__codigoPix">
                             <img id="img-QRcode" src="qrcode.jpg" alt="QR Code pix" class="img-thumbnail mb-2">
                             <div class="input-group mb-3">
                                 <input id="codigoCampo" class="form-control fs-6" type="text"

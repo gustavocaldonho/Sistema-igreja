@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`familia` (
   PRIMARY KEY (`id_familia`),
     FOREIGN KEY (`id_comunidade`)
     REFERENCES `bd_sistema`.`comunidade` (`id_comunidade`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`membro_familia` (
   PRIMARY KEY (`cpf`),
     FOREIGN KEY (`id_familia`)
     REFERENCES `bd_sistema`.`familia` (`id_familia`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -85,8 +85,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`Login` (
   PRIMARY KEY (`membro_familia_cpf`),
     FOREIGN KEY (`membro_familia_cpf`)
     REFERENCES `bd_sistema`.`membro_familia` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -104,8 +104,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`Boleto` (
   `valor` FLOAT NOT NULL,
     FOREIGN KEY (`id_familia`)
     REFERENCES `bd_sistema`.`familia` (`id_familia`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -124,8 +124,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`Avisos` (
   PRIMARY KEY (`id_avisos`),
     FOREIGN KEY (`id_comunidade`)
     REFERENCES `bd_sistema`.`comunidade` (`id_comunidade`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -137,7 +137,7 @@ DROP TABLE IF EXISTS `bd_sistema`.`Eventos` ;
 CREATE TABLE IF NOT EXISTS `bd_sistema`.`Eventos` (
   `id_eventos` INT NOT NULL AUTO_INCREMENT,
   `ativo` INT NOT NULL,
-  `status` INT NOT NULL,
+  `abrangencia` INT NOT NULL,
   `titulo` VARCHAR(100) NOT NULL,
   `descricao` VARCHAR(200) NULL,
   `data` DATE NULL,
@@ -158,8 +158,8 @@ CREATE TABLE IF NOT EXISTS `bd_sistema`.`membro_conselho` (
   `cargo` VARCHAR(45) NULL,
     FOREIGN KEY (`membro_familia_cpf`)
     REFERENCES `bd_sistema`.`membro_familia` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

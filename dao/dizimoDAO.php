@@ -14,3 +14,12 @@ function alterarStatus($conexao, $id_familia, $mes, $status)
 
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
+
+function selectPagamento($conexao, $id_familia, $mes)
+{
+    $sql = "SELECT * FROM  bd_sistema.dizimo WHERE id_familia = $id_familia AND mes = $mes";
+
+    $result = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+    return $result;
+}

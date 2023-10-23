@@ -13,8 +13,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $conexao = conectar();
 
+    $pagamento = selectPagamento($conexao, $id_familia, $mes);
+
+    $contador = 0;
+    while ($user_data = mysqli_fetch_assoc($pagamento)) {
+        $contador++;
+    }
+
     if ($cod == 0) {
-        inserirPagamento($conexao, $id_pagamento, $id_familia, $mes, $status);
+        if ($contador == 0) {
+            inserirPagamento($conexao, $id_pagamento, $id_familia, $mes, $status);
+        }
     } else {
         alterarStatus($conexao, $id_familia, $mes, $status);
     }

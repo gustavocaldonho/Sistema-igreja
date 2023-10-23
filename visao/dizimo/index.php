@@ -41,7 +41,7 @@
                 <h4>Relatório de</h4>
             </div>
             <div class="box__select">
-                <select class="form-select select-mes" aria-label="Default select example">
+                <select id="select-mes" class="form-select select-mes" aria-label="Default select example">
                     <option value="0" selected>Mês</option>
                     <option value="1">Janeiro</option>
                     <option value="2">Fevereiro</option>
@@ -131,8 +131,9 @@
                                 <span class="input-group-text">R$:</span>
                                 <input id="valorPagamento" class="form-control form-control-lg" type="number" step="0.01" placeholder="ex.: 10.00 (dez reais)">
                             </div>
-                            <button id="btn-gerarPix" type="button" class="btn btn-success mt-3" onclick="visualizarQRcode()">Gerar
+                            <button id="btn-gerarPix" type="button" class="btn btn-success mt-3" onclick="visualizarQRcode(); efetuarPagamentoDizimo(000, <?php echo $_SESSION['id_familia'] ?>, 1, 0)">Gerar
                                 Pix</button>
+                            <!-- efetuarPagamento(id_pagamento, id_familia, status, cod) -->
                         </div>
 
                         <label id="tituloCodigoPix" for="botaoCopia" class="mb-2">Código Pix:</label>

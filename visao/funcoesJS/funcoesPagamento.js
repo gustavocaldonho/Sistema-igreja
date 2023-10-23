@@ -87,9 +87,8 @@ function alterarStatusPagamentoDizimo(id_pagamento, id_familia, status, cod) {
   xhr.send(data);
 }
 
-function atualizarStatus(id_familia) {
+function buscarStatusSelect(id_familia) {
   var mes = document.getElementById("select-mes").value;
-  var campoStatus = document.getElementById("statusPagamento");
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -97,19 +96,7 @@ function atualizarStatus(id_familia) {
       // A solicitação foi bem-sucedida, você pode tratar a resposta aqui se necessário
       // alert(xhr.responseText);
 
-      switch (xhr.responseText) {
-        case "0":
-          campoStatus.innerHTML = "Não Pago";
-          break;
-        case "1":
-          campoStatus.innerHTML = "Pago";
-          break;
-        case "2":
-          campoStatus.innerHTML = "Pendente";
-          break;
-        default:
-          campoStatus.innerHTML = "Não Pago";
-      }
+      atualizarStatusPagina(xhr.responseText);
     }
   };
 
@@ -117,4 +104,23 @@ function atualizarStatus(id_familia) {
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   var data = "id_familia=" + id_familia + "&mes=" + mes;
   xhr.send(data);
+}
+
+function atualizarStatusPagina(status) {
+  campoStatus = document.getElementById("statusPagamento");
+
+  switch (status) {
+    case "0":
+      campoStatus.innerHTML = "Não Pago";
+      break;
+    case "1":
+      campoStatus.innerHTML = "Pago";
+      break;
+    case "2":
+      campoStatus.innerHTML = "Pendente";
+      break;
+    default:
+      campoStatus.innerHTML = "Não Pago";
+      break;
+  }
 }

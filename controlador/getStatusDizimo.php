@@ -9,9 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $conexao = conectar();
 
     // seleciona os pagamentos
-    $pagamento = selectPagamento($conexao, $id_familia, $mes);
+    $result = selectPagamento($conexao, $id_familia, $mes);
 
-    while ($user_data = mysqli_fetch_assoc($pagamento)) {
+    while ($user_data = mysqli_fetch_assoc($result)) {
         $status = $user_data["status"];
     }
 

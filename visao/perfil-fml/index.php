@@ -28,6 +28,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     include_once("../../dao/membroFamiliaDAO.php");
     include_once("../../dao/comunidadeDAO.php");
     include_once("../../dao/loginDAO.php");
+    include_once("../../dao/dizimoDAO.php");
     include_once("../login/funcoesPHP.php");
 
     $conexao = conectar();
@@ -191,53 +192,80 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                             <tr>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off"
-                                            checked disabled>
-                                        <label class="btn btn-outline-success" for="btncheck1">JAN</label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off"
-                                            checked disabled>
-                                        <label class="btn btn-outline-success" for="btncheck2">FEV</label>
+                                        <?php
+                                        function getStatusMes($result)
+                                        {
+                                            while ($user_data = mysqli_fetch_assoc($result)) {
+                                                $status = $user_data["status"];
 
-                                        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off"
-                                            checked disabled>
-                                        <label class="btn btn-outline-success" for="btncheck3">MAR</label>
+                                                // echo "mês " . $c . ": " . $status . " ";
+                                                if (empty($status)) {
+                                                    return null;
+                                                } else {
+                                                    return $status;
+                                                }
+                                            }
+                                        }
 
-                                        <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off"
-                                            checked disabled>
-                                        <label class="btn btn-outline-success" for="btncheck4">ABR</label>
+                                        $meses = ["0", "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
 
-                                        <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off"
-                                            checked disabled>
-                                        <label class="btn btn-outline-success" for="btncheck5">MAI</label>
+                                        $c = 1; //contador
+                                        foreach ($meses as $mes) {
+                                            if ($mes != 0) {
+                                                $conexao = conectar();
+                                                $resultStatus = selectPagamento($conexao, $id_familia, $c);
+                                                $status = getStatusMes($resultStatus);
 
-                                        <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off"
-                                            disabled>
-                                        <label class="btn btn-outline-success" for="btncheck6">JUN</label>
+                                                // if (empty($status)) {
+                                                //     echo "null ";
+                                                // } else {
+                                                //     echo $status . " ";
+                                                // }
 
-                                        <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off"
-                                            disabled>
-                                        <label class="btn btn-outline-success" for="btncheck7">JUL</label>
+                                                // status == null, significa que não houve pagamento naquele mês, logo, será contemplado no case default;
+                                                if (empty($status)) {
+                                                    $status = 3;
+                                                }
 
-                                        <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off"
-                                            disabled>
-                                        <label class="btn btn-outline-success" for="btncheck8">AGO</label>
+                                                switch ($status) {
+                                                    // case 0:
+                                                    //     echo "
+                                                    //     <input type='checkbox' class='btn-check' id='btncheck$c' autocomplete='off'
+                                                    //     checked disabled>
+                                                    //     <label class='btn btn-outline-danger' for='btncheck$c'>$mes</label>
+                                                    //     ";
+                                                    //     break;
+                                                    case 1:
+                                                        echo "
+                                                        <input type='checkbox' class='btn-check' id='btncheck$c' autocomplete='off'
+                                                        checked disabled>
+                                                        <label class='btn btn-outline-success' for='btncheck$c'>$mes</label>
+                                                        ";
+                                                        break;
+                                                    case 2:
+                                                        echo "
+                                                        <input type='checkbox' class='btn-check' id='btncheck$c' autocomplete='off'
+                                                        checked disabled>
+                                                        <label class='btn btn-outline-warning' for='btncheck$c'>$mes</label>
+                                                        ";
+                                                        break;
+                                                    default:
+                                                        echo "
+                                                        <input type='checkbox' class='btn-check' id='btncheck$c' autocomplete='off'
+                                                        disabled>
+                                                        <label class='btn btn-outline-success' for='btncheck$c'>$mes</label>
+                                                        ";
+                                                        break;
+                                                }
 
-                                        <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off"
-                                            disabled>
-                                        <label class="btn btn-outline-success" for="btncheck9">SET</label>
+                                                $c++;
+                                            }
+                                        }
 
-                                        <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off"
-                                            disabled>
-                                        <label class="btn btn-outline-success" for="btncheck10">OUT</label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off"
-                                            disabled>
-                                        <label class="btn btn-outline-success" for="btncheck11">NOV</label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off"
-                                            disabled>
-                                        <label class="btn btn-outline-success" for="btncheck12">DEZ</label>
+                                        ?>
                                     </div>
                                 </td>
                             </tr>

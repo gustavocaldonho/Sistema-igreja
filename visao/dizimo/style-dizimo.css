@@ -109,6 +109,24 @@ button[type="button"] {
   margin: auto;
 }
 
+#botaoCopia {
+  color: white;
+  border: none;
+}
+
+#box__buttons-simulacao {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  gap: 10px;
+  /* border: 2px solid green; */
+}
+
+#box__buttons-simulacao button {
+  color: white;
+  border: none;
+}
+
 /* @media screen and (max-width: 1200px) {
 
     .relatorio-mes {

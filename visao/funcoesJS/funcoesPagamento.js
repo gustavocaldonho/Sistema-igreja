@@ -5,6 +5,7 @@ function resetarModalPagamento() {
   document.getElementById("codigoCampo").style.display = "none";
   document.getElementById("botaoCopia").style.display = "none";
   document.getElementById("tituloCodigoPix").style.display = "none";
+  document.getElementById("box__buttons-simulacao").style.display = "none";
 }
 
 function visualizarQRcode() {
@@ -13,6 +14,8 @@ function visualizarQRcode() {
   document.getElementById("codigoCampo").style.display = "block";
   document.getElementById("botaoCopia").style.display = "block";
   document.getElementById("tituloCodigoPix").style.display = "block";
+  document.getElementById("box__buttons-simulacao").style.display =
+    "inline-flex";
 }
 
 function copiarCodigo() {

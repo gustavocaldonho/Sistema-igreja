@@ -59,3 +59,32 @@ function efetuarPagamentoDizimo(id_pagamento, id_familia, status, cod) {
 
   // alert(id_pagamento + " " + id_familia + " " + mes + " " + status + " " + cod);
 }
+
+function alterarStatusPagamentoDizimo(id_pagamento, id_familia, status, cod) {
+  var mes = document.getElementById("select-mes").value;
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // A solicitação foi bem-sucedida, você pode tratar a resposta aqui se necessário
+      // alert(xhr.responseText);
+    }
+  };
+
+  xhr.open("POST", "../../controlador/pagamentoDizimo.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  var data =
+    "id_pagamento=" +
+    id_pagamento +
+    "&id_familia=" +
+    id_familia +
+    "&mes=" +
+    mes +
+    "&status=" +
+    status +
+    "&cod=" +
+    cod;
+  xhr.send(data);
+
+  // alert(id_pagamento + " " + id_familia + " " + mes + " " + status + " " + cod);
+}

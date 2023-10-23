@@ -152,10 +152,18 @@
                                     onclick="copiarCodigo()">Copiar</button>
                             </div>
                             <div id="box__buttons-simulacao">
-                                <!-- alterarStatusPagamento -->
-                                <button id="btn-pago" class="btn btn-danger fs-6">Não Pago</button>
-                                <button id="btn-pago" class="btn btn-success fs-6">Pago</button>
-                                <button id="btn-pago" class="btn btn-warning fs-6">Pendente</button>
+
+                                <button id="btn-pago" class="btn btn-danger fs-6"
+                                    onclick="alterarStatusPagamentoDizimo(999, <?php echo $_SESSION['id_familia'] ?>, 0, 1)">Não
+                                    Pago</button>
+
+                                <button id="btn-pago" class="btn btn-success fs-6"
+                                    onclick="alterarStatusPagamentoDizimo(999, <?php echo $_SESSION['id_familia'] ?>, 1, 1)">Pago</button>
+
+                                <button id="btn-pago" class="btn btn-warning fs-6"
+                                    onclick="alterarStatusPagamentoDizimo(999, <?php echo $_SESSION['id_familia'] ?>, 2, 1)">Pendente</button>
+
+                                <!-- alterarStatusPagamentoDizimo(id_pagamento, id_familia, status, cod) -->
                             </div>
                         </div>
                     </div>

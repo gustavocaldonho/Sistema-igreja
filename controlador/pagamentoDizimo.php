@@ -29,7 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             inserirPagamento($conexao, $id_pagamento, $id_familia, $mes, $status);
         }
     } else {
-        alterarStatus($conexao, $id_familia, $mes, $status);
+        // verifica se existe algum pagamento para ser alterado
+        if ($contador != 0) {
+            alterarStatus($conexao, $id_familia, $mes, $status);
+        }
     }
 
     // echo "opa";

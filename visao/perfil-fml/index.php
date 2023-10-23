@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Família</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="../../visao/navbar/style-navbar.css">
     <link rel="stylesheet" href="style-perfilFml.css">
@@ -67,8 +66,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     </div>
 
     <!-- __________________________ modal confirmação exclusão membro  __________________________  -->
-    <div class="modal fade" id="modalExclusaoMembro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="modalExclusaoMembro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -80,8 +78,7 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnDeleteMembroModal" value=""
-                        onclick="deleteMembro(this.value)">Excluir</button>
+                    <button type="button" class="btn btn-primary" id="btnDeleteMembroModal" value="" onclick="deleteMembro(this.value)">Excluir</button>
                 </div>
             </div>
         </div>
@@ -160,14 +157,10 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
             </div>
 
             <div class="button">
-                <a id="btn-editFamilia" name="btn-editFamilia" class="btn btn-primary"
-                    href="../../controlador/editarFamilia.php?id_familia=<?php echo $id_familia; ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
-                        class="bi bi-pencil-square mb-1" viewBox="0 0 16 16">
-                        <path
-                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                        <path fill-rule="evenodd"
-                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                <a id="btn-editFamilia" name="btn-editFamilia" class="btn btn-primary" href="../../controlador/editarFamilia.php?id_familia=<?php echo $id_familia; ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-pencil-square mb-1" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                     </svg> Editar Família</a>
 
                 <!-- <a class='btn btn-sm btn-primary'>234234</a> -->
@@ -208,6 +201,17 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                                             }
                                         }
 
+                                        function renderizarMes($checked, $cor, $contador, $mes)
+                                        {
+                                            $bloco = "
+                                            <input type='checkbox' class='btn-check' id='btncheck$contador' autocomplete='off'
+                                            $checked disabled>
+                                            <label class='btn btn-outline-$cor' for='btncheck$contador'>$mes</label>
+                                            ";
+
+                                            return $bloco;
+                                        }
+
                                         $meses = ["0", "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
 
                                         $c = 1; //contador
@@ -229,33 +233,17 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                                                 }
 
                                                 switch ($status) {
-                                                    // case 0:
-                                                    //     echo "
-                                                    //     <input type='checkbox' class='btn-check' id='btncheck$c' autocomplete='off'
-                                                    //     checked disabled>
-                                                    //     <label class='btn btn-outline-danger' for='btncheck$c'>$mes</label>
-                                                    //     ";
-                                                    //     break;
+                                                        // case 0:
+                                                        // echo renderizarMes("checked", "danger", $c, $mes);
+                                                        // break;
                                                     case 1:
-                                                        echo "
-                                                        <input type='checkbox' class='btn-check' id='btncheck$c' autocomplete='off'
-                                                        checked disabled>
-                                                        <label class='btn btn-outline-success' for='btncheck$c'>$mes</label>
-                                                        ";
+                                                        echo renderizarMes("checked", "success", $c, $mes);
                                                         break;
                                                     case 2:
-                                                        echo "
-                                                        <input type='checkbox' class='btn-check' id='btncheck$c' autocomplete='off'
-                                                        checked disabled>
-                                                        <label class='btn btn-outline-warning' for='btncheck$c'>$mes</label>
-                                                        ";
+                                                        echo renderizarMes("checked", "warning", $c, $mes);
                                                         break;
                                                     default:
-                                                        echo "
-                                                        <input type='checkbox' class='btn-check' id='btncheck$c' autocomplete='off'
-                                                        disabled>
-                                                        <label class='btn btn-outline-success' for='btncheck$c'>$mes</label>
-                                                        ";
+                                                        echo renderizarMes("", "success", $c, $mes);
                                                         break;
                                                 }
 
@@ -282,16 +270,13 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                             <tr>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                        <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off"
-                                            checked disabled>
+                                        <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off" checked disabled>
                                         <label class="btn btn-outline-success" for="btncheck23">2023</label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off"
-                                            disabled>
+                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off" disabled>
                                         <label class="btn btn-outline-success" for="btncheck24">2024</label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off"
-                                            disabled>
+                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off" disabled>
                                         <label class="btn btn-outline-success" for="btncheck24">2025</label>
 
                                     </div>
@@ -305,20 +290,19 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
 
 <script src='../funcoesJS/funcoes.js'></script>
 
 <script>
-function setarIdModalExclusaoMembro(id) {
-    document.getElementById('btnDeleteMembroModal').value = id;
-}
+    function setarIdModalExclusaoMembro(id) {
+        document.getElementById('btnDeleteMembroModal').value = id;
+    }
 
-function deleteMembro(id) {
-    window.location.href = "../../controlador/deletarMembro.php?id=" + id;
-}
+    function deleteMembro(id) {
+        window.location.href = "../../controlador/deletarMembro.php?id=" + id;
+    }
 </script>
 
 </html>

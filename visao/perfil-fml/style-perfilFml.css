@@ -125,8 +125,11 @@
   padding: 10px;
 }
 
-.box__membros-familia #btn-editFamilia {
+.box__membros-familia #btn-editFamilia,
+.box__membros-familia #btn-alterarSenha {
+  font-size: 16px;
   padding: 10px;
+  margin-right: 20px;
   opacity: 1;
   background-color: white;
   color: #b36812;
@@ -137,12 +140,14 @@
   transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 
-.box__membros-familia #btn-editFamilia:hover {
+.box__membros-familia #btn-editFamilia:hover,
+.box__membros-familia #btn-alterarSenha:hover {
   background-color: #b36812;
   color: white;
 }
 
-.box__membros-familia #btn-editFamilia:active {
+.box__membros-familia #btn-editFamilia:active,
+.box__membros-familia #btn-alterarSenha:active {
   opacity: 0.9;
 }
 

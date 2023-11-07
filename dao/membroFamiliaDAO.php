@@ -87,9 +87,9 @@ function alterarSenha($conexao, $novaSenha, $cpf)
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 
-function verificarSenha($conexao, $senhaAntiga, $cpf)
+function verificarSenha($conexao, $senhaAtual, $cpf)
 {
-    $sql = "SELECT COUNT(*) AS qtd_linha FROM  bd_sistema.login WHERE membro_familia_cpf = $cpf AND senha = $senhaAntiga";
+    $sql = "SELECT COUNT(*) AS qtd_linha FROM  bd_sistema.login WHERE membro_familia_cpf = $cpf AND senha = '$senhaAtual'";
 
     $result = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 

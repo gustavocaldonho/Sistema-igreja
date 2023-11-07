@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Família</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="../../visao/navbar/style-navbar.css">
     <link rel="stylesheet" href="style-perfilFml.css">
@@ -66,7 +67,8 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     </div>
 
     <!-- __________________________ modal confirmação exclusão membro  __________________________  -->
-    <div class="modal fade" id="modalExclusaoMembro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="modalExclusaoMembro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -78,12 +80,75 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnDeleteMembroModal" value="" onclick="deleteMembro(this.value)">Excluir</button>
+                    <button type="button" class="btn btn-primary" id="btnDeleteMembroModal" value=""
+                        onclick="deleteMembro(this.value)">Excluir</button>
                 </div>
             </div>
         </div>
     </div>
     <!--  __________________________________________________________________________________  -->
+
+    <!-- _____________________ modal de alteração da senha _____________________ -->
+    <div class="modal fade" id="modal-alterarSenha" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Alterar Senha</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form_alterarSenha" name="form_alterarSenha" enctype='multipart/form-data'
+                        action="../../controlador/alterarSenha.php" method="POST" class="row g-3">
+                        <div>
+                            <label for="senhaAtual" class="col-form-label">Senha Atual</label>
+                            <input type="password" class="form-control" id="senhaAtual" name="senhaAtual"
+                                maxlength="45">
+                        </div>
+                        <div>
+                            <label for="novaSenha" class="col-form-label">Nova Senha</label>
+                            <input type="password" class="form-control" id="novaSenha" name="novaSenha" maxlength="45">
+                        </div>
+                        <div>
+                            <label for="novaSenhaConfirmacao" class="col-form-label">Confirme sua nova senha</label>
+                            <input type="password" class="form-control" id="novaSenhaConfirmacao"
+                                name="novaSenhaConfirmacao" maxlength="45">
+                        </div>
+
+                        <!-- Campos escondido para passar o cpf do membro -->
+                        <input type="text" id="cpf_membro" name="cpf_membro" value="<?php echo $_SESSION["cpf"] ?>"
+                            hidden>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Alterar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- _____________________ modal confirmação alteração senha  _____________________  -->
+    <div class="modal fade" id="modalConfirmacaoAlterarSenha" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Aviso</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php echo $_GET["msg"] ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  __________________________________________________________________________________  -->
+
 
     <div class="container">
         <div class="box__img">
@@ -157,14 +222,20 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
             </div>
 
             <div class="button">
-                <a id="btn-editFamilia" name="btn-editFamilia" class="btn btn-primary" href="../../controlador/editarFamilia.php?id_familia=<?php echo $id_familia; ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-pencil-square mb-1" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                <a id="btn-editFamilia" name="btn-editFamilia" class="btn btn-primary"
+                    href="../../controlador/editarFamilia.php?id_familia=<?php echo $id_familia; ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                        class="bi bi-pencil-square mb-1" viewBox="0 0 16 16">
+                        <path
+                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                        <path fill-rule="evenodd"
+                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                     </svg> Editar Família</a>
 
                 <!-- Botão teste -->
-                <a class='btn btn-sm btn-primary'>Alterar Senha</a>
+                <a id="btn-alterarSenha" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modal-alterarSenha">
+                    Alterar Minha Senha</a>
             </div>
 
         </div>
@@ -271,13 +342,16 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                             <tr>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                        <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off" checked disabled>
+                                        <input type="checkbox" class="btn-check" id="btncheck23" autocomplete="off"
+                                            checked disabled>
                                         <label class="btn btn-outline-success" for="btncheck23">2023</label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off" disabled>
+                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off"
+                                            disabled>
                                         <label class="btn btn-outline-success" for="btncheck24">2024</label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off" disabled>
+                                        <input type="checkbox" class="btn-check" id="btncheck24" autocomplete="off"
+                                            disabled>
                                         <label class="btn btn-outline-success" for="btncheck24">2025</label>
 
                                     </div>
@@ -291,19 +365,21 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
 
 <script src='../funcoesJS/funcoes.js'></script>
 
 <script>
-    function setarIdModalExclusaoMembro(id) {
-        document.getElementById('btnDeleteMembroModal').value = id;
-    }
+function setarIdModalExclusaoMembro(id) {
+    document.getElementById('btnDeleteMembroModal').value = id;
+}
 
-    function deleteMembro(id) {
-        window.location.href = "../../controlador/deletarMembro.php?id=" + id;
-    }
+function deleteMembro(id) {
+    window.location.href = "../../controlador/deletarMembro.php?id=" + id;
+}
 </script>
+
 
 </html>

@@ -111,10 +111,10 @@ function msgContagem(idCampo, spanId, tamanho) {
 }
 
 // Não reseta o formulário após ter sido feito o envio e retornado com erro.
-// function limparFormulario(id_formulario) {
-//     const formulario = document.querySelector('#' + id_formulario);
-//     formulario.reset();
-// }
+function limparFormulario(id_formulario) {
+  const formulario = document.querySelector("#" + id_formulario);
+  formulario.reset();
+}
 
 function limparFormularioComunidade() {
   document.getElementById("inputPadroeiro").value = "";

@@ -235,7 +235,13 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                 <!-- Botão teste -->
                 <a id="btn-alterarSenha" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                     data-bs-target="#modal-alterarSenha">
-                    Alterar Minha Senha</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                        class="bi bi-pencil-square mb-1" viewBox="0 0 16 16">
+                        <path
+                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                        <path fill-rule="evenodd"
+                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                    </svg> Alterar Minha Senha</a>
             </div>
 
         </div>
@@ -369,6 +375,10 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
 <script src='../funcoesJS/funcoes.js'></script>
 
 <script>
@@ -381,5 +391,17 @@ function deleteMembro(id) {
 }
 </script>
 
+<?php
+if (isset($_SESSION['exibir_modal']) && $_SESSION['exibir_modal'] === true) {
+    echo '<script>
+            $(document).ready(function() {
+                $("#modalConfirmacaoAlterarSenha").modal("show");
+            });
+        </script>';
+
+    // Limpa a variável de sessão depois de exibir o modal para que ele não seja exibido novamente no próximo carregamento da página
+    unset($_SESSION['exibir_modal']);
+}
+?>
 
 </html>

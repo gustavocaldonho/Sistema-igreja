@@ -10,6 +10,8 @@ $senhaAtual = $_POST["senhaAtual"];
 $novaSenha = $_POST["novaSenha"];
 $novaSenhaConfirmacao = $_POST["novaSenhaConfirmacao"];
 
+session_start();
+$_SESSION['exibir_modal'] = true;
 
 // verificando se os campos foram preenchidos
 if ($senhaAtual != "" && $novaSenha != "" && $novaSenhaConfirmacao != "") {
@@ -29,8 +31,8 @@ if ($senhaAtual != "" && $novaSenha != "" && $novaSenhaConfirmacao != "") {
         alterarSenha($conexao, $novaSenha, $cpf);
         header("Location: ../visao/perfil-fml?msg=Senha alterada com sucesso!");
     } else {
-        header("Location: ../visao/perfil-fml?msg=Digite sua senha atual corretamente!");
+        header("Location: ../visao/perfil-fml?msg=<b>Falha na Alteração!</b> Verifique se a senha atual e a nova estão corretas.");
     }
 } else {
-    header("Location: ../visao/perfil-fml?msg=Campos inválidos!");
+    header("Location: ../visao/perfil-fml?msg=<b>Falha na Alteração!</b> Campos inválidos.");
 }

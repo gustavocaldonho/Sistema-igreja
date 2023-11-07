@@ -46,6 +46,11 @@ nav li a:hover {
   color: white;
 }
 
+/* margem do ícone do botão "sair" */
+#btn-sair svg {
+  margin-top: -5px;
+}
+
 .link-dgapy:hover {
   background-color: #b88615 !important;
 }
@@ -105,16 +110,4 @@ nav li a:hover {
 
 a:hover .bi-caret-right-fill {
   transform: rotate(90deg);
-}
-
-#btn-sair {
-  width: 70px;
-  padding: 6px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-#btn-sair:hover {
-  background-color: #b88615;
-  border: 1px solid white;
 }

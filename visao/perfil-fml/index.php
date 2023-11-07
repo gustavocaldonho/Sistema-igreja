@@ -163,7 +163,8 @@ if ((!isset($_SESSION["cpf"]) == true) and (!isset($_SESSION["senha"]) == true))
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                     </svg> Editar Família</a>
 
-                <!-- <a class='btn btn-sm btn-primary'>234234</a> -->
+                <!-- Botão teste -->
+                <a class='btn btn-sm btn-primary'>Alterar Senha</a>
             </div>
 
         </div>

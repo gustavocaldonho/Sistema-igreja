@@ -5,7 +5,7 @@ include_once "../dao/membroConselhoDAO.php";
 include_once "../dao/membroFamiliaDAO.php";
 include_once "../dao/loginDAO.php";
 
-var_dump($_POST);
+// var_dump($_POST);
 
 $cpf = $_POST["listaMembros"];
 $cargo = $_POST["inputCargo"];

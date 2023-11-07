@@ -79,3 +79,19 @@ function carregarComboMembros($conexao, $id_comuidade)
 
     return $itens;
 }
+
+function alterarSenha($conexao, $novaSenha, $cpf)
+{
+    $sql = "UPDATE bd_sistema.login SET senha='$novaSenha' WHERE membro_familia_cpf = $cpf";
+
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}
+
+function verificarSenha($conexao, $senhaAntiga, $cpf)
+{
+    $sql = "SELECT COUNT(*) AS qtd_linha FROM  bd_sistema.login WHERE membro_familia_cpf = $cpf AND senha = $senhaAntiga";
+
+    $result = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+    return $result;
+}

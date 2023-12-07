@@ -1,11 +1,8 @@
-<?php 
+<?php
 
 session_start();
-unset($_SESSION["cpf"]);
-unset($_SESSION["senha"]);
-unset($_SESSION["codPerfil"]);
-unset($_SESSION["id_familia"]);
-unset($_SESSION["id_comunidade"]);
-header("Location: index.php");
+session_unset(); // apagando todas as variáveis da sessão
+session_destroy();
 
-?>
+// voltando para a página de login
+header("Location: index.php");

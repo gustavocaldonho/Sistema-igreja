@@ -1,0 +1,1 @@
+Este sistema visa facilitar a comunicação entre a Paróquia e seus fiéis. Dessa forma, por meio do cadastro de comunidades e suas respectivas famílias, é possível comunicar avisos, eventos e fazer o gerenciamento do dízimo e caixa mortuária.

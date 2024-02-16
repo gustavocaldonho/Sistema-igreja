@@ -36,8 +36,7 @@
                         <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Digite sua senha">
                     </div>
 
-                    <!-- Desativado -->
-                    <div class="box__obs" hidden>
+                    <div class="box__obs">
                         <div>
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label" for="flexCheckChecked">Lembrar de mim</label>

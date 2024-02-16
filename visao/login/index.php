@@ -20,7 +20,7 @@
 
         <div class="box__login-ext">
             <div class="box__login-int">
-                <form action="../../controlador/testLogin.php" method="POST">
+                <form id="formLogin" name="formLogin" action="../../controlador/testLogin.php" method="POST">
 
                     <div class="box__titulo">
                         <h2>Login</h2>
@@ -38,8 +38,8 @@
 
                     <div class="box__obs">
                         <div>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">Lembrar de mim</label>
+                            <input class="form-check-input" type="checkbox" id="checkboxLembrarDeMim">
+                            <label class="form-check-label" for="checkboxLembrarDeMim">Lembrar de mim</label>
                         </div>
                         <div>
                             <a href="#">Esqueceu a senha?</a>
@@ -47,12 +47,11 @@
                     </div>
 
                     <div class="box__btn">
-                        <button type="submit" name="submit" class="btn btn-primary">Entrar</button>
+                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Entrar</button>
                         <a type="button" class="btn btn-outline-primary" href="../cad-fml/">Cadastrar Família</a>
                     </div>
                 </form>
             </div>
-
         </div>
 
     </div>
@@ -60,11 +59,6 @@
 </body>
 
 <script src="https://unpkg.com/imask"></script>
-
-<script>
-    var phoneMask = IMask(document.getElementById("inputCpf"), {
-        mask: '000.000.000-00'
-    });
-</script>
+<script src="./main.js"></script>
 
 </html>

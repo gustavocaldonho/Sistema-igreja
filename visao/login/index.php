@@ -12,31 +12,33 @@
 
 <body>
 
-    <div class="container">
+    <div id="container">
 
-        <div class="box__img">
+        <div id="box__img">
             <img src="img/cartao-login.jpeg" alt="info-dgapy">
         </div>
 
-        <div class="box__login-ext">
-            <div class="box__login-int">
-                <form id="formLogin" name="formLogin" action="../../controlador/testLogin.php" method="POST">
+        <main id="box__login">
+            <form id="formLogin" name="formLogin" action="../../controlador/testLogin.php" method="POST">
 
-                    <div class="box__titulo">
-                        <h2>Login</h2>
-                    </div>
+                <div id="box__titulo">
+                    <h2>Login</h2>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="inputCpf" class="form-label">CPF: </label>
+                <div id="box__camposForm">
+                    <div id="box__inputCpf">
+                        <label for="inputCpf" class="form-label">CPF</label>
                         <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00">
+                        <!-- <p id="msgErroCpf">CPF não cadastrado</p> -->
                     </div>
 
-                    <div class="mb-1">
-                        <label for="inputSenha" class="form-label">Senha: </label>
+                    <div id="box__inputSenha">
+                        <label for="inputSenha" class="form-label">Senha</label>
                         <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Digite sua senha">
+                        <!-- <p id="msgErroSenha">Senha incorreta</p> -->
                     </div>
 
-                    <div class="box__obs">
+                    <div id="box__obs">
                         <div>
                             <input class="form-check-input" type="checkbox" id="checkboxLembrarDeMim">
                             <label class="form-check-label" for="checkboxLembrarDeMim">Lembrar de mim</label>
@@ -45,14 +47,14 @@
                             <a href="#">Esqueceu a senha?</a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="box__btn">
-                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Entrar</button>
-                        <a type="button" class="btn btn-outline-primary" href="../cad-fml/">Cadastrar Família</a>
-                    </div>
-                </form>
-            </div>
-        </div>
+                <div id="box__btn">
+                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Entrar</button>
+                    <a type="button" class="btn btn-outline-primary" href="../cad-fml/">Cadastrar Família</a>
+                </div>
+            </form>
+        </main>
 
     </div>
 

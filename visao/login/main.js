@@ -1,7 +1,13 @@
+const msgErroElement = document.getElementById("msgErro");
 const cpfElement = document.getElementById("inputCpf");
 const senhaElement = document.getElementById("inputSenha");
 const checkboxLembrarDeMim = document.getElementById("checkboxLembrarDeMim");
 const buttonEntrar = document.getElementById("submit");
+
+function exibirMsgErro() {
+  // console.log(msgErroElement.value);
+  // const p = document.createElemente('p');
+}
 
 function setMaskCpf() {
   var cpfMask = IMask(document.getElementById("inputCpf"), {
@@ -51,5 +57,6 @@ function gerenciarLoginLocalStorage() {
 
 marcarCheckbox();
 setMaskCpf();
+exibirMsgErro();
 
 buttonEntrar.addEventListener("click", gerenciarLoginLocalStorage);

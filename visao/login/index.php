@@ -28,13 +28,13 @@
                 <div id="box__camposForm">
                     <div id="box__inputCpf">
                         <label for="inputCpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00">
+                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00" required>
                         <!-- <p id="msgErroCpf">CPF não cadastrado</p> -->
                     </div>
 
                     <div id="box__inputSenha">
                         <label for="inputSenha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Digite sua senha">
+                        <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Digite sua senha" required>
                         <!-- <p id="msgErroSenha">Senha incorreta</p> -->
                     </div>
 
@@ -55,8 +55,11 @@
                 </div>
             </form>
         </main>
-
     </div>
+
+    <!-- campo escondido -->
+    <input id="msgErro" name="msgErro" value="<?php echo $_GET['msg'] ?>" hidden></input>
+
 
 </body>
 

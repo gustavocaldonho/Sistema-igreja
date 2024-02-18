@@ -1,16 +1,15 @@
-const msgErroElement = document.getElementById("msgErro");
 const cpfElement = document.getElementById("inputCpf");
 const senhaElement = document.getElementById("inputSenha");
 const checkboxLembrarDeMim = document.getElementById("checkboxLembrarDeMim");
 const buttonEntrar = document.getElementById("submit");
-
-function exibirMsgErro() {
-  // console.log(msgErroElement.value);
-  // const p = document.createElemente('p');
-}
+const boxReferenceInputCpf = document.getElementById("box__inputCpf");
+const boxReferenceInputSenha = document.getElementById("box__inputSenha");
+const msgErroElementAuxiliar = document.getElementById("msgErroAuxiliar");
+const codErroElementAuxiliar = document.getElementById("codErroAuxiliar");
+const cpfErroElementAuxiliar = document.getElementById("cpfErroAuxiliar");
 
 function setMaskCpf() {
-  var cpfMask = IMask(document.getElementById("inputCpf"), {
+  var cpfMask = IMask(cpfElement, {
     mask: "000.000.000-00",
   });
 }
@@ -25,19 +24,22 @@ function marcarCheckbox() {
   }
 }
 
-function lerChaveLocalStorage(key) {
-  // O Value da Key 'Login' é um objeto salvo como string, portanto, ao pegar essa string, convertemos para objeto novamente.
-  return JSON.parse(localStorage.getItem(key));
+function createMessageErro(message) {
+  const p = document.createElement("p");
+  p.classList.add("erro");
+  p.innerHTML = message;
+
+  return p;
 }
 
-function salvarLoginLocalStorage(user) {
-  // Se um usuário diferente quiser salvar o seu cpf, este cpf substituirá o cpf antigo (caso tiver) que estava na chave 'Login', ou seja, somente um cpf pode ficar salvo no localStorage.
-  // obs.: o objeto salvo é convertido para string.
-  localStorage.setItem("login", JSON.stringify({ user }));
-}
+function exibirMsgErro() {
+  const p = createMessageErro(msgErroElementAuxiliar.value);
 
-function apagarDoLocalStorage(key) {
-  localStorage.removeItem(key);
+  if (codErroElementAuxiliar.value === "0") {
+    boxReferenceInputCpf.appendChild(p);
+  } else {
+    boxReferenceInputSenha.appendChild(p);
+  }
 }
 
 function gerenciarLoginLocalStorage() {
@@ -47,7 +49,7 @@ function gerenciarLoginLocalStorage() {
   if (cpfValue !== "") {
     // Se 'Lembrar de mim' estiver marcado:
     if (checkboxLembrarDeMim.checked) {
-      salvarLoginLocalStorage(cpfValue);
+      salvarLoginLocalStorage("login", cpfValue);
     } else {
       // Se 'Lembrar de mim' não estiver marcado:
       apagarDoLocalStorage("login");
@@ -55,8 +57,8 @@ function gerenciarLoginLocalStorage() {
   }
 }
 
-marcarCheckbox();
-setMaskCpf();
-exibirMsgErro();
+setMaskCpf(); //máscara do cpf.
+marcarCheckbox(); //lembrar-me.
+exibirMsgErro(); //cpf ou senha.
 
 buttonEntrar.addEventListener("click", gerenciarLoginLocalStorage);

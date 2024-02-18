@@ -28,20 +28,18 @@
                 <div id="box__camposForm">
                     <div id="box__inputCpf">
                         <label for="inputCpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00" required>
-                        <!-- <p id="msgErroCpf">CPF não cadastrado</p> -->
+                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00" value="<?php if (isset($_GET['user'])) echo $_GET['user'] ?>" required>
                     </div>
 
                     <div id="box__inputSenha">
                         <label for="inputSenha" class="form-label">Senha</label>
                         <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Digite sua senha" required>
-                        <!-- <p id="msgErroSenha">Senha incorreta</p> -->
                     </div>
 
                     <div id="box__obs">
                         <div>
                             <input class="form-check-input" type="checkbox" id="checkboxLembrarDeMim">
-                            <label class="form-check-label" for="checkboxLembrarDeMim">Lembrar de mim</label>
+                            <label class="form-check-label" for="checkboxLembrarDeMim">Lembrar-me</label>
                         </div>
                         <div>
                             <a href="#">Esqueceu a senha?</a>
@@ -57,13 +55,16 @@
         </main>
     </div>
 
-    <!-- campo escondido -->
-    <input id="msgErro" name="msgErro" value="<?php echo $_GET['msg'] ?>" hidden></input>
+    <!-- campos auxiliares (escondidos) -->
+    <input id="codErroAuxiliar" name="codErroAuxiliar" value="<?php if (isset($_GET['cod'])) echo $_GET['cod'] ?>" hidden></input>
+    <input id="cpfErroAuxiliar" name="cpfErroAuxiliar" value="<?php if (isset($_GET['user'])) echo $_GET['user'] ?>" hidden></input>
+    <input id="msgErroAuxiliar" name="msgErroAuxiliar" value="<?php if (isset($_GET['msg'])) echo $_GET['msg'] ?>" hidden></input>
 
 
 </body>
 
 <script src="https://unpkg.com/imask"></script>
-<script src="./main.js"></script>
+<script src="./funcoesLocalStorage.js"></script>
+<script type="module" src="./main.js"></script>
 
 </html>

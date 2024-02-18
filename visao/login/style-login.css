@@ -96,8 +96,7 @@ img {
   justify-content: space-between;
 }
 
-#msgErroCpf,
-#msgErroSenha {
+.erro {
   font-size: 14px;
   color: red;
 }

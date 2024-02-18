@@ -14,19 +14,19 @@ if (isset($_POST["submit"]) && !empty($_POST["inputCpf"]) && !empty($_POST["inpu
 
     $conexao = conectar();
 
-    // Verificando se o cpf existe na base de dados:
+    // Verificando se o cpf existe na base de dados (cod == 0):
     $result = getDadosLogin($conexao, $cpfLimpo);
     if (mysqli_num_rows($result) !== 1) {
         unset($_SESSION["cpf"]);
         unset($_SESSION["senha"]);
-        header("Location: ../visao/login/index.php?msg=CPF não cadastrado.");
+        header("Location: ../visao/login/index.php?cod=0&user=$cpfLimpo&msg=CPF não cadastrado");
     } else {
-        // Verificando se a senha está correta:
+        // Verificando se a senha está correta (cod == 1):
         $result = acessarLogin($conexao, $cpfLimpo, $senha);
         if (mysqli_num_rows($result) < 1) {
             unset($_SESSION["cpf"]);
             unset($_SESSION["senha"]);
-            header("Location: ../visao/login/index.php?msg=Senha incorreta.");
+            header("Location: ../visao/login/index.php?cod=1&user=$cpfLimpo&msg=Senha incorreta");
         } else {
             // Caso exista o cadastro na base de dados, o login é efetuado;
             $_SESSION["cpf"] = $cpfLimpo;

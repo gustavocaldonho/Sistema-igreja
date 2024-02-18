@@ -27,19 +27,19 @@
 
                 <div id="box__camposForm">
                     <div id="box__inputCpf">
-                        <label for="inputCpf" class="form-label">CPF</label>
+                        <label id="labelCpf" name="labelCpf" for="inputCpf" class="form-label">CPF</label>
                         <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00" value="<?php if (isset($_GET['user'])) echo $_GET['user'] ?>" required>
                     </div>
 
                     <div id="box__inputSenha">
-                        <label for="inputSenha" class="form-label">Senha</label>
+                        <label id="labelSenha" name="labelSenha" for="inputSenha" class="form-label">Senha</label>
                         <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Digite sua senha" required>
                     </div>
 
                     <div id="box__obs">
                         <div>
                             <input class="form-check-input" type="checkbox" id="checkboxLembrarDeMim">
-                            <label class="form-check-label" for="checkboxLembrarDeMim">Lembrar-me</label>
+                            <label id="labelLembrarMe" name="labelLembrarMe" class="form-check-label text-secondary" for="checkboxLembrarDeMim">Lembrar-me</label>
                         </div>
                         <div>
                             <a href="#">Esqueceu a senha?</a>

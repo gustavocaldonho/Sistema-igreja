@@ -71,6 +71,12 @@ img {
   height: 42%;
 }
 
+#labelCpf,
+#labelSenha {
+  font-weight: 500;
+  color: grey;
+}
+
 #box__obs {
   width: 100%;
   height: 16%;
@@ -101,23 +107,23 @@ img {
   color: red;
 }
 
-@media screen and (max-width: 880px) {
-  .container {
+@media screen and (max-width: 1050px) {
+  #container {
     width: 50vw;
     height: 60vh;
   }
 
-  .box__img {
+  #box__img {
     display: none;
   }
 
-  .box__login-ext {
+  #box__login {
     width: 100%;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .container {
+@media screen and (max-width: 750px) {
+  #container {
     width: 80vw;
     height: 60vh;
   }
@@ -125,7 +131,7 @@ img {
 
 /* Não é necessário em um primeiro momento */
 @media screen and (max-height: 570px) {
-  .container {
+  #container {
     /* width: 80vw; */
     height: 90vh;
   }

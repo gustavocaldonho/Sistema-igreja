@@ -28,7 +28,7 @@
                 <div id="box__camposForm">
                     <div id="box__inputCpf">
                         <label id="labelCpf" name="labelCpf" for="inputCpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00" value="<?php if (isset($_GET['user'])) echo $_GET['user'] ?>" required>
+                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00" required>
                     </div>
 
                     <div id="box__inputSenha">
@@ -54,13 +54,6 @@
             </form>
         </main>
     </div>
-
-    <!-- campos auxiliares (escondidos) -->
-    <input id="codErroAuxiliar" name="codErroAuxiliar" value="<?php if (isset($_GET['cod'])) echo $_GET['cod'] ?>" hidden></input>
-    <input id="cpfErroAuxiliar" name="cpfErroAuxiliar" value="<?php if (isset($_GET['user'])) echo $_GET['user'] ?>" hidden></input>
-    <input id="msgErroAuxiliar" name="msgErroAuxiliar" value="<?php if (isset($_GET['msg'])) echo $_GET['msg'] ?>" hidden></input>
-
-
 </body>
 
 <script src="https://unpkg.com/imask"></script>

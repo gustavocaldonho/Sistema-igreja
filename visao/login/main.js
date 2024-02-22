@@ -4,26 +4,6 @@ const checkboxLembrarDeMim = document.getElementById("checkboxLembrarDeMim");
 const buttonEntrar = document.getElementById("submit");
 const boxReferenceInputCpf = document.getElementById("box__inputCpf");
 const boxReferenceInputSenha = document.getElementById("box__inputSenha");
-const msgErroElementAuxiliar = document.getElementById("msgErroAuxiliar");
-const codErroElementAuxiliar = document.getElementById("codErroAuxiliar");
-const cpfErroElementAuxiliar = document.getElementById("cpfErroAuxiliar");
-
-// criar uma função que lê a barra de endereço e separa as informações numa lista
-// window.location.parthname
-
-// const listaEndereco = catchMsgBarraDeEndereco() => {
-// return {
-//   cod: 0,
-//   msg: "message",
-//   cpf: 123456789,
-// }
-// };
-
-function setMaskCpf2() {
-  var cpfMask = IMask(cpfElement, {
-    mask: "000.000.000-00",
-  });
-}
 
 function setMaskCpf() {
   var cpfMask = IMask(cpfElement, {
@@ -49,14 +29,25 @@ function createMessageErro(message) {
   return p;
 }
 
-function exibirMsgErro() {
-  const p = createMessageErro(msgErroElementAuxiliar.value);
+function exibirMsgErro(paramsUrl) {
+  cpfElement.value = paramsUrl.user;
+  const p = createMessageErro(paramsUrl.msg);
 
-  if (codErroElementAuxiliar.value === "0") {
+  if (paramsUrl.cod === "0") {
     boxReferenceInputCpf.appendChild(p);
   } else {
     boxReferenceInputSenha.appendChild(p);
   }
+}
+
+function getObjectParametersUrl() {
+  const params = new URLSearchParams(window.location.search);
+
+  return {
+    cod: params.get("cod"),
+    user: params.get("user"),
+    msg: params.get("msg"),
+  };
 }
 
 function gerenciarLoginLocalStorage() {
@@ -74,8 +65,10 @@ function gerenciarLoginLocalStorage() {
   }
 }
 
-setMaskCpf(); //máscara do cpf.
+const paramsUrl = getObjectParametersUrl();
+
+exibirMsgErro(paramsUrl); //cpf ou senha.
 marcarCheckbox(); //lembrar-me.
-exibirMsgErro(); //cpf ou senha.
+setMaskCpf(); //máscara do cpf.
 
 buttonEntrar.addEventListener("click", gerenciarLoginLocalStorage);

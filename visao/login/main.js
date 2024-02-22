@@ -8,6 +8,17 @@ const msgErroElementAuxiliar = document.getElementById("msgErroAuxiliar");
 const codErroElementAuxiliar = document.getElementById("codErroAuxiliar");
 const cpfErroElementAuxiliar = document.getElementById("cpfErroAuxiliar");
 
+// criar uma função que lê a barra de endereço e separa as informações numa lista
+// window.location.parthname
+
+// const listaEndereco = catchMsgBarraDeEndereco() => {
+// return {
+//   cod: 0,
+//   msg: "message",
+//   cpf: 123456789,
+// }
+// };
+
 function setMaskCpf() {
   var cpfMask = IMask(cpfElement, {
     mask: "000.000.000-00",

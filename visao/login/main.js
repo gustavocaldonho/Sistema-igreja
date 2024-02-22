@@ -19,6 +19,12 @@ const cpfErroElementAuxiliar = document.getElementById("cpfErroAuxiliar");
 // }
 // };
 
+function setMaskCpf2() {
+  var cpfMask = IMask(cpfElement, {
+    mask: "000.000.000-00",
+  });
+}
+
 function setMaskCpf() {
   var cpfMask = IMask(cpfElement, {
     mask: "000.000.000-00",

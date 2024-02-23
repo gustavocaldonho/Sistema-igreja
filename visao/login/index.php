@@ -28,12 +28,12 @@
                 <div id="box__camposForm">
                     <div id="box__inputCpf">
                         <label id="labelCpf" name="labelCpf" for="inputCpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" placeholder="000.000.000-00" required>
+                        <input type="text" class="form-control" id="inputCpf" name="inputCpf" autocomplete="on" placeholder="000.000.000-00" required>
                     </div>
 
                     <div id="box__inputSenha">
                         <label id="labelSenha" name="labelSenha" for="inputSenha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Digite sua senha" required>
+                        <input type="password" class="form-control" id="inputSenha" name="inputSenha" autocomplete="current-password" placeholder="Digite sua senha" required>
                     </div>
 
                     <div id="box__obs">

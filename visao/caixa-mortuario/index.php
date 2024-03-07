@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Caixa Mortuário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-cm.css">
     <link rel="stylesheet" href="../navbar/style-navbar.css">
-    <title>Caixa Mortuário</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
@@ -101,8 +102,7 @@
         </div>
 
         <div class="box__button">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                onclick="resetarModalPagamento()">Fazer
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="resetarModalPagamento()">Fazer
                 Pagamento</button>
         </div>
 
@@ -120,24 +120,18 @@
                                 recebimento será de R$: 50,00.</label>
                             <div class="input-group mb-3" hidden>
                                 <span class="input-group-text">R$:</span>
-                                <input id="valorPagamento" class="form-control form-control-lg" type="number"
-                                    step="0.01" placeholder="ex.: 10.00 (dez reais)">
+                                <input id="valorPagamento" class="form-control form-control-lg" type="number" step="0.01" placeholder="ex.: 10.00 (dez reais)">
                             </div>
-                            <button id="btn-gerarPix" type="button" class="btn btn-success mt-3"
-                                onclick="visualizarQRcode()">Gerar
+                            <button id="btn-gerarPix" type="button" class="btn btn-success mt-3" onclick="visualizarQRcode()">Gerar
                                 Pix</button>
                         </div>
 
                         <label id="tituloCodigoPix" for="botaoCopia" class="mb-2">Código Pix:</label>
                         <div id="box__codigoPix">
-                            <img id="img-QRcode" src="../dizimo/qrcode.jpg" alt="QR Code pix"
-                                class="img-thumbnail mb-2">
+                            <img id="img-QRcode" src="../dizimo/qrcode.jpg" alt="QR Code pix" class="img-thumbnail mb-2">
                             <div class="input-group mb-3">
-                                <input id="codigoCampo" class="form-control fs-6" type="text"
-                                    value="f00020101021226520014BR.GOV.BCB.PIX0114{chave_pix}520400005303986540511.005802BR5913{nome_recebedor}6007{cidade_recebedor}62070503{valor:.2f}6304{descricao}"
-                                    readonly>
-                                <button id="botaoCopia" class="btn btn-secondary fs-6" onclick="copiarCodigo()"
-                                    style="color: white; border: none">Copiar</button>
+                                <input id="codigoCampo" class="form-control fs-6" type="text" value="f00020101021226520014BR.GOV.BCB.PIX0114{chave_pix}520400005303986540511.005802BR5913{nome_recebedor}6007{cidade_recebedor}62070503{valor:.2f}6304{descricao}" readonly>
+                                <button id="botaoCopia" class="btn btn-secondary fs-6" onclick="copiarCodigo()" style="color: white; border: none">Copiar</button>
                             </div>
                         </div>
                     </div>
@@ -148,11 +142,9 @@
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
 </script>
 
 <script src="../funcoesJS/funcoesPagamento.js"></script>

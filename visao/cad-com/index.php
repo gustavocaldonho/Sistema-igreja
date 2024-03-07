@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../style/style-geral.css">
     <link rel="stylesheet" href="style-cadcom.css">
     <link rel="stylesheet" href="../navbar/style-navbar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <?php

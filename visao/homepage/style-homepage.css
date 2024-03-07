@@ -209,17 +209,15 @@
 }
 
 /* Botões de edição e exclusão dos avisos e dos eventos */
-.buttonsAviso button svg,
-.buttonsEvento button svg {
-  height: 16px;
-  width: 16px;
-  transition: height 150ms ease-in-out, width 150ms ease-in-out;
+.buttonsAviso button i,
+.buttonsEvento button i {
+  font-size: 18px;
+  transition: font-size 150ms ease-in-out;
 }
 
-.buttonsAviso button:hover svg,
-.buttonsEvento button:hover svg {
-  height: 25px;
-  width: 25px;
+.buttonsAviso button:hover i,
+.buttonsEvento button:hover i {
+  font-size: 25px;
 }
 
 /* campo 'visivel' aviso e evento */

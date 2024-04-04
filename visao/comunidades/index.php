@@ -142,33 +142,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
 
+<script src="./script.js"></script>
 <script src="../funcoesJS/funcoes.js"></script>
 <script src="../funcoesJS/funcoesAjax.js"></script>
-
-<script>
-    var search = document.getElementById('pesquisar');
-
-    search.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            searchData();
-        }
-    });
-
-    function searchData() {
-        window.location = 'index.php?search=' + search.value;
-    }
-
-    function setarModalExclusao(id) {
-        document.getElementById('btnDeleteComunidadeModal').value = id;
-    }
-
-    function deleteComunidade(id) {
-        window.location.href = "../../controlador/deletarComunidade.php?id_comunidade=" + id;
-    }
-
-    function redirecionarPerfilComunidade(id) {
-        window.location.href = "../perfil-com/index.php?id_comunidade=" + id;
-    }
-</script>
 
 </html>
